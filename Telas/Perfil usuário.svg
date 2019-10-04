@@ -1,0 +1,204 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1366" height="1243" viewBox="0 0 1366 1243">
+  <defs>
+    <filter id="Retângulo_46" x="130" y="193" width="1106" height="822" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <pattern id="pattern" width="1" height="1" viewBox="-43.836 -43.836 379.672 379.672">
+      <image preserveAspectRatio="xMidYMid slice" width="292" height="292" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAQAAABecRxxAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAHdElNRQfjCBYQGAsQ6WKvAAAs1UlEQVR42u3deZgW1Zn38W83NNDNvi8KNCCKgiKioIKJibi8oySahMnEJEwyuYLJ+GbImIVJxiRMEt+QxTEk8xrJqmQxQaMmGBPjFg24AS4ooLLKvtMs3U3TdNf80aCgTT/Vp07VXfXU73OuK1f+4Nj3fZ5T93OqnqpTJUhxK2cQgxjIIHrQ/UjrRgegjE4ANLCP/dRQzV5qqGE7W9jIJjazkf3W4Uu8SqwDEO9KGMJZjOQshjGI3pH+WwfYwGusYBnLWUGtdWrimwpAsSjlTC5iNGdxxpFvdt8aWccyXuQpnqTKOl3xQwUg69oymolM4BJ6JPhX17CQBSxkOYH1AEgUKgBZVcLZXMkkxlFuGMVmHuBPPES19XCI5EU7/oEfs5EgNa2Wv3A9ldYDI1Lc2nI5P2OX+QF/ovYiX2SA9SCJFKMRzGKL+SFeuDWwgGkxXYYUyaEKPskz5gd269pefsaF1gMnknUDmMlO88PZtS1hKm2th1Akm8ZyN4fND+KobR030MV6KEWyZSJ/Nj90/bW93Ew/6yEVyYbzecz8kPXfDnAT3ayHViTdTmMejeYHa1xtFzNMb1sSSbHe3Ea9+UEad9vINF0YFDleKVPZYX5wJtVeYZL1gIukx1ieNj8ok22NzKWv9bCL2OvID4v4rL+ltodpehhN8u0CXjU/EC3bXznZ+iMQsdGB79Fgfghat9182PqDEEneqbxgfvClpd1FV+uPQyRJV7PH/LBLU1vJaOuPRCQZZcwyP+DS12r5pPUHIxK/frn7yS98+wntrT8ekTiNYp35YZbmtpBe1h+RSFwupcr8EEt7W8mp1h+TSByuy8Gd/j7aNs63/qhEfPtP8wMrO62Gq6w/rrzQrZjJ+AY3WodwRAO72Ms+4PCRN/91oZyOdKM8RY/qHuKD3GcdRB6oAMSvhO/weaO/XcfrrGEta1nDRnaxs8WXepUzgP5H2hBGcBodjOKGej7MXWZ/PTdUAOJWwg+5PuG/Wc0LPMdzLGEFhyP8d0oZwghO50wu5JSEc4DDTOXOxP+qiFe3JHjuvJ/5fIaRtIkhj75czXdZyMEE8znMh6w/PpEoZiRyoDSwiJt4J+0SyKicq/gxWxMqAXVcav0Rirj6SAJP+i9jJkMTz6yUscxkcQIloFo/Cko2TY75d/9N3GRw6B9vFDezLeYSsJVh1h+lSGtdQE2MB8VjXJ2arTXLuIZHYy0Bq7R9mGTLADbHdDDU80vGWKfXjDP5KXWxlYCFiVzfEPGijCdiOQwamJfqO+X7Miu2dc//WCcnEtaPYjkE7kr1wX9UP26N6drHR61TEwljagyT/zneaZ1WK5zGvBjGoJax1omJFHKe91tl9vIpSq3TarXLWeW9BKymh3VaIi2p8L7N9/zMbpxdzk3eLwvebZ2USEt+6Pm7P+vnvWNY5rkEaBNxSa1JXu/8W2TwAI5/HZjl9e0HVQy0TkmkOd3Y4G2aN/JdyqwT8uZKdnssAX/RM6ySRr/yNsUPMtU6Gc8GschjCfiUdToib3WVt+m9ifOsk4lBBb/zNkL7GWKdjsixOnj70WtZZq/6F1LKzd5KwD3WyYgc6yueJvZielunEqt/83ZB8ArrVESOGkS1l0n9KJ2tU4ndVA57GavlRXSRVDLubi9T+kk6WieSiH/y9KzADdaJiABM8jKdF9HFOpHEfNTLiUCVdgkQe6W85GEyv0RP60QS9W9eiubPrNMQ+aCHibyFQdZpJO47HsbtcCYekJYiVurhXvcaxlunYaCEX3soAb+wTkPy7UORp3Bjbh9v6cCzHtYAw63TkPxqw/LIU/g71kkYGsyOyOP3c+skJL+ujTx9F+V8s8tLIt8VoDWAGGnDioiTt8p8X397X49cRPVbgJiYHHnq6s13UBb5/UKHGGCdhOTRgxEn7nzrBFJiROStxGdapyD5Mzzi7j9V+t56w2cjFoBNei5AknZLxEk7zTqBFCmN/IPgB6xTkHypiLjJ1d+1rdVxzo/4dMCj1glIvkyLNF0bi3LPn2h+GnENMMo6AcmT5yNN1l9bh59CvdgTaUx/YJ2A5Mc5kaZqLZXWCaTSjZFGtYoO1glIXnw70lT9rnX4KdWJbZHG9WrrBCQfSlgb6fu/n3UCqTU9UgH4jXX4kg/jI03T2dbhp1j7SK9W2U+5dQKSB7dEmKSHGGwdfqp9PlJx1d0AErtSNkaYoj+xDj/lulAVYXTnWYcvxe+iCBO0kdOtw0+9KC8Pqc7JvspiKMoLwP9mHXwGDIq0afg/WYcvxW51hOmpx3/D+EOEEf6VdfBS3IZFmJw7aG8dfia8N8IYb9UzFq1Tah1AxkyK0PcX1FmHnwl/Yqtz376caR1+tqgAtM6lEfreYR18RhxmboTel1iHL8WrDbucF6fLrIPPkNMjnAT8yTp4KV7nRZiYX7UOPlNedh7nA7rS0ho6BWiNKCcAd1kHnym/d+7ZMZfvWXKmAtAa7pcAX2SFdfCZcm+EvroK0AoqAOGVcYFz3z9aB58xL7Daue+7rIPPEhWA8EZG2HLir9bBZ84fnHuO0awOT0MV3rnOPffxjHXwmfOwc89OnGYdfHaoAIQ31rnnI9RbB585j0e4bcr9k8odFYDw3KeVTgBarybCqkkFIDQVgLDKItxk6r6czTP3UTvHOnQpPqOdb03ZZh16Rk1wHvF9+mILSwMVlvslwKesQ8+oxc5XAToz3Dr4rFABCMv9vFK/ALip42XnvroKEJIKQFjur5562jr0zFrk3HO0dehZoQIQ1jDHfg0RpnHeuY/cUOvQs0IFIJxy+jv2fIUD1sFn1rPOPV3Lde6oAIQz1HmrKe0D4G4FBx17agUQkgpAOO7fKMutQ8+wBl5z7NmVntbBZ4MKQDju3ygqAFG84txTJwGhqACE4z6ddAoQhfsuCjoJCEUFIBzXAlDPKuvQM829AGgFEIoKQDiu3yerOWQdeqapAMRMBSCMUiode663Dj3j3PcF0ilAKCoAYfRy3mn2devQM66a3Y49Xe/byBkVgDD6OvfcYB165rmOoH4GDEUFIAwVADsbHft1p4116FmgAhCGewHQNYCoXEtoKd2sQ88CFYAw+jj3dP3+kqPcR7CXdehZoAIQRg/nntoNKKrNzj11FSAEFYAwujn2O8w+69Azz/VXAK0AQlEBCKObY78qAuvQM8+9AGgFEIIKQBhdHfu5T145ao9zTxWAEFQAwnAtAO6TV45SAYiVCkAY3Rz7VVkHXgTcC4CuAYSgAhCG63eJTgGiq3HeFUgrgBBUAMJw/S7ZYh14UXAdRa0AQlABKKyL86NAKgA+bHXspxVACCoAhbl/k2y3Dr0o7HDspxVACCoAhblPJNepK8dyHcUezjs554gKQGGuPwLqZ0A/XC+ltqWTdejppwJQWGfnnnoliA/Vzj1VAApSASjMfRq5T115k3sZVQEoSAWgMPcVgAqADyoAMVIBKEwrAFsqADFSASis3LFfQK116EXBvQB0tA49/VQACmvn2K+WRuvQi4L7Osr1k8sRFYDCXKeRTgD8cF8BqAAUpAJQmAqALRWAGKkAFOY6jeqsAy8Srk8DqgCEoAJQmOs0arAOvEi4j6MKQEEqAIW5TiNdAvRDBSBGKgDx0QrAD/dx1JasBakAFOY6jbQC8MN9HFUAClIBiI9WAH5oBRAjFYDCXKeRnkb3Q4dxjFQACnOdgGXWgRcJ93HUSVhBKgDxaWsdQJFwH0etHQpSASjM9XtEKwA/VEhjpAJQ2GHHfioAfriP4yHr0NNPBaAw14d6VQD8cF8BuN9EnBsqAIWpANhyLwDaj6EgFYDCXL9HOlgHXiTcb+jVCqAgFYDCXKdRR90J4IX7noxaARSkAlCY6zRq47yZmBzLfWc/rQAKUgEozH0aaVNKH9xHUSuAglQACnOfRu6LV3mTVgAxUgEozH1LKhUAH7Qte4xUAApzf8OfTgF8cC+jrm8VzBEVgMLcC4BWAD647u5fp1OAwlQACnMvAD2sQy8KPR376fs/BBWAwtwLQB/r0ItCb8d+ejl7CCoAhe1z3pPGderKsVQAYqQCUFjAXseeWgH4oAIQIxWAMFynkgqAD66jqAIQggpAGCoAdto7/5aiAhCCCkAYOx37qQBE534dZZd16FmgAhDGJsd+fa0DLwLuRdT1U8sVFYAwXKdShW4Fisy9iG62Dj0LVADCcJ9KldahZ94Q554brUPPAhWAMNwXk5XWoWfeYOeeWgGEoAIQhgqAnUrHfgd1K3AYKgBhuBcA9+8vaeI6gpv1WpAwVADC2EGdY89K69Azr9Kxn34DCEUFIIyArY49K61Dz7hy558BdQUgFBWAcFy/TyqtA8+4wc47K6sAhKICEM4ax349dSdAJJXOPddah54NKgDhrHLueap16Jl2mnPPV61DzwYVgHBec+45yjr0TBvp3NP9E8sVFYBwVABsuI5eHRusQ88GFYBwXnP+VVkFwF2J8wpgpfMuTjmjAhDOfucfAs+0Dj3DBtHFsadOAEJSAQjLdUqdpL2BnbkXTxWAkFQAwnKfUu4XsvLO/fRppXXoWaECEJb7lNJVAFfupVM/AoakAhCWfgdInvvI6RRAPBtK4Nietg49o8qpcxxx1wu2OaQVQFhrnZ8vP4cK6+Az6TzaOfZcYh16dqgAhBXwvGPPMs61Dj6TLnTuqQIQmgpAeO7Tyn0q55n7qD1nHXp2qACE5z6tVABar4TznftqBSAxOMX5MuBO56fa82uE82jvsA49S7QCCG81VY49e0Z4rDWv3FdNi61DzxIVgPDcLwPCBOvgM8d9xHQC0AoqAK2hy4DJ0SXARKgAtIZ7AXiHdegZ0zfCSZMKgMTE/TJgwFDr4DPlI87jvF0XXFtDK4DWWBVhr9nLrYPPFPfR+rteCNIaKgCts8C5pwpAeCVc5tz379bBZ4sKQOu4T693O9/Znj9jnF8HogLQSioAreM+vTpzsXXwmfEe5577eME6+GxRAWidl9jj3Pdq6+Az473OPRdqM9DWUQFonUYede57jUY7lErOdu77sHXwWaMp2VoPOffsxzjr4DPhmgh9/2odvBS7IRHuBfiOdfCZ8ITz+G7WPQASv5XOE3SjVlwFDaLBeXzvsA4+ezQhW899mXmSbgku6NoIc9L99EwktCsjnAT82Dr41FvqPLaH6WUdvORBB/Y7T9LdtLcOP9XOilBcn7AOPot0CtB6ByOcBHTX3QAt+kSEvn+wDl7y4p8jfE89Yh18ipWzK8LInmodvuRFT+qdp2mjJuoJTY1w+C+3Dj6bdArgYleEpwJL+KR1+KkVZWTutQ5e8uS6CN9V2ym3Dj+VolwADDjLOnzJk14cijBZr7MOP5XuiDCiK6yDl7x5IMJ0fVWnXm9zkvOrQAMCvmIdvuTNP0dasLo/8V6svh1pPHVhVRLWhZoIE1Y3rRyvM3sijKZeBeJMS1FX+7gnQu+LtD/QcabTLULvX1iHL3n07kiLVvcfEotP10g3ANXS3ToByaMSVkUqAZdaJ5AaMyON46+tw5e8ujHSxH3KOvyU6E5VpHG8xDoByauBHI40dd9nnUAqfC/SGK7WdSyxc0+kybuGDtYJmDuFg5HG8HPWCUieXRxp8gb8h3UC5u6PNH7V9LBOQPLthUgTeB/9rRMwdUnEAnqrdQKSd5+IOIV/ZZ2AoQ68EmnsGjnDOgXJu3J2RCwB/2CdgpmbIo6cNgGVFPhaxGm8KdJdcNl1VqQnKgMCJlmnIAI92BdxIv9/6xQMtGVxxFF7xjoFkSbRnmQLaMjhXYFR101BhFeIinjVN9KTgQEB23L2a8BFEW+hClimG4AkPX4Y+fvswRxN6J5siDxeH7JOQuRNA6iOPKVnWCeRkBL+EHmsXqKNdRoix/pW5El9mCutk0jEVyKPVMBV1kmIHK8bOyNP672MtE4jdtdEePvv0fZ36yRE3u4LHr7Z1hT5Cy7P5oCHUXqndRoib1fu4dJWwKO0s04kNgN43cMI/dE6DZHmXethegfcS1vrRGLRk5c9jE4dI6wTETmRx7yUgDsosU7Euy4862VsvmWdiMiJnRnhtaHHttlFVgI684SXcVlPR+tURFryfS8TPeDHRXRjUDee8jQqU6xTEWlZV7Z4muy3F8nNLn143tOI6PFfyYD3eJruAQ/SxTqZyE7hVU+jUc0p1smIhPEbbyVgKYOsk4lkQuTtUt5s11snIxJOT7Z6m/YbudA6HWf/GumNv8e3vxXRNREpepO9TfyAemZk8DeBcn7mcQy0/JeM+aXH6R/w+4zdIjyGZV7z/1frhERapxMrvB4C2zLzHqG2zPC49A8I+GMGV0CSe2dT6/UwCPglfa2TKuhclnjOek1ON02VzPu050MhoIoZKX5YqDuzI2/19dZ2iAus0xJx9TvvJSDgJSZbp9WMcm5gVwzZftY6MRF3nXkphoMi4KlUvRS7HZ9mYyx53qmzf8m2SrbFcmgELGFqCh4c7sx0L0/5N59hhXV6IlFNjPgC7JbaGj5HH7PMRnILe2PLbUPOtkqXovXPsR0kAQGHuIfJCV8a7MF1PB1rVtWcY/2xifgS9TWYhdsefsk1CSyZ+/Ep/upp14MTt8OZuetBJIQSfhx7CQgIqOURvsy4GK4NdOIfuJkXaEwgi0Y+Yf2B5YWusSalDXcmuJ1FDUt4lmdZymrqI/x3OjGCMYxnHGckuDvB57k5sb+VcyoAyWnHH7k88b9azyqW8zrrWc8GtrObAyf8tyV0pwf9GMxATmY4I0weRv4GXzX4qzmlApCkjtzPxdZBUM9uqqmhjkNUA90ooRNldKOHdWjAzXzeOgSRuFTwYCLXArLaZll/QCLxasc95odZWtvXrD8ckfiVcZf5oZa+1qi7/iUv2jDb/IBLVzvIR6w/FJEkTff+4Gx22y697lPy52qqzQ+9NLRVnGb9UYhYGMs688PPuj1IT+uPQcRKTx4wPwTtWiOziuTtRyKOSpiR06sBVVxtPfgiaXApm8wPx6TbE1RaD7tIWnRljvkhmVyrZYaW/iLHm8JO80MzibaUs62HWiSN+nOn+eEZb6vmS5RZD7NIel3s+aVaaWrzdd4vUkh7bizCW4TWpPJtBiKp1JtZnt+vZ9l2MoMO1kMqki2VzKHB/OCN2g4wi67WQymSTecwL8NFYA830dt6CEWybSizqTE/mFvbtjJTb/UV8aM/X4/p7XtxtKf5OO2th0ykuJQyiXmxv5IjWtvLHMZYD5RI8RrMl3jB/EB/e6vjfj5KR+vhEcmDEXwtNTcM1fMgn0jFluLSanovQJYN4VImcTldjP7+Np7gfuazx3ogxJUKQPa15yLewQTGJ7YA38RCnuQRXrZOXaJSASgebRnNBMYyipGxXIPfxVJe4lkW8Lp1quKLCkCSOtCnxXfz+dKW4ZzJ6QxjCEMY4Pwp1/E6a1nLapbyMpuTHSxJggpAEiq5hqsZQR8ADvIaf+UvPEZjIn+9PZX0ozd96UUvelFBBZ0oo/sb/6KeA9RQRxW17GQ729nBTjawOaEI4XSu4FJOpQ+d2ckGVnAfD1Cd0F8Xic0wfn+Cq+cv8Y+UWoeXAhN5qNnxqWG2fluQLOtQ8Jm+x+lvHaSpLvyuxfHZxWdUJCWbxrM8xK/oW5hoHaiZUbwaYoQeZ6h1oCKtU86s0Jt978vpHnlD2BpyhGq0iahkyTtDfbO92TYx0DrkxHXlpVaN0Qucax2ySGE9uN3hdtr7rcNO3K8dbjn+FuXWYYucWAkfY5vjHfWTrINP1Pk0Oo3SSq6wDl2keWezwPHgDwhYbB1+op6IMFL3MNg6fJHjdWV25Cf1R1gnkZhKx+//Ny8KztQmo5IWJUwNfT27pfYl60QS8zkPo7WKK63TEIHR/N3DdA4I+It1Konx9Ur0e/WiEbHUl9s8btG13DqdxPjbyqSGb9LZOh3JowpuZJ+3iRwQsN86pcTs9zpuW/kUba1TkjwpZQprvU7ifBWAg97H7hWmWCcleXEJz3mfwAEBa60TS0w8G5w/yYXWiUmxG+ntAtbb2zPWySUmngIa0MivdI+AxKWXh9/6W2rfs04wMbfGOIp1zNYbicS3Hvw/DsQ4bQMCLrVOMjHvjXkkd/AFKqyTlGLRha9RFfOUDdiao5dpdU5gPDfzmRyNqMSkgule7vIr3G6wTjVRX09kTNczXUVAXHXkhoQO/oDNOVuydk9gDdDUVvExyqzTlazpxHQ2JzRFAxq4zDrhxP1jYqMbsI7penhIwurMDHYlOD0DvmydsonZiY7xVmZoOxEppA/fTGxxerR9P6dvZyjjFwmP9GZuoJN12pJWp/AjahKekof4N+u0DZXw1Yg7A7S+7eab9LVOXNLmHObGepNP820pY60TN3cZGxIf9zrmcrp14pIOJVzF44lPwYA6ZurqNADd+aXB+DdwDxdYpy62OjONlw0mX8CTjLROPlX+D6+bfA6LmabfB/JpGLPYbTLpqvWai2ZUtOJVKn7bVmZxsnX6kpwSJjHPaLIFPKDn1U7oQo97BbWu1TGPCdbpS/z68IVWvrXHZ9vMh6wHIOXa818xbBcStj3Nx+loPQQSj1ImMa/Au3rjbPXMpov1IGTCMP5k9ikF7GVOjl/XWqQGMIM1hpMq4AnOtB6ETJkcw5ZrrWnLmEFP60GQ6Mr5J+43O99valv4SE7v9Yuigm8angwEBFRzO++m1HogxE0pE5nDXtMp1LTw72o9FJl1iunJQFPbxGydEmTNOfx3gs/ynbg9zlnWQ5F57zO6Q+D49hIzGGQ9FFLYaGay3Hy6BAS8xvusB6NIlPNl85VcQEADf+PT9LceDmlOKWOZySvmk6Sp7WKGdqLxqiezDH/BOb4tYyanWQ+IHNWGicxmk/m0ONq0K21cTmOe+ad7bBmYpWsDtgYzjbsTf3q/pdbInXpdZawuZpH5p3xsW8UPuUo3DyWrnEnMYrH5h//W9rRuJk1ACVOM7+l4e6tnMTMZqx9743YaX+Bh41+Hm2+vco314ORIB2akauV3tG3hDq6lh/XwFKMeXM+z5h9w820z1+vJ/sT14vup/CoIOMR9vFczwp+LmJfSjzpgO5/XVpNmBjKHQ+Zz4EQz4/sMtx6grCtlMk+af5QnavuYpbv8zA1mjsFmbuFaAw8x2XqAsqotnzB+IKTlg/+bdLceIjliBL+lwXxOnKgt5irrAcqaEqak5qae5g7+2dpXNnVGmmzrGrY9xSXWA5Qd56Xst95j2y6+ott8UutUbk9xEfizrgkU1o3Zxg/vnrjtYKbO+VOvktnUms+V5tshZuvFJC25hm3mH1LzbT2fzdnrO7NsED+k2nzONN/W8E7r4UmnLswx/3Caby8yVb/qZk4vZqTikfC3t0Zm61Gxtxqf0iv+D3O5bvDMrHI+zUrzOdRcW6o3Ex3ro4m/k69wa2A+460HRiIrZTILzWfT29t+PmA9NOnQjtvMP4y3tl18W7v3F5WLmJe63wcauUk7Dnbiz+YfxPHtFabr8c6i1J+ZbDefX8e3e/N9I3nfVD3U28B8JumMv6i1Z0rKbi5/Mr/bjw9klfnwH23bmKVNH3NjAr9NzQZjAUvpYz0gFvqywnzoA5oe2JhCO+vhkIR1Zxovms++oyWgl/VwJK2P2Wsgj22bmMUQ66EQQ2OZwwHzeRjwQr5OBDrzgvGA13MvV+ol3QJ043qeNy8BT+XncmAZfzEd6kVM19N88hZjuYUtpvPynrz8KPhTsyFezde1o7ucUBsu5w72mc3P71sPQBKuNxna3czVT3wSSgcmm71I/uPWycdtfOIDu4vbmayHeaSVenM9jyb+aHo1o60Tj1MP1ic4mJu5lUm0tU5aMqwX/8L8RPcXWEkX66Tj89uEBnEds5mYl0sqErsKJjM3sReU/tw63bhcG/vQ1bOAG4t7ESVmOnAVc1iXQAm42jrVOPRnT4xDtp6f8AHt1icJGMFn+XOsD7BvK8Y7A+NZ/tfyEDP0VjZJXIcjb6hsjGVeF91pwGUxDNIzTM3P3VOSUgP5cgyXtht5h3ViPrXjNa/Dc5A7GGedlMgRbXk/j3ouAS8X0+9X073Wxt9ptx5JoXGetx67zjohX7qx09ugLCmupZEUmckeN7fdVix3BMzyNCB1/Lt+25eUq+AWbxcGv2adjA89PT1csZ4LrVMRCeU97PIy56uK4Yftb3oZivl6F69kyBBP77f8inUiUXWlysMwzNXWHZIxFTzkYebvyvq7BD/jYRB+ojN/yaB23Odh9k+zTiOa6Dv/3aq7/CSj2nFv5Pn/vHUSUVwcOf0HtfiXDOvAM5GPgQxf/P5dxNRfKYaroJJr/dkY8Sj4pXUKrvpF3P1nj/bvkyJwAQcjHQcH6W2dgpsvR6x8H7NOQMSLL0Y8Er5onYCb5ZGSfkQX/6RItI14V8BS6wRcnBEp5WqGWicg4s1ZHIp0PMR2MhzfL+zvj9T7v1gTW2QiSVsacc//a6wTaL0oL17cQoV1+CJedWN3hCNikXX4rTU80oLnM9bhi3j3tUjHRMZeYvulCKmup711+CLedYn0jOC/xxNUXNcArozQ9xbqYopKxM4+/idC78nW4bdGRYRbgGrz9aZ0yZEB1Ec4LmLZADeeFcBFtHPuexe7YolJxNpm/uTctwPj4wgpngJwcYS+c2KJSCQNbovQ92Lr4MN7ynmhs9o6dJEYlbLJ+dh4PJ6A/OvEWOe+d8eRpEhKNHKfc9/z47g7Jo4CMIEy5773xRCPSHrc49yzXRxXAeIoAOc699zE0zHEI5Iej7PTua/7yvqE4igAZzv3fIAghnhE0uMwDzr3HeM/nDgKwDnOPf8WQzQi6eJ+MS+GAuBf1wjvRTnJOniR2Lk/J9Pgf5Nw/yuAMc4bebzGJu/RiKTNSud5Xsoo38H4LwBnO/dc4D0WkTR6wrmn95MA/wXAfe+SJd5jEUkj95nufWcg/wXgFOeemX4Fgkho7jN9uHXoha1LzwUOkVTq7nyh/FXr0Atpz2HH1F6xDl0kMa5fk4do6zcQ36cAQ51f5bXCcyQi6eU628sY7DcQ3wVgmHPPlZ4jEUmv15x7ul9ja5bvAjDQuacKgOSH+2x3P8Ka5bsADHDuqQIg+eE+292PsGb5LgD9nXuu9RyJSHq5b3zjfoQ1y3cBcL+bf6vnSETSa4tzz5SvAFzD26OtwCVHqql27JnyAtDXsd92z3GIpJvriref3zB8F4Aejv3cl0QiWbTNsZ/rEXYCfgtAZ+fdAF2HQySbXFcAFXTwGYbfAuBenXQJUPLF/Suvu88w/BYA99C0ApB8cZ/xXk8C/BaAbs49dRFQ8sV9zZviFYD7A707vMYhknbuX3leH5v3WwA6Ovfc7zUOkbQ74NzT6/uB/BYA99Bcb4sQySb3Ge/+NduMtBQA93ookkVaARxHKwDJFxWA46gASL4U5SlAuXNPnQJIvrjPePejrBnpWAE0cNBrHCJpV0OjY88UrwBcC4BOACRvAmoce6oAiBQB15OAFF8EdK1NKgCSP64rgBRfA2jv2K/WaxQiWVCEBcCVtgOT/HGd9SU+g0hHAfCakkgmuB57QRqCEJFoXF+i51U6CoBWAJI/qTj2UhGECoDkkE4BRHJMpwBv0ApA8icVx57fIFzvblYBkPwpwgJwyLGf69sERLLLdda7HmXN8lsAXG9t8Hp3s0gmuN447/XJ2XQUAK/PN4lkguus93rfrAqAiIVS5ydnirAAlKfjgohIYiqcL32nuAC4PtVXoqsAkjPuq94UF4CU7HQqknruBcDr/pl+C8A+5566CiD5kpK3aPktAHude3p935lI6qXkJTp+C4B7bfL6ymOR1HN/x6/7OrsZaTkF6O01DpG0c5/xKT4FcC8AfbzGIZJ2RVkA9jj3VAGQfOnl3DPFBWC7c0+dAki+uH/luR9lzfC9Aqh37KkVgOSL+1feTp9h+C0AATsce6oASL64FoB9aX4aELY59tMpgOSL64z3egLgvwC4htfXcxwi6eZaALyeAKRnBdCDzp4jEUmvLnR17JnyFYBrAYAhniMRSS/32e56le0EfBeA1517DvYciUh6VTr3XO83EN8FYLVzz2GeIxFJL/cVwDq/gfguAGuce57hORKR9HKf7Wv9BuK7AKyjwbHnmZ4jEUmvkc4911mHXjjAwKntS8erkkQSsMfxKKnzfZT434zT9SSgMy8zRe8IkqJ3Hg/TzbHveucVdmJ+6ljbmtrTvMs6AZHYjOBuGiMcHw9bJ1DYZyMVgICAhzjXOgkR705mDvURj40fWCdR2ITIBSCgkfm6KChFpAezqPFwZHzcOpHCOnLYQ6IB9fwkwu0SImnRmRup8nJMBIyxTiaMpZ6SDTjEXEZYpyPirDMz2OXteKijnXVCYfzcW8IBAQ3M5xzrlERarRcznX/ua74tsU4pnOu9Jt1UBO5hnHVaIqGdxM0c8H4c/Mw6rXDGeU+8qT3Be/QSUUm9M7mDuliOgP9rnVo4bT0vfI5tq5iu9whKak1kfqTf+Vtumfll7O7YhiAgYBtf1RZikjJlXMtzsc77rdm5T/aTsQ5EQEAtt3OedZoiAPTjK2yMfc7/xjrN8HpzKPbhCAhYzDTKrZOVXBvLHGoTme0ftE61Nf6cyJAEBOxhtm4YEgPtmcKTic3z2mztmvnhxAYmIOAw93KlHieWxIzgex5v8AnT7rZOuXXKnPcFcG+bmaWNxSRmHZjCQzFe6T9Ru9A68db6dOJDFBDQyCNcSwfr5KUonccc9prM6/utU2+9Uh41GaqAgCrm6PZh8agb02L+ka+ltodB1gPgYhCbzIYsIOBFvsBA60GQjOvA+/g9Bw3ncT3vsR4EV6ey2bQEBDSwgOm6bUgclDKR2ewwnsGH+bD1QEQxkIXGAxgQcJD5TKWj9WBIZoxkJmvM523ADq6wHoqoypiZ0I0ShVoVP+dSyqwHRFLtFP6TZeZztan9gZOth8OPYTxgPphH227mMZVO1kMiqTOSGSwwn59H22qush4QvybzuvmgvtlqmM9U5ze0SnEZyUxWmM/JY2fnzGL8KbsT36DafHCPbbXM5+P0tB4YMdKGi/kB683n4bGtkTuL+db2k5lLg/kgH9/qeZgbtPdgrnThffyU7eZz761tAeOthyZ+Y/mb+UA319ZwK5P1W0GRO4sZPJbQ06qta6/xfuvBSc4kFpkPePOtngXMYKz1AIlnHZnMnJQt999sG5hOe+shSlYJH2C5+cCfuDWtB/RrQdaVMJr/4G+R38kTX9vBDcV4yS+MUqawyvwDaKkdZjGzmKzfCzJoKNOYywbzOdRS28+svM+tdlyXinuuWm6HWMhNXKYrBKlXwkiuZx7bzOdMobaHr+sXqCalTEnV77AnbvVaEaRWFr7xj7YdzKS79YABKdpntA3/yJcZZR1GSPU8yzM8wzO8bh1KznViLOM4n4n0sQ4lpC3czG1UW4fRJD0FAKCUq/nPjD3Jv41neJZnWMRe61BypA1nMI7zGcfITG0Ft57v8DMOWofxpnQVgCYTmcGVqYysZWtYyBKWsIg661CK1gDGMpaxTEjHArpVXuRW5qbp4Id0FgCAkdzAhzP6y2gtz/E8S3mJlzlgHUwRKGUooxnFaMZxknUwTgIe4L951DqM5qS1AAD04V+5nl7WYUSyhSUsYzlLeIUG62AypTsjOYORjGV0pu/GqGMe32aZdRgnkuYCANCeD/IfnG4dhgf1rDxSCpaxxjqYlCrj1CMH/RkMtQ7Ggx38nB+w2TqMlqS9AACUciWf5vIiejPwTl7jVVbyGitZSa11OIZKGcRwTuVUTmU4lZm6oNeyxfyIO9P/2WahADQZyjT+pQh39wtYzyrWvtG2WQcUs44MYQhDj/zv8Ixe52lJDXdyG4utwwgnOwUAoD3v51NcZB1GrGpYy1o2son1bGQTG6ixDimCtvRjECdxEoM4icEMycyv9W5WcBtzqbIOI7xsFYAmo/gUH6WLdRiJ2c0mNrGdbWxhB1vYxnZ2EFiH9TZd6E8f+tKPPvSjL30ZSN8iWtS37BD38SMeT+Hn0qIsFgCATlzLdRm7ZcinRna/rR3gAFXs5wDVsdyUVEEnOtGdTnSiEz3oTo/jWvEt5sNax0/4OVutw3CR1QLQ5Ew+xrX0sw4jlfZRTS31HKCRvcAeYN8bP0UeetutqOVvPJJaQjegC23oSDs6UE5bOtO1iC7C+rOf33M7T2Tte/9N2S4AAKW8m6m8nwrrQCRXGnmKufwm67d6Zb8ANOnKe/kolxRNPpJmr/Jb7mCtdRg+FNcBM4gPMa0obiGRdKpiPnN5JLtL/rcqrgIAUMo7uZarM34LsaRNDQ/wO+YX24NexVcAmrThAqYwhf7WgUjm1fIId3Ev+60DiUOxFoAmpVzIFD7AAOtAJJNqeJS7uCfrF/paUtwFoElTGXh/Rh8lFQtNh/7v07JvT3zyUACalDKGyXyEYdaBSKpVMZ+7+GuxneufSH4KwNF8z+UqrmJM7jKXQlZzP/N5gnrrQJKU18OgD1dwFVfQ2ToQMdfAC9zPfJZYB2IhrwWgSQXv5gou5xTrQMTENh7kLzzIbutA7OS7ABw1lElM4jLt9p8TR7/zn6fROhRrKgBvascELuPdjM3NI6z5s5zHeIhHi/M3fRcqAG/XifOZxCTG6Pm3orGFBTzMn9lgHUjaqACcWC/exbt4B2dolDJrHX/nMR5jnXUgaaWpXVhnxjORCUzM60ucM2gNC1nAQ8XxxF6cVADCK2cc7+ACxtPDOhRpVg1LeJIFLGSPdShZoQLgYgATmMhYxmpNkApHX8r2LIesQ8kaFYAo2jOG8ZzHGE7TLweJW8fzLOFpFrHPOpTsUgHwox3Dj7y2UquCeG1hCUtYwjNstw6lGKgA+NaOUZzNKEYxUo8he7KHZbzMy7zIC8X8aK4FFYA4deWUI2+6G6W9i1vpEKveeJfi2uLZgittVACS0p2hDGUkZzCU07WHcbO2sIw1rGE5y1in23SToAJgoQ2DGc5pDGMIlVTm9pnEOl5nLetYw0peZXVensFPExWANOhJ5ZFSUEklA+huHVBMatnIBtaxjrWsZR2btbS3pgKQRuWcTH8G0p+TGcAABtKbcuugWukwO9nEZjayhQ1sYSObdXtO+qgAZEVHetOXXvSiF33oTS960Z2udDW9nnCIveylip3sZCc72M6OI/8vx8/YZ4kKQPa1pStd6U4XutKVLlTQiTK60IZulNKNNnShjE5H/vWbpxcVb7zOs/GYl4lWH7mbro4aajlINYfYz2H20sge6tnHXvawl73sYy+11slLNP8Lbunzxta7WmYAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTktMDgtMjJUMTQ6MjQ6MTErMDI6MDBCyuTUAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE5LTA4LTIyVDE0OjI0OjExKzAyOjAwM5dcaAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAASUVORK5CYII="/>
+    </pattern>
+    <filter id="Retângulo_54" x="-8" y="-6" width="1384" height="150.81" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <rect id="Retângulo_56" data-name="Retângulo 56" width="150.345" height="88.38" transform="translate(139 21)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <filter id="Retângulo_14" x="-9" y="1055" width="1384" height="194" filterUnits="userSpaceOnUse">
+      <feOffset dy="-3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-3"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Linha_19" x="604" y="267" width="225" height="11" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1.5" result="blur-4"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Retângulo_63" x="1018" y="103" width="218" height="133" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-5"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-5"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-Perfil_usuário">
+      <rect width="1366" height="1243"/>
+    </clipPath>
+  </defs>
+  <g id="Perfil_usuário" data-name="Perfil usuário" clip-path="url(#clip-Perfil_usuário)">
+    <rect width="1366" height="1243" fill="#f2f2f2"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Retângulo_46)">
+      <rect id="Retângulo_46-2" data-name="Retângulo 46" width="1088" height="804" rx="15" transform="translate(139 199)" fill="#fff"/>
+    </g>
+    <g id="Retângulo_47" data-name="Retângulo 47" transform="translate(211 354)" stroke="#ffb400" stroke-width="3" fill="url(#pattern)">
+      <rect width="292" height="292" rx="9" stroke="none"/>
+      <rect x="1.5" y="1.5" width="289" height="289" rx="7.5" fill="none"/>
+    </g>
+    <g id="Retângulo_48" data-name="Retângulo 48" transform="translate(587 388)" fill="#fff" stroke="#b7b7b7" stroke-width="1">
+      <rect width="565" height="47" rx="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="564" height="46" rx="4.5" fill="none"/>
+    </g>
+    <g id="Retângulo_50" data-name="Retângulo 50" transform="translate(587 579)" fill="#fff" stroke="#b7b7b7" stroke-width="1">
+      <rect width="565" height="47" rx="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="564" height="46" rx="4.5" fill="none"/>
+    </g>
+    <g id="Retângulo_51" data-name="Retângulo 51" transform="translate(587 483)" fill="#fff" stroke="#b7b7b7" stroke-width="1">
+      <rect width="565" height="47" rx="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="564" height="46" rx="4.5" fill="none"/>
+    </g>
+    <text id="TITULO_PRODUTO" data-name="TITULO PRODUTO" transform="translate(597 418)" fill="#707070" font-size="15" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">Fulano da Silva</tspan></text>
+    <text id="VALIDADE" transform="translate(597 610)" fill="#707070" font-size="15" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">fulanosilva@gmail.com</tspan></text>
+    <text id="VALOR" transform="translate(597 514)" fill="#707070" font-size="15" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">XXX.XXX.XXX-XX</tspan></text>
+    <g id="Retângulo_53" data-name="Retângulo 53" transform="translate(1026 867.5)" fill="#8a4f7d" stroke="#707070" stroke-width="1">
+      <rect width="126.063" height="49.5" rx="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="125.063" height="48.5" rx="4.5" fill="none"/>
+    </g>
+    <g id="Retângulo_53-2" data-name="Retângulo 53" transform="translate(873 867.5)" fill="#8a4f7d" stroke="#707070" stroke-width="1">
+      <rect width="133.063" height="49.5" rx="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="132.063" height="48.5" rx="4.5" fill="none"/>
+    </g>
+    <text id="SALVAR" transform="translate(1054 899.75)" fill="#fff" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">SALVAR</tspan></text>
+    <text id="SALVAR-2" data-name="SALVAR" transform="translate(907 899.75)" fill="#fff" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">EDITAR</tspan></text>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Retângulo_54)">
+      <rect id="Retângulo_54-2" data-name="Retângulo 54" width="1366" height="132.81" transform="translate(1)" fill="#fff"/>
+    </g>
+    <rect id="Retângulo_55" data-name="Retângulo 55" width="536" height="30" transform="translate(511 21)" fill="#fff"/>
+    <g id="Agrupar_40" data-name="Agrupar 40" transform="translate(416 79.31)">
+      <rect id="Retângulo_3" data-name="Retângulo 3" width="168" height="30" fill="#fff"/>
+      <rect id="Retângulo_4" data-name="Retângulo 4" width="168" height="30" transform="translate(191)" fill="#fff"/>
+      <rect id="Retângulo_26" data-name="Retângulo 26" width="168" height="30" transform="translate(382)" fill="#fff"/>
+      <rect id="Retângulo_5" data-name="Retângulo 5" width="168" height="30" transform="translate(572)" fill="#fff"/>
+      <text id="HOME" transform="translate(56 23)" fill="#8a4f7d" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">HOME</tspan></text>
+      <text id="PRODUTOS" transform="translate(229 23)" fill="#8a4f7d" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">PRODUTOS</tspan></text>
+      <text id="SOBRE_NÓS" data-name="SOBRE NÓS" transform="translate(414 24)" fill="#8a4f7d" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">SOBRE NÓS</tspan></text>
+      <text id="MEU_PERFIL" data-name="MEU PERFIL" transform="translate(626 24)" fill="#8a4f7d" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">MEU PERFIL</tspan></text>
+    </g>
+    <text id="CAMPO_DE_PESQUISA" data-name="CAMPO DE PESQUISA" transform="translate(711.452 41.076)" fill="#8a4f7d" font-size="14" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">CAMPO DE PESQUISA</tspan></text>
+    <line id="Linha_23" data-name="Linha 23" x2="525" transform="translate(516.5 55.5)" fill="none" stroke="#ffb400" stroke-width="2"/>
+    <line id="Linha_24" data-name="Linha 24" y2="30" transform="translate(597.5 79.5)" fill="none" stroke="#ffb400" stroke-width="2"/>
+    <line id="Linha_25" data-name="Linha 25" y2="30" transform="translate(793.5 79.5)" fill="none" stroke="#ffb400" stroke-width="2"/>
+    <path id="Caminho_17" data-name="Caminho 17" d="M.287,0V28" transform="translate(984.213 81.5)" fill="none" stroke="#ffb400" stroke-width="2"/>
+    <g id="magnifying-glass-icon" transform="translate(1005.234 25)">
+      <g id="Agrupar_37" data-name="Agrupar 37" transform="translate(1.765)">
+        <g id="Search__x28_and_thou_shall_find_x29_" transform="translate(0)">
+          <g id="Agrupar_36" data-name="Agrupar 36">
+            <path id="Caminho_6" data-name="Caminho 6" d="M21.286,17.862,15.3,11.839A7.444,7.444,0,1,0,9.222,15a7.388,7.388,0,0,0,4.314-1.39l5.989,6.023a1.24,1.24,0,0,0,1.761,0A1.257,1.257,0,0,0,21.286,17.862ZM13.272,10.39l-.489.691-.687.492a4.914,4.914,0,0,1-2.874.927,5,5,0,1,1,4.05-2.11Z" transform="translate(-1.765)" fill="#8a4f7d"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="Grupo_de_máscara_2" data-name="Grupo de máscara 2" transform="translate(1 -1)" clip-path="url(#clip-path)">
+      <g id="LogoColorido3" transform="translate(146.719 21.819)">
+        <g id="Sacola" transform="translate(54.84 39.875)">
+          <g id="Símbolo_2_1" data-name="Símbolo 2 – 1" transform="translate(0 3.351)">
+            <path id="Caminho_4" data-name="Caminho 4" d="M132.366,62.93a49.882,49.882,0,0,1,7.169-3.865c1.979-.833,3.335-1.3,4.531-1.695.971-.318,1.826-.593,2.894-.865.007,0,.053-.009.079-.016" transform="translate(-132.183 -56.306)" fill="none" stroke="#ffb400" stroke-width="1.19"/>
+            <path id="Caminho_11" data-name="Caminho 11" d="M146.43,60.769a5.873,5.873,0,0,0,.625,2.15c.412,1.033,1.018,2.405,1.7,3.909.2.446.408.9.625,1.383,2.26,4.986,4.918,10.783,4.3,11.479-2.911,3.276-14.624,4.814-14.624,4.814s-7.786-16.716-7.109-17.384a56.535,56.535,0,0,1,6.364-3.344C142.336,62.056,146.43,60.769,146.43,60.769Z" transform="translate(-131.9 -60.471)" fill="none" stroke="#ffb400" stroke-width="1.19"/>
+            <path id="Caminho_9" data-name="Caminho 9" d="M183.946,98.835l-2.824,3.388" transform="translate(-159.282 -82.965)" fill="none" stroke="#ffb400" stroke-width="1.19"/>
+            <path id="Caminho_3" data-name="Caminho 3" d="M162.425,76.33c.385-.95-8.762-14.351-9.758-15.805l-.011-.016-.038-.055" transform="translate(-137.767 -60.453)" fill="none" stroke="#ffb400" stroke-width="1.19"/>
+          </g>
+          <path id="Frente" d="M146.43,60.769a.539.539,0,0,0,0,.244,10.534,10.534,0,0,0,.625,1.906c.412,1.033,1.018,2.405,1.7,3.909.2.446.408.9.625,1.383,2.26,4.986,4.918,10.783,4.3,11.479-2.911,3.276-14.624,4.814-14.624,4.814s-7.786-16.716-7.109-17.384a56.535,56.535,0,0,1,6.364-3.344C142.336,62.056,146.43,60.769,146.43,60.769Z" transform="translate(-131.794 -57.12)" fill="none" stroke="#ffb400" stroke-width="1.19"/>
+          <g id="Relógio" transform="translate(5.826 10.471)">
+            <g id="Caminho_5" data-name="Caminho 5" transform="translate(0 0)">
+              <path id="Caminho_15" data-name="Caminho 15" d="M11.452,7.525a3.846,3.846,0,0,1-3.267,3.512,6.324,6.324,0,0,1-3.972-1.36A7.5,7.5,0,0,1,1.554,4.52C1.554,3,2.905.5,4.885.249a5.487,5.487,0,0,1,3.1.8,6.941,6.941,0,0,1,2.349,2.424A9.686,9.686,0,0,1,11.452,7.525Z" transform="translate(-1.554 -0.225)" fill="none"/>
+              <path id="Caminho_16" data-name="Caminho 16" d="M7.81,10.007a2.076,2.076,0,0,0,.247-.014,2.815,2.815,0,0,0,2.331-2.468A8.773,8.773,0,0,0,9.4,3.986a5.915,5.915,0,0,0-1.927-2.01,4.981,4.981,0,0,0-2.209-.7,1.873,1.873,0,0,0-.24.015c-1.3.169-2.405,2.1-2.405,3.228A6.321,6.321,0,0,0,4.946,8.914,5.664,5.664,0,0,0,7.81,10.007m0,1.051a6.657,6.657,0,0,1-3.6-1.382A7.5,7.5,0,0,1,1.554,4.52C1.554,3,2.905.5,4.885.249A2.952,2.952,0,0,1,5.264.225a6.057,6.057,0,0,1,2.718.827,6.945,6.945,0,0,1,2.349,2.424,9.69,9.69,0,0,1,1.121,4.049,3.846,3.846,0,0,1-3.268,3.512A3.156,3.156,0,0,1,7.81,11.058Z" transform="translate(-1.554 -0.225)" fill="#ffb400"/>
+            </g>
+            <path id="Caminho_10" data-name="Caminho 10" d="M0,0,2.206,4.424" transform="translate(2.882 0.794)" fill="none" stroke="#ffb400" stroke-width="1.19"/>
+            <line id="Linha_2" data-name="Linha 2" y1="1.5" x2="3.005" transform="translate(1.961 4.913)" fill="none" stroke="#ffb400" stroke-width="1.19"/>
+          </g>
+          <g id="Alça" transform="translate(3.667 0)">
+            <path id="Caminho_7" data-name="Caminho 7" d="M140.65,71.855" transform="translate(-140.65 -67.078)" fill="none" stroke="#ffb400" stroke-width="1.19"/>
+            <path id="Caminho_8" data-name="Caminho 8" d="M141.124,72.684s-.394-6.629.948-7.533c.431-.291,1.2.122,1.948.789.126.113.268.237.412.373a25.347,25.347,0,0,1,2.727,3.724" transform="translate(-140.775 -65.002)" fill="none" stroke="#ffb400" stroke-width="1.19"/>
+            <path id="Caminho_6-2" data-name="Caminho 6" d="M141.391,72.62a9.826,9.826,0,0,0-.362-1.9,11.853,11.853,0,0,1-.379-2.406c.018-2.035.841-3.009,1.408-3.261,1.753-.782,5.24,5.039,5.24,5.039" transform="translate(-140.65 -64.977)" fill="none" stroke="#ffb400" stroke-width="1.19"/>
+          </g>
+        </g>
+        <g id="Boneco" transform="translate(0 0)">
+          <g id="Agrupar_1" data-name="Agrupar 1" transform="translate(0 0)">
+            <path id="Caminho_1" data-name="Caminho 1" d="M59.745,54.071a4.314,4.314,0,0,0-1.691-5.393A53.414,53.414,0,0,1,43.023,36.4c-1.624-1.794-3.305-3.649-5.534-5.767a4.077,4.077,0,0,0-.664-.512,11.745,11.745,0,0,0-2.8-1.71,9.541,9.541,0,0,0-2.262-.71,18.345,18.345,0,0,0-2.49-.2H29.24c-.13,0-.264.025-.393.032-.1,0-.19-.007-.287,0-.158.015-.318.044-.476.064s-.332.038-.5.064C19.29,28.8,10.56,34.471.936,44.984a3.423,3.423,0,0,0,.656,5.239,4.63,4.63,0,0,0,2.659.819A4.5,4.5,0,0,0,7.57,49.648a69.573,69.573,0,0,1,10.893-9.9l-3.492,14.28c-.5,2.054-.167,5.043,1.136,6.582l-.779,13.606L8.335,90.052c-1.077,2.443.31,5.192,3.1,6.134a6.121,6.121,0,0,0,1.953.32,5.454,5.454,0,0,0,5.049-3.032l7.29-16.516a4.28,4.28,0,0,0,.353-1.4L26.717,67l6.432,8.9,5.326,17.08A5.35,5.35,0,0,0,43.7,96.507a6.019,6.019,0,0,0,1.4-.162c2.888-.672,4.6-3.27,3.836-5.8L43.4,72.763a4.412,4.412,0,0,0-.656-1.313L33.97,59.31a6.09,6.09,0,0,0,.659-1.592l3.586-14.661A59.69,59.69,0,0,0,53.352,54.885a5.3,5.3,0,0,0,3.4.781C58.352,55.463,59.959,54.252,59.745,54.071Z" transform="translate(0 -14.368)" fill="none" stroke="#ffb400" stroke-width="1.785"/>
+            <ellipse id="Elipse_1" data-name="Elipse 1" cx="7.577" cy="7.483" rx="7.577" ry="7.483" transform="translate(30.962 0)" fill="none" stroke="#ffb400" stroke-width="1.785"/>
+          </g>
+        </g>
+        <text id="DATEMPO" transform="translate(52.378 81.448)" fill="#ffb400" stroke="#ffb400" stroke-width="0.117" font-size="17" font-family="RacingSansOne-Regular, Racing Sans One"><tspan x="0" y="0">DATEMPO</tspan></text>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Retângulo_14)">
+      <rect id="Retângulo_14-2" data-name="Retângulo 14" width="1366" height="176" transform="translate(0 1067)" fill="#fff"/>
+    </g>
+    <text id="Telefone:_11_3273-5000" data-name="Telefone: (11) 3273-5000" transform="translate(585.5 1137)" fill="#8a4f7d" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Telefone: (11) 3273-5000</tspan></text>
+    <text id="Alameda_Barão_de_Limeira_539_-_Campos_Elíseos_São_Paulo_-_SP" data-name="Alameda Barão de Limeira, 539 - Campos Elíseos, São Paulo - SP" transform="translate(400.5 1101)" fill="#8a4f7d" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Alameda Barão de Limeira, 539 - Campos Elíseos, São Paulo - SP</tspan></text>
+    <text id="Datempo_by_Linx_2019" data-name="Datempo by Linx © 2019" transform="translate(694 1225.471)" fill="#8a4f7d" font-size="25" font-family="SegoeUI, Segoe UI"><tspan x="-138.232" y="0">Datempo by Linx © 2019</tspan></text>
+    <g id="facebook-logo" transform="translate(440.109 1125)">
+      <path id="Caminho_15-2" data-name="Caminho 15" d="M135.648,10.6V7.811a6.14,6.14,0,0,1,.058-.971,1.887,1.887,0,0,1,.265-.677,1.082,1.082,0,0,1,.667-.461,4.75,4.75,0,0,1,1.227-.128h2.787V0H136.2q-3.867,0-5.554,1.835a7.729,7.729,0,0,0-1.688,5.407V10.6h-3.337v5.574h3.337V32.342h6.693V16.171H140.1l.589-5.574Z" transform="translate(46 35)" fill="#ffb400"/>
+    </g>
+    <g id="instagram" transform="translate(652.857 1165.857)">
+      <path id="Caminho_16-2" data-name="Caminho 16" d="M22.313,0H3.829A3.834,3.834,0,0,0,0,3.829V22.313a3.834,3.834,0,0,0,3.829,3.829H22.313a3.834,3.834,0,0,0,3.829-3.829V3.829A3.834,3.834,0,0,0,22.313,0ZM13.122,19.913a6.893,6.893,0,1,1,6.893-6.893A6.9,6.9,0,0,1,13.122,19.913ZM20.781,7.659a2.3,2.3,0,1,1,2.3-2.3A2.3,2.3,0,0,1,20.781,7.659Zm0,0" transform="translate(0 0)" fill="#ffb400"/>
+      <path id="Caminho_17-2" data-name="Caminho 17" d="M392.766,90a.766.766,0,1,0,.766.766A.766.766,0,0,0,392.766,90Zm0,0" transform="translate(-371.985 -85.405)" fill="#ffb400"/>
+      <path id="Caminho_18" data-name="Caminho 18" d="M157.361,150a5.361,5.361,0,1,0,5.361,5.361A5.368,5.368,0,0,0,157.361,150Zm0,0" transform="translate(-144.239 -142.341)" fill="#ffb400"/>
+    </g>
+    <g id="linkedin-logo" transform="translate(980.392 1550.062)">
+      <path id="LinkedIn" d="M28.844,26.457V37.12H22.662v-9.95c0-2.5-.894-4.205-3.132-4.205a3.383,3.383,0,0,0-3.172,2.262,4.23,4.23,0,0,0-.205,1.507V37.12H9.969s.083-16.852,0-18.6h6.184v2.636c-.013.02-.029.041-.041.06h.041v-.06a6.14,6.14,0,0,1,5.573-3.073C25.794,18.086,28.844,20.744,28.844,26.457ZM3.5,9.558a3.223,3.223,0,1,0-.082,6.428h.041A3.224,3.224,0,1,0,3.5,9.558ZM.367,37.12H6.549v-18.6H.367Z" transform="translate(-272.119 -394.18)" fill="#ffb400"/>
+    </g>
+    <g id="twitter" transform="translate(760 1117)">
+      <g id="Agrupar_38" data-name="Agrupar 38" transform="translate(0 48)">
+        <path id="Caminho_19" data-name="Caminho 19" d="M33.568,51.229A14.347,14.347,0,0,1,29.6,52.316a6.843,6.843,0,0,0,3.027-3.8,13.753,13.753,0,0,1-4.364,1.666,6.881,6.881,0,0,0-11.9,4.706,7.086,7.086,0,0,0,.159,1.569,19.479,19.479,0,0,1-14.184-7.2,6.884,6.884,0,0,0,2.115,9.2A6.8,6.8,0,0,1,1.343,57.6v.076a6.913,6.913,0,0,0,5.514,6.762,6.869,6.869,0,0,1-1.8.227,6.085,6.085,0,0,1-1.3-.117,6.947,6.947,0,0,0,6.43,4.794A13.828,13.828,0,0,1,1.647,72.28,12.89,12.89,0,0,1,0,72.186a19.374,19.374,0,0,0,10.557,3.088c12.663,0,19.587-10.49,19.587-19.583,0-.3-.01-.6-.025-.89A13.728,13.728,0,0,0,33.568,51.229Z" transform="translate(0 -48)" fill="#ffb400"/>
+      </g>
+    </g>
+    <text id="Nome_completo" data-name="Nome completo" transform="translate(587 373)" fill="#8a4f7d" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">Nome completo</tspan></text>
+    <text id="CPF_CNPJ" data-name="CPF/CNPJ" transform="translate(587 468)" fill="#8a4f7d" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">CPF/CNPJ</tspan></text>
+    <text id="E-mail" transform="translate(587 564)" fill="#8a4f7d" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">E-mail</tspan></text>
+    <text id="MEU_PERFIL-2" data-name="MEU PERFIL" transform="translate(628 253)" fill="#8a4f7d" font-size="30" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">MEU PERFIL</tspan></text>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Linha_19)">
+      <line id="Linha_19-2" data-name="Linha 19" x2="216" transform="translate(608.5 270.5)" fill="none" stroke="#ffb400" stroke-width="2"/>
+    </g>
+    <g id="Retângulo_50-2" data-name="Retângulo 50" transform="translate(587 675)" fill="#fff" stroke="#b7b7b7" stroke-width="1">
+      <rect width="565" height="47" rx="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="564" height="46" rx="4.5" fill="none"/>
+    </g>
+    <g id="Retângulo_50-3" data-name="Retângulo 50" transform="translate(586 771)" fill="#fff" stroke="#b7b7b7" stroke-width="1">
+      <rect width="565" height="47" rx="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="564" height="46" rx="4.5" fill="none"/>
+    </g>
+    <text id="VALIDADE-2" data-name="VALIDADE" transform="translate(597 706)" fill="#707070" font-size="15" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">fulanosilva112</tspan></text>
+    <text id="VALIDADE-3" data-name="VALIDADE" transform="translate(596 802)" fill="#707070" font-size="15" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">••••••••••••••</tspan></text>
+    <text id="Usuário" transform="translate(587 660)" fill="#8a4f7d" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">Usuário</tspan></text>
+    <text id="Senha" transform="translate(586 756)" fill="#8a4f7d" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">Senha</tspan></text>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Retângulo_63)">
+      <rect id="Retângulo_63-2" data-name="Retângulo 63" width="200" height="115" transform="translate(1027 109)" fill="#fff"/>
+    </g>
+    <text id="MINHAS_OFERTAS" data-name="MINHAS OFERTAS" transform="translate(1074 175)" fill="#8a4f7d" font-size="15" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">MINHAS OFERTAS</tspan></text>
+    <text id="CONFIGURAÇÕES" transform="translate(1074 143)" fill="#8a4f7d" font-size="15" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">CONFIGURAÇÕES</tspan></text>
+    <text id="SAIR" transform="translate(1074 207)" fill="#8a4f7d" font-size="15" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">SAIR</tspan></text>
+    <g id="icon" transform="translate(1042 127.746)">
+      <path id="Caminho_27" data-name="Caminho 27" d="M13.581,10.193l-.4-.944a17.346,17.346,0,0,0,.844-2.165L12.8,5.888a16.872,16.872,0,0,0-2.172.869l-.963-.389A17.208,17.208,0,0,0,8.7,4.254H6.972a16.117,16.117,0,0,0-.906,2.119l-.962.39a18.307,18.307,0,0,0-2.213-.828l-1.223,1.2a16.059,16.059,0,0,0,.889,2.127l-.4.944A17.79,17.79,0,0,0,0,11.15v1.693a16.924,16.924,0,0,0,2.165.888l.4.942a17.255,17.255,0,0,0-.844,2.167l1.225,1.2a17.246,17.246,0,0,0,2.17-.872l.963.392a16.969,16.969,0,0,0,.967,2.112H8.773a16.228,16.228,0,0,0,.907-2.119l.963-.39a18.226,18.226,0,0,0,2.211.828l1.224-1.2a16.308,16.308,0,0,0-.891-2.125l.4-.944a17.826,17.826,0,0,0,2.161-.947V11.079A16.974,16.974,0,0,0,13.581,10.193ZM7.873,14.43A2.47,2.47,0,1,1,10.4,11.96,2.5,2.5,0,0,1,7.873,14.43Z" fill="#ffb400"/>
+      <path id="Caminho_28" data-name="Caminho 28" d="M26.12,8.221l.01-.493a8.3,8.3,0,0,0,.8-.785l-.3-.764A8.218,8.218,0,0,0,25.5,6.134l-.346-.359a8.085,8.085,0,0,0-.009-1.118l-.759-.341a7.575,7.575,0,0,0-.815.755l-.5-.02a8.623,8.623,0,0,0-.809-.8l-.774.287a7.972,7.972,0,0,0-.026,1.107l-.361.338a8.607,8.607,0,0,0-1.133-.01l-.333.744a7.975,7.975,0,0,0,.777.816l-.01.49a8.317,8.317,0,0,0-.795.786l.3.765a8.432,8.432,0,0,0,1.125.043l.345.36A8.093,8.093,0,0,0,21.39,11.1l.759.339a7.675,7.675,0,0,0,.814-.75l.5.017a8.637,8.637,0,0,0,.809.8l.772-.287a7.776,7.776,0,0,0,.028-1.109l.36-.335a8.627,8.627,0,0,0,1.134.007l.333-.744A8.375,8.375,0,0,0,26.12,8.221Zm-1.745.151a1.215,1.215,0,1,1-.624-1.58A1.2,1.2,0,0,1,24.375,8.372Z" transform="translate(-5.307 0)" fill="#ffb400"/>
+    </g>
+    <g id="shopping-cart" transform="translate(1042 162)">
+      <path id="Caminho_29" data-name="Caminho 29" d="M6.105,11.1H16.173a.555.555,0,0,0,.534-.4l2.221-7.772a.555.555,0,0,0-.534-.708H4.825L4.428.435A.555.555,0,0,0,3.886,0H.555a.555.555,0,0,0,0,1.11H3.441l2,9.02a1.665,1.665,0,0,0,.662,3.194H16.173a.555.555,0,1,0,0-1.11H6.107a.555.555,0,0,1,0-1.11ZM17.658,3.331l-1.9,6.662h-9.2L5.071,3.331Zm0,0" fill="#ffb400"/>
+      <path id="Caminho_30" data-name="Caminho 30" d="M150,361.665A1.665,1.665,0,1,0,151.665,360,1.667,1.667,0,0,0,150,361.665Zm1.665-.555a.555.555,0,1,1-.555.555A.556.556,0,0,1,151.665,361.11Zm0,0" transform="translate(-144.449 -346.676)" fill="#ffb400"/>
+      <path id="Caminho_31" data-name="Caminho 31" d="M362,361.665A1.665,1.665,0,1,0,363.665,360,1.667,1.667,0,0,0,362,361.665Zm1.665-.555a.555.555,0,1,1-.555.555A.556.556,0,0,1,363.665,361.11Zm0,0" transform="translate(-348.602 -346.676)" fill="#ffb400"/>
+    </g>
+    <g id="logout" transform="translate(1044 191.626)">
+      <path id="Caminho_32" data-name="Caminho 32" d="M12.342,5.206V2.235a.864.864,0,0,0-.861-.861H.861A.864.864,0,0,0,0,2.235V14.4a.876.876,0,0,0,.459.76L7,18.552a.434.434,0,0,0,.631-.387v-3.3h3.846A.863.863,0,0,0,12.342,14V9.3H10.62v3.416a.423.423,0,0,1-.431.431H7.649v-7.3a.877.877,0,0,0-.459-.761L3.329,3.1h6.86a.423.423,0,0,1,.431.431V5.22h1.722Z" fill="#ffb400"/>
+      <path id="Caminho_33" data-name="Caminho 33" d="M67.037,16.613l2.8,2.8a.859.859,0,0,1,0,1.249l-2.8,2.8a.876.876,0,0,1-1.263.014A.915.915,0,0,1,65.8,22.21l1.263-1.249H62.172a.849.849,0,0,1-.646-.287.974.974,0,0,1,.215-1.478.92.92,0,0,1,.431-.115h4.894s-1.248-1.249-1.263-1.249a.869.869,0,1,1,1.234-1.22Z" transform="translate(-52.485 -12.813)" fill="#ffb400"/>
+    </g>
+  </g>
+</svg>

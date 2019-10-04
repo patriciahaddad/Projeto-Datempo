@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1366" height="1408" viewBox="0 0 1366 1408">
+  <defs>
+    <filter id="Retângulo_14" x="-9" y="1219" width="1384" height="194" filterUnits="userSpaceOnUse">
+      <feOffset dy="-3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Retângulo_54" x="-8" y="-6" width="1384" height="150.81" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <rect id="Retângulo_56" data-name="Retângulo 56" width="150.345" height="88.38" transform="translate(139 21)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <clipPath id="clip-Login_e_cadastro">
+      <rect width="1366" height="1408"/>
+    </clipPath>
+  </defs>
+  <g id="Login_e_cadastro" data-name="Login e cadastro" clip-path="url(#clip-Login_e_cadastro)">
+    <rect width="1366" height="1408" fill="#f2f2f2"/>
+    <text id="Cadastrar" transform="translate(930 358)" fill="#8a4f7d" font-size="40" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">Cadastrar</tspan></text>
+    <text id="Login" transform="translate(288 363)" fill="#8a4f7d" font-size="40" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">Login</tspan></text>
+    <g id="Retângulo_14-2" data-name="Retângulo 14" transform="translate(816 429)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="409" height="56" rx="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="408" height="55" rx="4.5" fill="none"/>
+    </g>
+    <g id="Retângulo_19" data-name="Retângulo 19" transform="translate(134 457)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="409" height="56" rx="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="408" height="55" rx="4.5" fill="none"/>
+    </g>
+    <g id="Retângulo_13" data-name="Retângulo 13" transform="translate(816 845)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="409" height="56" rx="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="408" height="55" rx="4.5" fill="none"/>
+    </g>
+    <g id="Retângulo_21" data-name="Retângulo 21" transform="translate(134 580)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="406" height="56" rx="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="405" height="55" rx="4.5" fill="none"/>
+    </g>
+    <g id="Retângulo_18" data-name="Retângulo 18" transform="translate(816 637)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="409" height="56" rx="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="408" height="55" rx="4.5" fill="none"/>
+    </g>
+    <g id="Retângulo_25" data-name="Retângulo 25" transform="translate(816 741)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="409" height="56" rx="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="408" height="55" rx="4.5" fill="none"/>
+    </g>
+    <g id="Retângulo_16" data-name="Retângulo 16" transform="translate(816 916)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="409" height="56" rx="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="408" height="55" rx="4.5" fill="none"/>
+    </g>
+    <g id="Retângulo_17" data-name="Retângulo 17" transform="translate(816 533)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="409" height="56" rx="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="408" height="55" rx="4.5" fill="none"/>
+    </g>
+    <g id="Retângulo_12" data-name="Retângulo 12" transform="translate(816 1028)" fill="#8a4f7d" stroke="#707070" stroke-width="1">
+      <rect width="409" height="56" rx="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="408" height="55" rx="4.5" fill="none"/>
+    </g>
+    <g id="Retângulo_22" data-name="Retângulo 22" transform="translate(134 698)" fill="#8a4f7d" stroke="#707070" stroke-width="1">
+      <rect width="406" height="56" rx="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="405" height="55" rx="4.5" fill="none"/>
+    </g>
+    <text id="Digite_seu_nome_completo..." data-name="Digite seu nome completo..." transform="translate(830 466)" fill="#707070" font-size="20" font-family="Roboto-Regular, Roboto" opacity="0.6"><tspan x="0" y="0">Digite seu nome completo...</tspan></text>
+    <text id="Nome_completo" data-name="Nome completo" transform="translate(816 416)" fill="#707070" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">Nome completo</tspan></text>
+    <text id="Usuário" transform="translate(816 624)" fill="#707070" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">Usuário</tspan></text>
+    <text id="Digite_seu_nome_de_usuário..." data-name="Digite seu nome de usuário..." transform="translate(151 494)" fill="#707070" font-size="20" font-family="Roboto-Regular, Roboto" opacity="0.6"><tspan x="0" y="0">Digite seu nome de usuário...</tspan></text>
+    <text id="Usuário-2" data-name="Usuário" transform="translate(134 445)" fill="#707070" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">Usuário</tspan></text>
+    <text id="Senha" transform="translate(816 832)" fill="#707070" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">Senha</tspan></text>
+    <text id="Digite_sua_senha..." data-name="Digite sua senha..." transform="translate(830 882)" fill="#707070" font-size="20" font-family="Roboto-Regular, Roboto" opacity="0.6"><tspan x="0" y="0">Digite sua senha...</tspan></text>
+    <text id="Digite_sua_senha...-2" data-name="Digite sua senha..." transform="translate(153 616)" fill="#707070" font-size="20" font-family="Roboto-Regular, Roboto" opacity="0.6"><tspan x="0" y="0">Digite sua senha...</tspan></text>
+    <text id="Confirme_sua_senha..." data-name="Confirme sua senha..." transform="translate(830 953)" fill="#707070" font-size="20" font-family="Roboto-Regular, Roboto" opacity="0.6"><tspan x="0" y="0">Confirme sua senha...</tspan></text>
+    <text id="CPF_CNPJ" data-name="CPF/CNPJ" transform="translate(816 520)" fill="#707070" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">CPF/CNPJ</tspan></text>
+    <text id="Digite_seu_CPF_CNPJ" data-name="Digite seu CPF/CNPJ" transform="translate(830 570)" fill="#707070" font-size="20" font-family="Roboto-Regular, Roboto" opacity="0.6"><tspan x="0" y="0">Digite seu CPF/CNPJ</tspan></text>
+    <text id="CADASTRAR-2" data-name="CADASTRAR" transform="translate(964 1065)" fill="#fff" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">CADASTRAR</tspan></text>
+    <text id="ENTRAR" transform="translate(300 735)" fill="#fff" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">ENTRAR</tspan></text>
+    <text id="Digite_seu_nome_de_usuário...-2" data-name="Digite seu nome de usuário..." transform="translate(830 674)" fill="#707070" font-size="20" font-family="Roboto-Regular, Roboto" opacity="0.6"><tspan x="0" y="0">Digite seu nome de usuário...</tspan></text>
+    <text id="Digite_seu_e-mail..." data-name="Digite seu e-mail..." transform="translate(830 778)" fill="#707070" font-size="20" font-family="Roboto-Regular, Roboto" opacity="0.6"><tspan x="0" y="0">Digite seu e-mail...</tspan></text>
+    <text id="E-mail..." transform="translate(816 728)" fill="#707070" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">E-mail...</tspan></text>
+    <text id="Senha-2" data-name="Senha" transform="translate(134 568)" fill="#707070" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">Senha</tspan></text>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Retângulo_14)">
+      <rect id="Retângulo_14-3" data-name="Retângulo 14" width="1366" height="176" transform="translate(0 1231)" fill="#fff"/>
+    </g>
+    <text id="Telefone:_11_3273-5000" data-name="Telefone: (11) 3273-5000" transform="translate(585.5 1301)" fill="#8a4f7d" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Telefone: (11) 3273-5000</tspan></text>
+    <text id="Alameda_Barão_de_Limeira_539_-_Campos_Elíseos_São_Paulo_-_SP" data-name="Alameda Barão de Limeira, 539 - Campos Elíseos, São Paulo - SP" transform="translate(400.5 1265)" fill="#8a4f7d" font-size="20" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Alameda Barão de Limeira, 539 - Campos Elíseos, São Paulo - SP</tspan></text>
+    <text id="Datempo_by_Linx_2019" data-name="Datempo by Linx © 2019" transform="translate(694 1389.471)" fill="#8a4f7d" font-size="25" font-family="SegoeUI, Segoe UI"><tspan x="-138.232" y="0">Datempo by Linx © 2019</tspan></text>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Retângulo_54)">
+      <rect id="Retângulo_54-2" data-name="Retângulo 54" width="1366" height="132.81" transform="translate(1)" fill="#fff"/>
+    </g>
+    <rect id="Retângulo_55" data-name="Retângulo 55" width="536" height="30" transform="translate(511 21)" fill="#fff"/>
+    <rect id="Retângulo_3" data-name="Retângulo 3" width="168" height="30" transform="translate(416 79.31)" fill="#fff"/>
+    <rect id="Retângulo_4" data-name="Retângulo 4" width="168" height="30" transform="translate(607 79.31)" fill="#fff"/>
+    <rect id="Retângulo_26" data-name="Retângulo 26" width="168" height="30" transform="translate(798 79.31)" fill="#fff"/>
+    <rect id="Retângulo_5" data-name="Retângulo 5" width="168" height="30" transform="translate(988 79.31)" fill="#fff"/>
+    <text id="HOME" transform="translate(472 102.31)" fill="#8a4f7d" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">HOME</tspan></text>
+    <text id="PRODUTOS" transform="translate(645 102.31)" fill="#8a4f7d" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">PRODUTOS</tspan></text>
+    <text id="SOBRE_NÓS" data-name="SOBRE NÓS" transform="translate(830 103.31)" fill="#8a4f7d" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">SOBRE NÓS</tspan></text>
+    <text id="LOGIN-2" data-name="LOGIN" transform="translate(1042 103.31)" fill="#8a4f7d" font-size="20" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">LOGIN</tspan></text>
+    <text id="CAMPO_DE_PESQUISA" data-name="CAMPO DE PESQUISA" transform="translate(711.452 41.076)" fill="#8a4f7d" font-size="14" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">CAMPO DE PESQUISA</tspan></text>
+    <line id="Linha_23" data-name="Linha 23" x2="525" transform="translate(516.5 55.5)" fill="none" stroke="#ffb400" stroke-width="2"/>
+    <line id="Linha_24" data-name="Linha 24" y2="30" transform="translate(597.5 79.5)" fill="none" stroke="#ffb400" stroke-width="2"/>
+    <line id="Linha_25" data-name="Linha 25" y2="30" transform="translate(793.5 79.5)" fill="none" stroke="#ffb400" stroke-width="2"/>
+    <path id="Caminho_17" data-name="Caminho 17" d="M.287,0V28" transform="translate(984.213 81.5)" fill="none" stroke="#ffb400" stroke-width="2"/>
+    <g id="magnifying-glass-icon" transform="translate(1005.235 25)">
+      <g id="Agrupar_37" data-name="Agrupar 37" transform="translate(1.765)">
+        <g id="Search__x28_and_thou_shall_find_x29_" transform="translate(0)">
+          <g id="Agrupar_36" data-name="Agrupar 36">
+            <path id="Caminho_6" data-name="Caminho 6" d="M21.286,17.862,15.3,11.839A7.444,7.444,0,1,0,9.222,15a7.388,7.388,0,0,0,4.314-1.39l5.989,6.023a1.24,1.24,0,0,0,1.761,0A1.257,1.257,0,0,0,21.286,17.862ZM13.272,10.39l-.489.691-.687.492a4.914,4.914,0,0,1-2.874.927,5,5,0,1,1,4.05-2.11Z" transform="translate(-1.765)" fill="#8a4f7d"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="Grupo_de_máscara_2" data-name="Grupo de máscara 2" transform="translate(1 -1)" clip-path="url(#clip-path)">
+      <g id="LogoColorido3" transform="translate(146.719 21.819)">
+        <g id="Sacola" transform="translate(54.84 39.875)">
+          <g id="Símbolo_2_1" data-name="Símbolo 2 – 1" transform="translate(0 3.351)">
+            <path id="Caminho_4" data-name="Caminho 4" d="M132.366,62.93a49.882,49.882,0,0,1,7.169-3.865c1.979-.833,3.335-1.3,4.531-1.695.971-.318,1.826-.593,2.894-.865.007,0,.053-.009.079-.016" transform="translate(-132.183 -56.306)" fill="none" stroke="#ffb400" stroke-width="1.19"/>
+            <path id="Caminho_11" data-name="Caminho 11" d="M146.43,60.769a5.873,5.873,0,0,0,.625,2.15c.412,1.033,1.018,2.405,1.7,3.909.2.446.408.9.625,1.383,2.26,4.986,4.918,10.783,4.3,11.479-2.911,3.276-14.624,4.814-14.624,4.814s-7.786-16.716-7.109-17.384a56.535,56.535,0,0,1,6.364-3.344C142.336,62.056,146.43,60.769,146.43,60.769Z" transform="translate(-131.9 -60.471)" fill="none" stroke="#ffb400" stroke-width="1.19"/>
+            <path id="Caminho_9" data-name="Caminho 9" d="M183.946,98.835l-2.824,3.388" transform="translate(-159.282 -82.965)" fill="none" stroke="#ffb400" stroke-width="1.19"/>
+            <path id="Caminho_3" data-name="Caminho 3" d="M162.425,76.33c.385-.95-8.762-14.351-9.758-15.805l-.011-.016-.038-.055" transform="translate(-137.767 -60.453)" fill="none" stroke="#ffb400" stroke-width="1.19"/>
+          </g>
+          <path id="Frente" d="M146.43,60.769a.539.539,0,0,0,0,.244,10.534,10.534,0,0,0,.625,1.906c.412,1.033,1.018,2.405,1.7,3.909.2.446.408.9.625,1.383,2.26,4.986,4.918,10.783,4.3,11.479-2.911,3.276-14.624,4.814-14.624,4.814s-7.786-16.716-7.109-17.384a56.535,56.535,0,0,1,6.364-3.344C142.336,62.056,146.43,60.769,146.43,60.769Z" transform="translate(-131.794 -57.12)" fill="none" stroke="#ffb400" stroke-width="1.19"/>
+          <g id="Relógio" transform="translate(5.826 10.471)">
+            <g id="Caminho_5" data-name="Caminho 5" transform="translate(0 0)">
+              <path id="Caminho_15" data-name="Caminho 15" d="M11.452,7.525a3.846,3.846,0,0,1-3.267,3.512,6.324,6.324,0,0,1-3.972-1.36A7.5,7.5,0,0,1,1.554,4.52C1.554,3,2.905.5,4.885.249a5.487,5.487,0,0,1,3.1.8,6.941,6.941,0,0,1,2.349,2.424A9.686,9.686,0,0,1,11.452,7.525Z" transform="translate(-1.554 -0.225)" fill="none"/>
+              <path id="Caminho_16" data-name="Caminho 16" d="M7.81,10.007a2.076,2.076,0,0,0,.247-.014,2.815,2.815,0,0,0,2.331-2.468A8.773,8.773,0,0,0,9.4,3.986a5.915,5.915,0,0,0-1.927-2.01,4.981,4.981,0,0,0-2.209-.7,1.873,1.873,0,0,0-.24.015c-1.3.169-2.405,2.1-2.405,3.228A6.321,6.321,0,0,0,4.946,8.914,5.664,5.664,0,0,0,7.81,10.007m0,1.051a6.657,6.657,0,0,1-3.6-1.382A7.5,7.5,0,0,1,1.554,4.52C1.554,3,2.905.5,4.885.249A2.952,2.952,0,0,1,5.264.225a6.057,6.057,0,0,1,2.718.827,6.945,6.945,0,0,1,2.349,2.424,9.69,9.69,0,0,1,1.121,4.049,3.846,3.846,0,0,1-3.268,3.512A3.156,3.156,0,0,1,7.81,11.058Z" transform="translate(-1.554 -0.225)" fill="#ffb400"/>
+            </g>
+            <path id="Caminho_10" data-name="Caminho 10" d="M0,0,2.206,4.424" transform="translate(2.882 0.794)" fill="none" stroke="#ffb400" stroke-width="1.19"/>
+            <line id="Linha_2" data-name="Linha 2" y1="1.5" x2="3.005" transform="translate(1.961 4.913)" fill="none" stroke="#ffb400" stroke-width="1.19"/>
+          </g>
+          <g id="Alça" transform="translate(3.667 0)">
+            <path id="Caminho_7" data-name="Caminho 7" d="M140.65,71.855" transform="translate(-140.65 -67.078)" fill="none" stroke="#ffb400" stroke-width="1.19"/>
+            <path id="Caminho_8" data-name="Caminho 8" d="M141.124,72.684s-.394-6.629.948-7.533c.431-.291,1.2.122,1.948.789.126.113.268.237.412.373a25.347,25.347,0,0,1,2.727,3.724" transform="translate(-140.775 -65.002)" fill="none" stroke="#ffb400" stroke-width="1.19"/>
+            <path id="Caminho_6-2" data-name="Caminho 6" d="M141.391,72.62a9.826,9.826,0,0,0-.362-1.9,11.853,11.853,0,0,1-.379-2.406c.018-2.035.841-3.009,1.408-3.261,1.753-.782,5.24,5.039,5.24,5.039" transform="translate(-140.65 -64.977)" fill="none" stroke="#ffb400" stroke-width="1.19"/>
+          </g>
+        </g>
+        <g id="Boneco" transform="translate(0 0)">
+          <g id="Agrupar_1" data-name="Agrupar 1" transform="translate(0 0)">
+            <path id="Caminho_1" data-name="Caminho 1" d="M59.745,54.071a4.314,4.314,0,0,0-1.691-5.393A53.414,53.414,0,0,1,43.023,36.4c-1.624-1.794-3.305-3.649-5.534-5.767a4.077,4.077,0,0,0-.664-.512,11.745,11.745,0,0,0-2.8-1.71,9.541,9.541,0,0,0-2.262-.71,18.345,18.345,0,0,0-2.49-.2H29.24c-.13,0-.264.025-.393.032-.1,0-.19-.007-.287,0-.158.015-.318.044-.476.064s-.332.038-.5.064C19.29,28.8,10.56,34.471.936,44.984a3.423,3.423,0,0,0,.656,5.239,4.63,4.63,0,0,0,2.659.819A4.5,4.5,0,0,0,7.57,49.648a69.573,69.573,0,0,1,10.893-9.9l-3.492,14.28c-.5,2.054-.167,5.043,1.136,6.582l-.779,13.606L8.335,90.052c-1.077,2.443.31,5.192,3.1,6.134a6.121,6.121,0,0,0,1.953.32,5.454,5.454,0,0,0,5.049-3.032l7.29-16.516a4.28,4.28,0,0,0,.353-1.4L26.717,67l6.432,8.9,5.326,17.08A5.35,5.35,0,0,0,43.7,96.507a6.019,6.019,0,0,0,1.4-.162c2.888-.672,4.6-3.27,3.836-5.8L43.4,72.763a4.412,4.412,0,0,0-.656-1.313L33.97,59.31a6.09,6.09,0,0,0,.659-1.592l3.586-14.661A59.69,59.69,0,0,0,53.352,54.885a5.3,5.3,0,0,0,3.4.781C58.352,55.463,59.959,54.252,59.745,54.071Z" transform="translate(0 -14.368)" fill="none" stroke="#ffb400" stroke-width="1.785"/>
+            <ellipse id="Elipse_1" data-name="Elipse 1" cx="7.577" cy="7.483" rx="7.577" ry="7.483" transform="translate(30.962 0)" fill="none" stroke="#ffb400" stroke-width="1.785"/>
+          </g>
+        </g>
+        <text id="DATEMPO" transform="translate(52.378 81.448)" fill="#ffb400" stroke="#ffb400" stroke-width="0.117" font-size="17" font-family="RacingSansOne-Regular, Racing Sans One"><tspan x="0" y="0">DATEMPO</tspan></text>
+      </g>
+    </g>
+    <line id="Linha_26" data-name="Linha 26" x2="148" transform="translate(140.5 113.5)" fill="none" stroke="#ffb400" stroke-width="0.5"/>
+    <line id="Linha_27" data-name="Linha 27" y2="1099" transform="translate(683.5 132.5)" fill="none" stroke="#707070" stroke-width="1" opacity="0.37"/>
+    <g id="facebook-logo" transform="translate(431.109 1284)">
+      <path id="Caminho_15-2" data-name="Caminho 15" d="M135.648,10.6V7.811a6.14,6.14,0,0,1,.058-.971,1.887,1.887,0,0,1,.265-.677,1.082,1.082,0,0,1,.667-.461,4.75,4.75,0,0,1,1.227-.128h2.787V0H136.2q-3.867,0-5.554,1.835a7.729,7.729,0,0,0-1.688,5.407V10.6h-3.337v5.574h3.337V32.342h6.693V16.171H140.1l.589-5.574Z" transform="translate(46 35)" fill="#ffb400"/>
+    </g>
+    <g id="instagram" transform="translate(643.857 1324.857)">
+      <path id="Caminho_16-2" data-name="Caminho 16" d="M22.313,0H3.829A3.834,3.834,0,0,0,0,3.829V22.313a3.834,3.834,0,0,0,3.829,3.829H22.313a3.834,3.834,0,0,0,3.829-3.829V3.829A3.834,3.834,0,0,0,22.313,0ZM13.122,19.913a6.893,6.893,0,1,1,6.893-6.893A6.9,6.9,0,0,1,13.122,19.913ZM20.781,7.659a2.3,2.3,0,1,1,2.3-2.3A2.3,2.3,0,0,1,20.781,7.659Zm0,0" transform="translate(0 0)" fill="#ffb400"/>
+      <path id="Caminho_17-2" data-name="Caminho 17" d="M392.766,90a.766.766,0,1,0,.766.766A.766.766,0,0,0,392.766,90Zm0,0" transform="translate(-371.985 -85.405)" fill="#ffb400"/>
+      <path id="Caminho_18" data-name="Caminho 18" d="M157.361,150a5.361,5.361,0,1,0,5.361,5.361A5.368,5.368,0,0,0,157.361,150Zm0,0" transform="translate(-144.239 -142.341)" fill="#ffb400"/>
+    </g>
+    <g id="linkedin-logo" transform="translate(971.392 1709.062)">
+      <path id="LinkedIn" d="M28.844,26.457V37.12H22.662v-9.95c0-2.5-.894-4.205-3.132-4.205a3.383,3.383,0,0,0-3.172,2.262,4.23,4.23,0,0,0-.205,1.507V37.12H9.969s.083-16.852,0-18.6h6.184v2.636c-.013.02-.029.041-.041.06h.041v-.06a6.14,6.14,0,0,1,5.573-3.073C25.794,18.086,28.844,20.744,28.844,26.457ZM3.5,9.558a3.223,3.223,0,1,0-.082,6.428h.041A3.224,3.224,0,1,0,3.5,9.558ZM.367,37.12H6.549v-18.6H.367Z" transform="translate(-272.119 -394.18)" fill="#ffb400"/>
+    </g>
+    <g id="twitter" transform="translate(751 1276)">
+      <g id="Agrupar_38" data-name="Agrupar 38" transform="translate(0 48)">
+        <path id="Caminho_19" data-name="Caminho 19" d="M33.568,51.229A14.347,14.347,0,0,1,29.6,52.316a6.843,6.843,0,0,0,3.027-3.8,13.753,13.753,0,0,1-4.364,1.666,6.881,6.881,0,0,0-11.9,4.706,7.086,7.086,0,0,0,.159,1.569,19.479,19.479,0,0,1-14.184-7.2,6.884,6.884,0,0,0,2.115,9.2A6.8,6.8,0,0,1,1.343,57.6v.076a6.913,6.913,0,0,0,5.514,6.762,6.869,6.869,0,0,1-1.8.227,6.085,6.085,0,0,1-1.3-.117,6.947,6.947,0,0,0,6.43,4.794A13.828,13.828,0,0,1,1.647,72.28,12.89,12.89,0,0,1,0,72.186a19.374,19.374,0,0,0,10.557,3.088c12.663,0,19.587-10.49,19.587-19.583,0-.3-.01-.6-.025-.89A13.728,13.728,0,0,0,33.568,51.229Z" transform="translate(0 -48)" fill="#ffb400"/>
+      </g>
+    </g>
+  </g>
+</svg>
