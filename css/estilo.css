@@ -389,13 +389,7 @@ label input{
 /* FIM MINHAS OFERTAS - YASMIN */
 
 /*LUCAS MOSTRUARIO*/
-.card, .card_oferta img{
-    margin:0px;
-    padding: 3px;
-}
-.card, .card_oferta{
-    margin: 5px;
-}
+
 .banner_mostruario{
     background-image:url(../Imagens/bannerAlimento.png);
     background-repeat: no-repeat;
@@ -408,11 +402,11 @@ label input{
     color: var(--roxo);
     padding: 40px 0px;
 }
-.categoria_filtro{
+.container_filtro{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    width: 285px;
+    flex-wrap: wrap;
+    align-items: center;  
 }
 .container_card_mostruario{
     display: flex;
@@ -421,10 +415,16 @@ label input{
     margin: auto;
     flex-wrap: wrap;
 }
+.card, .card_oferta img{
+    margin:0px;
+    padding: 3px;
+}
+.card, .card_oferta{
+    margin: 5px;
+}
 .botao_reservar{
     display: flex;
-    justify-content: space-around;
-      
+    justify-content: space-around;    
 }
 .btn_reservar{
     background-color: var(--roxo);
@@ -456,6 +456,11 @@ table nav ul li{
     margin:5px;
     padding: 8px 10px;
     background-color:white;
+    border: 1px solid var(--cinza);
+    border-radius: 4pt;
+    -webkit-box-shadow: 3px 3px 6px 0px rgba(204,204,204,0.5);
+    -moz-box-shadow: 3px 3px 6px 0px rgba(204,204,204,0.5);
+    box-shadow: 3px 3px 6px 0px rgba(204,204,204,0.5);
     font-size: 20px;
     color: var(--roxo);
 }
