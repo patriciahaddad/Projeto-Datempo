@@ -16,6 +16,125 @@ body{
 main{
     padding-top: 190px;
 }
+/* Atributos do card */
+.card .info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card p, .card img{
+    margin: 20px;
+}
+
+.card{
+    -webkit-box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
+    box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
+    background-color: white;
+    width: 250px;
+    height: 430px;
+    margin: 30px 0px;
+}
+.cards_ofertas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+.card_oferta{
+    width: 250px;
+    height: 480px;
+    display: flex;
+    flex-flow: column;
+    margin: 15px;
+    -webkit-box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
+    box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
+    background-color: white;
+}
+.card_oferta img{
+    width: 100%;
+    /* Alterei aqui tirando o padding-right que estava de 100%*/
+}
+.card_oferta p{
+    margin:5px 10px;
+}
+.descricao_oferta{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.descricao_pequena{
+    width:50%;
+}
+.titulo_descricao{
+    font-size: 10pt;
+}
+.descricao{
+    font-size:14pt;
+}
+.avaliacao img{
+    width: 100px;
+    margin: 0px 5px;
+}
+.card, .card_oferta img{
+    margin:0px;
+    padding: 3px;
+}
+
+/* CONTAINERS */
+.container_card{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.container_ofertas{
+    display: flex;
+    flex-wrap: wrap;
+    width: 1100px;
+    margin: auto;
+    padding: 20px 0px;
+}
+.cont_branco{
+    width: 1100px;
+    margin: auto;
+    margin-top: 4.0em;
+    margin-bottom: 4.0em;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    padding-bottom: 30px;
+}
+.cont_brancoOfertas{
+    width: 1200px;
+    margin: auto;
+    margin-top: 4.0em;
+    margin-bottom: 4.0em;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    padding-bottom: 30px;
+}
+/* .container_card_mostruario{
+    display: flex;
+    justify-content: space-between;
+    width: 1100px;
+    margin: auto;
+    flex-wrap: wrap;
+} */
+
+
+
+
+
+
+
+
+
+
+
 /*HEADER*/
 .container_h{
     display: flex;
@@ -122,15 +241,8 @@ footer{
     background-position: center;
     height: 657px;
 } 
-.card{
-    -webkit-box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
-    -moz-box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
-    box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
-    background-color: white;
-    width: 250px;
-    height: 430px;
-    margin: 30px 0px;
-}
+/* TIRAR ISSO SE PÁ */
+
 h2{
     text-align: center;
     font-size: 24px;
@@ -145,18 +257,8 @@ hr{
     margin: auto;
     margin-bottom: 10px;
 }
-.card .info{
-    display: flex;
-    justify-content: space-between;
-}
-.card p, .card img{
-    margin: 20px;
-}
-.container_card{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
-}
+
+
 .banner_sobre{
     background-image: linear-gradient(rgba(138,79,125,0.6),rgba(138,79,125,0.6)),url(../Imagens/testesobre.jpg);
     background-position: 0% 30%;
@@ -266,79 +368,12 @@ label input{
     text-transform: uppercase;
     border: none;
 }
-.container_ofertas{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px 0px;
-    width: 1100px;
-    margin: auto;
-}
+
 .btn-filtro{
     border: 1px solid var(--cinza);
     color: 1px solid var(--roxo);
 }
-.cont_branco{
-    width: 1100px;
-    margin: auto;
-    margin-top: 4.0em;
-    margin-bottom: 4.0em;
-    background-color: #fff;
-    -webkit-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
-    -moz-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
-    box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
-    padding-bottom: 30px;
-}
-.cont_brancoOfertas{
-    width: 1200px;
-    margin: auto;
-    margin-top: 4.0em;
-    margin-bottom: 4.0em;
-    background-color: #fff;
-    -webkit-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
-    -moz-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
-    box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
-    padding-bottom: 30px;
-}
-.cards_ofertas{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px;
-}
-.card_oferta{
-    width: 250px;
-    height: 480px;
-    margin: 12px;
-    display: flex;
-    flex-flow: column;
-}
-.card_oferta img{
-    width: 100%;
-    display: flex;
-    justify-items: center;
-    /* Alterei aqui tirando o padding-right que estava de 100%*/
-}
-.card_oferta p{
-    margin:5px 10px;
-}
-.descricao_oferta{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-}
-.descricao_pequena{
-    width:50%;
-}
-.titulo_descricao{
-    font-size: 10pt;
-}
-.descricao{
-    font-size:14pt;
-}
-.avaliacao img{
-    width: 100px;
-    margin: 0px 5px;
-}
+
 .botoes_oferta{
     display: flex;
     justify-content: space-around;
@@ -408,20 +443,8 @@ label input{
     flex-wrap: wrap;
     align-items: center;  
 }
-.container_card_mostruario{
-    display: flex;
-    justify-content: space-between;
-    width: 1100px;
-    margin: auto;
-    flex-wrap: wrap;
-}
-.card, .card_oferta img{
-    margin:0px;
-    padding: 3px;
-}
-.card, .card_oferta{
-    margin: 5px;
-}
+
+
 .botao_reservar{
     display: flex;
     justify-content: space-around;    
