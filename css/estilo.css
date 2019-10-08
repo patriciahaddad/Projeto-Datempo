@@ -16,85 +16,8 @@ body{
 main{
     padding-top: 190px;
 }
-/* Atributos do card */
-.card .info{
-    display: flex;
-    justify-content: space-between;
-}
-
-.card p, .card img{
-    margin: 20px;
-}
-
-.card{
-    -webkit-box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
-    -moz-box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
-    box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
-    background-color: white;
-    width: 250px;
-    height: 430px;
-    margin: 30px 0px;
-}
-.cards_ofertas{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px;
-}
-.card_oferta{
-    width: 250px;
-    height: 480px;
-    display: flex;
-    flex-flow: column;
-    margin: 15px;
-    -webkit-box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
-    -moz-box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
-    box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
-    background-color: white;
-}
-.card_oferta img{
-    width: 100%;
-    /* Alterei aqui tirando o padding-right que estava de 100%*/
-}
-.card_oferta p{
-    margin:5px 10px;
-}
-.descricao_oferta{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-}
-.descricao_pequena{
-    width:50%;
-}
-.titulo_descricao{
-    font-size: 10pt;
-}
-.descricao{
-    font-size:14pt;
-}
-.avaliacao img{
-    width: 100px;
-    margin: 0px 5px;
-}
-.card, .card_oferta img{
-    margin:0px;
-    padding: 3px;
-}
-
 /* CONTAINERS */
-.container_card{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
-}
-.container_ofertas{
-    display: flex;
-    flex-wrap: wrap;
-    width: 1100px;
-    margin: auto;
-    padding: 20px 0px;
-}
+
 .cont_branco{
     width: 1100px;
     margin: auto;
@@ -117,13 +40,7 @@ main{
     box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
     padding-bottom: 30px;
 }
-/* .container_card_mostruario{
-    display: flex;
-    justify-content: space-between;
-    width: 1100px;
-    margin: auto;
-    flex-wrap: wrap;
-} */
+
 
 
 
@@ -233,7 +150,8 @@ footer{
     color: var(--laranja);
 }
 /*FIM FOOTER*/
-/*BRUNA*/
+
+/*HOME*/
 .banner{
     background-image: linear-gradient(rgba(138,79,125,0.4),rgba(138,79,125,0.4)),url(../Imagens/banner.jpg);
     background-repeat: no-repeat;
@@ -241,8 +159,6 @@ footer{
     background-position: center;
     height: 657px;
 } 
-/* TIRAR ISSO SE PÁ */
-
 h2{
     text-align: center;
     font-size: 24px;
@@ -257,8 +173,6 @@ hr{
     margin: auto;
     margin-bottom: 10px;
 }
-
-
 .banner_sobre{
     background-image: linear-gradient(rgba(138,79,125,0.6),rgba(138,79,125,0.6)),url(../Imagens/testesobre.jpg);
     background-position: 0% 30%;
@@ -288,8 +202,9 @@ hr{
     width: 1100px;
     margin: auto;
 }
-/*FIM BRUNA*/
-/* RUBEN */
+/*FIM HOME*/
+
+/* LOGIN*/
 .cont-geral{
     display: flex;
     justify-content: center;
@@ -322,9 +237,18 @@ label input{
 .btn:hover{
     color: white;
 }
-/*FIM DO RUBEN*/
+/*FIM LOGIN*/
 
-/* MINHAS OFERTAS - YASMIN*/
+/* MINHAS OFERTAS */
+/*FILTRO*/
+.container_filtro{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 1100px;
+    margin: auto;
+    padding: 10px 0px;
+}
 .filtro{ /*section filtro estilizando a fonte*/
     font-size: 20px;
     color: var(--roxo);
@@ -337,14 +261,6 @@ label input{
     font-size: 18px;
     padding: 4px 10px;
     border-radius: 5px;
-}
-.container_filtro{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 1100px;
-    margin: auto;
-    padding: 10px 0px;
 }
 .filtros{
     display: flex;
@@ -359,6 +275,57 @@ label input{
     text-decoration: none;
     margin-bottom: 20px;
 }
+/*FIM FILTROS*/
+/* CARD*/
+.container_ofertas{
+   display: flex;
+    width: 1100px;
+    margin: auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px 0px;
+}
+.container_card{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.card_oferta{
+    width: 250px;
+    height: 480px;
+    display: flex;
+    flex-flow: column;
+    margin: 30px 0px;
+    -webkit-box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
+    box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
+    background-color: white;
+}
+.card_oferta img{
+    width: 100%;
+}
+.card_oferta p{
+    margin:5px 10px;
+}
+.titulo_descricao{
+    font-size: 10pt;
+}
+.descricao{
+    font-size:14pt;
+}
+.descricao_pequena{
+    width:50%;
+}
+.descricao_oferta{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.avaliacao img{
+    width: 100px;
+    margin: 0px 5px;
+}
+/*FIM CARD*/
 .qnt_ofertas{
     padding-left: 100px;
 }
@@ -368,12 +335,10 @@ label input{
     text-transform: uppercase;
     border: none;
 }
-
 .btn-filtro{
     border: 1px solid var(--cinza);
     color: 1px solid var(--roxo);
 }
-
 .botoes_oferta{
     display: flex;
     justify-content: space-around;
@@ -408,6 +373,7 @@ label input{
     list-style: none;
 }
 .lista_paginacao a{
+    background-color: white;
     text-decoration: none;
     padding: 10px 15px;
     border: 1px solid var(--cinza);
@@ -421,10 +387,9 @@ label input{
     font-weight: bold;
     font-size:15pt;
 }
-/* FIM MINHAS OFERTAS - YASMIN */
+/* FIM */
 
-/*LUCAS MOSTRUARIO*/
-
+/*MOSTRUARIO*/
 .banner_mostruario{
     background-image:url(../Imagens/bannerAlimento.png);
     background-repeat: no-repeat;
@@ -432,19 +397,10 @@ label input{
     background-size: cover;
     height: 657px;
 }
-.filtro{ /*section filtro estilizando a fonte*/
-    font-size: 20px;
-    color: var(--roxo);
-    padding: 40px 0px;
+.caixa_imagem{
+    width: 250px;
+    height: 256px;
 }
-.container_filtro{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;  
-}
-
-
 .botao_reservar{
     display: flex;
     justify-content: space-around;    
@@ -463,31 +419,8 @@ label input{
 .empresa_produtos{/*Imagem empresa*/
     width: 80px;
 }
-.paginacao{
-    width: 1100px;
-    margin: auto;
-    display: flex;
-    justify-content: flex-end;  
-    margin-bottom: 30px;
-}
-table nav ul{
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-}
-table nav ul li{
-    margin:5px;
-    padding: 8px 10px;
-    background-color:white;
-    border: 1px solid var(--cinza);
-    border-radius: 4pt;
-    -webkit-box-shadow: 3px 3px 6px 0px rgba(204,204,204,0.5);
-    -moz-box-shadow: 3px 3px 6px 0px rgba(204,204,204,0.5);
-    box-shadow: 3px 3px 6px 0px rgba(204,204,204,0.5);
-    font-size: 20px;
-    color: var(--roxo);
-}
 /*FIM - LUCAS*/
+
 /*SOBRE NOS - PATY*/
 .sn_topo{
     background-image:linear-gradient(rgba(138, 79, 125, 0.6),rgba(138,79,125,0.6)), url(../imagens/sobrenossn.jpg);
@@ -538,7 +471,7 @@ table nav ul li{
     border: 4px solid #FFB400;
     margin: 40px;
 }
-/*FIM SOBRE NOS PATY*/
+/*FIM SOBRE NOS/
 
 /*PERFIL DO USUÁRIO*/
 .container_perfil{
@@ -675,7 +608,6 @@ table nav ul li{
     margin-bottom: 5px;
     color:var(--roxo);
   }
-
 /*FIM CADASTRO DE OFERTAS*/
 /*MEDIAS QUERIES*/
 /*TABLET*/
