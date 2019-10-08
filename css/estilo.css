@@ -399,7 +399,7 @@ label input{
 
 /*SOBRE NOS - PATY*/
 .sn_topo{
-    background-image:linear-gradient(rgba(138, 79, 125, 0.6),rgba(138,79,125,0.6)), url(../imagens/sobrenossn.jpg);
+    background-image:linear-gradient(rgba(138, 79, 125, 0.6),rgba(138,79,125,0.6)), url(../Imagens/sobrenossn.jpg);
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: top center;
@@ -584,6 +584,8 @@ label input{
     margin-bottom: 5px;
     color:var(--roxo);
   }
+
+  /*BOTOES*/
 /*FIM CADASTRO DE OFERTAS*/
 /*MEDIAS QUERIES*/
 /*TABLET*/
