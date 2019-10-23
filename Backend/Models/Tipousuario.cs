@@ -19,7 +19,7 @@ namespace Backend.Models
         [StringLength(255)]
         public string Titulo { get; set; }
 
-        [InverseProperty("IdTipoUsuario")]
+        [InverseProperty("IdTipoUsuarioNavigation")]
         public virtual ICollection<Usuario> Usuario { get; set; }
     }
 }

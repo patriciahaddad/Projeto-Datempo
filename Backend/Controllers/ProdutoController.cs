@@ -4,84 +4,91 @@ using Backend.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Backend.Controllers {
-
-    [Route ("api/[controller]")]
+namespace backend.Controllers
+{
+    //Definimos nossa rota do controller e dizemos que é um controller de API
+    [Route("api/[controller]")]
     [ApiController]
-    public class ProdutoController : ControllerBase {
-        bddatempoContext _contexto = new bddatempoContext ();
+    public class ProdutoController : ControllerBase
+    {
+        bddatempoContext _contexto = new bddatempoContext();
 
+        // GET: api/Produto
         [HttpGet]
-        public async Task<ActionResult<List<Produto>>> Get () {
-            var produtos = await _contexto.Produto.ToListAsync ();
+        public async Task<ActionResult<List<Produto>>> Get()
+        {
+            var produtos = await _contexto.Produto.Include("IdCategoriaNavigation").ToListAsync();
 
-            if (produtos == null) {
-                return NotFound ();
+            if(produtos == null){
+                return NotFound();
             }
+
             return produtos;
         }
+        // GET: api/Produto/2
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Produto>> Get(int id)
+        {
+            var produto = await _contexto.Produto.Include("IdCategoriaNavigation").FirstOrDefaultAsync(p => p.IdProduto == id);
 
-        [HttpGet ("{id}")]
-        public async Task<ActionResult<Produto>> Get (int id) {
-            var produto = await _contexto.Produto.Include ("Categoria").FirstAsync ();
-
-            if (produto == null) {
-                return NotFound ();
+            if(produto == null){
+                return NotFound();
             }
+
             return produto;
         }
-        //fim get
 
-        //POST INSERT API/Produto
+        //
+        //POST api/Produto
         [HttpPost]
-        public async Task<ActionResult<Produto>> Post (Produto produto) {
-            try {
-                //Tratamos contra ataques de SQL INJECTION
-                await _contexto.AddAsync (produto);
-                await _contexto.SaveChangesAsync ();
-            } catch (DbUpdateConcurrencyException) {
-                //Mostra erro
+        public async Task<ActionResult<Produto>> Post(Produto produto){
+            try{
+                // Tratamos contra ataques de SQL Injection
+                await _contexto.AddAsync(produto);
+                // Salvamos efetivamente o nosso objeto no banco
+                await _contexto.SaveChangesAsync();
+            }catch(DbUpdateConcurrencyException){
                 throw;
             }
             return produto;
         }
-        //fim Post
 
-        //PUT
-        [HttpPut ("{id}")]
-        public async Task<ActionResult> Put (int id, Produto produto) {
-            if (id != produto.IdProduto) {
-                return BadRequest ();
+        //Update
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Put(int id, Produto produto){
+            // Se o Id do objeto não existir, ele retorna erro 400
+            if(id != produto.IdProduto){
+                return BadRequest();
             }
-            _contexto.Entry (produto).State = EntityState.Modified;
+            //Comparamos os atributos que foram modificados através do EF
+            _contexto.Entry(produto).State = EntityState.Modified;
 
-            try {
-                await _contexto.SaveChangesAsync ();
-            } catch (DbUpdateConcurrencyException) {
-                var produto_valido = await _contexto.Produto.FindAsync (id);
+            try{
+                await _contexto.SaveChangesAsync();
+            }catch(DbUpdateConcurrencyException){
+                // Verificamos se o objeto inserido realmente existe no banco
+                var produto_valido = await _contexto.Produto.FindAsync(id);
 
-                if (produto_valido == null) {
-                    return NotFound ();
-                } else {
+                if(produto_valido == null){
+                    return NotFound();
+                }else{
                     throw;
                 }
             }
-            //retorna erro 204
-            return NoContent ();
+            // NoContent = Retorna 204, sem nada
+            return NoContent();
         }
 
-        //DELETE API
-        [HttpDelete ("{id}")]
-        public async Task<ActionResult<Produto>> Delete (int id) {
-            var produto = await _contexto.Produto.FindAsync (id);
-
-            if (produto == null) {
-                return NotFound ();
+        //DELETE api/produto/id
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Produto>> Delete(int id){
+            var produto = await _contexto.Produto.FindAsync(id);
+            if(produto == null){
+                return NotFound();
             }
 
-            //Removendo objeto e salva as mudanças
-            _contexto.Produto.Remove (produto);
-            await _contexto.SaveChangesAsync ();
+            _contexto.Produto.Remove(produto);
+            await _contexto.SaveChangesAsync();
 
             return produto;
         }

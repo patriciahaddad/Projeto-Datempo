@@ -1,46 +1,45 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Backend.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-// Para adicionar a árvore de objetos adicionamos uma nova biblioteca JSON
-// dotnet add package Microsoft.AspNetCore.Mvc.NewtonsoftJson
-
 namespace backend.Controllers
 {
-    // Definimos nossa rota do controller e dizemos que é um controller de API
+    //Definimos nossa rota do controller e dizemos que é um controller de API
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
-    public class UsuarioController: ControllerBase
+    public class UsuarioController : ControllerBase
     {
         bddatempoContext _contexto = new bddatempoContext();
 
-        //GET: api/Usuario
+        // GET: api/Usuario
         [HttpGet]
         public async Task<ActionResult<List<Usuario>>> Get()
         {
             var usuarios = await _contexto.Usuario.Include("IdTipoUsuarioNavigation").ToListAsync();
-            
+
             if(usuarios == null){
                 return NotFound();
             }
+
             return usuarios;
         }
-        //GET: api/Usuario/2
+        // GET: api/Usuario/2
         [HttpGet("{id}")]
         public async Task<ActionResult<Usuario>> Get(int id)
         {
             var usuario = await _contexto.Usuario.Include("IdTipoUsuarioNavigation").FirstOrDefaultAsync(t => t.IdTipoUsuario == id);
-            
+
             if(usuario == null){
                 return NotFound();
             }
+
             return usuario;
         }
 
+        //
+        //POST api/Usuario
         [HttpPost]
         public async Task<ActionResult<Usuario>> Post(Usuario usuario){
             try{
@@ -54,9 +53,10 @@ namespace backend.Controllers
             return usuario;
         }
 
+        //Update
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, Usuario usuario){
-            // Se o ID do objeto não existir, ele retorna o erro 400
+            // Se o Id do objeto não existir, ele retorna erro 400
             if(id != usuario.IdUsuario){
                 return BadRequest();
             }
@@ -79,6 +79,7 @@ namespace backend.Controllers
             return NoContent();
         }
 
+        //DELETE api/usuario/id
         [HttpDelete("{id}")]
         public async Task<ActionResult<Usuario>> Delete(int id){
             var usuario = await _contexto.Usuario.FindAsync(id);

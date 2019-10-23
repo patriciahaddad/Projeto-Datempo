@@ -4,84 +4,91 @@ using Backend.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Backend.Controllers {
-
-    [Route ("api/[controller]")]
+namespace backend.Controllers
+{
+    //Definimos nossa rota do controller e dizemos que é um controller de API
+    [Route("api/[controller]")]
     [ApiController]
-    public class EnderecoController : ControllerBase {
-        bddatempoContext _contexto = new bddatempoContext ();
+    public class EnderecoController : ControllerBase
+    {
+        bddatempoContext _contexto = new bddatempoContext();
 
+        // GET: api/Endereco
         [HttpGet]
-        public async Task<ActionResult<List<Endereco>>> Get () {
-            var enderecos = await _contexto.Endereco.ToListAsync ();
+        public async Task<ActionResult<List<Endereco>>> Get()
+        {
+            var enderecos = await _contexto.Endereco.Include("IdUsuarioNavigation").ToListAsync();
 
-            if (enderecos == null) {
-                return NotFound ();
+            if(enderecos == null){
+                return NotFound();
             }
+
             return enderecos;
         }
+        // GET: api/Endereco/2
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Endereco>> Get(int id)
+        {
+            var endereco = await _contexto.Endereco.Include("IdUsuarioNavigation").FirstOrDefaultAsync(u => u.IdUsuario == id);
 
-        [HttpGet ("{id}")]
-        public async Task<ActionResult<Endereco>> Get (int id) {
-            var endereco = await _contexto.Endereco.Include ("Usuario").FirstAsync ();
-
-            if (endereco == null) {
-                return NotFound ();
+            if(endereco == null){
+                return NotFound();
             }
+
             return endereco;
         }
-        //fim get
 
-        //POST INSERT API/Endereco
+        //
+        //POST api/Endereco
         [HttpPost]
-        public async Task<ActionResult<Endereco>> Post (Endereco endereco) {
-            try {
-                //Tratamos contra ataques de SQL INJECTION
-                await _contexto.AddAsync (endereco);
-                await _contexto.SaveChangesAsync ();
-            } catch (DbUpdateConcurrencyException) {
-                //Mostra erro
+        public async Task<ActionResult<Endereco>> Post(Endereco endereco){
+            try{
+                // Tratamos contra ataques de SQL Injection
+                await _contexto.AddAsync(endereco);
+                // Salvamos efetivamente o nosso objeto no banco
+                await _contexto.SaveChangesAsync();
+            }catch(DbUpdateConcurrencyException){
                 throw;
             }
             return endereco;
         }
-        //fim Post
 
-        //PUT
-        [HttpPut ("{id}")]
-        public async Task<ActionResult> Put (int id, Endereco endereco) {
-            if (id != endereco.IdEndereco) {
-                return BadRequest ();
+        //Update
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Put(int id, Endereco endereco){
+            // Se o Id do objeto não existir, ele retorna erro 400
+            if(id != endereco.IdEndereco){
+                return BadRequest();
             }
-            _contexto.Entry (endereco).State = EntityState.Modified;
+            //Comparamos os atributos que foram modificados através do EF
+            _contexto.Entry(endereco).State = EntityState.Modified;
 
-            try {
-                await _contexto.SaveChangesAsync ();
-            } catch (DbUpdateConcurrencyException) {
-                var endereco_valido = await _contexto.Endereco.FindAsync (id);
+            try{
+                await _contexto.SaveChangesAsync();
+            }catch(DbUpdateConcurrencyException){
+                // Verificamos se o objeto inserido realmente existe no banco
+                var endereco_valido = await _contexto.Endereco.FindAsync(id);
 
-                if (endereco_valido == null) {
-                    return NotFound ();
-                } else {
+                if(endereco_valido == null){
+                    return NotFound();
+                }else{
                     throw;
                 }
             }
-            //retorna erro 204
-            return NoContent ();
+            // NoContent = Retorna 204, sem nada
+            return NoContent();
         }
 
-        //DELETE API/Usuario
-        [HttpDelete ("{id}")]
-        public async Task<ActionResult<Endereco>> Delete (int id) {
-            var endereco = await _contexto.Endereco.FindAsync (id);
-
-            if (endereco == null) {
-                return NotFound ();
+        //DELETE api/endereco/id
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Endereco>> Delete(int id){
+            var endereco = await _contexto.Endereco.FindAsync(id);
+            if(endereco == null){
+                return NotFound();
             }
 
-            //Removendo objeto e salva as mudanças
-            _contexto.Endereco.Remove (endereco);
-            await _contexto.SaveChangesAsync ();
+            _contexto.Endereco.Remove(endereco);
+            await _contexto.SaveChangesAsync();
 
             return endereco;
         }
