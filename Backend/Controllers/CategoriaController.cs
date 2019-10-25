@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Backend.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -40,6 +41,7 @@ namespace backend.Controllers
 
         //
         //POST api/Categoria
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         public async Task<ActionResult<Categoria>> Post(Categoria categoria){
             try{
@@ -54,6 +56,7 @@ namespace backend.Controllers
         }
 
         //Update
+        [Authorize(Roles = "Administrador")]
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, Categoria categoria){
             // Se o Id do objeto não existir, ele retorna erro 400
@@ -80,6 +83,7 @@ namespace backend.Controllers
         }
 
         //DELETE api/categoria/id
+        [Authorize(Roles = "Administrador")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Categoria>> Delete(int id){
             var categoria = await _contexto.Categoria.FindAsync(id);

@@ -6,6 +6,7 @@ using System.Text;
 using Backend.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
@@ -28,11 +29,11 @@ namespace backend.Controllers
 
         // Chamamos nosso método para validar o usuário na aplicação
         private Usuario ValidaUsuario(Usuario login){
-            var usuario = _context.Usuario.FirstOrDefault(
+            var usuario = _context.Usuario.Include("IdTipoUsuarioNavigation").FirstOrDefault(
                 u => u.Email == login.Email && u.Senha == login.Senha
             );
             if(usuario != null){
-                usuario = login;
+                // usuario = login;
             }
             return usuario;
         }
@@ -48,13 +49,14 @@ namespace backend.Controllers
             var claims = new[] {
                 new Claim(JwtRegisteredClaimNames.NameId, userInfo.Nome),
                 new Claim(JwtRegisteredClaimNames.Email, userInfo.Email),
+                new Claim(ClaimTypes.Role, userInfo.IdTipoUsuarioNavigation.Titulo.ToString()),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
 
             //Configuramos nosso Token e seu tempo de vida
             var token = new JwtSecurityToken(
-                _config["Jwt: Issuer"],
-                _config["Jwt: Issuer"],
+                _config["Jwt:Issuer"],
+                _config["Jwt:Issuer"],
                 claims,
                 expires: DateTime.Now.AddMinutes(120),
                 signingCredentials : credentials

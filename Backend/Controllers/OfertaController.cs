@@ -4,10 +4,12 @@ using System.IO;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Backend.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using upload_dotnet.Controllers;
 
 namespace backend.Controllers
 {
@@ -17,6 +19,7 @@ namespace backend.Controllers
     public class OfertaController : ControllerBase
     {
         bddatempoContext _contexto = new bddatempoContext();
+        UploadController _upload = new UploadController();
 
         // GET: api/Oferta
         [HttpGet]
@@ -45,9 +48,11 @@ namespace backend.Controllers
 
         //
         //POST api/Oferta
+        [Authorize(Roles = "Fornecedor")]
         [HttpPost]
-        public async Task<ActionResult<Oferta>> Post(Oferta oferta){
+        public async Task<ActionResult<Oferta>> Post([FromForm]Oferta oferta){
             try{
+                oferta.Imagem=_upload.Upload();
                 // Tratamos contra ataques de SQL Injection
                 await _contexto.AddAsync(oferta);
                 // Salvamos efetivamente o nosso objeto no banco
@@ -59,6 +64,7 @@ namespace backend.Controllers
         }
 
         //Update
+        [Authorize(Roles = "Fornecedor")]
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, Oferta oferta){
             // Se o Id do objeto não existir, ele retorna erro 400
@@ -85,6 +91,7 @@ namespace backend.Controllers
         }
 
         //DELETE api/oferta/id
+        [Authorize(Roles = "Fornecedor")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Oferta>> Delete(int id){
             var oferta = await _contexto.Oferta.FindAsync(id);
