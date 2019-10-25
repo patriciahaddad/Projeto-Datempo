@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -71,6 +72,7 @@ namespace Backend
             // Configuramos como os objetos relacionados aparecerão nos retornos
             services.AddControllersWithViews().AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddControllers();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             //Configuramos o Swagger
             services.AddSwaggerGen(c => {
@@ -117,6 +119,8 @@ namespace Backend
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {

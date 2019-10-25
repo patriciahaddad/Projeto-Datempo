@@ -38,7 +38,6 @@ namespace backend.Controllers
             return usuario;
         }
 
-        //
         //POST api/Usuario
         [HttpPost]
         public async Task<ActionResult<Usuario>> Post(Usuario usuario){
