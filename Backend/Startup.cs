@@ -63,7 +63,7 @@ namespace Backend
         {
             Configuration = configuration;
         }
-
+        
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -97,6 +97,16 @@ namespace Backend
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                 };
             });
+
+            //Habilitando o Cors
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", 
+                    builder => builder.AllowAnyOrigin()
+                                      .AllowAnyMethod()
+                                      .AllowAnyHeader()
+                                      .AllowCredentials());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -126,6 +136,8 @@ namespace Backend
             {
                 endpoints.MapControllers();
             });
+            // Usamos o Cors
+            app.UseCors();
         }
     }
 }
