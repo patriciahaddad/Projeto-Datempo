@@ -137,7 +137,7 @@ namespace Backend
                 endpoints.MapControllers();
             });
             // Usamos o Cors
-            app.UseCors();
+            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
         }
     }
 }
