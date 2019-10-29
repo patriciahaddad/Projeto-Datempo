@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Backend.Models;
+using Backend.Domains;
+using Backend.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,13 +12,15 @@ namespace backend.Controllers
     [ApiController]
     public class EnderecoController : ControllerBase
     {
-        bddatempoContext _contexto = new bddatempoContext();
+       // bddatempoContext _repositorio = new bddatempoContext();
+
+        EnderecoRepository _repositorio = new EnderecoRepository();
 
         // GET: api/Endereco
         [HttpGet]
         public async Task<ActionResult<List<Endereco>>> Get()
         {
-            var enderecos = await _contexto.Endereco.Include("IdUsuarioNavigation").ToListAsync();
+            var enderecos = await _repositorio.Listar();
 
             if(enderecos == null){
                 return NotFound();
@@ -29,7 +32,7 @@ namespace backend.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Endereco>> Get(int id)
         {
-            var endereco = await _contexto.Endereco.Include("IdUsuarioNavigation").FirstOrDefaultAsync(u => u.IdUsuario == id);
+            var endereco = await _repositorio.BuscarPorID(id);
 
             if(endereco == null){
                 return NotFound();
@@ -43,10 +46,7 @@ namespace backend.Controllers
         [HttpPost]
         public async Task<ActionResult<Endereco>> Post(Endereco endereco){
             try{
-                // Tratamos contra ataques de SQL Injection
-                await _contexto.AddAsync(endereco);
-                // Salvamos efetivamente o nosso objeto no banco
-                await _contexto.SaveChangesAsync();
+                await _repositorio.Salvar(endereco);
             }catch(DbUpdateConcurrencyException){
                 throw;
             }
@@ -60,14 +60,11 @@ namespace backend.Controllers
             if(id != endereco.IdEndereco){
                 return BadRequest();
             }
-            //Comparamos os atributos que foram modificados através do EF
-            _contexto.Entry(endereco).State = EntityState.Modified;
-
             try{
-                await _contexto.SaveChangesAsync();
+                await _repositorio.Alterar(endereco);
             }catch(DbUpdateConcurrencyException){
                 // Verificamos se o objeto inserido realmente existe no banco
-                var endereco_valido = await _contexto.Endereco.FindAsync(id);
+                var endereco_valido = await _repositorio.BuscarPorID(id);
 
                 if(endereco_valido == null){
                     return NotFound();
@@ -82,13 +79,11 @@ namespace backend.Controllers
         //DELETE api/endereco/id
         [HttpDelete("{id}")]
         public async Task<ActionResult<Endereco>> Delete(int id){
-            var endereco = await _contexto.Endereco.FindAsync(id);
+            var endereco = await _repositorio.BuscarPorID(id);
             if(endereco == null){
                 return NotFound();
             }
-
-            _contexto.Endereco.Remove(endereco);
-            await _contexto.SaveChangesAsync();
+            await _repositorio.Excluir(endereco);
 
             return endereco;
         }

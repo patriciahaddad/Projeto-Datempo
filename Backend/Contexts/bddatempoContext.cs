@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace Backend.Models
+namespace Backend.Domains
 {
     public partial class bddatempoContext : DbContext
     {

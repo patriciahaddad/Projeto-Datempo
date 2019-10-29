@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Backend.Models;
+using Backend.Domains;
+using Backend.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,13 +13,15 @@ namespace backend.Controllers
     [ApiController]
     public class ProdutoController : ControllerBase
     {
-        bddatempoContext _contexto = new bddatempoContext();
+        //bddatempoContext _contexto = new bddatempoContext();
+
+        ProdutoRepository _repositorio = new ProdutoRepository();
 
         // GET: api/Produto
         [HttpGet]
         public async Task<ActionResult<List<Produto>>> Get()
         {
-            var produtos = await _contexto.Produto.Include("IdCategoriaNavigation").ToListAsync();
+            var produtos = await _repositorio.Listar();
 
             if(produtos == null){
                 return NotFound();
@@ -30,7 +33,7 @@ namespace backend.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Produto>> Get(int id)
         {
-            var produto = await _contexto.Produto.Include("IdCategoriaNavigation").FirstOrDefaultAsync(p => p.IdProduto == id);
+            var produto = await _repositorio.BuscarPorID(id);
 
             if(produto == null){
                 return NotFound();
@@ -45,10 +48,7 @@ namespace backend.Controllers
         [HttpPost]
         public async Task<ActionResult<Produto>> Post(Produto produto){
             try{
-                // Tratamos contra ataques de SQL Injection
-                await _contexto.AddAsync(produto);
-                // Salvamos efetivamente o nosso objeto no banco
-                await _contexto.SaveChangesAsync();
+                await _repositorio.Salvar(produto);
             }catch(DbUpdateConcurrencyException){
                 throw;
             }
@@ -63,14 +63,11 @@ namespace backend.Controllers
             if(id != produto.IdProduto){
                 return BadRequest();
             }
-            //Comparamos os atributos que foram modificados através do EF
-            _contexto.Entry(produto).State = EntityState.Modified;
-
             try{
-                await _contexto.SaveChangesAsync();
+                await _repositorio.Alterar(produto);
             }catch(DbUpdateConcurrencyException){
                 // Verificamos se o objeto inserido realmente existe no banco
-                var produto_valido = await _contexto.Produto.FindAsync(id);
+                var produto_valido = await _repositorio.BuscarPorID(id);
 
                 if(produto_valido == null){
                     return NotFound();
@@ -86,13 +83,11 @@ namespace backend.Controllers
         [Authorize(Roles = "Administrador")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Produto>> Delete(int id){
-            var produto = await _contexto.Produto.FindAsync(id);
+            var produto = await _repositorio.BuscarPorID(id);
             if(produto == null){
                 return NotFound();
             }
-
-            _contexto.Produto.Remove(produto);
-            await _contexto.SaveChangesAsync();
+            await _repositorio.Excluir(produto);
 
             return produto;
         }
