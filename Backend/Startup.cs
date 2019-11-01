@@ -99,14 +99,14 @@ namespace Backend
             });
 
             //Habilitando o Cors
-            services.AddCors(options =>
-            {
-                options.AddPolicy("CorsPolicy", 
-                    builder => builder.AllowAnyOrigin()
-                                      .AllowAnyMethod()
-                                      .AllowAnyHeader()
-                                      .AllowCredentials());
-            });
+            // services.AddCors(options =>
+            // {
+            //     options.AddPolicy("CorsPolicy", 
+            //         builder => builder.AllowAnyOrigin()
+            //                           .AllowAnyMethod()
+            //                           .AllowAnyHeader()
+            //                           .AllowCredentials());
+            // });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -137,7 +137,7 @@ namespace Backend
                 endpoints.MapControllers();
             });
             // Usamos o Cors
-            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+            //app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
         }
     }
 }

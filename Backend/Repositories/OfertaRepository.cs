@@ -1,14 +1,17 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Backend.Domains;
 using Backend.Interfaces;
+using Backend.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Repositories
 {
     public class OfertaRepository : IOferta
     {
-public async Task<Oferta> Alterar(Oferta oferta)
+        public async Task<Oferta> Alterar(Oferta oferta)
         {
             using(bddatempoContext _contexto = new bddatempoContext()){
                 //Comparamos os atributos que foram modificados através do EF
@@ -51,5 +54,16 @@ public async Task<Oferta> Alterar(Oferta oferta)
                 return oferta;
             }
         }
+
+        // public async Task<List<Oferta>> Filtrar()
+        // {
+        //     using(bddatempoContext _contexto = new bddatempoContext()){
+        //        FiltroViewModel filtro = new FiltroViewModel();
+        //        List<Oferta> ofertas = new List<Oferta>();
+        //        ofertas = _contexto.Oferta.Where(o => o.NomeOferta.Contains(filtro.Palavra)).ToList();
+        //        return ofertas;
+        //    }
+        // }
+
     }
 }

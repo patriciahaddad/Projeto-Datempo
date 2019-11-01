@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Backend.Domains;
+using Backend.ViewModels;
 
 namespace Backend.Interfaces
 {
@@ -15,5 +16,7 @@ namespace Backend.Interfaces
          Task<Oferta> Alterar(Oferta oferta);
 
          Task<Oferta> Excluir(Oferta oferta);
+
+         //Task<List<Oferta>> Filtrar();
     }
 }
