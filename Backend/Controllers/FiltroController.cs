@@ -28,9 +28,22 @@ namespace Backend.Controllers {
             List<Oferta> ofertas;
             using (bddatempoContext _contexto = new bddatempoContext ()) {
                 ofertas = _contexto.Oferta.OrderBy (o => o.Preco).ToList ();
-
             }
             return ofertas;
         }
+
+        [HttpGet ("OrdenarPreco/{ordempreco}")]
+        public ActionResult<List<Oferta>> GetOrdernarPreco (string ordempreco) {
+            List<Oferta> ofertas;
+            using (bddatempoContext _contexto = new bddatempoContext ()) {
+              
+                if(ordempreco == "Menor"){
+                    ofertas = _contexto.Oferta.OrderBy (o => o.Preco).ToList();
+                }else{
+                    ofertas = _contexto.Oferta.OrderByDescending (o => o.Preco).ToList();
+                }
+            }
+            return ofertas;
+        }       
     }
 }
