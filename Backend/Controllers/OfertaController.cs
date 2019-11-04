@@ -58,7 +58,7 @@ namespace backend.Controllers
             try{
                 var arquivo = Request.Form.Files[0];
 
-                oferta.Imagem = _uploadRepo.Upload(arquivo, "imagens");
+                oferta.Imagem = _uploadRepo.Upload(arquivo, "imgOferta");
                 // Tratamos contra ataques de SQL Injection
                 await _repositorio.Salvar(oferta);
             }catch(DbUpdateConcurrencyException){
@@ -70,12 +70,14 @@ namespace backend.Controllers
         //Update
         //[Authorize(Roles = "Fornecedor")]
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, Oferta oferta){
+        public async Task<ActionResult> Put(int id,[FromForm] Oferta oferta){
             // Se o Id do objeto não existir, ele retorna erro 400
             if(id != oferta.IdOferta){
                 return BadRequest();
             }
             try{
+                var arquivo = Request.Form.Files[0];
+                oferta.Imagem = _uploadRepo.Upload(arquivo, "imgOferta");
                 await _repositorio.Alterar(oferta);
             }catch(DbUpdateConcurrencyException){
                 // Verificamos se o objeto inserido realmente existe no banco

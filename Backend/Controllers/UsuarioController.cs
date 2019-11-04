@@ -14,6 +14,8 @@ namespace backend.Controllers
     {
         //bddatempoContext _repositorio = new bddatempoContext();
         UsuarioRepository _repositorio = new UsuarioRepository();
+        
+        UploadRepository _uploadRepo = new UploadRepository();
 
         // GET: api/Usuario
         [HttpGet]
@@ -42,8 +44,11 @@ namespace backend.Controllers
 
         //POST api/Usuario
         [HttpPost]
-        public async Task<ActionResult<Usuario>> Post(Usuario usuario){
+        public async Task<ActionResult<Usuario>> Post([FromForm]Usuario usuario){
             try{
+                var arquivo = Request.Form.Files[0];
+                usuario.imgusuario = _uploadRepo.Upload(arquivo, "imgPerfil");
+
                 await _repositorio.Salvar(usuario);
             }catch(DbUpdateConcurrencyException){
                 throw;
@@ -53,12 +58,14 @@ namespace backend.Controllers
 
         //Update
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, Usuario usuario){
+        public async Task<ActionResult> Put(int id,[FromForm]Usuario usuario){
             // Se o Id do objeto não existir, ele retorna erro 400
             if(id != usuario.IdUsuario){
                 return BadRequest();
             }
             try{
+                var arquivo = Request.Form.Files[0];
+                usuario.imgusuario = _uploadRepo.Upload(arquivo, "imgPerfil");
                 await _repositorio.Alterar(usuario);
             }catch(DbUpdateConcurrencyException){
                 // Verificamos se o objeto inserido realmente existe no banco
