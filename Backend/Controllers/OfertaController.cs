@@ -23,6 +23,7 @@ namespace backend.Controllers
     {
         OfertaRepository _repositorio = new OfertaRepository();
         UploadController _upload = new UploadController();
+        UploadRepository _uploadRepo = new UploadRepository();
 
         // GET: api/Oferta
         [HttpGet]
@@ -51,11 +52,13 @@ namespace backend.Controllers
 
         //
         //POST api/Oferta
-        [Authorize(Roles = "Fornecedor")]
+        //[Authorize(Roles = "Fornecedor")]
         [HttpPost]
         public async Task<ActionResult<Oferta>> Post([FromForm]Oferta oferta){
             try{
-                oferta.Imagem=_upload.Upload();
+                var arquivo = Request.Form.Files[0];
+
+                oferta.Imagem = _uploadRepo.Upload(arquivo, "imagens");
                 // Tratamos contra ataques de SQL Injection
                 await _repositorio.Salvar(oferta);
             }catch(DbUpdateConcurrencyException){
@@ -65,7 +68,7 @@ namespace backend.Controllers
         }
 
         //Update
-        [Authorize(Roles = "Fornecedor")]
+        //[Authorize(Roles = "Fornecedor")]
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, Oferta oferta){
             // Se o Id do objeto não existir, ele retorna erro 400
