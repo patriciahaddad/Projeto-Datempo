@@ -3,6 +3,7 @@ using System.Linq;
 using Backend.Domains;
 using Backend.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Controllers {
     [Route ("api/[controller]")]
@@ -11,7 +12,22 @@ namespace Backend.Controllers {
         [HttpGet ("FiltrarPalavra")]
         public ActionResult<List<Oferta>> GetFiltrar (FiltroViewModel filtro) {
             using (bddatempoContext _contexto = new bddatempoContext ()) {
-                List<Oferta> ofertas = _contexto.Oferta.Where (o => o.NomeOferta.Contains (filtro.Palavra)).ToList ();
+                List<Oferta> ofertas = _contexto.Oferta.Where (o => o.NomeOferta.Contains(filtro.Palavra)).ToList ();
+                if (ofertas == null) {
+                    return NotFound (
+                        new {
+                            Mensagem = "Produto não encontrado",
+                                Erro = true
+                        });
+                }
+                return ofertas;
+            }
+        }
+
+        [HttpGet ("filtrarcategoria/{filtrocategoria}")]
+        public ActionResult<List<Oferta>> GetFiltrarCategoria (string filtrocategoria) {
+            using (bddatempoContext _contexto = new bddatempoContext ()) {             
+                List<Oferta> ofertas = _contexto.Oferta.Include("IdProdutoNavigation").Where(o => o.IdProdutoNavigation.IdCategoriaNavigation.NomeCategoria.Contains(filtrocategoria)).ToList();
                 if (ofertas == null) {
                     return NotFound (
                         new {
@@ -27,7 +43,7 @@ namespace Backend.Controllers {
         public ActionResult<List<Oferta>> GetOrdernar () {
             List<Oferta> ofertas;
             using (bddatempoContext _contexto = new bddatempoContext ()) {
-                ofertas = _contexto.Oferta.OrderBy (o => o.Preco).ToList ();
+                ofertas = _contexto.Oferta.OrderBy (o => o.NomeOferta).ToList ();
             }
             return ofertas;
         }
