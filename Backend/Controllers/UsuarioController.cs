@@ -18,6 +18,10 @@ namespace backend.Controllers
         UploadRepository _uploadRepo = new UploadRepository();
 
         // GET: api/Usuario
+        /// <summary>
+        /// Pegamos os usuário cadastrados
+        /// </summary>
+        /// <returns>Lista de usuários cadastrados</returns>
         [HttpGet]
         public async Task<ActionResult<List<Usuario>>> Get()
         {
@@ -29,7 +33,13 @@ namespace backend.Controllers
 
             return usuarios;
         }
+
         // GET: api/Usuario/2
+        /// <summary>
+        /// Pegamos os usuários de acordo com o ID
+        /// </summary>
+        /// <param name="id">Passar ID</param>
+        /// <returns>Buscar usuário por ID</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Usuario>> Get(int id)
         {
@@ -43,6 +53,11 @@ namespace backend.Controllers
         }
 
         //POST api/Usuario
+        /// <summary>
+        /// Cadastramos um novo usuário
+        /// </summary>
+        /// <param name="usuario">Passar objeto usuário</param>
+        /// <returns>Cadastrar usuário</returns>
         [HttpPost]
         public async Task<ActionResult<Usuario>> Post([FromForm]Usuario usuario){
             try{
@@ -57,6 +72,12 @@ namespace backend.Controllers
         }
 
         //Update
+        /// <summary>
+        /// Alteramos usuário de acordo com o ID
+        /// </summary>
+        /// <param name="id">Passar ID</param>
+        /// <param name="usuario">Passar objeto usuário</param>
+        /// <returns>Alterar usuário</returns>
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id,[FromForm]Usuario usuario){
             // Se o Id do objeto não existir, ele retorna erro 400
@@ -82,6 +103,11 @@ namespace backend.Controllers
         }
 
         //DELETE api/usuario/id
+        /// <summary>
+        /// Deletamos um usuário de acordo com o ID
+        /// </summary>
+        /// <param name="id">Passar ID</param>
+        /// <returns>Deletar usuário</returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Usuario>> Delete(int id){
             var usuario = await _repositorio.BuscarPorID(id);
