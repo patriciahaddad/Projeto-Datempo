@@ -28,7 +28,11 @@ namespace backend.Controllers
             _config = config;
         }
 
-        // Chamamos nosso método para validar o usuário na aplicação
+        /// <summary>
+        /// Chamamos nosso método para validar o usuário na aplicação
+        /// </summary>
+        /// <param name="login">Passar objeto login</param>
+        /// <returns>Validar usuário</returns>
         private Usuario ValidaUsuario(LoginViewModel login){
             var usuario = _context.Usuario.Include("IdTipoUsuarioNavigation").FirstOrDefault(
                 u => u.Email == login.Email && u.Senha == login.Senha
@@ -36,7 +40,11 @@ namespace backend.Controllers
             return usuario;
         }
 
-        //Geramos o Token
+        /// <summary>
+        /// Geramos o Token
+        /// </summary>
+        /// <param name="userInfo">Passar objeto userinfo</param>
+        /// <returns>Gerar Token</returns>
         private string GerarToken(Usuario userInfo){
             // Definimos a criptografia do nosso Token
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));

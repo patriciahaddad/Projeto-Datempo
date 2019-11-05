@@ -18,6 +18,10 @@ namespace backend.Controllers
         ProdutoRepository _repositorio = new ProdutoRepository();
 
         // GET: api/Produto
+        /// <summary>
+        /// Pegamos os produtos cadastrados
+        /// </summary>
+        /// <returns>Lista de produtos cadastrados</returns>
         [HttpGet]
         public async Task<ActionResult<List<Produto>>> Get()
         {
@@ -30,6 +34,11 @@ namespace backend.Controllers
             return produtos;
         }
         // GET: api/Produto/2
+        /// <summary>
+        /// Pegamos um produto de acordo com o ID
+        /// </summary>
+        /// <param name="id">Passar ID</param>
+        /// <returns>Buscar produto por ID</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Produto>> Get(int id)
         {
@@ -42,8 +51,12 @@ namespace backend.Controllers
             return produto;
         }
 
-        //
         //POST api/Produto
+        /// <summary>
+        /// Cadastramos um novo produto
+        /// </summary>
+        /// <param name="produto"></param>
+        /// <returns>Cadastro de produto</returns>
         [Authorize(Roles = "Administrador")]
         [HttpPost]
         public async Task<ActionResult<Produto>> Post(Produto produto){
@@ -56,6 +69,12 @@ namespace backend.Controllers
         }
 
         //Update
+        /// <summary>
+        /// Alteramos um produto de acordo com o ID
+        /// </summary>
+        /// <param name="id">Passar ID</param>
+        /// <param name="produto">Passar objeto produto</param>
+        /// <returns>Alterar produto</returns>
         [Authorize(Roles = "Administrador")]
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, Produto produto){
@@ -80,6 +99,11 @@ namespace backend.Controllers
         }
 
         //DELETE api/produto/id
+        /// <summary>
+        /// Deletamos o produto de acordo com o ID
+        /// </summary>
+        /// <param name="id">Passar ID</param>
+        /// <returns>Deletar produto</returns>
         [Authorize(Roles = "Administrador")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Produto>> Delete(int id){

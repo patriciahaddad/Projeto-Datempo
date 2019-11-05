@@ -28,6 +28,8 @@ namespace Backend.Domains
         public string Senha { get; set; }
         [StringLength(14)]
         public string Identificador { get; set; }
+        [StringLength(255)]
+        public string imgusuario { get; set; }
         public int? IdTipoUsuario { get; set; }
 
         [ForeignKey(nameof(IdTipoUsuario))]
