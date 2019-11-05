@@ -17,6 +17,10 @@ namespace backend.Controllers
         CategoriaRepository _repositorio = new CategoriaRepository();
 
         // GET: api/Categoria
+        /// <summary>
+        /// Pegamos todas as categorias cadastradas
+        /// </summary>
+        /// <returns>Lista de categorias</returns>
         [HttpGet]
         public async Task<ActionResult<List<Categoria>>> Get()
         {
@@ -28,7 +32,13 @@ namespace backend.Controllers
 
             return categorias;
         }
+
         // GET: api/Categoria/2
+        /// <summary>
+        /// Pegamos uma categoria de acordo com o ID
+        /// </summary>
+        /// <param name="id">Passar ID</param>
+        /// <returns>Buscar categoria por ID</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Categoria>> Get(int id)
         {
@@ -41,8 +51,12 @@ namespace backend.Controllers
             return categoria;
         }
 
-        //
         //POST api/Categoria
+        /// <summary>
+        /// Cadastramos uma nova categoria
+        /// </summary>
+        /// <param name="categoria">Passar objeto categoria</param>
+        /// <returns>Cadastro de categoria</returns>
         [HttpPost]
         public async Task<ActionResult<Categoria>> Post(Categoria categoria){
             try{
@@ -54,6 +68,12 @@ namespace backend.Controllers
         }
 
         //Update
+        /// <summary>
+        /// Alteramos a categoria de acordo com o ID
+        /// </summary>
+        /// <param name="id">Passar ID</param>
+        /// <param name="categoria">Passar objeto categoria</param>
+        /// <returns>Alterar uma categoria</returns>
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, Categoria categoria){
             // Se o Id do objeto não existir, ele retorna erro 400
@@ -77,6 +97,11 @@ namespace backend.Controllers
         }
 
         //DELETE api/categoria/id
+        /// <summary>
+        /// Deletamos uma categoria de acordo com o ID
+        /// </summary>
+        /// <param name="id">Passar ID</param>
+        /// <returns>Deletar categoria</returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Categoria>> Delete(int id){
             var categoria = await _repositorio.BuscarPorID(id);

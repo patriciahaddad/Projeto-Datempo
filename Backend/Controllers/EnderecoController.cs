@@ -17,6 +17,11 @@ namespace backend.Controllers
         EnderecoRepository _repositorio = new EnderecoRepository();
 
         // GET: api/Endereco
+        // GET: api/Endereco
+        /// <summary>
+        /// Pegamos todos os endereços cadastrados
+        /// </summary>
+        /// <returns>Lista de endereços</returns>
         [HttpGet]
         public async Task<ActionResult<List<Endereco>>> Get()
         {
@@ -28,7 +33,13 @@ namespace backend.Controllers
 
             return enderecos;
         }
+
         // GET: api/Endereco/2
+        /// <summary>
+        /// Pegamos um endereço de acordo com o ID
+        /// </summary>
+        /// <param name="id">Passar ID</param>
+        /// <returns>Buscar endereço por ID</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Endereco>> Get(int id)
         {
@@ -41,8 +52,12 @@ namespace backend.Controllers
             return endereco;
         }
 
-        //
         //POST api/Endereco
+        /// <summary>
+        /// Cadastramos um novo endereço
+        /// </summary>
+        /// <param name="endereco">Passar objeto endereço</param>
+        /// <returns>Cadastro de endereço</returns>
         [HttpPost]
         public async Task<ActionResult<Endereco>> Post(Endereco endereco){
             try{
@@ -54,6 +69,12 @@ namespace backend.Controllers
         }
 
         //Update
+        /// <summary>
+        /// Alteramos o endereço de acordo com o ID
+        /// </summary>
+        /// <param name="id">Passar ID</param>
+        /// <param name="endereco">Passar objeto endereço</param>
+        /// <returns>Alterar um endereço</returns>
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, Endereco endereco){
             // Se o Id do objeto não existir, ele retorna erro 400
@@ -77,6 +98,11 @@ namespace backend.Controllers
         }
 
         //DELETE api/endereco/id
+        /// <summary>
+        /// Deletamos um endereço de acordo com o ID
+        /// </summary>
+        /// <param name="id">Passar ID</param>
+        /// <returns>Deletar endereço</returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Endereco>> Delete(int id){
             var endereco = await _repositorio.BuscarPorID(id);
