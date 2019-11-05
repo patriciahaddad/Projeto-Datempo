@@ -48,6 +48,7 @@ namespace backend.Controllers
                 new Claim(JwtRegisteredClaimNames.NameId, userInfo.Nome),
                 new Claim(JwtRegisteredClaimNames.Email, userInfo.Email),
                 new Claim(ClaimTypes.Role, userInfo.IdTipoUsuarioNavigation.Titulo.ToString()),
+                new Claim("Role", userInfo.IdTipoUsuarioNavigation.Titulo.ToString()),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
 
