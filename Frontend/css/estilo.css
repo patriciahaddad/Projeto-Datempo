@@ -203,12 +203,20 @@ label input{
 }
 /*FIM LOGIN*/
 /*Ajuda*/
-.card_aj{
-    text-decoration: none;
+.btn_aj{
+    background-color: white;
+    color:var(--roxo);
 }
-.card_aj btn{
-    text-decoration: none;
-    
+.card_aj{
+    background-color: white;
+}
+.card-header {
+    background-color: white;
+    border-bottom: none;
+    border-radius: 0;
+}
+.card-header:first-child {
+    border-radius: 0;
 }
   
 /*Fim Ajuda */
