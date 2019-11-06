@@ -4,5 +4,291 @@
         <name>Backend</name>
     </assembly>
     <members>
+        <member name="M:Backend.Controllers.FiltroController.GetFiltrar(Backend.ViewModels.FiltroViewModel)">
+            <summary>
+            Filtramos as ofertas por pesquisa
+            </summary>
+            <param name="filtro">Passar objeto filtro</param>
+            <returns>Filtro por pesquisa</returns>
+        </member>
+        <member name="M:Backend.Controllers.FiltroController.GetFiltrarCategoria(System.String)">
+            <summary>
+            Filtramos as ofertas por categoria
+            </summary>
+            <param name="filtrocategoria">Passamos o objeto filtrocategoria</param>
+            <returns>Filtro por categoria</returns>
+        </member>
+        <member name="M:Backend.Controllers.FiltroController.GetOrdernar">
+            <summary>
+            Ordenamos as ofertas de A-Z
+            </summary>
+            <returns>Ordem de A-Z</returns>
+        </member>
+        <member name="M:Backend.Controllers.FiltroController.GetOrdernarPreco(System.String)">
+            <summary>
+            Ordenamos as ofertas por preço
+            </summary>
+            <param name="ordempreco">Passar ordem</param>
+            <returns>Ordem de Maior e Menor preço</returns>
+        </member>
+        <member name="M:backend.Controllers.CategoriaController.Get">
+            <summary>
+            Pegamos todas as categorias cadastradas
+            </summary>
+            <returns>Lista de categorias</returns>
+        </member>
+        <member name="M:backend.Controllers.CategoriaController.Get(System.Int32)">
+            <summary>
+            Pegamos uma categoria de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <returns>Buscar categoria por ID</returns>
+        </member>
+        <member name="M:backend.Controllers.CategoriaController.Post(Backend.Domains.Categoria)">
+            <summary>
+            Cadastramos uma nova categoria
+            </summary>
+            <param name="categoria">Passar objeto categoria</param>
+            <returns>Cadastro de categoria</returns>
+        </member>
+        <member name="M:backend.Controllers.CategoriaController.Put(System.Int32,Backend.Domains.Categoria)">
+            <summary>
+            Alteramos a categoria de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <param name="categoria">Passar objeto categoria</param>
+            <returns>Alterar uma categoria</returns>
+        </member>
+        <member name="M:backend.Controllers.CategoriaController.Delete(System.Int32)">
+            <summary>
+            Deletamos uma categoria de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <returns>Deletar categoria</returns>
+        </member>
+        <member name="M:backend.Controllers.EnderecoController.Get">
+            <summary>
+            Pegamos todos os endereços cadastrados
+            </summary>
+            <returns>Lista de endereços</returns>
+        </member>
+        <member name="M:backend.Controllers.EnderecoController.Get(System.Int32)">
+            <summary>
+            Pegamos um endereço de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <returns>Buscar endereço por ID</returns>
+        </member>
+        <member name="M:backend.Controllers.EnderecoController.Post(Backend.Domains.Endereco)">
+            <summary>
+            Cadastramos um novo endereço
+            </summary>
+            <param name="endereco">Passar objeto endereço</param>
+            <returns>Cadastro de endereço</returns>
+        </member>
+        <member name="M:backend.Controllers.EnderecoController.Put(System.Int32,Backend.Domains.Endereco)">
+            <summary>
+            Alteramos o endereço de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <param name="endereco">Passar objeto endereço</param>
+            <returns>Alterar um endereço</returns>
+        </member>
+        <member name="M:backend.Controllers.EnderecoController.Delete(System.Int32)">
+            <summary>
+            Deletamos um endereço de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <returns>Deletar endereço</returns>
+        </member>
+        <member name="M:backend.Controllers.LoginController.ValidaUsuario(Backend.ViewModels.LoginViewModel)">
+            <summary>
+            Chamamos nosso método para validar o usuário na aplicação
+            </summary>
+            <param name="login">Passar objeto login</param>
+            <returns>Validar usuário</returns>
+        </member>
+        <member name="M:backend.Controllers.LoginController.GerarToken(Backend.Domains.Usuario)">
+            <summary>
+            Geramos o Token
+            </summary>
+            <param name="userInfo">Passar objeto userinfo</param>
+            <returns>Gerar Token</returns>
+        </member>
+        <member name="M:backend.Controllers.OfertaController.Get">
+            <summary>
+            Pegamos as ofertas cadastradas
+            </summary>
+            <returns>Lista de ofertas cadastradas</returns>
+        </member>
+        <member name="M:backend.Controllers.OfertaController.Get(System.Int32)">
+            <summary>
+            Pegamos uma oferta de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <returns>Buscar oferta por ID</returns>
+        </member>
+        <member name="M:backend.Controllers.OfertaController.Post(Backend.Domains.Oferta)">
+            <summary>
+            Cadastramos uma nova oferta
+            </summary>
+            <param name="oferta">Passar objeto oferta</param>
+            <returns>Cadastro de oferta</returns>
+        </member>
+        <member name="M:backend.Controllers.OfertaController.Put(System.Int32,Backend.Domains.Oferta)">
+            <summary>
+            Alteramos a oferta de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <param name="oferta">Passar objeto oferta</param>
+            <returns>Alterar oferta</returns>
+        </member>
+        <member name="M:backend.Controllers.OfertaController.Delete(System.Int32)">
+            <summary>
+            Deletamos a oferta de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <returns>Deletar oferta</returns>
+        </member>
+        <member name="M:backend.Controllers.ProdutoController.Get">
+            <summary>
+            Pegamos os produtos cadastrados
+            </summary>
+            <returns>Lista de produtos cadastrados</returns>
+        </member>
+        <member name="M:backend.Controllers.ProdutoController.Get(System.Int32)">
+            <summary>
+            Pegamos um produto de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <returns>Buscar produto por ID</returns>
+        </member>
+        <member name="M:backend.Controllers.ProdutoController.Post(Backend.Domains.Produto)">
+            <summary>
+            Cadastramos um novo produto
+            </summary>
+            <param name="produto"></param>
+            <returns>Cadastro de produto</returns>
+        </member>
+        <member name="M:backend.Controllers.ProdutoController.Put(System.Int32,Backend.Domains.Produto)">
+            <summary>
+            Alteramos um produto de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <param name="produto">Passar objeto produto</param>
+            <returns>Alterar produto</returns>
+        </member>
+        <member name="M:backend.Controllers.ProdutoController.Delete(System.Int32)">
+            <summary>
+            Deletamos o produto de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <returns>Deletar produto</returns>
+        </member>
+        <member name="M:backend.Controllers.ReservaController.Get">
+            <summary>
+            Pegamos as reservas cadastradas
+            </summary>
+            <returns>Lista de reservas cadastradas</returns>
+        </member>
+        <member name="M:backend.Controllers.ReservaController.Get(System.Int32)">
+            <summary>
+            Pegamos uma reserva de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <returns>Buscar reserva por ID</returns>
+        </member>
+        <member name="M:backend.Controllers.ReservaController.Post(Backend.Domains.Reserva)">
+            <summary>
+            Cadastramos uma nova reserva
+            </summary>
+            <param name="reserva">Passar objeto reserva</param>
+            <returns>Cadastro de reserva</returns>
+        </member>
+        <member name="M:backend.Controllers.ReservaController.Put(System.Int32,Backend.Domains.Reserva)">
+            <summary>
+            Alteramos uma reserva de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <param name="reserva">Passar objeto reserva</param>
+            <returns>Alterar reserva</returns>
+        </member>
+        <member name="M:backend.Controllers.ReservaController.Delete(System.Int32)">
+            <summary>
+            Deletamos uma reserva de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <returns>Deletar reserva</returns>
+        </member>
+        <member name="M:backend.Controllers.TipousuarioController.Get">
+            <summary>
+            Pegamos os tipos de usuário cadastrados
+            </summary>
+            <returns>Lista de tipos de usuário cadastrados</returns>
+        </member>
+        <member name="M:backend.Controllers.TipousuarioController.Get(System.Int32)">
+            <summary>
+            Pegamos os tipos de usuário de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <returns>Buscar tipo de usuário por ID</returns>
+        </member>
+        <member name="M:backend.Controllers.TipousuarioController.Post(Backend.Domains.Tipousuario)">
+            <summary>
+            Cadastramos um novo tipo de usuário
+            </summary>
+            <param name="tipousuario">Passar objeto tipousuario</param>
+            <returns>Cadastrar tipo de usuário</returns>
+        </member>
+        <member name="M:backend.Controllers.TipousuarioController.Put(System.Int32,Backend.Domains.Tipousuario)">
+            <summary>
+            Alteramos um tipo de usuário de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <param name="tipousuario">Passar objeto tipousuario</param>
+            <returns>Alterar tipo usuário</returns>
+        </member>
+        <member name="M:backend.Controllers.TipousuarioController.Delete(System.Int32)">
+            <summary>
+            Deletamos um tipo de usuário de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <returns>Deletar tipo de usuário</returns>
+        </member>
+        <member name="M:backend.Controllers.UsuarioController.Get">
+            <summary>
+            Pegamos os usuário cadastrados
+            </summary>
+            <returns>Lista de usuários cadastrados</returns>
+        </member>
+        <member name="M:backend.Controllers.UsuarioController.Get(System.Int32)">
+            <summary>
+            Pegamos os usuários de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <returns>Buscar usuário por ID</returns>
+        </member>
+        <member name="M:backend.Controllers.UsuarioController.Post(Backend.Domains.Usuario)">
+            <summary>
+            Cadastramos um novo usuário
+            </summary>
+            <param name="usuario">Passar objeto usuário</param>
+            <returns>Cadastrar usuário</returns>
+        </member>
+        <member name="M:backend.Controllers.UsuarioController.Put(System.Int32,Backend.Domains.Usuario)">
+            <summary>
+            Alteramos usuário de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <param name="usuario">Passar objeto usuário</param>
+            <returns>Alterar usuário</returns>
+        </member>
+        <member name="M:backend.Controllers.UsuarioController.Delete(System.Int32)">
+            <summary>
+            Deletamos um usuário de acordo com o ID
+            </summary>
+            <param name="id">Passar ID</param>
+            <returns>Deletar usuário</returns>
+        </member>
     </members>
 </doc>

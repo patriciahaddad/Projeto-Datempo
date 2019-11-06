@@ -177,17 +177,16 @@ h2 a{
 .cont-geral{
     display: flex;
     justify-content: center;
+
 }
 .cadastrar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-left: var(--laranja) 1px solid;
 }
 #form_cadastro label,#form_login label{
     display: flex;
     flex-direction: column;
-    padding: 90px;
+    align-content: center;
+    padding: 0px 150px;
 }
 label input{
     height: 35px;
@@ -195,7 +194,7 @@ label input{
     margin-bottom: 20px;
     text-align: left;
 }
-.btn{
+.btn_01{
     padding:10px 120px;
     border: none;
     background-color: var(--roxo);
@@ -203,10 +202,28 @@ label input{
     text-transform: uppercase;
     color: white;
 }
-.btn:hover{
+.btn_01:hover{
     color: white;
 }
 /*FIM LOGIN*/
+/*Ajuda*/
+.btn_aj{
+    background-color: white;
+    color:var(--roxo);
+}
+.card_aj{
+    background-color: white;
+}
+.card-header {
+    background-color: white;
+    border-bottom: none;
+    border-radius: 0;
+}
+.card-header:first-child {
+    border-radius: 0;
+}
+  
+/*Fim Ajuda */
 
 /* MINHAS OFERTAS */
 /*FILTRO*/
@@ -651,6 +668,65 @@ label input{
 
   /*BOTOES*/
 /*FIM CADASTRO DE OFERTAS*/
+
+/* CARRINHO */
+.img_carrinho img{
+    width: 150px;
+}
+.container_carrinho{
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    width: 1000px;
+    margin: auto;
+    margin-top: 20px;
+    border: solid 0.5px var(--laranja);
+    border-radius: 6px;;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.card_carrinho{
+    display: flex;
+    align-items: center;
+    padding-top:10px;
+    padding-left: 10px;
+}
+.card_carrinho2{
+    display: flex;
+    padding: 10px;
+    padding-right: 100px;
+}
+.card_carrinho2 p{
+    margin: 10px;
+}
+.descricao_carrinho{
+    padding-left: 20px;;
+}
+.botoes_carrinho{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+.botao_carrinho{
+    background-color: var(--vermelho);
+    color:#fff;
+    padding: 15px 30px;
+    text-decoration:none;
+    text-align: center;
+    border-radius: 10px;
+}
+.btn_carrinho{
+    background-color: var(--roxo);
+    color:#fff;
+    padding: 15px 40px;
+    text-decoration:none;
+    text-align: center;
+    border-radius: 10px;
+}
+/* FIM CARRINHO */
+
 /*MEDIAS QUERIES*/
 /*TABLET*/
 @media (max-width:1169px){
@@ -873,10 +949,10 @@ label input{
     }
     .cont-geral{
         flex-direction: column;
-       
+        align-items: center;
     }
     .cadastrar{
-        border: none;
+        /* border: none; */
         border-top: var(--laranja) 1px solid;
     }
     label input{

@@ -47,9 +47,7 @@ namespace Backend.Repositories
         public async Task<Oferta> Salvar(Oferta oferta)
         {
             using(bddatempoContext _contexto = new bddatempoContext()){
-                // Tratamos contra ataques de SQL Injection
                 await _contexto.AddAsync(oferta);
-                // Salvamos efetivamente o nosso objeto no banco
                 await _contexto.SaveChangesAsync();
                 return oferta;
             }

@@ -17,6 +17,10 @@ namespace backend.Controllers
         TipousuarioRepository _repositorio = new TipousuarioRepository();
 
         // GET: api/Tipousuario
+        /// <summary>
+        /// Pegamos os tipos de usuário cadastrados
+        /// </summary>
+        /// <returns>Lista de tipos de usuário cadastrados</returns>
         [HttpGet]
         public async Task<ActionResult<List<Tipousuario>>> Get()
         {
@@ -29,6 +33,11 @@ namespace backend.Controllers
             return tipousuarios;
         }
         // GET: api/Tipousuario/2
+        /// <summary>
+        /// Pegamos os tipos de usuário de acordo com o ID
+        /// </summary>
+        /// <param name="id">Passar ID</param>
+        /// <returns>Buscar tipo de usuário por ID</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Tipousuario>> Get(int id)
         {
@@ -41,8 +50,12 @@ namespace backend.Controllers
             return tipousuario;
         }
 
-        //
         //POST api/Tipousuario
+        /// <summary>
+        /// Cadastramos um novo tipo de usuário
+        /// </summary>
+        /// <param name="tipousuario">Passar objeto tipousuario</param>
+        /// <returns>Cadastrar tipo de usuário</returns>
         [HttpPost]
         public async Task<ActionResult<Tipousuario>> Post(Tipousuario tipousuario){
             try{
@@ -54,6 +67,12 @@ namespace backend.Controllers
         }
 
         //Update
+        /// <summary>
+        /// Alteramos um tipo de usuário de acordo com o ID
+        /// </summary>
+        /// <param name="id">Passar ID</param>
+        /// <param name="tipousuario">Passar objeto tipousuario</param>
+        /// <returns>Alterar tipo usuário</returns>
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, Tipousuario tipousuario){
             // Se o Id do objeto não existir, ele retorna erro 400
@@ -77,6 +96,11 @@ namespace backend.Controllers
         }
 
         //DELETE api/tipousuario/id
+        /// <summary>
+        /// Deletamos um tipo de usuário de acordo com o ID
+        /// </summary>
+        /// <param name="id">Passar ID</param>
+        /// <returns>Deletar tipo de usuário</returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Tipousuario>> Delete(int id){
             var tipousuario = await _repositorio.BuscarPorID(id);
