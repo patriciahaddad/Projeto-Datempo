@@ -173,17 +173,16 @@ hr{
 .cont-geral{
     display: flex;
     justify-content: center;
+
 }
 .cadastrar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-left: var(--laranja) 1px solid;
 }
 #form_cadastro label,#form_login label{
     display: flex;
     flex-direction: column;
-    padding: 90px;
+    align-content: center;
+    padding: 0px 150px;
 }
 label input{
     height: 35px;
@@ -191,7 +190,7 @@ label input{
     margin-bottom: 20px;
     text-align: left;
 }
-.btn{
+.btn_01{
     padding:10px 120px;
     border: none;
     background-color: var(--roxo);
@@ -199,10 +198,28 @@ label input{
     text-transform: uppercase;
     color: white;
 }
-.btn:hover{
+.btn_01:hover{
     color: white;
 }
 /*FIM LOGIN*/
+/*Ajuda*/
+.btn_aj{
+    background-color: white;
+    color:var(--roxo);
+}
+.card_aj{
+    background-color: white;
+}
+.card-header {
+    background-color: white;
+    border-bottom: none;
+    border-radius: 0;
+}
+.card-header:first-child {
+    border-radius: 0;
+}
+  
+/*Fim Ajuda */
 
 /* MINHAS OFERTAS */
 /*FILTRO*/
@@ -809,10 +826,10 @@ label input{
     }
     .cont-geral{
         flex-direction: column;
-       
+        align-items: center;
     }
     .cadastrar{
-        border: none;
+        /* border: none; */
         border-top: var(--laranja) 1px solid;
     }
     label input{
