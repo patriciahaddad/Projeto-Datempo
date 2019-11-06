@@ -604,6 +604,65 @@ label input{
 
   /*BOTOES*/
 /*FIM CADASTRO DE OFERTAS*/
+
+/* CARRINHO */
+.img_carrinho img{
+    width: 150px;
+}
+.container_carrinho{
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    width: 1000px;
+    margin: auto;
+    margin-top: 20px;
+    border: solid 0.5px var(--laranja);
+    border-radius: 6px;;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.card_carrinho{
+    display: flex;
+    align-items: center;
+    padding-top:10px;
+    padding-left: 10px;
+}
+.card_carrinho2{
+    display: flex;
+    padding: 10px;
+    padding-right: 100px;
+}
+.card_carrinho2 p{
+    margin: 10px;
+}
+.descricao_carrinho{
+    padding-left: 20px;;
+}
+.botoes_carrinho{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+.botao_carrinho{
+    background-color: var(--vermelho);
+    color:#fff;
+    padding: 15px 30px;
+    text-decoration:none;
+    text-align: center;
+    border-radius: 10px;
+}
+.btn_carrinho{
+    background-color: var(--roxo);
+    color:#fff;
+    padding: 15px 40px;
+    text-decoration:none;
+    text-align: center;
+    border-radius: 10px;
+}
+/* FIM CARRINHO */
+
 /*MEDIAS QUERIES*/
 /*TABLET*/
 @media (max-width:1169px){
