@@ -41,5 +41,6 @@ namespace Backend.Domains
         public virtual ICollection<Oferta> Oferta { get; set; }
         [InverseProperty("IdUsuarioNavigation")]
         public virtual ICollection<Reserva> Reserva { get; set; }
+
     }
 }
