@@ -10,12 +10,8 @@ namespace backend.Controllers {
     [Route ("api/[controller]")]
     [ApiController]
     public class EnderecoController : ControllerBase {
-        // bddatempoContext _repositorio = new bddatempoContext();
-
         EnderecoRepository _repositorio = new EnderecoRepository ();
 
-        // GET: api/Endereco
-        // GET: api/Endereco
         /// <summary>
         /// Pegamos todos os endereços cadastrados
         /// </summary>
@@ -25,13 +21,10 @@ namespace backend.Controllers {
             var enderecos = await _repositorio.Listar ();
 
             if (enderecos == null) {
-                return NotFound ();
+                return NotFound (new { mensagem = "Endereco não encontrado", Erro = true });
             }
-
             return enderecos;
         }
-
-        // GET: api/Endereco/2
 
         /// <summary>
         /// Pegamos um endereço de acordo com o ID
@@ -43,13 +36,12 @@ namespace backend.Controllers {
             var endereco = await _repositorio.BuscarPorID (id);
 
             if (endereco == null) {
-                return NotFound ();
+                return NotFound (new { mensagem = "Id do Endereco não encontrado", Erro = true });
             }
 
             return endereco;
         }
 
-        //POST api/Endereco
         /// <summary>
         /// Cadastramos um novo endereço
         /// </summary>
@@ -60,12 +52,11 @@ namespace backend.Controllers {
             try {
                 await _repositorio.Salvar (endereco);
             } catch (DbUpdateConcurrencyException) {
-                throw;
+                return BadRequest (new { mensagem = "Não foi possivel realizar o cadastro", Erro = true });
             }
             return endereco;
         }
 
-        //Update
         /// <summary>
         /// Alteramos o endereço de acordo com o ID
         /// </summary>
@@ -75,27 +66,23 @@ namespace backend.Controllers {
         [HttpPut ("{id}")]
         public async Task<ActionResult> Put (int id, Endereco endereco) {
 
-            // Se o Id do objeto não existir, ele retorna erro 400
             if (id != endereco.IdEndereco) {
-                return BadRequest ();
+                return BadRequest (new{mensagem = "Id do Endereco não encontrado", Erro = true});
             }
             try {
                 await _repositorio.Alterar (endereco);
             } catch (DbUpdateConcurrencyException) {
-                // Verificamos se o objeto inserido realmente existe no banco
                 var endereco_valido = await _repositorio.BuscarPorID (id);
 
                 if (endereco_valido == null) {
-                    return NotFound ();
+                    return NotFound (new{mensagem = "Endereco não valido", Erro = true});
                 } else {
                     throw;
                 }
             }
-            // NoContent = Retorna 204, sem nada
-            return NoContent ();
+            return Ok("Endereco Atualizado com sucesso");
         }
 
-        //DELETE api/endereco/id
         /// <summary>
         /// Deletamos um endereço de acordo com o ID
         /// </summary>
@@ -105,8 +92,7 @@ namespace backend.Controllers {
         public async Task<ActionResult<Endereco>> Delete (int id) {
             var endereco = await _repositorio.BuscarPorID (id);
             if (endereco == null) {
-                return NotFound ();
-
+                return NotFound (new{mensagem = "Endereco não encontrado", Erro = true});
             }
             await _repositorio.Excluir (endereco);
 

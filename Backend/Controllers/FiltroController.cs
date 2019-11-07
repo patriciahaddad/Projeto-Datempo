@@ -18,13 +18,11 @@ namespace Backend.Controllers {
         [HttpGet ("FiltrarPalavra")]
         public ActionResult<List<Oferta>> GetFiltrar (FiltroViewModel filtro) {
             using (bddatempoContext _contexto = new bddatempoContext ()) {
-                List<Oferta> ofertas = _contexto.Oferta.Where (o => o.NomeOferta.Contains(filtro.Palavra)).ToList ();
+                List<Oferta> ofertas = _contexto.Oferta.Where (o => o.NomeOferta.Contains (filtro.Palavra)).ToList ();
                 if (ofertas == null) {
-                    return NotFound (
-                        new {
-                            Mensagem = "Produto não encontrado",
-                                Erro = true
-                        });
+                    return NotFound (new {
+                        Mensagem = "Produto não encontrado", Erro = true
+                    });
                 }
                 return ofertas;
             }
@@ -37,8 +35,8 @@ namespace Backend.Controllers {
         /// <returns>Filtro por categoria</returns>
         [HttpGet ("filtrarcategoria/{filtrocategoria}")]
         public ActionResult<List<Oferta>> GetFiltrarCategoria (string filtrocategoria) {
-            using (bddatempoContext _contexto = new bddatempoContext ()) {             
-                List<Oferta> ofertas = _contexto.Oferta.Include("IdProdutoNavigation").Where(o => o.IdProdutoNavigation.IdCategoriaNavigation.NomeCategoria.Contains(filtrocategoria)).ToList();
+            using (bddatempoContext _contexto = new bddatempoContext ()) {
+                List<Oferta> ofertas = _contexto.Oferta.Include ("IdProdutoNavigation").Where (o => o.IdProdutoNavigation.IdCategoriaNavigation.NomeCategoria.Contains (filtrocategoria)).ToList ();
                 if (ofertas == null) {
                     return NotFound (
                         new {
@@ -72,14 +70,14 @@ namespace Backend.Controllers {
         public ActionResult<List<Oferta>> GetOrdernarPreco (string ordempreco) {
             List<Oferta> ofertas;
             using (bddatempoContext _contexto = new bddatempoContext ()) {
-              
-                if(ordempreco == "Menor"){
-                    ofertas = _contexto.Oferta.OrderBy (o => o.Preco).ToList();
-                }else{
-                    ofertas = _contexto.Oferta.OrderByDescending (o => o.Preco).ToList();
+
+                if (ordempreco == "Menor") {
+                    ofertas = _contexto.Oferta.OrderBy (o => o.Preco).ToList ();
+                } else {
+                    ofertas = _contexto.Oferta.OrderByDescending (o => o.Preco).ToList ();
                 }
             }
             return ofertas;
-        }       
+        }
     }
 }
