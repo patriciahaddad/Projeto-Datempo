@@ -27,11 +27,19 @@ namespace backend.Controllers {
         /// <returns>Lista de ofertas cadastradas</returns>
         [HttpGet]
         public async Task<ActionResult<List<Oferta>>> Get () {
+
             var ofertas = await _repositorio.Listar ();
 
             if (ofertas == null) {
                 return NotFound (new { mensagem = "Oferta não encontrado", Erro = true });
             }
+            return ofertas;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<List<Oferta>>> ExibirOferta () {
+            var ofertas = await _repositorio.ExibirOfertas ();
+
             return ofertas;
         }
 
