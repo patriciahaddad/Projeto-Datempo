@@ -14,7 +14,7 @@ body{
     background-color: var(--cinza);
 }
 main{
-    padding-top: 190px;
+    padding-top: 155px;
 }
 /* CONTAINERS */
 /*HEADER*/
@@ -26,7 +26,7 @@ main{
     margin: auto;
 }
 .container_h .logo{
-    width: 120px;
+    width: 90px;
 }
 .container{
     width: 1100px;
@@ -75,7 +75,7 @@ header .pesquisa{
 #txtbusca::-webkit-input-placeholder { 
     color: var(--roxo);
     text-align: center;
-  }
+}
 #txtbusca{
     border: none;
     width: 530px;
@@ -137,6 +137,10 @@ hr{
     width: 350px;
     margin: auto;
     margin-bottom: 10px;
+}
+h2 a{
+    text-decoration: none;
+    color: var(--cinza);
 }
 .banner_sobre{
     background-image: linear-gradient(rgba(138,79,125,0.6),rgba(138,79,125,0.6)),url(../Imagens/testesobre.jpg);
@@ -285,11 +289,8 @@ label input{
 }
 .card_oferta{
     width: 250px;
-    height: 480px;
-    display: flex;
-    flex-flow: column;
+    height: 480px; 
     margin: 30px 0px;
-    -webkit-box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
     -moz-box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
     box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
     background-color: white;
@@ -301,18 +302,34 @@ label input{
     margin:5px 10px;
 }
 .titulo_descricao{
-    font-size: 10pt;
+    font-size: 12pt;    
+}
+.descricao_produto{
+    display: flex;
+    justify-content: space-between;
+
+}
+.titulo_produto{
+    width: 250px;
+    margin: auto;
+}
+.titulo_descricao_logo{
+    font-family: Racing Sans One;
+    font-size: 15px;
+    color: var(--laranja);
 }
 .descricao{
     font-size:14pt;
 }
 .descricao_pequena{
-    width:50%;
+    width: 60%;
 }
 .descricao_oferta{
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+    /* text-align: center; */
 }
 .avaliacao img{
     width: 100px;
@@ -320,7 +337,8 @@ label input{
 }
 /*FIM CARD*/
 .qnt_ofertas{
-    padding-left: 100px;
+    padding-left: 210px;
+    color: var(--roxo);
 }
 .btn_cria_Oferta{
     background-color:var(--laranja);
@@ -394,6 +412,22 @@ label input{
     width: 250px;
     height: 256px;
 }
+.descricao_pequena_logo img{
+    width: 30px;
+    height: 30px;
+}
+.descricao_pequena_logo{
+}
+.validade_mostruario{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    padding-left: 30px;
+    padding-bottom: 8px;
+}
+.validade_mostruario p{
+    font-size: 20px;
+}
 .botao_reservar{
     display: flex;
     justify-content: space-around;    
@@ -411,6 +445,7 @@ label input{
 }
 .empresa_produtos{/*Imagem empresa*/
     width: 80px;
+    padding-left: 20px;
 }
 /*FIM - LUCAS*/
 
@@ -420,8 +455,8 @@ label input{
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: top center;
-    height: 600px;
-    padding-top: 156px;
+    height: 450px;
+    padding-top: 106px;
     display: flex;
     align-items: center;
 }
@@ -440,6 +475,36 @@ label input{
 .sn_texto p{
     padding-top: 20px;
 }
+.objetivos{
+    margin: 30px;
+}
+.sn_section2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px;
+    width: 1000px;
+    margin: auto;
+}
+.quadro1{
+    color: var(--roxo);
+    width: 230px;
+    height: 230px;
+    border-radius: 30px;
+    border: 4px solid var(--laranja);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+}
+.quadro1 img{
+    height: 130px;
+    padding-bottom: 25px; 
+}
+.sn_h2_dev{
+    margin-top: 50px;
+}
 .sn_dev{
     display: flex;
     justify-content: space-between;
@@ -451,7 +516,6 @@ label input{
     margin-bottom: 50px;
 }
 .dev{
-    padding: 10px;
     color: var(--roxo);
     font-size: 25px;
 }
@@ -461,7 +525,7 @@ label input{
 .sn_dev img{
     width: 180px;
     border-radius: 50%;
-    border: 4px solid #FFB400;
+    border: 4px solid var(--laranja);
     margin: 40px;
 }
 /*FIM SOBRE NOS/
@@ -604,6 +668,65 @@ label input{
 
   /*BOTOES*/
 /*FIM CADASTRO DE OFERTAS*/
+
+/* CARRINHO */
+.img_carrinho img{
+    width: 150px;
+}
+.container_carrinho{
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    width: 1000px;
+    margin: auto;
+    margin-top: 20px;
+    border: solid 0.5px var(--laranja);
+    border-radius: 6px;;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.card_carrinho{
+    display: flex;
+    align-items: center;
+    padding-top:10px;
+    padding-left: 10px;
+}
+.card_carrinho2{
+    display: flex;
+    padding: 10px;
+    padding-right: 100px;
+}
+.card_carrinho2 p{
+    margin: 10px;
+}
+.descricao_carrinho{
+    padding-left: 20px;;
+}
+.botoes_carrinho{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+.botao_carrinho{
+    background-color: var(--vermelho);
+    color:#fff;
+    padding: 15px 30px;
+    text-decoration:none;
+    text-align: center;
+    border-radius: 10px;
+}
+.btn_carrinho{
+    background-color: var(--roxo);
+    color:#fff;
+    padding: 15px 40px;
+    text-decoration:none;
+    text-align: center;
+    border-radius: 10px;
+}
+/* FIM CARRINHO */
+
 /*MEDIAS QUERIES*/
 /*TABLET*/
 @media (max-width:1169px){
