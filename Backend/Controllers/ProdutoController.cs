@@ -8,16 +8,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace backend.Controllers
 {
-    //Definimos nossa rota do controller e dizemos que é um controller de API
     [Route("api/[controller]")]
     [ApiController]
     public class ProdutoController : ControllerBase
     {
-        //bddatempoContext _contexto = new bddatempoContext();
-
         ProdutoRepository _repositorio = new ProdutoRepository();
 
-        // GET: api/Produto
         /// <summary>
         /// Pegamos os produtos cadastrados
         /// </summary>
@@ -28,12 +24,12 @@ namespace backend.Controllers
             var produtos = await _repositorio.Listar();
 
             if(produtos == null){
-                return NotFound();
+                return NotFound(new { mensagem = "Produto não encontrado", Erro = true });
             }
 
             return produtos;
         }
-        // GET: api/Produto/2
+
         /// <summary>
         /// Pegamos um produto de acordo com o ID
         /// </summary>
@@ -45,13 +41,11 @@ namespace backend.Controllers
             var produto = await _repositorio.BuscarPorID(id);
 
             if(produto == null){
-                return NotFound();
+                return NotFound(new { mensagem = "Id do Produto não encontrado", Erro = true });
             }
-
             return produto;
         }
 
-        //POST api/Produto
         /// <summary>
         /// Cadastramos um novo produto
         /// </summary>
@@ -63,12 +57,11 @@ namespace backend.Controllers
             try{
                 await _repositorio.Salvar(produto);
             }catch(DbUpdateConcurrencyException){
-                throw;
+                return BadRequest(new { mensagem = "Não foi possivel realizar o cadastro", Erro = true });
             }
             return produto;
         }
 
-        //Update
         /// <summary>
         /// Alteramos um produto de acordo com o ID
         /// </summary>
@@ -78,27 +71,23 @@ namespace backend.Controllers
         [Authorize(Roles = "Administrador")]
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, Produto produto){
-            // Se o Id do objeto não existir, ele retorna erro 400
             if(id != produto.IdProduto){
                 return BadRequest();
             }
             try{
                 await _repositorio.Alterar(produto);
             }catch(DbUpdateConcurrencyException){
-                // Verificamos se o objeto inserido realmente existe no banco
                 var produto_valido = await _repositorio.BuscarPorID(id);
 
                 if(produto_valido == null){
-                    return NotFound();
+                    return NotFound(new { mensagem = "Produto não valido", Erro = true });
                 }else{
                     throw;
                 }
             }
-            // NoContent = Retorna 204, sem nada
-            return NoContent();
+            return Ok("Não foi possivel realizar o cadastro");
         }
 
-        //DELETE api/produto/id
         /// <summary>
         /// Deletamos o produto de acordo com o ID
         /// </summary>
@@ -109,7 +98,7 @@ namespace backend.Controllers
         public async Task<ActionResult<Produto>> Delete(int id){
             var produto = await _repositorio.BuscarPorID(id);
             if(produto == null){
-                return NotFound();
+                return NotFound(new { mensagem = "Produto não encontrado", Erro = true });
             }
             await _repositorio.Excluir(produto);
 
