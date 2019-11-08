@@ -173,10 +173,10 @@ hr{
 .cont-geral{
     display: flex;
     justify-content: center;
-
 }
 .cadastrar{
     border-left: var(--laranja) 1px solid;
+    padding-bottom: 50px;
 }
 #form_cadastro label,#form_login label{
     display: flex;
@@ -190,7 +190,7 @@ label input{
     margin-bottom: 20px;
     text-align: left;
 }
-.btn_01{
+.btn_login{
     padding:10px 120px;
     border: none;
     background-color: var(--roxo);
@@ -198,7 +198,7 @@ label input{
     text-transform: uppercase;
     color: white;
 }
-.btn_01:hover{
+.btn_login:hover{
     color: white;
 }
 /*FIM LOGIN*/
@@ -668,13 +668,14 @@ label input{
        border: none;
        border-top: var(--laranja) 1px solid;
    }
+   .login{
+       margin-bottom: 10px;
+   }
    label input{
        width: 500px;
    }
-   .btn{
+   .btn_login{
        width: 500px;
-       height: 30px;
-       padding: 0px;
    }
    .sobre p{
     width: 730px;
@@ -829,14 +830,13 @@ label input{
         align-items: center;
     }
     .cadastrar{
-        /* border: none; */
         border-top: var(--laranja) 1px solid;
     }
     label input{
         width: 300px;
     }
-    .btn{
-        width: 300px;
+    .btn_login{
+        width: 304px;
         height: 30px;
         padding: 0px;
     }
@@ -850,6 +850,7 @@ label input{
     .login{
         display: flex;
         justify-content: center;
+        margin-bottom: 10px;
     }
     .sobre p{
         width: 350px;
