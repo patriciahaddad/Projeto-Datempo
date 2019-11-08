@@ -740,9 +740,6 @@ label input{
         width: 100%;
         background-position: top;
     }
-    .container{
-        width: 730px;
-    }
     .container_card{
         flex-wrap: wrap;
         justify-content: space-around;
@@ -766,19 +763,9 @@ label input{
     .categoria_filtro{
         margin: 5px;
     }
-    .paginacao{
-        width: 730px;
-    }
-    .paginacao_ofertas{
-        width: 730px;
-    }
-    .cont_branco{
-        width: 730px;
-    }
     .ofertas_cadastradas{
         flex-wrap: wrap;
     }
-   
     .container_ofertas{
         width: 730px;
         justify-content: space-around;
@@ -787,21 +774,15 @@ label input{
    .cont-geral{
        flex-direction: column;
    }
-   .cadastrar{
+    .cadastrar{
        border: none;
        border-top: var(--laranja) 1px solid;
-   }
-   .login{
+    }
+    .login{
        margin-bottom: 10px;
-   }
-   label input{
+    }
+    label input, .btn_login{
        width: 500px;
-   }
-   .btn_login{
-       width: 500px;
-   }
-   .sobre p{
-    width: 730px;
     }
     .container_perfil{
         flex-direction: column;
@@ -822,7 +803,7 @@ label input{
         margin: 10px 4px;
         padding: 10px 60px;
     }
-    .formulario-cad, .container-form{
+    .formulario-cad, .container-form, .form-cad input{
         width: 600px;
     }
     .formulario-cad{
@@ -841,13 +822,8 @@ label input{
     .tabela_reservas{
         width: 680px;
     }
-    .form-cad input{
-        width: 600px ;
-    }
-    .form-cad{
-        width: 730px;
-    }
-    .formulario-reservas, .container-qnt, .container-perfil{
+    .formulario-reservas, .container-qnt, .container-perfil, .form-cad,
+    .paginacao, .paginacao_ofertas, .cont_branco, .container, .sobre p{
         width: 730px;
     }
     .input_horizontal{
@@ -870,7 +846,7 @@ label input{
     nav, .container_h{
         width: 280px;
     }
-    .container_h .logo{
+    .container_h .logo, .banner img{
         width: 100px;
     }
     .container_h{
@@ -886,14 +862,8 @@ label input{
     .menu li{
         padding-top: 10px;
     }
-    .banner img{
-        width: 100%;
-    }
     h2{
         font-size: 20px;
-    }
-    hr{
-        width: 300px;
     }
     .container{
         width:350px;
@@ -910,12 +880,8 @@ label input{
         text-align: center;
         font-size: 15px;
     }
-    .sn_dev{
+    .sn_dev, .container_card_mostruario{
         width:350px;
-        flex-wrap: wrap;
-    }
-    .container_card_mostruario{
-        width: 350px;
         flex-wrap: wrap;
     }
     .container_filtro{
@@ -932,7 +898,7 @@ label input{
     .paginacao_ofertas{
         width: 330px;
     }
-    .cont_branco{
+    .cont_branco, .sobre p{
         width: 350px;
     }
     .ofertas_cadastradas{
@@ -955,9 +921,6 @@ label input{
     .cadastrar{
         border-top: var(--laranja) 1px solid;
     }
-    label input{
-        width: 300px;
-    }
     .btn_login{
         width: 304px;
         height: 30px;
@@ -975,15 +938,9 @@ label input{
         justify-content: center;
         margin-bottom: 10px;
     }
-    .sobre p{
-        width: 350px;
-    }
     .container_perfil{
         flex-direction: column;
         justify-content: center;
-    }
-    .form_perfil input{
-        width: 300px;
     }
     .form_perfil{
         margin: auto;
@@ -1016,13 +973,10 @@ label input{
     .tabela_reservas{
         width: 310px;
     }
-    .form-cad input{
+    .form-cad input, .form_adicionais, .form_perfil input, label input, hr{
         width: 300px ;
     }
-    .form-cad{
-        width: 350px;
-    }
-    .formulario-reservas, .container-qnt{
+    .formulario-reservas, .container-qnt, .form-cad{
         width: 350px;
     }
     .input_horizontal{
@@ -1032,8 +986,5 @@ label input{
     .form_label .input_vert{
         width: 350px;
         margin: 0px;
-    }
-    .form_adicionais{
-        width: 300px;
     }
 }
