@@ -57,5 +57,5 @@ CREATE TABLE reserva(
 		IdOferta INT FOREIGN KEY REFERENCES oferta(IdOferta),
 		IdUsuario INT FOREIGN KEY REFERENCES usuario(IdUsuario)
 );
-
-
+ALTER TABLE usuario ADD imgusuario VARCHAR(255)
+SELECT * FROM usuario

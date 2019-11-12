@@ -27,11 +27,19 @@ namespace backend.Controllers {
         /// <returns>Lista de ofertas cadastradas</returns>
         [HttpGet]
         public async Task<ActionResult<List<Oferta>>> Get () {
+
             var ofertas = await _repositorio.Listar ();
 
             if (ofertas == null) {
                 return NotFound (new { mensagem = "Oferta não encontrado", Erro = true });
             }
+            return ofertas;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<List<Oferta>>> ExibirOferta () {
+            var ofertas = await _repositorio.ExibirOfertas ();
+
             return ofertas;
         }
 
@@ -55,7 +63,7 @@ namespace backend.Controllers {
         /// </summary>
         /// <param name="oferta">Passar objeto oferta</param>
         /// <returns>Cadastro de oferta</returns>
-        [Authorize(Roles = "Fornecedor")]
+        [Authorize (Roles = "Fornecedor")]
         [HttpPost]
         public async Task<ActionResult<Oferta>> Post ([FromForm] Oferta oferta) {
             try {
@@ -78,7 +86,7 @@ namespace backend.Controllers {
         /// <param name="id">Passar ID</param>
         /// <param name="oferta">Passar objeto oferta</param>
         /// <returns>Alterar oferta</returns>
-        [Authorize(Roles = "Fornecedor")]
+        [Authorize (Roles = "Fornecedor")]
         [HttpPut ("{id}")]
         public async Task<ActionResult> Put (int id, [FromForm] Oferta oferta) {
             if (id != oferta.IdOferta) {
