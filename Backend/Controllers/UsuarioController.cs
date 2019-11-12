@@ -6,18 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend.Controllers {
-    //Definimos nossa rota do controller e dizemos que é um controller de API
     [Route ("api/[controller]")]
     [ApiController]
     public class UsuarioController : ControllerBase {
-        //bddatempoContext _repositorio = new bddatempoContext();
         UsuarioRepository _repositorio = new UsuarioRepository ();
-
         UploadRepository _uploadRepo = new UploadRepository ();
-
         IdentificadorRepository _identificador = new IdentificadorRepository ();
 
-        // GET: api/Usuario
         /// <summary>
         /// Pegamos os usuário cadastrados
         /// </summary>
@@ -29,11 +24,9 @@ namespace backend.Controllers {
             if (usuarios == null) {
                 return NotFound ();
             }
-
             return usuarios;
         }
 
-        // GET: api/Usuario/2
         /// <summary>
         /// Pegamos os usuários de acordo com o ID
         /// </summary>
@@ -46,11 +39,9 @@ namespace backend.Controllers {
             if (usuario == null) {
                 return NotFound ();
             }
-
             return usuario;
         }
 
-        //POST api/Usuario
         /// <summary>
         /// Cadastramos um novo usuário
         /// </summary>
@@ -62,25 +53,33 @@ namespace backend.Controllers {
                 var arquivo = Request.Form.Files[0];
                 usuario.imgusuario = _uploadRepo.Upload (arquivo, "imgPerfil");
 
-                usuario.Identificador =  usuario.Identificador.Replace (" ", "");
-                usuario.Identificador =  usuario.Identificador.Replace ("-", "");
-                usuario.Identificador =  usuario.Identificador.Replace (".", "");
+                usuario.Identificador = usuario.Identificador.Replace (" ", "");
+                usuario.Identificador = usuario.Identificador.Replace ("-", "");
+                usuario.Identificador = usuario.Identificador.Replace (".", "");
+                usuario.Identificador = usuario.Identificador.Replace ("/", "");
 
-                if(usuario.Identificador.Length == 11){
-                    if (_identificador.ValidaCPF (usuario.Identificador) == false) {
-                    return BadRequest ();
-                    }else{
+                //Teste no Backend
+                if (usuario.Identificador.Length == 11) {
+                    if (_identificador.ValidaCPF (usuario.Identificador) == true) {
+                        usuario.IdTipoUsuario = 3;
                         await _repositorio.Salvar (usuario);
+                    } else {
+                        return BadRequest ();
+                    }
+                } else if (usuario.Identificador.Length == 14) {
+                    if (_identificador.ValidaCNPJ (usuario.Identificador) == true) {
+                        usuario.IdTipoUsuario = 2;
+                        await _repositorio.Salvar (usuario);
+                    } else {
+                        return BadRequest ();
                     }
                 }
-            }catch(DbUpdateConcurrencyException){
+            } catch (DbUpdateConcurrencyException) {
                 throw;
             }
             return usuario;
         }
 
-
-        //Update
         /// <summary>
         /// Alteramos usuário de acordo com o ID
         /// </summary>
@@ -111,7 +110,6 @@ namespace backend.Controllers {
             return NoContent ();
         }
 
-        //DELETE api/usuario/id
         /// <summary>
         /// Deletamos um usuário de acordo com o ID
         /// </summary>
