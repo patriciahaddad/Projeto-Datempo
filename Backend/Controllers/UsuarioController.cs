@@ -56,16 +56,20 @@ namespace backend.Controllers {
                 usuario.Identificador = usuario.Identificador.Replace (" ", "");
                 usuario.Identificador = usuario.Identificador.Replace ("-", "");
                 usuario.Identificador = usuario.Identificador.Replace (".", "");
+                usuario.Identificador = usuario.Identificador.Replace ("/", "");
+
                 //Teste no Backend
                 if (usuario.Identificador.Length == 11) {
                     if (_identificador.ValidaCPF (usuario.Identificador) == true) {
                         usuario.IdTipoUsuario = 3;
                         await _repositorio.Salvar (usuario);
-                    } else if (usuario.Identificador.Length == 14) {
-                        if (_identificador.ValidaCNPJ (usuario.Identificador) == true) {
-                            usuario.IdTipoUsuario = 2;
-                            await _repositorio.Salvar (usuario);
-                        }
+                    } else {
+                        return BadRequest ();
+                    }
+                } else if (usuario.Identificador.Length == 14) {
+                    if (_identificador.ValidaCNPJ (usuario.Identificador) == true) {
+                        usuario.IdTipoUsuario = 2;
+                        await _repositorio.Salvar (usuario);
                     } else {
                         return BadRequest ();
                     }
