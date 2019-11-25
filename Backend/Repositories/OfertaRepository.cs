@@ -32,19 +32,6 @@ namespace Backend.Repositories {
                 return oferta;
             }
         }
-
-        // public async Task<Oferta> ExibirOfertas (Oferta oferta) {
-        //     using (bddatempoContext _contexto = new bddatempoContext ()) {
-        //         List<Oferta> ofertas;
-        //         if (oferta.Validade >= DateTime.Now.AddDays (10)) {
-        //             ofertas =  await _contexto.Oferta.ToListAsync();
-        //         } else {
-        //            await Excluir(oferta);
-        //         }
-        //         return oferta;
-        //     }
-        // }
-
         public async Task<List<Oferta>> Listar () {
             using (bddatempoContext _contexto = new bddatempoContext ()) {
                 return await _contexto.Oferta.Include ("IdUsuarioNavigation").Include ("IdProdutoNavigation").ToListAsync ();
@@ -58,16 +45,6 @@ namespace Backend.Repositories {
                 return oferta;
             }
         }
-
-        // public async Task<List<Oferta>> Filtrar()
-        // {
-        //     using(bddatempoContext _contexto = new bddatempoContext()){
-        //        FiltroViewModel filtro = new FiltroViewModel();
-        //        List<Oferta> ofertas = new List<Oferta>();
-        //        ofertas = _contexto.Oferta.Where(o => o.NomeOferta.Contains(filtro.Palavra)).ToList();
-        //        return ofertas;
-        //    }
-        // }
 
     }
 }
