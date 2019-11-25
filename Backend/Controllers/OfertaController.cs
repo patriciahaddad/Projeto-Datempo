@@ -36,13 +36,6 @@ namespace backend.Controllers {
             return ofertas;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<List<Oferta>>> ExibirOferta () {
-            var ofertas = await _repositorio.ExibirOfertas ();
-
-            return ofertas;
-        }
-
         /// <summary>
         /// Pegamos uma oferta de acordo com o ID
         /// </summary>
@@ -113,7 +106,7 @@ namespace backend.Controllers {
         /// </summary>
         /// <param name="id">Passar ID</param>
         /// <returns>Deletar oferta</returns>
-        [Authorize (Roles = "Fornecedor")]
+        // [Authorize (Roles = "Fornecedor")]
         [HttpDelete ("{id}")]
         public async Task<ActionResult<Oferta>> Delete (int id) {
             var oferta = await _repositorio.BuscarPorID (id);
@@ -121,7 +114,6 @@ namespace backend.Controllers {
                 return NotFound ();
             }
             await _repositorio.Excluir (oferta);
-
             return oferta;
         }
     }

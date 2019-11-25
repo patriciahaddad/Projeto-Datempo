@@ -23,7 +23,6 @@ namespace backend.Controllers {
             if (reservas == null) {
                 return NotFound (new { mensagem = "Reserva não encontrada", Erro = true });
             }
-
             return reservas;
         }
 
@@ -39,7 +38,6 @@ namespace backend.Controllers {
             if (reserva == null) {
                 return NotFound (new { mensagem = "Id de reserva não encontrado", Erro = true });
             }
-
             return reserva;
         }
 
@@ -96,7 +94,6 @@ namespace backend.Controllers {
                 return NotFound (new { mensagem = " não encontrada", Erro = true });
             }
             await _repositorio.Excluir (reserva);
-
             return reserva;
         }
     }

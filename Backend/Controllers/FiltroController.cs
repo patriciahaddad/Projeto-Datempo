@@ -20,7 +20,7 @@ namespace Backend.Controllers {
         /// <returns>Filtro por pesquisa</returns>
         [HttpGet ("FiltrarPalavra")]
         public ActionResult<List<Oferta>> GetFiltrar (FiltroViewModel filtro) {
-            List<Oferta> ofertas = _repositorio.GetFiltrar(filtro);
+            List<Oferta> ofertas = _repositorio.GetFiltrar (filtro);
             if (ofertas == null) {
                 return NotFound (new { Mensagem = "Produto não encontrado", Erro = true });
             }
@@ -48,7 +48,7 @@ namespace Backend.Controllers {
         /// <returns>Ordem de A-Z</returns>
         [HttpGet ("Ordenar")]
         public ActionResult<List<Oferta>> GetOrdernar () {
-            List<Oferta> ofertas = _repositorio.GetOrdernar();
+            List<Oferta> ofertas = _repositorio.GetOrdernar ();
             return ofertas;
         }
 
@@ -59,7 +59,7 @@ namespace Backend.Controllers {
         /// <returns>Ordem de Maior e Menor preço</returns>
         [HttpGet ("OrdenarPreco/{ordempreco}")]
         public ActionResult<List<Oferta>> GetOrdernarPreco (string ordempreco) {
-            List<Oferta> ofertas = _repositorio.GetOrdenarPreco(ordempreco);
+            List<Oferta> ofertas = _repositorio.GetOrdenarPreco (ordempreco);
             return ofertas;
         }
     }
