@@ -416,8 +416,6 @@ label input{
     width: 30px;
     height: 30px;
 }
-.descricao_pequena_logo{
-}
 .validade_mostruario{
     display: flex;
     align-items: center;
@@ -834,6 +832,21 @@ label input{
         width: 730px;
         margin: 0px;
     } 
+    /*Carrinho*/
+    .container_carrinho{
+        width: 600px;
+        margin-top: 20px;
+    }
+    .card_carrinho2{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .card_carrinho2 p{
+        margin: 0px;
+    }
+    .titulo_descricao{
+        padding-top: 10px;
+    }
 }
 /*CELULAR - MOBILE*/
 @media (max-width:767px){
@@ -898,7 +911,10 @@ label input{
     .paginacao_ofertas{
         width: 330px;
     }
-    .cont_branco, .sobre p{
+    .cont_branco{
+        width: 400px;
+    }
+    .sobre p{
         width: 350px;
     }
     .ofertas_cadastradas{
@@ -986,5 +1002,43 @@ label input{
     .form_label .input_vert{
         width: 350px;
         margin: 0px;
+    }
+    .container_carrinho{
+        width: 300px;
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .card_carrinho{
+        flex-direction: column;
+        padding-left: 0;
+    }
+    .card_carrinho2{
+        flex-wrap: nowrap;
+        padding-right: 11px;
+    }
+    .titulo_descricao{
+        padding-top: 10px;
+    }
+    .descricao_carrinho{
+        text-align: center;
+        padding-left: 0;
+    }
+    .descricao_carrinho2{
+        padding-left: 15px;
+    }
+    .botoes_carrinho{
+        margin-top: 30px;
+        flex-wrap: wrap;
+    }
+    .botao_carrinho{
+        border-radius: 0px;
+        width: 100%;
+    }
+    .btn_carrinho{
+        border-radius: 0px;
+        width: 100%;
+        margin-top: 10px;
     }
 }
