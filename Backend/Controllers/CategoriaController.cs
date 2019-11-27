@@ -23,7 +23,6 @@ namespace backend.Controllers {
             if (categorias == null) {
                 return NotFound (new { mensagem = "Categoria não encontrada", Erro = true });
             }
-
             return categorias;
         }
 
@@ -39,7 +38,6 @@ namespace backend.Controllers {
             if (categoria == null) {
                 return NotFound (new { mensagem = "Id da Categoria não encontrada", Erro = true });
             }
-
             return categoria;
         }
 
@@ -94,9 +92,7 @@ namespace backend.Controllers {
             if (categoria == null) {
                 return NotFound (new { mensagem = "Categoria não encontrada", Erro = true });
             }
-
             await _repositorio.Excluir (categoria);
-
             return categoria;
         }
     }

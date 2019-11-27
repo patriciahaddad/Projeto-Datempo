@@ -179,6 +179,7 @@ hr{
     justify-content: center;
     align-items: center;
     border-left: var(--laranja) 1px solid;
+    padding-bottom: 40px;
 }
 #form_cadastro label,#form_login label{
     display: flex;
@@ -208,7 +209,7 @@ label input{
 /*FILTRO*/
 .container_filtro{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     width: 1100px;
     margin: auto;
@@ -254,7 +255,7 @@ label input{
     padding-bottom: 30px;
 }
 .container_ofertas{
-   display: flex;
+    display: flex;
     width: 1100px;
     margin: auto;
     justify-content: space-between;
@@ -268,11 +269,9 @@ label input{
 }
 .card_oferta{
     width: 250px;
-    height: 480px;
-    display: flex;
-    flex-flow: column;
-    margin: 30px 0px;
-    -webkit-box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
+    height: 480px; 
+    margin: 10px 2px;
+    padding: 8px;
     -moz-box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
     box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
     background-color: white;
@@ -281,10 +280,32 @@ label input{
     width: 100%;
 }
 .card_oferta p{
-    margin:5px 10px;
+    margin: 7px 7px; 
 }
 .titulo_descricao{
-    font-size: 10pt;
+    font-size: 12pt;  
+    color: red;  
+}
+.titulo_preco, .preco_descricao{
+    font-size: 22px;
+}
+.descricao_produto{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0px;
+}
+.titulo descricao{
+    margin: 50px;
+}
+.titulo_produto{
+    width: 250px;
+    margin: auto;
+}
+.titulo_descricao_logo{
+    font-family: Racing Sans One;
+    font-size: 15px;
+    color: var(--laranja);
+    padding-left: 22px;
 }
 .descricao{
     font-size:14pt;
@@ -295,7 +316,8 @@ label input{
 .descricao_oferta{
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-wrap: wrap; 
 }
 .avaliacao img{
     width: 100px;
@@ -377,6 +399,23 @@ label input{
     width: 250px;
     height: 256px;
 }
+.descricao_pequena_logo img{
+    width: 30px;
+    height: 30px;
+}
+.descricao_pequena_logo{
+    text-align: left;
+}
+.validade_mostruario{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    padding-left: 30px;
+    padding-bottom: 8px;
+}
+.validade_mostruario p{
+    font-size: 20px;
+}
 .botao_reservar{
     display: flex;
     justify-content: space-around;    
@@ -453,17 +492,20 @@ label input{
 .container_perfil{
     display: flex;
     justify-content: space-around;
-    padding-top:30px; 
+    padding: 40px 100px; 
+}
+.form_perfil label{
+    padding: 0px 100px;
 }
 .imgperfil img{
-    width: 280px;
+    width: 200px;
     border: solid 2px var(--laranja);
 }
 .form_perfil input{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 600px;
+    width: 580px;
 }
 .btn_perfil{
     padding:10px 80px;
@@ -587,6 +629,94 @@ label input{
 
   /*BOTOES*/
 /*FIM CADASTRO DE OFERTAS*/
+
+/* CARRINHO */
+.img_carrinho img{
+    width: 150px;
+}
+.container_carrinho{
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    width: 1000px;
+    margin: auto;
+    margin-top: 20px;
+    border: solid 0.5px var(--laranja);
+    border-radius: 6px;;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.card_carrinho{
+    display: flex;
+    align-items: center;
+    padding-top:10px;
+    padding-left: 10px;
+}
+.card_carrinho2{
+    display: flex;
+    padding: 10px;
+    padding-right: 100px;
+}
+.card_carrinho2 p{
+    margin: 10px;
+}
+.descricao_carrinho{
+    padding-left: 20px;;
+}
+.botoes_carrinho{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+.botao_carrinho{
+    background-color: var(--vermelho);
+    color:#fff;
+    padding: 15px 30px;
+    text-decoration:none;
+    text-align: center;
+    border-radius: 10px;
+}
+.btn_carrinho{
+    background-color: var(--roxo);
+    color:#fff;
+    padding: 15px 40px;
+    text-decoration:none;
+    text-align: center;
+    border-radius: 10px;
+}
+/* FIM CARRINHO */
+
+/* PERFIL ADM */
+.adm_configs_esq{
+    width: 40%;
+    border: 1.5px solid var(--laranja);
+    border-radius: 4px;
+    margin: 20px;
+    padding: 20px;
+}
+.adm_configs_esq .adm_btn_01{
+    width: 100%;
+    height: 50px;
+    margin: 30px 0px;
+}
+.adm_configs_dir{
+    width: 80%;
+    align-items: center;
+    padding-top: 10px;
+}
+.adm_configs_dir img{
+    width: 150px;
+    border: solid 2px var(--laranja);
+    margin: 30px;
+    margin-left: 315px;
+}
+.organizacao_adm{
+    height: 550px;
+    display: flex;
+}
+
 /*MEDIAS QUERIES*/
 /*TABLET*/
 @media (max-width:1169px){
@@ -716,8 +846,13 @@ label input{
     .form_label .input_vert{
         width: 730px;
         margin: 0px;
-    } 
+    }
+    .adm_configs_dir img{
+        margin: 30px;
+        margin-left: 215px;
+    }
 }
+
 /*CELULAR - MOBILE*/
 @media (max-width:767px){
     header .pesquisa{
@@ -895,4 +1030,28 @@ label input{
     .form_adicionais{
         width: 300px;
     }
+    .organizacao_adm{
+        height: 100%;
+        width: 100%;
+        margin: auto;
+        flex-direction: column-reverse;
+    }
+    .adm_configs_dir{
+        width: 100%;
+        align-items: center;
+    }
+    .adm_configs_dir img{
+        margin: 30px;
+        margin-left: 100px;
+    }
+    .adm_configs_dir label{
+        margin-left: -75px;
+    }
+    .adm_configs_esq{
+        margin-left: 26px; 
+        width: 74%;
+    }
+    .categoria_filtro{
+        margin-left: 10px;
+}
 }

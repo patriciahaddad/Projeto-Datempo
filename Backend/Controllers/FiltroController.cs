@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Backend.Domains;
+using Backend.Repositories;
 using Backend.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,8 @@ namespace Backend.Controllers {
     [ApiController]
     public class FiltroController : ControllerBase {
 
+        FiltroRepository _repositorio = new FiltroRepository ();
+
         /// <summary>
         /// Filtramos as ofertas por pesquisa
         /// </summary>
@@ -17,15 +20,11 @@ namespace Backend.Controllers {
         /// <returns>Filtro por pesquisa</returns>
         [HttpGet ("FiltrarPalavra")]
         public ActionResult<List<Oferta>> GetFiltrar (FiltroViewModel filtro) {
-            using (bddatempoContext _contexto = new bddatempoContext ()) {
-                List<Oferta> ofertas = _contexto.Oferta.Where (o => o.NomeOferta.Contains (filtro.Palavra)).ToList ();
-                if (ofertas == null) {
-                    return NotFound (new {
-                        Mensagem = "Produto não encontrado", Erro = true
-                    });
-                }
-                return ofertas;
+            List<Oferta> ofertas = _repositorio.GetFiltrar (filtro);
+            if (ofertas == null) {
+                return NotFound (new { Mensagem = "Produto não encontrado", Erro = true });
             }
+            return ofertas;
         }
 
         /// <summary>
@@ -35,17 +34,12 @@ namespace Backend.Controllers {
         /// <returns>Filtro por categoria</returns>
         [HttpGet ("filtrarcategoria/{filtrocategoria}")]
         public ActionResult<List<Oferta>> GetFiltrarCategoria (string filtrocategoria) {
-            using (bddatempoContext _contexto = new bddatempoContext ()) {
-                List<Oferta> ofertas = _contexto.Oferta.Include ("IdProdutoNavigation").Where (o => o.IdProdutoNavigation.IdCategoriaNavigation.NomeCategoria.Contains (filtrocategoria)).ToList ();
-                if (ofertas == null) {
-                    return NotFound (
-                        new {
-                            Mensagem = "Produto não encontrado",
-                                Erro = true
-                        });
-                }
-                return ofertas;
+            List<Oferta> ofertas = _repositorio.GetFiltrarCategoria (filtrocategoria);
+            if (ofertas == null) {
+                return NotFound (
+                    new { Mensagem = "Produto não encontrado", Erro = true });
             }
+            return ofertas;
         }
 
         /// <summary>
@@ -54,10 +48,7 @@ namespace Backend.Controllers {
         /// <returns>Ordem de A-Z</returns>
         [HttpGet ("Ordenar")]
         public ActionResult<List<Oferta>> GetOrdernar () {
-            List<Oferta> ofertas;
-            using (bddatempoContext _contexto = new bddatempoContext ()) {
-                ofertas = _contexto.Oferta.OrderBy (o => o.NomeOferta).ToList ();
-            }
+            List<Oferta> ofertas = _repositorio.GetOrdernar ();
             return ofertas;
         }
 
@@ -68,15 +59,7 @@ namespace Backend.Controllers {
         /// <returns>Ordem de Maior e Menor preço</returns>
         [HttpGet ("OrdenarPreco/{ordempreco}")]
         public ActionResult<List<Oferta>> GetOrdernarPreco (string ordempreco) {
-            List<Oferta> ofertas;
-            using (bddatempoContext _contexto = new bddatempoContext ()) {
-
-                if (ordempreco == "Menor") {
-                    ofertas = _contexto.Oferta.OrderBy (o => o.Preco).ToList ();
-                } else {
-                    ofertas = _contexto.Oferta.OrderByDescending (o => o.Preco).ToList ();
-                }
-            }
+            List<Oferta> ofertas = _repositorio.GetOrdenarPreco (ordempreco);
             return ofertas;
         }
     }

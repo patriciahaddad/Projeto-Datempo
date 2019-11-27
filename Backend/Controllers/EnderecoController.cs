@@ -38,7 +38,6 @@ namespace backend.Controllers {
             if (endereco == null) {
                 return NotFound (new { mensagem = "Id do Endereco não encontrado", Erro = true });
             }
-
             return endereco;
         }
 
@@ -67,7 +66,7 @@ namespace backend.Controllers {
         public async Task<ActionResult> Put (int id, Endereco endereco) {
 
             if (id != endereco.IdEndereco) {
-                return BadRequest (new{mensagem = "Id do Endereco não encontrado", Erro = true});
+                return BadRequest (new { mensagem = "Id do Endereco não encontrado", Erro = true });
             }
             try {
                 await _repositorio.Alterar (endereco);
@@ -75,12 +74,12 @@ namespace backend.Controllers {
                 var endereco_valido = await _repositorio.BuscarPorID (id);
 
                 if (endereco_valido == null) {
-                    return NotFound (new{mensagem = "Endereco não valido", Erro = true});
+                    return NotFound (new { mensagem = "Endereco não valido", Erro = true });
                 } else {
                     throw;
                 }
             }
-            return Ok("Endereco Atualizado com sucesso");
+            return Ok ("Endereco Atualizado com sucesso");
         }
 
         /// <summary>
@@ -92,10 +91,9 @@ namespace backend.Controllers {
         public async Task<ActionResult<Endereco>> Delete (int id) {
             var endereco = await _repositorio.BuscarPorID (id);
             if (endereco == null) {
-                return NotFound (new{mensagem = "Endereco não encontrado", Erro = true});
+                return NotFound (new { mensagem = "Endereco não encontrado", Erro = true });
             }
             await _repositorio.Excluir (endereco);
-
             return endereco;
         }
     }

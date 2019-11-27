@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meu perfil</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"
+        integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+    <header>
+        <div class="container_h">
+            <img class="logo" src="Imagens/Logo6.svg" alt="Logo Datempo">
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html" title="Home">Home</a></li>
+                    <li><a href="sobrenos.html" title="INSTITUCIONAL">INSTITUCIONAL</a></li>
+                    <li><a href="mostruario.html" title="Produtos">Produtos</a></li>
+                    <li><a href="login.html" title="Sair">Sair</a></li>
+                </ul>
+                <div class="pesquisa">
+                    <input type="text" id="txtbusca" placeholder="Buscar produtos..." aria-label="Buscar produtos">
+                    <img src="imagens/magnifying-glass-icon.png" id="btnbusca" alt="Buscar">
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="cont_branco">
+                <h2>MEU PERFIL</h2>
+                <hr>
+                <div class="container_perfil">
+                    <div class="imgperfil">
+                        <img src="imagens/avatar.png" alt="Imagem de perfil do usuário">
+                    </div>
+                    <div class="form_perfil">
+                        <form method="POST" id="form_perfil">
+                            <label>
+                                Nome completo
+                                <input type="text" placeholder="Digite seu nome de usuário..." name="nome"
+                                    aria-label="Nome completo do usuário" required value="Fulano da Silva">
+                            </label>
+                            <label>
+                                CPF/CNPJ
+                                <input type="text" placeholder="Digite seu cpf e cnpj..." name="cpf_cnpj"
+                                    aria-label="CPF/CNPJ do usuário" required value="xxx.xxx.xxx-xx">
+                            </label>
+                            <label>
+                                E-mail
+                                <input type="text" placeholder="Digite seu email..." name="email"
+                                    aria-label="Email do usuário" required value="fulanosilva@gmail.com">
+                            </label>
+                            <label>
+                                Usuário
+                                <input type="text" placeholder="Digite seu nome de usuário..." name="usuario"
+                                    aria-label="Nome de usúario" required value="fulanosilva112">
+                            </label>
+                            <label>
+                                Senha
+                                <input type="password" placeholder="Digite sua senha..." name="senha"
+                                    aria-label="Digitar sua senha" required value="••••••••••••">
+                            </label>
+                            <label>
+                                <div class="btnperfil">
+                                    <button class="btn_perfil" type="submit">Editar</button>
+
+                                    <button class="btn_perfil" type="submit">Salvar</button>
+                                </div>
+                            </label>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Alameda Barão de Limeira, 539 - Campos Elíseos, São Paulo - SP</p>
+        <p>Telefone: (11) 3273-5000</p>
+        <div class="redes_sociais">
+            <a><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>Datempo by Linx © 2019</p>
+    </footer>
+</body>
+
+</html>
