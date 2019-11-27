@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Meu perfil</title>
+    <title>Perfil ADM</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"
         integrity="sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9" crossorigin="anonymous">
     <link rel="stylesheet" href="css/estilo.css">
@@ -31,24 +31,24 @@
     </header>
     <main>
         <div class="container">
-            <div class="cont_branco">
-                <h2>MEU PERFIL</h2>
-                <hr>
-                <div class="container_perfil">
-                    <div class="imgperfil">
-                        <img src="imagens/avatar.png" alt="Imagem de perfil do usuário">
+            <section class="cont_branco">
+                <div class="organizacao_adm">
+                    <div class="adm_configs_esq">
+                        <button class="adm_btn_01" type="submit">CATEGORIA</button>
+                        <button class="adm_btn_01" type="submit">OFERTA</button>
+                        <button class="adm_btn_01" type="submit">PRODUTO</button>
+                        <button class="adm_btn_01" type="submit">USUÁRIO</button>
                     </div>
-                    <div class="form_perfil">
-                        <form method="POST" id="form_perfil">
+
+                    <div class="adm_configs_dir">
+                        <h2>PERFIL ADM</h2>
+                        <hr>
+                        <img src="imagens/avatar.png" alt="Imagem de perfil do usuário">
+                        <div class="form_perfil">
                             <label>
                                 Nome completo
                                 <input type="text" placeholder="Digite seu nome de usuário..." name="nome"
                                     aria-label="Nome completo do usuário" required value="Fulano da Silva">
-                            </label>
-                            <label>
-                                CPF/CNPJ
-                                <input type="text" placeholder="Digite seu cpf e cnpj..." name="cpf_cnpj"
-                                    aria-label="CPF/CNPJ do usuário" required value="xxx.xxx.xxx-xx">
                             </label>
                             <label>
                                 E-mail
@@ -56,26 +56,14 @@
                                     aria-label="Email do usuário" required value="fulanosilva@gmail.com">
                             </label>
                             <label>
-                                Usuário
-                                <input type="text" placeholder="Digite seu nome de usuário..." name="usuario"
-                                    aria-label="Nome de usúario" required value="fulanosilva112">
-                            </label>
-                            <label>
                                 Senha
                                 <input type="password" placeholder="Digite sua senha..." name="senha"
                                     aria-label="Digitar sua senha" required value="••••••••••••">
                             </label>
-                            <label>
-                                <div class="btnperfil">
-                                    <button class="btn_perfil" type="submit">Editar</button>
-
-                                    <button class="btn_perfil" type="submit">Salvar</button>
-                                </div>
-                            </label>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     </main>
     <footer>
