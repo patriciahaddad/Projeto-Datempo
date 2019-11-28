@@ -5,6 +5,7 @@ import App from '../src/pages/Home/App';
 import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import Sobrenos from './pages/Sobrenos/sobrenos';
+import Mostruario from './pages/Mostruario/mostruario';
 
 
 //Realizamos a criação das rotas
@@ -14,6 +15,7 @@ const Rotas = (
             <Switch>
                 <Route exact path="/" component={App} />
                 <Route path="/sobrenos" component={Sobrenos} />
+                <Route path="/mostruario" component={Mostruario} />
             </Switch>
         </div>
     </Router>
