@@ -66,7 +66,6 @@ namespace backend.Controllers {
                 expires : DateTime.Now.AddMinutes (120),
                 signingCredentials : credentials
             );
-
             return new JwtSecurityTokenHandler ().WriteToken (token);
         }
 

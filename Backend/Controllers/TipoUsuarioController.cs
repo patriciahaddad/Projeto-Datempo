@@ -38,7 +38,6 @@ namespace backend.Controllers {
             if (tipousuario == null) {
                 return NotFound (new { mensagem = "Id do Tipo usuario não encontrada", Erro = true });
             }
-
             return tipousuario;
         }
 
