@@ -7,5 +7,6 @@ export const parseJwt = () => {
     var base64 = localStorage.getItem('usuario-gufos').split('.')[1]
 
     // Retorna o payload covertido de base64 para string e de string para JSON
+
     return JSON.parse(window.atob(base64))
 }

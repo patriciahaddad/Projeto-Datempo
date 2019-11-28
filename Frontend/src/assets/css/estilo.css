@@ -116,7 +116,7 @@ label input{
 /*FIM LOGIN*/
 /*Ajuda*/
 .btn_aj{
-    background-color: white;
+    background-color: #f7f7f7;
     color:var(--roxo);
 }
 .card_aj{
