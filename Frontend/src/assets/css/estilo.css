@@ -366,6 +366,8 @@ label input{
 }
 .btn_edita_oferta{
     background-color: var(--roxo);
+}
+.btn_apaga_oferta , .btn_edita_oferta , .btn_reserva_oferta{
     color:#fff;
     padding: 8px 30px;
     text-decoration:none;
@@ -374,11 +376,9 @@ label input{
 }
 .btn_apaga_oferta{
     background-color: var(--vermelho);
-    color:#fff;
-    padding: 8px 30px;
-    text-decoration:none;
-    text-align: center;
-    border-radius: 4px;
+}
+.btn_reserva_oferta{
+    background-color: var(--vermelho);
 }
 .paginacao_ofertas{
     display: flex;

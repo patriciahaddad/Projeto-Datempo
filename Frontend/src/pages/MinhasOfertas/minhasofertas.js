@@ -24,251 +24,34 @@ class Minhasofertas extends Component {
 
                             <div className="container_ofertas">
                                 <div className="card_oferta">
-                                <div className="img_oferta">
-                                    <img src={arrozjoao} alt="Pacote de Arroz de 5kg da marca Tio João" />
-                                </div>
-                                    <div className="descricao_oferta">
-                                    <div className="titulo_produto">
-                                        <p className="titulo descricao">Arroz Tio João - 5kg</p>
-                                    </div>
-                                        <div className="descricao_pequena">
-                                        <p className="titulo_descricao">Preço</p>
-                                        <p className="descricao">R$ 8,00</p>
-                                    </div>
-                                        <div className="descricao_pequena_logo">
-                                            <p className="titulo_descricao_logo">DATEMPO</p>
-                                        <div className="validade_mostruario">
-                                            <img src={alarme} alt="Alarme" />
-                                            <p className="descricao"> Faltam: 10 dias!</p>
-                                        </div>
-                                        </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Reservados</p>
-                                            <p className="descricao">100</p>
-                                        </div>
-                                    </div>
-                                    <div className="botoes_oferta">
-                                        <a href="#" className="btn_edita_oferta">Editar</a>
-                                        <a href="#" className="btn_apaga_oferta">Apagar</a>
-                                    </div>
-                            </div>
-
-                                <div className="card_oferta">
                                     <div className="img_oferta">
                                         <img src={arrozjoao} alt="Pacote de Arroz de 5kg da marca Tio João" />
                                     </div>
                                     <div className="descricao_oferta">
                                         <div className="titulo_produto">
                                             <p className="titulo descricao">Arroz Tio João - 5kg</p>
-                                        </div>
-                                        <div className="descricao_pequena">
+                                        </div> 
+                                       <div className="descricao_pequena">
                                             <p className="titulo_descricao">Preço</p>
                                             <p className="descricao">R$ 8,00</p>
                                         </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Validade</p>
-                                            <p className="descricao">18/09/2019</p>
+                                    
+                                        <div className="descricao_pequena_logo">
+                                            <p className="titulo_descricao_logo">DATEMPO</p>
+                                        <div className="validade_mostruario">
+                                            <img src={alarme} alt="Alarme" />
+                                            <p className="descricao"> Faltam: 10 dias!</p>
                                         </div>
-                                        <div className="descricao_pequena avaliacao">
-                                            <p className="titulo_descricao">Avaliações</p>
-                                            <img src="Imagens/estrelas.png" alt="avaliacao do produto segundo os clientes" />
-                                        </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Reservados</p>
-                                            <p className="descricao">100</p>
-                                        </div>
+                                        </div> 
+                                        
                                     </div>
                                     <div className="botoes_oferta">
                                         <a href="#" className="btn_edita_oferta">Editar</a>
-                                        <a href="#" className="btn_apaga_oferta">Apagar</a>
+                                        <a href="#" className="btn_reserva_oferta">Reservas</a>
                                     </div>
                                 </div>
 
-                                <div className="card_oferta">
-                                    <div className="img_oferta">
-                                        <img src="Imagens/arroz.png" alt="Pacote de Arroz de 5kg da marca Tio João" />
-                                    </div>
-                                    <div className="descricao_oferta">
-                                        <div className="titulo_produto">
-                                            <p className="titulo descricao">Arroz Tio João - 5kg</p>
-                                        </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Preço</p>
-                                            <p className="descricao">R$ 8,00</p>
-                                        </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Validade</p>
-                                            <p className="descricao">18/09/2019</p>
-                                        </div>
-                                        <div className="descricao_pequena avaliacao">
-                                            <p className="titulo_descricao">Avaliações</p>
-                                            <img src="Imagens/estrelas.png" alt="avaliacao do produto segundo os clientes" />
-                                        </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Reservados</p>
-                                            <p className="descricao">100</p>
-                                        </div>
-                                    </div>
-                                    <div className="botoes_oferta">
-                                        <a href="#" className="btn_edita_oferta">Editar</a>
-                                        <a href="#" className="btn_apaga_oferta">Apagar</a>
-                                    </div>
-                                </div>
-
-                                <div className="card_oferta">
-                                    <div className="img_oferta">
-                                        <img src="Imagens/arroz.png" alt="Pacote de Arroz de 5kg da marca Tio João" />
-                                    </div>
-                                    <div className="descricao_oferta">
-                                        <div className="titulo_produto">
-                                            <p className="titulo descricao">Arroz Tio João - 5kg</p>
-                                        </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Preço</p>
-                                            <p className="descricao">R$ 8,00</p>
-                                        </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Validade</p>
-                                            <p className="descricao">18/09/2019</p>
-                                        </div>
-                                        <div className="descricao_pequena avaliacao">
-                                            <p className="titulo_descricao">Avaliações</p>
-                                            <img src="Imagens/estrelas.png" alt="avaliacao do produto segundo os clientes" />
-                                        </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Reservados</p>
-                                            <p className="descricao">100</p>
-                                        </div>
-                                    </div>
-                                    <div className="botoes_oferta">
-                                        <a href="#" className="btn_edita_oferta">Editar</a>
-                                        <a href="#" className="btn_apaga_oferta">Apagar</a>
-                                    </div>
-                                </div>
-
-                                <div className="card_oferta">
-                                    <div className="img_oferta">
-                                        <img src="Imagens/arroz.png" alt="Pacote de Arroz de 5kg da marca Tio João" />
-                                    </div>
-                                    <div className="descricao_oferta">
-                                        <div className="titulo_produto">
-                                            <p className="titulo descricao">Arroz Tio João - 5kg</p>
-                                        </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Preço</p>
-                                            <p className="descricao">R$ 8,00</p>
-                                        </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Validade</p>
-                                            <p className="descricao">18/09/2019</p>
-                                        </div>
-                                        <div className="descricao_pequena avaliacao">
-                                            <p className="titulo_descricao">Avaliações</p>
-                                            <img src="Imagens/estrelas.png" alt="avaliacao do produto segundo os clientes" />
-                                        </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Reservados</p>
-                                            <p className="descricao">100</p>
-                                        </div>
-                                    </div>
-                                    <div className="botoes_oferta">
-                                        <a href="#" className="btn_edita_oferta">Editar</a>
-                                        <a href="#" className="btn_apaga_oferta">Apagar</a>
-                                    </div>
-                                </div>
-
-                                <div className="card_oferta">
-                                    <div className="img_oferta">
-                                        <img src="Imagens/arroz.png" alt="Pacote de Arroz de 5kg da marca Tio João" />
-                                    </div>
-                                    <div className="descricao_oferta">
-                                        <div className="titulo_produto">
-                                            <p className="titulo descricao">Arroz Tio João - 5kg</p>
-                                        </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Preço</p>
-                                            <p className="descricao">R$ 8,00</p>
-                                        </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Validade</p>
-                                            <p className="descricao">18/09/2019</p>
-                                        </div>
-                                        <div className="descricao_pequena avaliacao">
-                                            <p className="titulo_descricao">Avaliações</p>
-                                            <img src="Imagens/estrelas.png" alt="avaliacao do produto segundo os clientes" />
-                                        </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Reservados</p>
-                                            <p className="descricao">100</p>
-                                        </div>
-                                    </div>
-                                    <div className="botoes_oferta">
-                                        <a href="#" className="btn_edita_oferta">Editar</a>
-                                        <a href="#" className="btn_apaga_oferta">Apagar</a>
-                                    </div>
-                                </div>
-
-                                <div className="card_oferta">
-                                    <div className="img_oferta">
-                                        <img src="Imagens/arroz.png" alt="Pacote de Arroz de 5kg da 
-                                        marca Tio João" />
-                                    </div>
-                                    <div className="descricao_oferta">
-                                        <div className="titulo_produto">
-                                            <p className="titulo descricao">Arroz Tio João - 5kg</p>
-                                        </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Preço</p>
-                                            <p className="descricao">R$ 8,00</p>
-                                        </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Validade</p>
-                                            <p className="descricao">18/09/2019</p>
-                                        </div>
-                                        <div className="descricao_pequena avaliacao">
-                                            <p className="titulo_descricao">Avaliações</p>
-                                            <img src="Imagens/estrelas.png" alt="avaliacao do produto segundo os clientes" />
-                                        </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Reservados</p>
-                                            <p className="descricao">100</p>
-                                        </div>
-                                    </div>
-                                    <div className="botoes_oferta">
-                                        <a href="#" className="btn_edita_oferta">Editar</a>
-                                        <a href="#" className="btn_apaga_oferta">Apagar</a>
-                                    </div>
-                                </div>
-                                <div className="card_oferta">
-                                    <div className="img_oferta">
-                                        <img src="Imagens/arroz.png" alt="Pacote de Arroz de 5kg da marca Tio João" />
-                                    </div>
-                                    <div className="descricao_oferta">
-                                        <div className="titulo_produto">
-                                            <p className="titulo descricao">Arroz Tio João - 5kg</p>
-                                        </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Preço</p>
-                                            <p className="descricao">R$ 8,00</p>
-                                        </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Validade</p>
-                                            <p className="descricao">18/09/2019</p>
-                                        </div>
-                                        <div className="descricao_pequena avaliacao">
-                                            <p className="titulo_descricao">Avaliações</p>
-                                            <img src="Imagens/estrelas.png" alt="avaliacao do produto segundo os clientes" />
-                                        </div>
-                                        <div className="descricao_pequena">
-                                            <p className="titulo_descricao">Reservados</p>
-                                            <p className="descricao">100</p>
-                                        </div>
-                                    </div>
-                                    <div className="botoes_oferta">
-                                        <a href="#" className="btn_edita_oferta">Editar</a>
-                                        <a href="#" className="btn_apaga_oferta">Apagar</a>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
                         {/* <div className="paginacao_ofertas">
