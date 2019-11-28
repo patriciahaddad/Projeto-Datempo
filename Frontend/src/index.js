@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import App from '../src/pages/Home/App';
 import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+
 import Sobrenos from './pages/Sobrenos/sobrenos';
 import Perfilusuario from './pages/Perfilusuario/perfilusuario';
 import cadastroOferta from './pages/cadastroOferta/cadastrooferta';
 import Mostruario from './pages/Mostruario/mostruario';
+import Carrinho from './pages/Carrinho/carrinho';
 import Perfiladm from './pages/Perfiladm/perfiladm';
 import NotFound from './pages/NotFound/notfound';
 
@@ -27,6 +29,7 @@ const Rotas = (
                 <Route path="/perfilusuario" component={Perfilusuario} />
                 <Route path="/oferta" component={cadastroOferta} />
                 <Route path="/mostruario" component={Mostruario} />
+                <Route path= "/carrinho" component={Carrinho}/>
                 <Route path="/perfiladm" component={Perfiladm} />
                 <Route component={NotFound} />
             </Switch>

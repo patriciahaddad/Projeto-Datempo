@@ -2,8 +2,39 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Produto from '../../assets/imagens/arroz.png';
-
+import api from '../../services/api';
 class Mostruario extends Component{
+
+    constructor(){
+        super()
+
+        this.state ={
+            listaOferta : [],
+            listaCategoria: [],
+
+        
+            postCategoria : {
+                idCategoria: "",
+                nomeCategoria: "" 
+            }
+           
+        }
+    }
+
+    componentDidMount(){
+        this.getCategoria();
+       
+    }
+    
+
+    getCategoria = () => {
+        api.get('/categoria')
+        .then(response => {
+            if(response.status === 200){
+                this.setState({ listaCategoria : response.data })
+            }
+        })
+    }
 
     render(){
 
@@ -22,10 +53,19 @@ class Mostruario extends Component{
                         <div class="categoria_filtro">
                             <label>Categoria:</label>
                             <select name="categoria" id="cmbCategoria">
-                                <option>Alimentos</option>
-                                <option value="pereciveis">Pereciveis</option>
-                                <option value="legumes">Legumes</option>
-                                <option value="frutas">Frutas</option>
+                                {
+                                    this.state.listaCategoria.map(function (c){
+                                        return(
+                                            <option
+                                                key={c.idCategoria}
+                                                value = {c.idCategoria}
+                                            >
+                                                {c.nomeCategoria}
+                                                </option>
+                                        )
+                                    })
+                                }
+
                             </select>
                         </div>
                         <div class="categoria_filtro">
