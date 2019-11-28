@@ -5,6 +5,8 @@ import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import Sobrenos from './pages/Sobrenos/sobrenos';
+import Ajuda from './pages/Ajuda/ajuda';
+import Login from './pages/Login/login';
 import Minhasofertas from './pages/MinhasOfertas/minhasofertas';
 import Perfilusuario from './pages/Perfilusuario/perfilusuario';
 import cadastroOferta from './pages/cadastroOferta/cadastrooferta';
@@ -31,8 +33,10 @@ const Rotas = (
                 <Route path="/perfilusuario" component={Perfilusuario} />
                 <Route path="/oferta" component={cadastroOferta} />
                 <Route path="/mostruario" component={Mostruario} />
-                <Route path= "/carrinho" component={Carrinho}/>
+                <Route path="/carrinho" component={Carrinho}/>
                 <Route path="/perfiladm" component={Perfiladm} />
+                <Route path="/ajuda" component={Ajuda} />
+                <Route path="/Login" component={Login} />
                 <Route component={NotFound} />
             </Switch>
         </div>
