@@ -54,90 +54,79 @@ using Microsoft.OpenApi.Models;
 // Para adicionar a árvore de objetos adicionamos uma nova biblioteca JSON
 // dotnet add package Microsoft.AspNetCore.Mvc.NewtonsoftJson
 
+namespace Backend {
+    public class Startup {
+        readonly string PermissaoEntreOrigens = "_PermissaoEntreOrigens";
 
-namespace Backend
-{
-    public class Startup
-    {
-        public Startup(IConfiguration configuration)
-        {
+        public Startup (IConfiguration configuration) {
             Configuration = configuration;
         }
-        
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
+        public void ConfigureServices (IServiceCollection services) {
             // Configuramos como os objetos relacionados aparecerão nos retornos
-            services.AddControllersWithViews().AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-            services.AddControllers();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddControllersWithViews ().AddNewtonsoftJson (opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            services.AddControllers ();
+            services.AddMvc ().SetCompatibilityVersion (CompatibilityVersion.Version_3_0);
 
             //Configuramos o Swagger
-            services.AddSwaggerGen(c => {
-                c.SwaggerDoc("v1", new OpenApiInfo{ Title="API", Version = "v1"});
+            services.AddSwaggerGen (c => {
+                c.SwaggerDoc ("v1", new OpenApiInfo { Title = "API", Version = "v1" });
 
                 // Definimos o caminho e arquivo temporário de documentação
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
 
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.IncludeXmlComments(xmlPath);
+                var xmlPath = Path.Combine (AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments (xmlPath);
             });
 
             //Configuramos o JWT
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => {
-                options.TokenValidationParameters = new  TokenValidationParameters{
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidateLifetime = true,
-                    ValidateIssuerSigningKey = true,
-                    ValidIssuer = Configuration["Jwt:Issuer"],
-                    ValidAudience = Configuration["Jwt:Issuer"],
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+            services.AddAuthentication (JwtBearerDefaults.AuthenticationScheme).AddJwtBearer (options => {
+                options.TokenValidationParameters = new TokenValidationParameters {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = Configuration["Jwt:Issuer"],
+                ValidAudience = Configuration["Jwt:Issuer"],
+                IssuerSigningKey = new SymmetricSecurityKey (Encoding.UTF8.GetBytes (Configuration["Jwt:Key"]))
                 };
             });
 
-            //Habilitando o Cors
-            // services.AddCors(options =>
-            // {
-            //     options.AddPolicy("CorsPolicy", 
-            //         builder => builder.AllowAnyOrigin()
-            //                           .AllowAnyMethod()
-            //                           .AllowAnyHeader()
-            //                           .AllowCredentials());
-            // });
+            services.AddCors (options => {
+                options.AddPolicy (PermissaoEntreOrigens,
+                    builder => builder.AllowAnyOrigin ().AllowAnyMethod ().AllowAnyHeader ());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
+        public void Configure (IApplicationBuilder app, IWebHostEnvironment env) {
+            if (env.IsDevelopment ()) {
+                app.UseDeveloperExceptionPage ();
             }
 
             // Usamos efetivamente o SWAGGER
-            app.UseSwagger();
+            app.UseSwagger ();
             // Especificamos o Endpoint na aplicação
-            app.UseSwaggerUI(c => {c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");});
+            app.UseSwaggerUI (c => { c.SwaggerEndpoint ("/swagger/v1/swagger.json", "API V1"); });
             // Usamos efetivamente a autenticação
-            app.UseAuthentication();
+            app.UseAuthentication ();
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
-            app.UseRouting();
+            app.UseCors (builder => builder.AllowAnyOrigin ().AllowAnyMethod ().AllowAnyHeader ());
 
-            app.UseAuthorization();
+            app.UseRouting ();
 
-            app.UseStaticFiles();
+            app.UseAuthorization ();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
+            app.UseStaticFiles ();
+
+            app.UseEndpoints (endpoints => {
+                endpoints.MapControllers ();
             });
-            // Usamos o Cors
-            //app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
         }
     }
 }
