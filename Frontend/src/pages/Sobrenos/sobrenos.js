@@ -12,7 +12,6 @@ import yasmin from '../../assets/imagens/yasmin.jpg';
 import rubao from '../../assets/imagens/rubao.jpg';
 
 
-
 class Sobrenos extends Component {
 
     render() {
