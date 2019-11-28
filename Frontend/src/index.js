@@ -5,14 +5,14 @@ import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import Sobrenos from './pages/Sobrenos/sobrenos';
-import Minhasofertas from './pages/MinhasOfertas/minhasofertas';
+import Minhasofertas from './pages/Minhasofertas/minhasofertas';
 import Perfilusuario from './pages/Perfilusuario/perfilusuario';
 import cadastroOferta from './pages/cadastroOferta/cadastrooferta';
 import Mostruario from './pages/Mostruario/mostruario';
 import Carrinho from './pages/Carrinho/carrinho';
 import Perfiladm from './pages/Perfiladm/perfiladm';
 import NotFound from './pages/NotFound/notfound';
-
+    
 import './assets/css/estilo.css';
 //import './assets/css/flexbox.css'
 //import './assets/css/reset.css'

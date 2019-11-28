@@ -10,126 +10,31 @@
     padding: 0;
 }
 body{
-    font-family:roboto;
-    background-color: var(--cinza);
+    font-family:roboto !important;
+    font-size: 0.8em !important;
 }
 main{
     padding-top: 155px;
+    background-color: var(--cinza);
 }
 /* CONTAINERS */
-/*HEADER*/
-.container_h{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 1200px;
-    margin: auto;
-}
-.container_h .logo{
-    width: 90px;
-}
-.container{
-    width: 1100px;
-    margin: auto;
-}
-header{
-    -webkit-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
-    -moz-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
-    box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
-    background-color: white;
-    position: fixed;
-    padding: 30px;
-    width: 100%;
-    z-index: 50;
-}
-header ul{
-    width: 750px;
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    font-size: 20px;
-    padding-bottom: 40px;
-}
-header ul a:hover{
-    border-bottom: 2px solid var(--laranja);
-    padding: 5px 20px;
-    text-decoration: none;
-    color: var(--roxo);
-}
-header a{
-    text-decoration: none;
-    color: var(--roxo);
-    text-transform: uppercase;
-    padding: 5px 20px;
-}
-header .pesquisa{
-    display: flex;
-    justify-content: center;
-    border-bottom: 2px solid var(--laranja);
-    width: 600px;
-}
-.pesquisa  img{
-   width: 20px;
-   height: 20px;
-}
-#txtbusca::-webkit-input-placeholder { 
-    color: var(--roxo);
-    text-align: center;
-}
-#txtbusca{
-    border: none;
-    width: 530px;
-    height: 30px;
-    font-size: 14px;
-    text-transform: uppercase;
-}
-nav{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-/*FIM HEADER*/
-/*FOOTER*/
-footer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    height: 170px;
-    -webkit-box-shadow: 0px -3px 6px 0px rgba(204,204,204,1);
-    -moz-box-shadow: 0px -3px 6px 0px rgba(204,204,204,1);
-    box-shadow: 0px -3px 6px 0px rgba(204,204,204,1);
-    font-size: 20px;
-    color: var(--roxo);
-}
-.redes_sociais{
-    width: 170px;
-    display: flex;
-    justify-content: space-between;
-}
-.redes_sociais p{
-    padding: 30px;
-}
-.fa-facebook-f, .fa-instagram, .fa-linkedin-in, .fa-twitter{
-    color: var(--laranja);
-}
-/*FIM FOOTER*/
+
 
 /*HOME*/
-.banner{
+/* .banner{
     background-image: linear-gradient(rgba(138,79,125,0.4),rgba(138,79,125,0.4)),url(../imagens/banner.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 657px;
-} 
+}  */
 h2{
     text-align: center;
-    font-size: 24px;
+    font-size: 22px !important;
     color: var(--roxo);
-    padding: 15px;
+    padding-top: 20px;
 }
+
 hr{
     border: none;
     background-color: var(--laranja);
@@ -156,16 +61,17 @@ h2 a{
     padding: 30px;
 }
 .container_marcas img{
-    width: 250px;
+    width: 220px;
     height: 168px;
 }
 .sobre h2{
-    padding-top: 60px;
+    padding-top: 30px;
+    font-weight: 6px;
     color: white;
 }
 .sobre p{
     color:white;
-    font-weight: bold;
+    font-weight: 3px;
     font-size: 20px;
     text-align: center;
     width: 1100px;
@@ -290,8 +196,8 @@ label input{
 }
 .card_oferta{
     width: 250px;
-    height: 480px; 
-    margin: 10px 2px;
+    height: 450px; 
+    margin: 20px 2px;
     padding: 8px;
     -moz-box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
     box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
@@ -301,14 +207,14 @@ label input{
     width: 100%;
 }
 .card_oferta p{
-    margin: 7px 7px; 
+    margin: 5px 5px; 
 }
 .titulo_descricao{
     font-size: 12pt;  
     color: red;  
 }
 .titulo_preco, .preco_descricao{
-    font-size: 22px;
+    font-size: 20px;
 }
 .descricao_produto{
     display: flex;
@@ -316,7 +222,7 @@ label input{
     margin: 15px 0px;
 }
 .titulo descricao{
-    margin: 50px;
+    margin: 30px;
 }
 .titulo_produto{
     width: 250px;
@@ -324,7 +230,7 @@ label input{
 }
 .titulo_descricao_logo{
     font-family: Racing Sans One;
-    font-size: 15px;
+    font-size: 18px;
     color: var(--laranja);
     padding-left: 22px;
 }
@@ -418,8 +324,8 @@ label input{
     height: 657px;
 }
 .caixa_imagem{
-    width: 250px;
-    height: 256px;
+    width: 200px;
+    height: 200px;
 }
 .descricao_pequena_logo img{
     width: 30px;
@@ -925,7 +831,7 @@ label input{
         padding-top: 10px;
     }
     h2{
-        font-size: 20px;
+        font-size: 17px;
     }
     .container{
         width:350px;
@@ -937,10 +843,6 @@ label input{
     }
     .container_marcas{
         flex-wrap: wrap;
-    }
-    footer{
-        text-align: center;
-        font-size: 15px;
     }
     .sn_dev, .container_card_mostruario{
         width:350px;
