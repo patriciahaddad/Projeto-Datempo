@@ -12,29 +12,29 @@ class cadastroOferta extends Component {
             <div>
                 <Header></Header>
                 <main>
-                    <div class="cont_branco">
+                    <div className="cont_branco">
                         <h2>CADASTRO DE OFERTAS</h2>
                         <hr/>
-                        <form class="formulario-cad">
-                            <div class="produtos-cadastos">
+                        <form className="formulario-cad">
+                            <div className="produtos-cadastos">
                                 <img src="imagens/arroz.jpg" alt="Sua imagem de perfil"/>
                             </div>
-                            <div class="form-cad">
-                                <label class="form_label input_horizontal">Informe o título do produto
+                            <div className="form-cad">
+                                <label className="form_label input_horizontal">Informe o título do produto
                                     <input type="text" placeholder="Ex: Arroz"/> </label>
 
-                                <label class="form_label input_vert">Informe Valor
+                                <label className="form_label input_vert">Informe Valor
                                     <input type="text" placeholder="10,00"/></label>
 
-                                <label class="form_label input_vert">Validade do produto
+                                <label className="form_label input_vert">Validade do produto
                                     <input type="text" placeholder="05/09/2019"/></label>
 
-                                <label class="form_label input_vert">Quantidade em estoque
+                                <label className="form_label input_vert">Quantidade em estoque
                                     <input type="text" placeholder="Informe quantidade em estoque"/></label>
 
-                                <div class="informacoes_adicionais">
-                                    <label class="form_label">Informações adicionais
-                                        <textarea class="form_adicionais"
+                                <div className="informacoes_adicionais">
+                                    <label className="form_label">Informações adicionais
+                                        <textarea className="form_adicionais"
                                             placeholder="Digite aqui descrição do produto e Informações adicionais que sejam úteis."> </textarea></label>
                                 </div>
                             </div>
