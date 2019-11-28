@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './assets/css/estilo.css';
-import App from './App';
+import App from '../src/pages/Home/App';
 import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import Sobrenos from './pages/Sobrenos/sobrenos';
 import Mostruario from './pages/Mostruario/mostruario';
+
 
 //Realizamos a criação das rotas
 const Rotas = (
