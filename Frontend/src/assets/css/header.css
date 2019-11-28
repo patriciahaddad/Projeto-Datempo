@@ -1,0 +1,78 @@
+/*HEADER*/
+.container_h{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 1200px;
+    margin: auto;
+}
+.container_h .logo{
+    width: 90px;
+}
+.container{
+    width: 1100px;
+    margin: auto;
+}
+header{
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    -moz-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
+    background-color: white;
+    position: fixed;
+    padding: 30px;
+    width: 100%;
+    z-index: 50;
+}
+header ul{
+    width: 750px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+header ul a:hover{
+    border-bottom: 2px solid var(--laranja);
+    padding: 5px 20px;
+    text-decoration: none;
+    color: var(--roxo);
+}
+header a{
+    text-decoration: none;
+    color: var(--roxo);
+    text-transform: uppercase;
+    padding: 5px 20px;
+}
+header .pesquisa{
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid var(--laranja);
+    width: 600px;
+}
+.pesquisa  img{
+   width: 20px;
+   height: 20px;
+}
+#txtbusca::-webkit-input-placeholder { 
+    color: var(--roxo);
+    text-align: center;
+}
+#txtbusca{
+    border: none;
+    width: 530px;
+    height: 30px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input:focus{
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+/*FIM HEADER*/
