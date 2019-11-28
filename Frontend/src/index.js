@@ -14,7 +14,7 @@ import Mostruario from './pages/Mostruario/mostruario';
 import Carrinho from './pages/Carrinho/carrinho';
 import Perfiladm from './pages/Perfiladm/perfiladm';
 import NotFound from './pages/NotFound/notfound';
-
+    
 import './assets/css/estilo.css';
 //import './assets/css/flexbox.css'
 //import './assets/css/reset.css'

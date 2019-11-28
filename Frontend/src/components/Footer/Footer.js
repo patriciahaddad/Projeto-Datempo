@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import '../../assets/css/footer.css';
 
 class Footer extends Component {
 
@@ -14,7 +14,7 @@ class Footer extends Component {
                         <a><i className="fab fa-linkedin-in"></i></a>
                         <a><i className="fab fa-twitter"></i></a>
                     </div>
-                    <p>Datempo by Linx © 2019</p>
+                    <p className="datempo">Datempo by Linx © 2019</p>
                 </footer>
         );
     }

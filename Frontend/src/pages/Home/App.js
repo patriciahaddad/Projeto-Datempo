@@ -8,154 +8,175 @@ import MarcaWalmart from '../../assets/imagens/walmart.png';
 import MarcaCalvin from '../../assets/imagens/prada.png';
 import MarcaPrada from '../../assets/imagens/CalvinKleinlogo.svg';
 
+import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView } from
+    "mdbreact";
+
 function App() {
     return (
         <div>
             <Header></Header>
-            <div class="banner"></div>
+                <MDBCarousel activeItem={1} length={3} showControls={true} showIndicators={true} className="z-depth-1">
+                    <MDBCarouselInner>
+                        <MDBCarouselItem itemId="1">
+                            <MDBView>
+                                <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg" alt="First slide" />
+                            </MDBView>
+                        </MDBCarouselItem>
+                        <MDBCarouselItem itemId="2">
+                            <MDBView>
+                                <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg" alt="Second slide" />
+                            </MDBView>
+                        </MDBCarouselItem>
+                        <MDBCarouselItem itemId="3">
+                            <MDBView>
+                                <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" alt="Third slide" />
+                            </MDBView>
+                        </MDBCarouselItem>
+                    </MDBCarouselInner>
+                </MDBCarousel>
             <section>
-                <div class="container">
+                <div className="container">
                     <h2>OFERTAS DATEMPO</h2>
                     <hr />
-                    <div class="container_card">
-                        <div class="card_oferta">
-                            <div class="caixa_imagem">
-                                <img class="imgproduto" src={ImagemCard}
+                    <div className="container_card">
+                        <div className="card_oferta">
+                            <div className="caixa_imagem">
+                                <img className="imgproduto" src={ImagemCard}
                                     alt="Pacote de Arroz de 5kg da marca Tio João" />
                             </div>
-                            <div class="descricao_oferta">
-                                <div class="titulo_produto">
-                                    <p class="titulo descricao">Arroz Tio João - 5kg</p>
+                            <div className="descricao_oferta">
+                                <div className="titulo_produto">
+                                    <p className="titulo descricao">Arroz Tio João - 5kg</p>
                                 </div>
-                                <div class="descricao_produto">
-                                    <div class="descricao_pequena">
-                                        <p class="titulo_descricao">de R$ 8,00</p>
-                                        <p class="titulo_preco">Por</p>
-                                        <p class="preco_descricao">R$ 5,00</p>
+                                <div className="descricao_produto">
+                                    <div className="descricao_pequena">
+                                        <p className="titulo_descricao">de R$ 8,00</p>
+                                        <p className="titulo_preco">Por</p>
+                                        <p className="preco_descricao">R$ 5,00</p>
                                     </div>
 
-                                    <div class="descricao_pequena_logo">
-                                        <p class="titulo_descricao_logo">DATEMPO</p>
-                                        <div class="validade_mostruario">
+                                    <div className="descricao_pequena_logo">
+                                        <p className="titulo_descricao_logo">DATEMPO</p>
+                                        <div className="validade_mostruario">
                                             <img src={Relogio} alt="Alarme" />
-                                            <p class="descricao"> Faltam: 10 dias!</p>
+                                            <p className="descricao"> Faltam: 10 dias!</p>
                                         </div>
                                     </div>
                                 </div>
 
                             </div>
-                            <div class="botao_reservar">
-                                <a href="#" class="btn_reservar">RESERVAR</a>
+                            <div className="botao_reservar">
+                                <button className="btn_reservar">RESERVAR</button>
                             </div>
                         </div>
-                        <div class="card_oferta">
-                            <div class="caixa_imagem">
-                                <img class="imgproduto" src={ImagemCard}
+                        <div className="card_oferta">
+                            <div className="caixa_imagem">
+                                <img className="imgproduto" src={ImagemCard}
                                     alt="Pacote de Arroz de 5kg da marca Tio João" />
                             </div>
-                            <div class="descricao_oferta">
-                                <div class="titulo_produto">
-                                    <p class="titulo descricao">Arroz Tio João - 5kg</p>
+                            <div className="descricao_oferta">
+                                <div className="titulo_produto">
+                                    <p className="titulo descricao">Arroz Tio João - 5kg</p>
                                 </div>
-                                <div class="descricao_produto">
-                                    <div class="descricao_pequena">
-                                        <p class="titulo_descricao">de R$ 8,00</p>
-                                        <p class="titulo_preco">Por</p>
-                                        <p class="preco_descricao">R$ 5,00</p>
+                                <div className="descricao_produto">
+                                    <div className="descricao_pequena">
+                                        <p className="titulo_descricao">de R$ 8,00</p>
+                                        <p className="titulo_preco">Por</p>
+                                        <p className="preco_descricao">R$ 5,00</p>
                                     </div>
 
-                                    <div class="descricao_pequena_logo">
-                                        <p class="titulo_descricao_logo">DATEMPO</p>
-                                        <div class="validade_mostruario">
+                                    <div className="descricao_pequena_logo">
+                                        <p className="titulo_descricao_logo">DATEMPO</p>
+                                        <div className="validade_mostruario">
                                             <img src={Relogio} alt="Alarme" />
-                                            <p class="descricao"> Faltam: 10 dias!</p>
+                                            <p className="descricao"> Faltam: 10 dias!</p>
                                         </div>
                                     </div>
                                 </div>
 
                             </div>
-                            <div class="botao_reservar">
-                                <a href="#" class="btn_reservar">RESERVAR</a>
+                            <div className="botao_reservar">
+                                <button href="#" className="btn_reservar">RESERVAR</button>
                             </div>
                         </div>
-                        <div class="card_oferta">
-                            <div class="caixa_imagem">
-                                <img class="imgproduto" src={ImagemCard}
+                        <div className="card_oferta">
+                            <div className="caixa_imagem">
+                                <img className="imgproduto" src={ImagemCard}
                                     alt="Pacote de Arroz de 5kg da marca Tio João" />
                             </div>
-                            <div class="descricao_oferta">
-                                <div class="titulo_produto">
-                                    <p class="titulo descricao">Arroz Tio João - 5kg</p>
+                            <div className="descricao_oferta">
+                                <div className="titulo_produto">
+                                    <p className="titulo descricao">Arroz Tio João - 5kg</p>
                                 </div>
-                                <div class="descricao_produto">
-                                    <div class="descricao_pequena">
-                                        <p class="titulo_descricao">de R$ 8,00</p>
-                                        <p class="titulo_preco">Por</p>
-                                        <p class="preco_descricao">R$ 5,00</p>
+                                <div className="descricao_produto">
+                                    <div className="descricao_pequena">
+                                        <p className="titulo_descricao">de R$ 8,00</p>
+                                        <p className="titulo_preco">Por</p>
+                                        <p className="preco_descricao">R$ 5,00</p>
                                     </div>
 
-                                    <div class="descricao_pequena_logo">
-                                        <p class="titulo_descricao_logo">DATEMPO</p>
-                                        <div class="validade_mostruario">
+                                    <div className="descricao_pequena_logo">
+                                        <p className="titulo_descricao_logo">DATEMPO</p>
+                                        <div className="validade_mostruario">
                                             <img src={Relogio} alt="Alarme" />
-                                            <p class="descricao"> Faltam: 10 dias!</p>
+                                            <p className="descricao"> Faltam: 10 dias!</p>
                                         </div>
                                     </div>
                                 </div>
 
                             </div>
-                            <div class="botao_reservar">
-                                <a href="#" class="btn_reservar">RESERVAR</a>
+                            <div className="botao_reservar">
+                                <button href="#" className="btn_reservar">RESERVAR</button>
                             </div>
                         </div>
-                        <div class="card_oferta">
-                            <div class="caixa_imagem">
-                                <img class="imgproduto" src={ImagemCard}
+                        <div className="card_oferta">
+                            <div className="caixa_imagem">
+                                <img className="imgproduto" src={ImagemCard}
                                     alt="Pacote de Arroz de 5kg da marca Tio João" />
                             </div>
-                            <div class="descricao_oferta">
-                                <div class="titulo_produto">
-                                    <p class="titulo descricao">Arroz Tio João - 5kg</p>
+                            <div className="descricao_oferta">
+                                <div className="titulo_produto">
+                                    <p className="titulo descricao">Arroz Tio João - 5kg</p>
                                 </div>
-                                <div class="descricao_produto">
-                                    <div class="descricao_pequena">
-                                        <p class="titulo_descricao">de R$ 8,00</p>
-                                        <p class="titulo_preco">Por</p>
-                                        <p class="preco_descricao">R$ 5,00</p>
+                                <div className="descricao_produto">
+                                    <div className="descricao_pequena">
+                                        <p className="titulo_descricao">de R$ 8,00</p>
+                                        <p className="titulo_preco">Por</p>
+                                        <p className="preco_descricao">R$ 5,00</p>
                                     </div>
 
-                                    <div class="descricao_pequena_logo">
-                                        <p class="titulo_descricao_logo">DATEMPO</p>
-                                        <div class="validade_mostruario">
+                                    <div className="descricao_pequena_logo">
+                                        <p className="titulo_descricao_logo">DATEMPO</p>
+                                        <div className="validade_mostruario">
                                             <img src={Relogio} alt="Alarme" />
-                                            <p class="descricao"> Faltam: 10 dias!</p>
+                                            <p className="descricao"> Faltam: 10 dias!</p>
                                         </div>
                                     </div>
                                 </div>
 
                             </div>
-                            <div class="botao_reservar">
-                                <a href="#" class="btn_reservar">RESERVAR</a>
+                            <div className="botao_reservar">
+                                <button href="#" className="btn_reservar">RESERVAR</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="sobre">
-                <div class="banner_sobre">
+            <section className="sobre">
+                <div className="banner_sobre">
                     <h2><a href="sobrenos.html" title="Institucional"> SOBRE NÓS </a></h2>
-                    <hr />
+                    <hr/>
                     <p><br /> Você encontrará em nossa plataforma ofertas de produtos como: alimentos que estão perto do
                         vencimento e vestimentas que possuem pouca circulação no estoque. Saiba mais sobre nosso
-                    propósito!<br />
+                    propósito!<br/>
                         Nunca é tarde, sempre DATEMPO! </p>
                 </div>
             </section>
             <section>
-                <div class="container">
+                <div className="container">
                     <h2>EMPRESAS PARCEIRAS</h2>
                     <hr />
-                    <div class="container_marcas">
+                    <div className="container_marcas">
                         <img src={MarcaDia} alt="Logo Dia" />
                         <img src={MarcaWalmart} alt="Logo Walmart" />
                         <img src={MarcaPrada} alt="Logo Prada" />
