@@ -14,7 +14,7 @@ body{
     background-color: var(--cinza);
 }
 main{
-    padding-top: 190px;
+    padding-top: 155px;
 }
 /* CONTAINERS */
 /*HEADER*/
@@ -26,7 +26,7 @@ main{
     margin: auto;
 }
 .container_h .logo{
-    width: 120px;
+    width: 90px;
 }
 .container{
     width: 1100px;
@@ -75,7 +75,7 @@ header .pesquisa{
 #txtbusca::-webkit-input-placeholder { 
     color: var(--roxo);
     text-align: center;
-  }
+}
 #txtbusca{
     border: none;
     width: 530px;
@@ -138,6 +138,10 @@ hr{
     margin: auto;
     margin-bottom: 10px;
 }
+h2 a{
+    text-decoration: none;
+    color: var(--cinza);
+}
 .banner_sobre{
     background-image: linear-gradient(rgba(138,79,125,0.6),rgba(138,79,125,0.6)),url(../imagens/testesobre.jpg);
     background-position: 0% 30%;
@@ -173,18 +177,17 @@ hr{
 .cont-geral{
     display: flex;
     justify-content: center;
+
 }
 .cadastrar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-left: var(--laranja) 1px solid;
     padding-bottom: 50px;
 }
 #form_cadastro label,#form_login label{
     display: flex;
     flex-direction: column;
-    padding: 90px;
+    align-content: center;
+    padding: 0px 150px;
 }
 label input{
     height: 35px;
@@ -204,6 +207,24 @@ label input{
     color: white;
 }
 /*FIM LOGIN*/
+/*Ajuda*/
+.btn_aj{
+    background-color: white;
+    color:var(--roxo);
+}
+.card_aj{
+    background-color: white;
+}
+.card-header {
+    background-color: white;
+    border-bottom: none;
+    border-radius: 0;
+}
+.card-header:first-child {
+    border-radius: 0;
+}
+  
+/*Fim Ajuda */
 
 /* MINHAS OFERTAS */
 /*FILTRO*/
@@ -311,7 +332,7 @@ label input{
     font-size:14pt;
 }
 .descricao_pequena{
-    width:50%;
+    width: 60%;
 }
 .descricao_oferta{
     width: 100%;
@@ -325,7 +346,8 @@ label input{
 }
 /*FIM CARD*/
 .qnt_ofertas{
-    padding-left: 100px;
+    padding-left: 210px;
+    color: var(--roxo);
 }
 .btn_cria_Oferta{
     background-color:var(--laranja);
@@ -433,6 +455,7 @@ label input{
 }
 .empresa_produtos{/*Imagem empresa*/
     width: 80px;
+    padding-left: 20px;
 }
 /*FIM - LUCAS*/
 
@@ -442,8 +465,8 @@ label input{
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: top center;
-    height: 600px;
-    padding-top: 156px;
+    height: 450px;
+    padding-top: 106px;
     display: flex;
     align-items: center;
 }
@@ -462,6 +485,36 @@ label input{
 .sn_texto p{
     padding-top: 20px;
 }
+.objetivos{
+    margin: 30px;
+}
+.sn_section2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px;
+    width: 1000px;
+    margin: auto;
+}
+.quadro1{
+    color: var(--roxo);
+    width: 230px;
+    height: 230px;
+    border-radius: 30px;
+    border: 4px solid var(--laranja);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+}
+.quadro1 img{
+    height: 130px;
+    padding-bottom: 25px; 
+}
+.sn_h2_dev{
+    margin-top: 50px;
+}
 .sn_dev{
     display: flex;
     justify-content: space-between;
@@ -473,7 +526,6 @@ label input{
     margin-bottom: 50px;
 }
 .dev{
-    padding: 10px;
     color: var(--roxo);
     font-size: 25px;
 }
@@ -483,7 +535,7 @@ label input{
 .sn_dev img{
     width: 180px;
     border-radius: 50%;
-    border: 4px solid #FFB400;
+    border: 4px solid var(--laranja);
     margin: 40px;
 }
 /*FIM SOBRE NOS/
@@ -929,7 +981,7 @@ label input{
     }
     .cont-geral{
         flex-direction: column;
-       
+        align-items: center;
     }
     .cadastrar{
         border-top: var(--laranja) 1px solid;

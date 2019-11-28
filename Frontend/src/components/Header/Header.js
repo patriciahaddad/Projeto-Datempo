@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Logo from '../../assets/imagens/Logo6.svg';
+import Buscar from '../../assets/imagens/magnifying-glass-icon.png';
 
 
 class Header extends Component {
@@ -7,7 +9,7 @@ class Header extends Component {
         return (
             <header>
                 <div className="container_h">
-                    <img className="logo" src="Imagens/Logo6.svg" alt="Logo Datempo" />
+                    <img className="logo" src={Logo} alt="Logo Datempo" />
                     <nav>
                         <ul className="menu">
                             <li><a href="index.html" title="Home">Home</a></li>
@@ -17,7 +19,7 @@ class Header extends Component {
                         </ul>
                         <div className="pesquisa">
                             <input type="text" id="txtbusca" placeholder="Buscar produtos..." aria-label="Buscar produtos" />
-                            <img src="Imagens/magnifying-glass-icon.png" id="btnbusca" alt="Buscar" />
+                            <img src={Buscar} id="btnbusca" alt="Buscar" />
                         </div>
                     </nav>
                 </div>
