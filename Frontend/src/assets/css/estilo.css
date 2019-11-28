@@ -181,7 +181,7 @@ h2 a{
 }
 .cadastrar{
     border-left: var(--laranja) 1px solid;
-    padding-bottom: 40px;
+    padding-bottom: 50px;
 }
 #form_cadastro label,#form_login label{
     display: flex;
@@ -195,7 +195,7 @@ label input{
     margin-bottom: 20px;
     text-align: left;
 }
-.btn_01{
+.btn_login{
     padding:10px 120px;
     border: none;
     background-color: var(--roxo);
@@ -203,7 +203,7 @@ label input{
     text-transform: uppercase;
     color: white;
 }
-.btn_01:hover{
+.btn_login:hover{
     color: white;
 }
 /*FIM LOGIN*/
@@ -782,9 +782,6 @@ label input{
         width: 100%;
         background-position: top;
     }
-    .container{
-        width: 730px;
-    }
     .container_card{
         flex-wrap: wrap;
         justify-content: space-around;
@@ -808,19 +805,9 @@ label input{
     .categoria_filtro{
         margin: 5px;
     }
-    .paginacao{
-        width: 730px;
-    }
-    .paginacao_ofertas{
-        width: 730px;
-    }
-    .cont_branco{
-        width: 730px;
-    }
     .ofertas_cadastradas{
         flex-wrap: wrap;
     }
-   
     .container_ofertas{
         width: 730px;
         justify-content: space-around;
@@ -829,20 +816,15 @@ label input{
    .cont-geral{
        flex-direction: column;
    }
-   .cadastrar{
+    .cadastrar{
        border: none;
        border-top: var(--laranja) 1px solid;
-   }
-   label input{
+    }
+    .login{
+       margin-bottom: 10px;
+    }
+    label input, .btn_login{
        width: 500px;
-   }
-   .btn{
-       width: 500px;
-       height: 30px;
-       padding: 0px;
-   }
-   .sobre p{
-    width: 730px;
     }
     .container_perfil{
         flex-direction: column;
@@ -863,7 +845,7 @@ label input{
         margin: 10px 4px;
         padding: 10px 60px;
     }
-    .formulario-cad, .container-form{
+    .formulario-cad, .container-form, .form-cad input{
         width: 600px;
     }
     .formulario-cad{
@@ -882,13 +864,8 @@ label input{
     .tabela_reservas{
         width: 680px;
     }
-    .form-cad input{
-        width: 600px ;
-    }
-    .form-cad{
-        width: 730px;
-    }
-    .formulario-reservas, .container-qnt, .container-perfil{
+    .formulario-reservas, .container-qnt, .container-perfil, .form-cad,
+    .paginacao, .paginacao_ofertas, .cont_branco, .container, .sobre p{
         width: 730px;
     }
     .input_horizontal{
@@ -898,6 +875,21 @@ label input{
     .form_label .input_vert{
         width: 730px;
         margin: 0px;
+    } 
+    /*Carrinho*/
+    .container_carrinho{
+        width: 600px;
+        margin-top: 20px;
+    }
+    .card_carrinho2{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .card_carrinho2 p{
+        margin: 0px;
+    }
+    .titulo_descricao{
+        padding-top: 10px;
     }
     .adm_configs_dir img{
         margin: 30px;
@@ -916,7 +908,7 @@ label input{
     nav, .container_h{
         width: 280px;
     }
-    .container_h .logo{
+    .container_h .logo, .banner img{
         width: 100px;
     }
     .container_h{
@@ -932,14 +924,8 @@ label input{
     .menu li{
         padding-top: 10px;
     }
-    .banner img{
-        width: 100%;
-    }
     h2{
         font-size: 20px;
-    }
-    hr{
-        width: 300px;
     }
     .container{
         width:350px;
@@ -956,12 +942,8 @@ label input{
         text-align: center;
         font-size: 15px;
     }
-    .sn_dev{
+    .sn_dev, .container_card_mostruario{
         width:350px;
-        flex-wrap: wrap;
-    }
-    .container_card_mostruario{
-        width: 350px;
         flex-wrap: wrap;
     }
     .container_filtro{
@@ -979,6 +961,9 @@ label input{
         width: 330px;
     }
     .cont_branco{
+        width: 400px;
+    }
+    .sobre p{
         width: 350px;
     }
     .ofertas_cadastradas{
@@ -999,14 +984,10 @@ label input{
         align-items: center;
     }
     .cadastrar{
-        /* border: none; */
         border-top: var(--laranja) 1px solid;
     }
-    label input{
-        width: 300px;
-    }
-    .btn{
-        width: 300px;
+    .btn_login{
+        width: 304px;
         height: 30px;
         padding: 0px;
     }
@@ -1020,16 +1001,11 @@ label input{
     .login{
         display: flex;
         justify-content: center;
-    }
-    .sobre p{
-        width: 350px;
+        margin-bottom: 10px;
     }
     .container_perfil{
         flex-direction: column;
         justify-content: center;
-    }
-    .form_perfil input{
-        width: 300px;
     }
     .form_perfil{
         margin: auto;
@@ -1062,13 +1038,10 @@ label input{
     .tabela_reservas{
         width: 310px;
     }
-    .form-cad input{
+    .form-cad input, .form_adicionais, .form_perfil input, label input, hr{
         width: 300px ;
     }
-    .form-cad{
-        width: 350px;
-    }
-    .formulario-reservas, .container-qnt{
+    .formulario-reservas, .container-qnt, .form-cad{
         width: 350px;
     }
     .input_horizontal{
@@ -1079,8 +1052,43 @@ label input{
         width: 350px;
         margin: 0px;
     }
-    .form_adicionais{
+    .container_carrinho{
         width: 300px;
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .card_carrinho{
+        flex-direction: column;
+        padding-left: 0;
+    }
+    .card_carrinho2{
+        flex-wrap: nowrap;
+        padding-right: 11px;
+    }
+    .titulo_descricao{
+        padding-top: 10px;
+    }
+    .descricao_carrinho{
+        text-align: center;
+        padding-left: 0;
+    }
+    .descricao_carrinho2{
+        padding-left: 15px;
+    }
+    .botoes_carrinho{
+        margin-top: 30px;
+        flex-wrap: wrap;
+    }
+    .botao_carrinho{
+        border-radius: 0px;
+        width: 100%;
+    }
+    .btn_carrinho{
+        border-radius: 0px;
+        width: 100%;
+        margin-top: 10px;
     }
     .organizacao_adm{
         height: 100%;
