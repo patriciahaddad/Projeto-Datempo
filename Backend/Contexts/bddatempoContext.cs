@@ -28,6 +28,7 @@ namespace Backend.Domains
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer("Server=DESKTOP-GAT13IM\\SQLEXPRESS; Database=bddatempo; User Id=sa; Password=132");
+
             }
         }
 
