@@ -355,6 +355,7 @@ label input{
     text-transform: uppercase;
     border: none;
 }
+
 .btn-filtro{
     border: 1px solid var(--cinza);
     color: 1px solid var(--roxo);
@@ -410,13 +411,14 @@ label input{
 /* FIM */
 
 /*MOSTRUARIO*/
-.banner_mostruario{
+/* .banner_mostruario{
     background-image:url(../imagens/bannerAlimento.png);
     background-repeat: no-repeat;
     background-position: top center;
     background-size: cover;
     height: 657px;
-}
+} */
+
 .caixa_imagem{
     width: 250px;
     height: 256px;

@@ -11,6 +11,7 @@ import Mostruario from './pages/Mostruario/mostruario';
 import Carrinho from './pages/Carrinho/carrinho';
 import Perfiladm from './pages/Perfiladm/perfiladm';
 import NotFound from './pages/NotFound/notfound';
+import Card from './components/CardOferta/cardOferta';
 
 import './assets/css/estilo.css';
 //import './assets/css/flexbox.css'
@@ -31,6 +32,7 @@ const Rotas = (
                 <Route path="/mostruario" component={Mostruario} />
                 <Route path= "/carrinho" component={Carrinho}/>
                 <Route path="/perfiladm" component={Perfiladm} />
+                <Route path="/card" component={Card} />
                 <Route component={NotFound} />
             </Switch>
         </div>

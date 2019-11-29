@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-// import arroz from '../../assets/imagens/arroz.jpg';
+import Produto from '../../assets/imagens/arroz.jpg';
 
 
 class cadastroOferta extends Component {
@@ -17,7 +17,7 @@ class cadastroOferta extends Component {
                         <hr/>
                         <form class="formulario-cad">
                             <div class="produtos-cadastos">
-                                <img src="imagens/arroz.jpg" alt="Sua imagem de perfil"/>
+                                <img src={Produto} alt="Sua imagem de perfil"/>
                             </div>
                             <div class="form-cad">
                                 <label class="form_label input_horizontal">Informe o título do produto
