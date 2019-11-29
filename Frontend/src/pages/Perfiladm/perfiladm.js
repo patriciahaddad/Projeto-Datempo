@@ -2,9 +2,73 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
 import ImagemPerfil from '../../assets/imagens/avatar.png';
+import api from './../../services/api';
 
+import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
 
 class Perfiladm extends Component {
+
+    constructor() {
+        super()
+        this.state = {
+
+            listaCategorias: [],
+            listaOfertas: [],
+            listaProdutos: [],
+            listaUsuarios: [],
+
+            postCategoria: {
+                nomeCategoria: "",
+            },
+
+            postProduto: {
+                nomeProduto: "",
+                idCategoria: "",
+            },
+
+            putCategoria: {
+                idCategoria: "",
+                nomeCategoria: "",
+            },
+
+            putProduto: {
+                idProduto: "",
+                nomeProduto: "",
+                idCategoria: "",
+            },
+
+            erroMsg: "",
+            sucessMsg: "",
+            modal14: false
+        }
+    }
+
+    toggle = nr => () => {
+        let modalNumber = 'modal' + nr
+        this.setState({
+            [modalNumber]: !this.state[modalNumber]
+        });
+    }
+
+    openModal = (c) => {
+        this.toggle();
+
+        this.setState({ getCategoria: c });
+        console.log("GET", this.state.getCategoria);
+    }
+
+    //#region GET
+    getCategorias = () => {
+        api.get('/categoria')
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaCategorias: response.data })
+                }
+            })
+    }
+
+    //#endregion
+
     render() {
         return (
             <div>
@@ -18,6 +82,7 @@ class Perfiladm extends Component {
                                     <button className="adm_btn_01" type="submit">OFERTA</button>
                                     <button className="adm_btn_01" type="submit">PRODUTO</button>
                                     <button className="adm_btn_01" type="submit">USUÁRIO</button>
+
                                 </div>
 
                                 <div className="adm_configs_dir">
@@ -45,13 +110,55 @@ class Perfiladm extends Component {
                             </div>
                         </section>
                     </div>
+                    <MDBContainer>
+                        <MDBBtn color="primary" onClick={this.toggle(14)}>Categorias</MDBBtn>
+                        <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} centered>
+                            <MDBModalHeader toggle={this.toggle(14)}>Categorias</MDBModalHeader>
+                            <MDBModalBody>
+                                <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Categoria</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>    
+                                <tbody>
+                                    {
+                                        this.state.listaCategorias.map(
+                                            function (c) {
+                                                return (
+                                                    <tr key={c.idCategoria}>
+                                                        <td>{c.idCategoria}</td>
+                                                        <td>{c.nomeCategoria}</td>
+                                                        <td>
+                                                            <MDBBtn color="primary" size="sm" onClick={() => this.openModal(c)}>
+                                                                <i className="fas fa-edit"></i>
+                                                            </MDBBtn>
+                                                            <br />
+                                                            <MDBBtn color="danger" size="sm" onClick={() => this.deleteEvento(c.idEvento)}>
+                                                                <i className="fas fa-trash"></i>
+                                                            </MDBBtn>
+                                                        </td>
+                                                    </tr>
+                                                )
+                                            }.bind(this)
+                                        )
+                                    }
+                                    </tbody>
+                                    </table>
+                            </MDBModalBody>
+                            <MDBModalFooter>
+                                <MDBBtn color="secondary" onClick={this.toggle(14)}>Fechar</MDBBtn>
+                                <MDBBtn color="primary">Salvar</MDBBtn>
+                            </MDBModalFooter>
+                        </MDBModal>
+                    </MDBContainer>
                 </main>
                 <Footer></Footer>
             </div >
         );
     }
 }
-
-
 
 export default Perfiladm;

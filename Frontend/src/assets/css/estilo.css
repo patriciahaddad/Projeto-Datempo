@@ -12,6 +12,7 @@
 body{
     font-family:roboto !important;
     font-size: 0.8em !important;
+    background-color: var(--cinza) !important;
 }
 main{
     padding-top: 155px;
