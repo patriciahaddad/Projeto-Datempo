@@ -3,7 +3,6 @@ import avatar from '../../assets/imagens/avatar.png';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
-import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBInput } from 'mdbreact';
 
 class Perfilusuario extends Component {
     constructor() {
@@ -12,6 +11,7 @@ class Perfilusuario extends Component {
             listaUsuario: [],
 
             putUsuario: {
+                idUsuario: "",
                 nome: "",
                 email: "",
                 senha: "",
@@ -20,15 +20,10 @@ class Perfilusuario extends Component {
                 imgusuario: "",
             },
 
-            modal: false,
+            successMsg:"",
+            erroMsg:""
 
         }
-    }
-
-    toggle = () => {
-        this.setState({
-            modal: !this.state.modal
-        });
     }
 
     componentDidMount() {
@@ -44,35 +39,46 @@ class Perfilusuario extends Component {
             })
     }
 
-
-
+    //#region POSTs
     putSetState = (input) =>{
         this.setState({
             putUsuario : {
                 ...this.state.putUsuario, [input.target.name] : input.target.value
-            }   
+            }
         })
     }
+
+    
 
     putUsuario = (event) =>{
         
         event.preventDefault();
-        let usuario_id = this.state.putUsuario.usuarioId;
+        let usuario_id = this.state.putUsuario.idUsuario;
         let usuario_alterado = this.state.putUsuario;
         
         api.put('/usuario/'+usuario_id, usuario_alterado)
         .then(() => {
-            this.setState();
+            this.setState({successMsg : "Evento alterado com sucesso!"});
+        })
+        .catch(error => {
+            console.log(error);
+            this.setState({erroMsg : "Falha ao alterar o Evento"});
         })
         
-        this.toggle();
+        setTimeout(() => {
+            this.getUsuario();
+        }, 1500);
+
+        setTimeout(() => {
+            this.setState({successMsg : ""});
+            this.setState({erroMsg : ""});
+        }, 3500);
         
     }
 
-    //Modal
+    //#endregion
 
     render() {
-
         return (
             <div>
                 <Header></Header>
@@ -86,7 +92,7 @@ class Perfilusuario extends Component {
                                     <img src={avatar} alt="Imagem de perfil do usuário" />
                                 </div>
                                 <div className="form_perfil">
-                                    <form method="POST" id="form_perfil">
+                                    <form onSubmit={this.putUsuario} id="form_perfil">
 
                                         {
                                             this.state.listaUsuario.map(function (u) {
@@ -94,34 +100,48 @@ class Perfilusuario extends Component {
                                                     <div>
                                                         <label>
                                                             Nome completo
-                                                    <input type="text" placeholder="Digite seu nome de usuário..." name="nome" value={u.nome} />
+                                                        <input type="text" 
+                                                            placeholder="Digite seu nome de usuário..." 
+                                                            name="nome" 
+                                                            value={u.nome}
+                                                            />
                                                         </label>
                                                         <label>
-                                                            CPF/CNPJ
-                                                    <input type="text" placeholder="Digite seu cpf e cnpj..." name="cpf_cnpj" value={u.identificador} />
+                                                            CPF/    CNPJ
+                                                        <input type="text" 
+                                                            placeholder="Digite seu cpf e cnpj..." 
+                                                            name="identificador" 
+                                                            value={u.identificador}
+                                                             />
                                                         </label>
                                                         <label>
                                                             E-mail
-                                                    <input type="text" placeholder="Digite seu email..." name="email" value={u.email} />
-                                                        </label>
-                                                        <label>
-                                                            Usuário
-                                                    <input type="text" placeholder="Digite seu nome de usuário..." name="usuário" value={u.idTipoUsuario} />
+                                                        <input type="text" 
+                                                            placeholder="Digite seu email..." 
+                                                            name="email" 
+                                                            value={u.email} 
+                                                             />
                                                         </label>
                                                         <label>
                                                             Senha
-                                                    <input type="text" placeholder="Digite sua senha..." name="senha" value={u.senha} />
+                                                        <input type="text" 
+                                                            placeholder="Digite sua senha..." 
+                                                            name="senha" 
+                                                            value={u.senha}
+                                                            />
                                                         </label>
                                                     </div>
                                                 )
                                             })
                                         }
-                                        <label>
-                                            <div className="btnperfil">
-                                                <button className="btn_perfil" type="submit">Editar</button>
-                                                <button className="btn_perfil" type="submit">Salvar</button>
-                                            </div>
-                                        </label>
+
+                                            <label>
+                                                <div className="btnperfil">
+                                                    <button className="btn_perfil" type="submit">Editar </button>
+                                                    <button className="btn_perfil" type="submit">Salvar </button>
+                                                </div>
+                                            </label>
+
                                     </form>
                                 </div>
                             </div>

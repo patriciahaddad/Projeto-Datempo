@@ -6,15 +6,6 @@ import Relogio from '../../assets/imagens/alarm-clock.png';
 
 class Minhasofertas extends Component {
     
-    constructor(){
-        super()
-        
-        
-    }
-
-
-
-
     render() {
         return (
             <div>
