@@ -3,7 +3,6 @@ import avatar from '../../assets/imagens/avatar.png';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
-import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBInput } from 'mdbreact';
 
 class Perfilusuario extends Component {
     constructor() {
@@ -11,7 +10,7 @@ class Perfilusuario extends Component {
         this.state = {
             listaUsuario: [],
 
-            putUsuario: {
+            postUsuario: {
                 nome: "",
                 email: "",
                 senha: "",
@@ -19,16 +18,9 @@ class Perfilusuario extends Component {
                 idTipoUsuario: "",
                 imgusuario: "",
             },
-
             modal: false,
 
         }
-    }
-
-    toggle = () => {
-        this.setState({
-            modal: !this.state.modal
-        });
     }
 
     componentDidMount() {
@@ -44,32 +36,29 @@ class Perfilusuario extends Component {
             })
     }
 
-
-
-    putSetState = (input) =>{
+    //#region POSTs
+    postSetState = (input) =>{
         this.setState({
-            putUsuario : {
-                ...this.state.putUsuario, [input.target.name] : input.target.value
-            }   
+            postUsuario : {
+                ...this.state.postUsuario, [input.target.name] : input.target.value
+            }
         })
     }
 
-    putUsuario = (event) =>{
-        
-        event.preventDefault();
-        let usuario_id = this.state.putUsuario.usuarioId;
-        let usuario_alterado = this.state.putUsuario;
-        
-        api.put('/usuario/'+usuario_id, usuario_alterado)
-        .then(() => {
-            this.setState();
-        })
-        
-        this.toggle();
-        
-    }
+    postUsuario = (e) =>{
 
-    //Modal
+        e.preventDefault();
+
+        api.post('/usuario', this.state.postUsuario)
+        .then(response => {
+            console.log(response);
+        })
+        setTimeout(() => {
+            this.getUsuarios();
+        }, 1500);
+    }
+    //#endregion
+
 
     render() {
 
@@ -91,7 +80,7 @@ class Perfilusuario extends Component {
                                         {
                                             this.state.listaUsuario.map(function (u) {
                                                 return (
-                                                    <div>
+                                                    <form>
                                                         <label>
                                                             Nome completo
                                                     <input type="text" placeholder="Digite seu nome de usuário..." name="nome" value={u.nome} />
@@ -112,7 +101,7 @@ class Perfilusuario extends Component {
                                                             Senha
                                                     <input type="text" placeholder="Digite sua senha..." name="senha" value={u.senha} />
                                                         </label>
-                                                    </div>
+                                                    </form>
                                                 )
                                             })
                                         }
