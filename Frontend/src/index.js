@@ -7,15 +7,13 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import Sobrenos from './pages/Sobrenos/sobrenos';
 import Ajuda from './pages/Ajuda/ajuda';
 import Login from './pages/Login/login';
-import Minhasofertas from './pages/Minhasofertas/minhasofertas';
 import Perfilusuario from './pages/Perfilusuario/perfilusuario';
 import cadastroOferta from './pages/cadastroOferta/cadastrooferta';
 import Mostruario from './pages/Mostruario/mostruario';
 import Carrinho from './pages/Carrinho/carrinho';
 import Perfiladm from './pages/Perfiladm/perfiladm';
 import NotFound from './pages/NotFound/notfound';
-import Ajuda from './pages/Ajuda/ajuda';
-import Login from './pages/Login/login'; 
+import Minhasofertas from './pages/Minhasofertas/minhasofertas';
     
 import './assets/css/estilo.css';
 //import './assets/css/flexbox.css'
@@ -31,10 +29,10 @@ const Rotas = (
             <Switch>
                 <Route exact path="/" component={App} />
                 <Route path="/sobrenos" component={Sobrenos} />
-                <Route path="/minhasofertas" component={Minhasofertas} />
                 <Route path="/perfilusuario" component={Perfilusuario} />
                 <Route path="/oferta" component={cadastroOferta} />
                 <Route path="/mostruario" component={Mostruario} />
+                
                 <Route path="/carrinho" component={Carrinho}/>
                 <Route path="/perfiladm" component={Perfiladm} />
                 <Route path="/ajuda" component={Ajuda} />
