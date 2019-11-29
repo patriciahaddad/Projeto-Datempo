@@ -10,7 +10,8 @@ class Perfilusuario extends Component {
         this.state = {
             listaUsuario: [],
 
-            postUsuario: {
+            putUsuario: {
+                idUsuario: "",
                 nome: "",
                 email: "",
                 senha: "",
@@ -18,7 +19,9 @@ class Perfilusuario extends Component {
                 idTipoUsuario: "",
                 imgusuario: "",
             },
-            modal: false,
+
+            successMsg:"",
+            erroMsg:""
 
         }
     }
@@ -37,31 +40,45 @@ class Perfilusuario extends Component {
     }
 
     //#region POSTs
-    postSetState = (input) =>{
+    putSetState = (input) =>{
         this.setState({
-            postUsuario : {
-                ...this.state.postUsuario, [input.target.name] : input.target.value
+            putUsuario : {
+                ...this.state.putUsuario, [input.target.name] : input.target.value
             }
         })
     }
 
-    postUsuario = (e) =>{
+    
 
-        e.preventDefault();
-
-        api.post('/usuario', this.state.postUsuario)
-        .then(response => {
-            console.log(response);
+    putUsuario = (event) =>{
+        
+        event.preventDefault();
+        let usuario_id = this.state.putUsuario.idUsuario;
+        let usuario_alterado = this.state.putUsuario;
+        
+        api.put('/usuario/'+usuario_id, usuario_alterado)
+        .then(() => {
+            this.setState({successMsg : "Evento alterado com sucesso!"});
         })
+        .catch(error => {
+            console.log(error);
+            this.setState({erroMsg : "Falha ao alterar o Evento"});
+        })
+        
         setTimeout(() => {
-            this.getUsuarios();
+            this.getUsuario();
         }, 1500);
+
+        setTimeout(() => {
+            this.setState({successMsg : ""});
+            this.setState({erroMsg : ""});
+        }, 3500);
+        
     }
+
     //#endregion
 
-
     render() {
-
         return (
             <div>
                 <Header></Header>
@@ -75,42 +92,56 @@ class Perfilusuario extends Component {
                                     <img src={avatar} alt="Imagem de perfil do usuário" />
                                 </div>
                                 <div className="form_perfil">
-                                    <form method="POST" id="form_perfil">
+                                    <form onSubmit={this.putUsuario} id="form_perfil">
 
                                         {
                                             this.state.listaUsuario.map(function (u) {
                                                 return (
-                                                    <form>
+                                                    <div>
                                                         <label>
                                                             Nome completo
-                                                    <input type="text" placeholder="Digite seu nome de usuário..." name="nome" value={u.nome} />
+                                                        <input type="text" 
+                                                            placeholder="Digite seu nome de usuário..." 
+                                                            name="nome" 
+                                                            value={u.nome}
+                                                            />
                                                         </label>
                                                         <label>
-                                                            CPF/CNPJ
-                                                    <input type="text" placeholder="Digite seu cpf e cnpj..." name="cpf_cnpj" value={u.identificador} />
+                                                            CPF/    CNPJ
+                                                        <input type="text" 
+                                                            placeholder="Digite seu cpf e cnpj..." 
+                                                            name="identificador" 
+                                                            value={u.identificador}
+                                                             />
                                                         </label>
                                                         <label>
                                                             E-mail
-                                                    <input type="text" placeholder="Digite seu email..." name="email" value={u.email} />
-                                                        </label>
-                                                        <label>
-                                                            Usuário
-                                                    <input type="text" placeholder="Digite seu nome de usuário..." name="usuário" value={u.idTipoUsuario} />
+                                                        <input type="text" 
+                                                            placeholder="Digite seu email..." 
+                                                            name="email" 
+                                                            value={u.email} 
+                                                             />
                                                         </label>
                                                         <label>
                                                             Senha
-                                                    <input type="text" placeholder="Digite sua senha..." name="senha" value={u.senha} />
+                                                        <input type="text" 
+                                                            placeholder="Digite sua senha..." 
+                                                            name="senha" 
+                                                            value={u.senha}
+                                                            />
                                                         </label>
-                                                    </form>
+                                                    </div>
                                                 )
                                             })
                                         }
-                                        <label>
-                                            <div className="btnperfil">
-                                                <button className="btn_perfil" type="submit">Editar</button>
-                                                <button className="btn_perfil" type="submit">Salvar</button>
-                                            </div>
-                                        </label>
+
+                                            <label>
+                                                <div className="btnperfil">
+                                                    <button className="btn_perfil" type="submit">Editar </button>
+                                                    <button className="btn_perfil" type="submit">Salvar </button>
+                                                </div>
+                                            </label>
+
                                     </form>
                                 </div>
                             </div>

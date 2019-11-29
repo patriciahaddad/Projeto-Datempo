@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Logo from '../../assets/imagens/Logo6.svg';
 import Buscar from '../../assets/imagens/magnifying-glass-icon.png';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './../../assets/css/header.css';
 
 class Header extends Component {
