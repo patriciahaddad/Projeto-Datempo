@@ -4,7 +4,18 @@ import Footer from '../../components/Footer/Footer.js';
 import ImagemPerfil from '../../assets/imagens/avatar.png';
 import api from './../../services/api';
 
-import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
+import { MDBContainer, 
+         MDBBtn, 
+         MDBModal, 
+         MDBModalBody, 
+         MDBModalHeader, 
+         MDBModalFooter, 
+         MDBDropdown, 
+         MDBDropdownToggle, 
+         MDBDropdownMenu, 
+         MDBDropdownItem } from 'mdbreact';
+
+
 
 class Perfiladm extends Component {
 
@@ -78,10 +89,42 @@ class Perfiladm extends Component {
                         <section className="cont_branco">
                             <div className="organizacao_adm">
                                 <div className="adm_configs_esq">
-                                    <button className="adm_btn_01" type="submit">CATEGORIA</button>
-                                    <button className="adm_btn_01" type="submit">OFERTA</button>
-                                    <button className="adm_btn_01" type="submit">PRODUTO</button>
-                                    <button className="adm_btn_01" type="submit">USUÁRIO</button>
+                                    <MDBDropdown dropright>
+                                        <MDBDropdownToggle caret className="adm_btn_01" color="purple darken-3">
+                                            Categoria
+                                        </MDBDropdownToggle>
+                                        <MDBDropdownMenu basic>
+                                            <MDBDropdownItem>Cadastrar nova</MDBDropdownItem>
+                                            <MDBDropdownItem>Visualizar Categorias</MDBDropdownItem>
+                                        </MDBDropdownMenu>
+                                    </MDBDropdown>
+                                    <MDBDropdown dropright>
+                                        <MDBDropdownToggle caret className="adm_btn_01" color="purple darken-3">
+                                            Produto
+                                        </MDBDropdownToggle>
+                                        <MDBDropdownMenu basic>
+                                            <MDBDropdownItem>Cadastrar nova</MDBDropdownItem>
+                                            <MDBDropdownItem>Visualizar Produtos</MDBDropdownItem>
+                                        </MDBDropdownMenu>
+                                    </MDBDropdown>
+                                    <MDBDropdown dropright>
+                                        <MDBDropdownToggle caret className="adm_btn_01" color="purple darken-3">
+                                            Oferta
+                                        </MDBDropdownToggle>
+                                        <MDBDropdownMenu basic>
+                                            <MDBDropdownItem>Cadastrar nova</MDBDropdownItem>
+                                            <MDBDropdownItem>Visualizar Ofertas</MDBDropdownItem>
+                                        </MDBDropdownMenu>
+                                    </MDBDropdown>
+                                    <MDBDropdown dropright>
+                                        <MDBDropdownToggle caret className="adm_btn_01" color="purple darken-3">
+                                            Usuário
+                                        </MDBDropdownToggle>
+                                        <MDBDropdownMenu basic>
+                                            <MDBDropdownItem>Cadastrar novo</MDBDropdownItem>
+                                            <MDBDropdownItem>Visualizar Usuários</MDBDropdownItem>
+                                        </MDBDropdownMenu>
+                                    </MDBDropdown>
 
                                 </div>
 
@@ -116,37 +159,37 @@ class Perfiladm extends Component {
                             <MDBModalHeader toggle={this.toggle(14)}>Categorias</MDBModalHeader>
                             <MDBModalBody>
                                 <table>
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Categoria</th>
-                                        <th>Ações</th>
-                                    </tr>
-                                </thead>    
-                                <tbody>
-                                    {
-                                        this.state.listaCategorias.map(
-                                            function (c) {
-                                                return (
-                                                    <tr key={c.idCategoria}>
-                                                        <td>{c.idCategoria}</td>
-                                                        <td>{c.nomeCategoria}</td>
-                                                        <td>
-                                                            <MDBBtn color="primary" size="sm" onClick={() => this.openModal(c)}>
-                                                                <i className="fas fa-edit"></i>
-                                                            </MDBBtn>
-                                                            <br />
-                                                            <MDBBtn color="danger" size="sm" onClick={() => this.deleteEvento(c.idEvento)}>
-                                                                <i className="fas fa-trash"></i>
-                                                            </MDBBtn>
-                                                        </td>
-                                                    </tr>
-                                                )
-                                            }.bind(this)
-                                        )
-                                    }
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Categoria</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            this.state.listaCategorias.map(
+                                                function (c) {
+                                                    return (
+                                                        <tr key={c.idCategoria}>
+                                                            <td>{c.idCategoria}</td>
+                                                            <td>{c.nomeCategoria}</td>
+                                                            <td>
+                                                                <MDBBtn color="primary" size="sm" onClick={() => this.openModal(c)}>
+                                                                    <i className="fas fa-edit"></i>
+                                                                </MDBBtn>
+                                                                <br />
+                                                                <MDBBtn color="danger" size="sm" onClick={() => this.deleteEvento(c.idEvento)}>
+                                                                    <i className="fas fa-trash"></i>
+                                                                </MDBBtn>
+                                                            </td>
+                                                        </tr>
+                                                    )
+                                                }.bind(this)
+                                            )
+                                        }
                                     </tbody>
-                                    </table>
+                                </table>
                             </MDBModalBody>
                             <MDBModalFooter>
                                 <MDBBtn color="secondary" onClick={this.toggle(14)}>Fechar</MDBBtn>
