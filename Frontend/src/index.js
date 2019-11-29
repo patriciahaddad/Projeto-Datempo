@@ -32,7 +32,7 @@ const Rotas = (
                 <Route path="/perfilusuario" component={Perfilusuario} />
                 <Route path="/oferta" component={cadastroOferta} />
                 <Route path="/mostruario" component={Mostruario} />
-                
+                <Route path="/minhasofertas" component={Minhasofertas}/>
                 <Route path="/carrinho" component={Carrinho}/>
                 <Route path="/perfiladm" component={Perfiladm} />
                 <Route path="/ajuda" component={Ajuda} />
