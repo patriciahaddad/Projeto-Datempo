@@ -8,7 +8,7 @@ class Minhasofertas extends Component {
     
     constructor(){
         super()
-        
+
         
     }
 
