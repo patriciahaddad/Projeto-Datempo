@@ -191,16 +191,18 @@ label input{
 }
 .container_card{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 30px;
+    padding: 15px;
 }
 .card_oferta{
     width: 250px;
     height: 450px; 
     margin: 20px 2px;
-    padding: 8px;
-    -moz-box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
-    box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
+    padding: 6px;
+    -moz-box-shadow: 3px 3px 5px 0px rgba(204,204,204,1);
+    box-shadow: 3px 3px 5px 0px rgba(204,204,204,1);
     background-color: white;
 }
 .card_oferta img{
@@ -710,9 +712,6 @@ label input{
     }
     .categoria_filtro{
         margin: 5px;
-    }
-    .ofertas_cadastradas{
-        flex-wrap: wrap;
     }
     .container_ofertas{
         width: 730px;
