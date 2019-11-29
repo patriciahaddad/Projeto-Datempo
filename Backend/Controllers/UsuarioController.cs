@@ -50,8 +50,6 @@ namespace backend.Controllers {
         [HttpPost]
         public async Task<ActionResult<Usuario>> Post ([FromForm] Usuario usuario) {
             try {
-                var arquivo = Request.Form.Files[0];
-                usuario.imgusuario = _uploadRepo.Upload (arquivo, "imgPerfil");
 
                 usuario.Identificador = usuario.Identificador.Replace (" ", "");
                 usuario.Identificador = usuario.Identificador.Replace ("-", "");
@@ -64,19 +62,21 @@ namespace backend.Controllers {
                         usuario.IdTipoUsuario = 3;
                         await _repositorio.Salvar (usuario);
                     } else {
-                        return BadRequest ();
+                        return BadRequest (new { mensagem = "merda" });
                     }
                 } else if (usuario.Identificador.Length == 14) {
                     if (_identificador.ValidaCNPJ (usuario.Identificador) == true) {
                         usuario.IdTipoUsuario = 2;
                         await _repositorio.Salvar (usuario);
                     } else {
-                        return BadRequest ();
+                        return BadRequest (new { mensagem = "merda1" });
                     }
                 }
             } catch (DbUpdateConcurrencyException) {
                 throw;
             }
+            var arquivo = Request.Form.Files[0];
+            usuario.imgusuario = _uploadRepo.Upload (arquivo, "imgPerfil");
             return usuario;
         }
 
