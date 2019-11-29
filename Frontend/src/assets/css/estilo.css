@@ -10,126 +10,32 @@
     padding: 0;
 }
 body{
-    font-family:roboto;
-    background-color: var(--cinza);
+    font-family:roboto !important;
+    font-size: 0.8em !important;
+    background-color: var(--cinza) !important;
 }
 main{
     padding-top: 155px;
+    background-color: var(--cinza);
 }
 /* CONTAINERS */
-/*HEADER*/
-.container_h{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 1200px;
-    margin: auto;
-}
-.container_h .logo{
-    width: 90px;
-}
-.container{
-    width: 1100px;
-    margin: auto;
-}
-header{
-    -webkit-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
-    -moz-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
-    box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
-    background-color: white;
-    position: fixed;
-    padding: 30px;
-    width: 100%;
-    z-index: 50;
-}
-header ul{
-    width: 750px;
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    font-size: 20px;
-    padding-bottom: 40px;
-}
-header ul a:hover{
-    border-bottom: 2px solid var(--laranja);
-    padding: 5px 20px;
-    text-decoration: none;
-    color: var(--roxo);
-}
-header a{
-    text-decoration: none;
-    color: var(--roxo);
-    text-transform: uppercase;
-    padding: 5px 20px;
-}
-header .pesquisa{
-    display: flex;
-    justify-content: center;
-    border-bottom: 2px solid var(--laranja);
-    width: 600px;
-}
-.pesquisa  img{
-   width: 20px;
-   height: 20px;
-}
-#txtbusca::-webkit-input-placeholder { 
-    color: var(--roxo);
-    text-align: center;
-}
-#txtbusca{
-    border: none;
-    width: 530px;
-    height: 30px;
-    font-size: 14px;
-    text-transform: uppercase;
-}
-nav{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-/*FIM HEADER*/
-/*FOOTER*/
-footer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    height: 170px;
-    -webkit-box-shadow: 0px -3px 6px 0px rgba(204,204,204,1);
-    -moz-box-shadow: 0px -3px 6px 0px rgba(204,204,204,1);
-    box-shadow: 0px -3px 6px 0px rgba(204,204,204,1);
-    font-size: 20px;
-    color: var(--roxo);
-}
-.redes_sociais{
-    width: 170px;
-    display: flex;
-    justify-content: space-between;
-}
-.redes_sociais p{
-    padding: 30px;
-}
-.fa-facebook-f, .fa-instagram, .fa-linkedin-in, .fa-twitter{
-    color: var(--laranja);
-}
-/*FIM FOOTER*/
+
 
 /*HOME*/
-.banner{
+/* .banner{
     background-image: linear-gradient(rgba(138,79,125,0.4),rgba(138,79,125,0.4)),url(../imagens/banner.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 657px;
-} 
+}  */
 h2{
     text-align: center;
-    font-size: 24px;
+    font-size: 22px !important;
     color: var(--roxo);
-    padding: 15px;
+    padding-top: 20px;
 }
+
 hr{
     border: none;
     background-color: var(--laranja);
@@ -156,16 +62,17 @@ h2 a{
     padding: 30px;
 }
 .container_marcas img{
-    width: 250px;
+    width: 220px;
     height: 168px;
 }
 .sobre h2{
-    padding-top: 60px;
+    padding-top: 30px;
+    font-weight: 6px;
     color: white;
 }
 .sobre p{
     color:white;
-    font-weight: bold;
+    font-weight: 3px;
     font-size: 20px;
     text-align: center;
     width: 1100px;
@@ -181,7 +88,7 @@ h2 a{
 }
 .cadastrar{
     border-left: var(--laranja) 1px solid;
-    padding-bottom: 40px;
+    padding-bottom: 50px;
 }
 #form_cadastro label,#form_login label{
     display: flex;
@@ -195,7 +102,7 @@ label input{
     margin-bottom: 20px;
     text-align: left;
 }
-.btn_01{
+.btn_login{
     padding:10px 120px;
     border: none;
     background-color: var(--roxo);
@@ -203,13 +110,13 @@ label input{
     text-transform: uppercase;
     color: white;
 }
-.btn_01:hover{
+.btn_login:hover{
     color: white;
 }
 /*FIM LOGIN*/
 /*Ajuda*/
 .btn_aj{
-    background-color: white;
+    background-color: #f7f7f7;
     color:var(--roxo);
 }
 .card_aj{
@@ -285,30 +192,32 @@ label input{
 }
 .container_card{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 30px;
+    padding: 15px;
 }
 .card_oferta{
     width: 250px;
-    height: 480px; 
-    margin: 10px 2px;
-    padding: 8px;
-    -moz-box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
-    box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
+    height: 450px; 
+    margin: 20px 2px;
+    padding: 6px;
+    -moz-box-shadow: 3px 3px 5px 0px rgba(204,204,204,1);
+    box-shadow: 3px 3px 5px 0px rgba(204,204,204,1);
     background-color: white;
 }
 .card_oferta img{
     width: 100%;
 }
 .card_oferta p{
-    margin: 7px 7px; 
+    margin: 5px 5px; 
 }
 .titulo_descricao{
     font-size: 12pt;  
     color: red;  
 }
 .titulo_preco, .preco_descricao{
-    font-size: 22px;
+    font-size: 20px;
 }
 .descricao_produto{
     display: flex;
@@ -316,7 +225,7 @@ label input{
     margin: 15px 0px;
 }
 .titulo descricao{
-    margin: 50px;
+    margin: 30px;
 }
 .titulo_produto{
     width: 250px;
@@ -324,7 +233,7 @@ label input{
 }
 .titulo_descricao_logo{
     font-family: Racing Sans One;
-    font-size: 15px;
+    font-size: 18px;
     color: var(--laranja);
     padding-left: 22px;
 }
@@ -355,7 +264,6 @@ label input{
     text-transform: uppercase;
     border: none;
 }
-
 .btn-filtro{
     border: 1px solid var(--cinza);
     color: 1px solid var(--roxo);
@@ -367,6 +275,8 @@ label input{
 }
 .btn_edita_oferta{
     background-color: var(--roxo);
+}
+.btn_apaga_oferta , .btn_edita_oferta , .btn_reserva_oferta{
     color:#fff;
     padding: 8px 30px;
     text-decoration:none;
@@ -375,11 +285,9 @@ label input{
 }
 .btn_apaga_oferta{
     background-color: var(--vermelho);
-    color:#fff;
-    padding: 8px 30px;
-    text-decoration:none;
-    text-align: center;
-    border-radius: 4px;
+}
+.btn_reserva_oferta{
+    background-color: var(--vermelho);
 }
 .paginacao_ofertas{
     display: flex;
@@ -411,17 +319,16 @@ label input{
 /* FIM */
 
 /*MOSTRUARIO*/
-/* .banner_mostruario{
+.banner_mostruario{
     background-image:url(../imagens/bannerAlimento.png);
     background-repeat: no-repeat;
     background-position: top center;
     background-size: cover;
     height: 657px;
-} */
-
+}
 .caixa_imagem{
-    width: 250px;
-    height: 256px;
+    width: 200px;
+    height: 200px;
 }
 .descricao_pequena_logo img{
     width: 30px;
@@ -468,7 +375,7 @@ label input{
     background-repeat: no-repeat;
     background-position: top center;
     height: 450px;
-    padding-top: 106px;
+    padding-top: 40px;
     display: flex;
     align-items: center;
 }
@@ -784,9 +691,6 @@ label input{
         width: 100%;
         background-position: top;
     }
-    .container{
-        width: 730px;
-    }
     .container_card{
         flex-wrap: wrap;
         justify-content: space-around;
@@ -810,19 +714,6 @@ label input{
     .categoria_filtro{
         margin: 5px;
     }
-    .paginacao{
-        width: 730px;
-    }
-    .paginacao_ofertas{
-        width: 730px;
-    }
-    .cont_branco{
-        width: 730px;
-    }
-    .ofertas_cadastradas{
-        flex-wrap: wrap;
-    }
-   
     .container_ofertas{
         width: 730px;
         justify-content: space-around;
@@ -831,20 +722,15 @@ label input{
    .cont-geral{
        flex-direction: column;
    }
-   .cadastrar{
+    .cadastrar{
        border: none;
        border-top: var(--laranja) 1px solid;
-   }
-   label input{
+    }
+    .login{
+       margin-bottom: 10px;
+    }
+    label input, .btn_login{
        width: 500px;
-   }
-   .btn{
-       width: 500px;
-       height: 30px;
-       padding: 0px;
-   }
-   .sobre p{
-    width: 730px;
     }
     .container_perfil{
         flex-direction: column;
@@ -865,7 +751,7 @@ label input{
         margin: 10px 4px;
         padding: 10px 60px;
     }
-    .formulario-cad, .container-form{
+    .formulario-cad, .container-form, .form-cad input{
         width: 600px;
     }
     .formulario-cad{
@@ -884,13 +770,8 @@ label input{
     .tabela_reservas{
         width: 680px;
     }
-    .form-cad input{
-        width: 600px ;
-    }
-    .form-cad{
-        width: 730px;
-    }
-    .formulario-reservas, .container-qnt, .container-perfil{
+    .formulario-reservas, .container-qnt, .container-perfil, .form-cad,
+    .paginacao, .paginacao_ofertas, .cont_branco, .container, .sobre p{
         width: 730px;
     }
     .input_horizontal{
@@ -900,6 +781,21 @@ label input{
     .form_label .input_vert{
         width: 730px;
         margin: 0px;
+    } 
+    /*Carrinho*/
+    .container_carrinho{
+        width: 600px;
+        margin-top: 20px;
+    }
+    .card_carrinho2{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .card_carrinho2 p{
+        margin: 0px;
+    }
+    .titulo_descricao{
+        padding-top: 10px;
     }
     .adm_configs_dir img{
         margin: 30px;
@@ -918,7 +814,7 @@ label input{
     nav, .container_h{
         width: 280px;
     }
-    .container_h .logo{
+    .container_h .logo, .banner img{
         width: 100px;
     }
     .container_h{
@@ -934,14 +830,8 @@ label input{
     .menu li{
         padding-top: 10px;
     }
-    .banner img{
-        width: 100%;
-    }
     h2{
-        font-size: 20px;
-    }
-    hr{
-        width: 300px;
+        font-size: 17px;
     }
     .container{
         width:350px;
@@ -954,16 +844,8 @@ label input{
     .container_marcas{
         flex-wrap: wrap;
     }
-    footer{
-        text-align: center;
-        font-size: 15px;
-    }
-    .sn_dev{
+    .sn_dev, .container_card_mostruario{
         width:350px;
-        flex-wrap: wrap;
-    }
-    .container_card_mostruario{
-        width: 350px;
         flex-wrap: wrap;
     }
     .container_filtro{
@@ -981,6 +863,9 @@ label input{
         width: 330px;
     }
     .cont_branco{
+        width: 400px;
+    }
+    .sobre p{
         width: 350px;
     }
     .ofertas_cadastradas{
@@ -1001,14 +886,10 @@ label input{
         align-items: center;
     }
     .cadastrar{
-        /* border: none; */
         border-top: var(--laranja) 1px solid;
     }
-    label input{
-        width: 300px;
-    }
-    .btn{
-        width: 300px;
+    .btn_login{
+        width: 304px;
         height: 30px;
         padding: 0px;
     }
@@ -1022,16 +903,11 @@ label input{
     .login{
         display: flex;
         justify-content: center;
-    }
-    .sobre p{
-        width: 350px;
+        margin-bottom: 10px;
     }
     .container_perfil{
         flex-direction: column;
         justify-content: center;
-    }
-    .form_perfil input{
-        width: 300px;
     }
     .form_perfil{
         margin: auto;
@@ -1064,13 +940,10 @@ label input{
     .tabela_reservas{
         width: 310px;
     }
-    .form-cad input{
+    .form-cad input, .form_adicionais, .form_perfil input, label input, hr{
         width: 300px ;
     }
-    .form-cad{
-        width: 350px;
-    }
-    .formulario-reservas, .container-qnt{
+    .formulario-reservas, .container-qnt, .form-cad{
         width: 350px;
     }
     .input_horizontal{
@@ -1081,8 +954,43 @@ label input{
         width: 350px;
         margin: 0px;
     }
-    .form_adicionais{
+    .container_carrinho{
         width: 300px;
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .card_carrinho{
+        flex-direction: column;
+        padding-left: 0;
+    }
+    .card_carrinho2{
+        flex-wrap: nowrap;
+        padding-right: 11px;
+    }
+    .titulo_descricao{
+        padding-top: 10px;
+    }
+    .descricao_carrinho{
+        text-align: center;
+        padding-left: 0;
+    }
+    .descricao_carrinho2{
+        padding-left: 15px;
+    }
+    .botoes_carrinho{
+        margin-top: 30px;
+        flex-wrap: wrap;
+    }
+    .botao_carrinho{
+        border-radius: 0px;
+        width: 100%;
+    }
+    .btn_carrinho{
+        border-radius: 0px;
+        width: 100%;
+        margin-top: 10px;
     }
     .organizacao_adm{
         height: 100%;
