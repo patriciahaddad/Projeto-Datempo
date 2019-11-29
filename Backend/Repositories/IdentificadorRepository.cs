@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.Repositories {
     public class IdentificadorRepository : ControllerBase {
-        [Route ("api/identificador")]
+        [Route ("api/identificador/validacpf/{cpfUsuario}")]
         public bool ValidaCPF (string cpfUsuario) {
 
             bool resultado = false;

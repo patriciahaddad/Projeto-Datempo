@@ -14,6 +14,7 @@ import Carrinho from './pages/Carrinho/carrinho';
 import Perfiladm from './pages/Perfiladm/perfiladm';
 import NotFound from './pages/NotFound/notfound';
 import Minhasofertas from './pages/Minhasofertas/minhasofertas';
+
     
 import './assets/css/estilo.css';
 //import './assets/css/flexbox.css'
