@@ -12,6 +12,7 @@
 body{
     font-family:roboto !important;
     font-size: 0.8em !important;
+    background-color: var(--cinza) !important;
 }
 main{
     padding-top: 155px;
@@ -115,7 +116,7 @@ label input{
 /*FIM LOGIN*/
 /*Ajuda*/
 .btn_aj{
-    background-color: white;
+    background-color: #f7f7f7;
     color:var(--roxo);
 }
 .card_aj{
