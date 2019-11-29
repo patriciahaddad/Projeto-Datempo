@@ -9,78 +9,78 @@ class Carrinho extends Component {
             <div>
                 <Header />
                 <main>
-                    <div class="cont_branco">
+                    <div className="cont_branco">
                         <h2>CARRINHO</h2>
                         <hr />
-                        <div class="container_carrinho">
-                            <div class="card_carrinho">
-                                <div class="img_carrinho">
+                        <div className="container_carrinho">
+                            <div className="card_carrinho">
+                                <div className="img_carrinho">
                                     <img src= {Produto} alt="Pacote de Arroz de 5kg da marca Tio João" />
                                 </div>
-                                <div class="descricao_carrinho">
-                                    <p class="titulo descricao">Arroz Tio jão</p>
+                                <div className="descricao_carrinho">
+                                    <p className="titulo descricao">Arroz Tio jão</p>
 
-                                    <div class="titulo_produto">
-                                        <p class="titulo_descricao">Pacote de 5kg</p>
+                                    <div className="titulo_produto">
+                                        <p className="titulo_descricao">Pacote de 5kg</p>
                                     </div>
 
-                                    <div class="titulo_produto">
-                                        <p class="titulo descricao">Walmart - Santa Cecília</p>
+                                    <div className="titulo_produto">
+                                        <p className="titulo descricao">Walmart - Santa Cecília</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card_carrinho2">
-                                <div class="descricao_carrinho2">
-                                    <p class="titulo_descricao">Validade</p>
-                                    <p class="descricao">18/09/2019</p>
+                            <div className="card_carrinho2">
+                                <div className="descricao_carrinho2">
+                                    <p className="titulo_descricao">Validade</p>
+                                    <p className="descricao">18/09/2019</p>
                                 </div>
-                                <div class="descricao_carrinho2">
-                                    <p class="titulo_descricao">Preço</p>
-                                    <p class="descricao">R$ 10,00</p>
+                                <div className="descricao_carrinho2">
+                                    <p className="titulo_descricao">Preço</p>
+                                    <p className="descricao">R$ 10,00</p>
                                 </div>
-                                <div class="descricao_carrinho2">
-                                    <p class="titulo_descricao">Preço com desconto</p>
-                                    <p class="descricao">R$ 8,00</p>
+                                <div className="descricao_carrinho2">
+                                    <p className="titulo_descricao">Preço com desconto</p>
+                                    <p className="descricao">R$ 8,00</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="container_carrinho">
-                            <div class="card_carrinho">
-                                <div class="img_carrinho">
+                        <div className="container_carrinho">
+                            <div className="card_carrinho">
+                                <div className="img_carrinho">
                                     <img src= {Produto}  alt="Pacote de Arroz de 5kg da marca Tio João" />
                                 </div>
-                                <div class="descricao_carrinho">
-                                    <p class="titulo descricao">Arroz Tio jão</p>
+                                <div className="descricao_carrinho">
+                                    <p className="titulo descricao">Arroz Tio jão</p>
 
-                                    <div class="titulo_produto">
-                                        <p class="titulo_descricao">Pacote de 5kg</p>
+                                    <div className="titulo_produto">
+                                        <p className="titulo_descricao">Pacote de 5kg</p>
                                     </div>
 
-                                    <div class="titulo_produto">
-                                        <p class="titulo descricao">Walmart - Santa Cecília</p>
+                                    <div className="titulo_produto">
+                                        <p className="titulo descricao">Walmart - Santa Cecília</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card_carrinho2">
-                                <div class="descricao_carrinho2">
-                                    <p class="titulo_descricao">Validade</p>
-                                    <p class="descricao">18/09/2019</p>
+                            <div className="card_carrinho2">
+                                <div className="descricao_carrinho2">
+                                    <p className="titulo_descricao">Validade</p>
+                                    <p className="descricao">18/09/2019</p>
                                 </div>
-                                <div class="descricao_carrinho2">
-                                    <p class="titulo_descricao">Preço</p>
-                                    <p class="descricao">R$ 10,00</p>
+                                <div className="descricao_carrinho2">
+                                    <p className="titulo_descricao">Preço</p>
+                                    <p className="descricao">R$ 10,00</p>
                                 </div>
-                                <div class="descricao_carrinho2">
-                                    <p class="titulo_descricao">Preço com desconto</p>
-                                    <p class="descricao">R$ 8,00</p>
+                                <div className="descricao_carrinho2">
+                                    <p className="titulo_descricao">Preço com desconto</p>
+                                    <p className="descricao">R$ 8,00</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="botoes_carrinho">
-                            <a href="#" class="botao_carrinho">Continuar comprando</a>
-                            <a href="#" class="btn_carrinho">Finalizar reserva</a>
+                        <div className="botoes_carrinho">
+                            <button className="botao_carrinho">Continuar comprando</button>
+                            <button className="btn_carrinho">Finalizar reserva</button>
                         </div>
 
                     </div>
