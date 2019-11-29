@@ -12,6 +12,7 @@
 body{
     font-family:roboto !important;
     font-size: 0.8em !important;
+    background-color: var(--cinza) !important;
 }
 main{
     padding-top: 155px;
@@ -191,16 +192,18 @@ label input{
 }
 .container_card{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 30px;
+    padding: 15px;
 }
 .card_oferta{
     width: 250px;
     height: 450px; 
     margin: 20px 2px;
-    padding: 8px;
-    -moz-box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
-    box-shadow: 3px 3px 6px 0px rgba(204,204,204,1);
+    padding: 6px;
+    -moz-box-shadow: 3px 3px 5px 0px rgba(204,204,204,1);
+    box-shadow: 3px 3px 5px 0px rgba(204,204,204,1);
     background-color: white;
 }
 .card_oferta img{
@@ -272,6 +275,8 @@ label input{
 }
 .btn_edita_oferta{
     background-color: var(--roxo);
+}
+.btn_apaga_oferta , .btn_edita_oferta , .btn_reserva_oferta{
     color:#fff;
     padding: 8px 30px;
     text-decoration:none;
@@ -280,11 +285,9 @@ label input{
 }
 .btn_apaga_oferta{
     background-color: var(--vermelho);
-    color:#fff;
-    padding: 8px 30px;
-    text-decoration:none;
-    text-align: center;
-    border-radius: 4px;
+}
+.btn_reserva_oferta{
+    background-color: var(--vermelho);
 }
 .paginacao_ofertas{
     display: flex;
@@ -372,7 +375,7 @@ label input{
     background-repeat: no-repeat;
     background-position: top center;
     height: 450px;
-    padding-top: 106px;
+    padding-top: 40px;
     display: flex;
     align-items: center;
 }
@@ -710,9 +713,6 @@ label input{
     }
     .categoria_filtro{
         margin: 5px;
-    }
-    .ofertas_cadastradas{
-        flex-wrap: wrap;
     }
     .container_ofertas{
         width: 730px;
