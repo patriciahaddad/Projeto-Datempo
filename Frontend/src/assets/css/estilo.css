@@ -20,6 +20,11 @@ main{
 }
 /* CONTAINERS */
 
+.container_tabelas{
+    width: 900px;
+    margin: auto;
+}
+
 
 /*HOME*/
 /* .banner{
