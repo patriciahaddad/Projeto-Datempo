@@ -3,6 +3,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import { parseJwt } from '../../services/auth';
 import api from '../../services/api';
+import avatar from '../../assets/imagens/avatar.png';
 
 class login extends Component {
     constructor(props) {
@@ -13,19 +14,18 @@ class login extends Component {
             listaUsuario: [],
 
             postcadastar: {
-                nome: "",
-                email: "",
-                senha: "",
-                conf_senha: "",
-                identificador: "",
-                cep: "",
-                imgusuario: "",
-                idTipoUsuario: ""
+                Nome: "",
+                Email: "",
+                Senha: "",
+                Identificador: "",
+                // imgusuario:""
             },
 
             email: "",
             senha: "",
-            erroMensagem: ""
+            erroMensagem: "",
+            // fileInput: React.createRef()
+
         }
     }
 
@@ -39,49 +39,25 @@ class login extends Component {
         // Limpa o conteúdo do state erroMensagem
         this.setState({ erroMensagem: "" });
 
-
-
         api.post("/login", {
             email: this.state.email,
             senha: this.state.senha
         })
             .then(response => {
 
-                // Caso a requisição retorne um status code 200
-                // salva o token no localStorage
-                // e define que a requisição terminou
-
                 if (response.status === 200) {
-                    localStorage.setItem('usuario-gufos', response.data.token)
-
-                    // Exibe no console somente o token
-                    console.log("Meu token é: " + response.data.token)
-
-                    // Define base64 recebendo o payload do token
-                    var base64 = localStorage.getItem('usuario-gufos').split('.')[1]
-
-                    // exibe no console o valor de base64
-                    console.log(base64)
-
-                    console.log(window.atob(base64))
-
-                    console.log(JSON.parse(window.atob(base64)))
-
-                    console.log(parseJwt().Role)
-
-                    console.log(JSON.parse(window.atob(base64)))
-
-                    // Exibe no console o tipo de usuário logado
-                    console.log(parseJwt().Role)
+                    localStorage.setItem('usuario-datempo', response.data.token)
 
                     if (parseJwt().Role === 'Fornecedor') {
                         console.log(this.props)
                         this.props.history.push('/minhasofertas');
                     }
                     if (parseJwt().Role === 'Administrador') {
+                        console.log(this.props)
                         this.props.history.push('/perfiladm');
                     }
                     if (parseJwt().Role === 'Consumidor') {
+                        console.log(this.props)
                         this.props.history.push('/perfilusuario');
                     }
                 }
@@ -89,7 +65,7 @@ class login extends Component {
 
             .catch(erro => {
                 console.log("Erro: ", erro)
-                this.setState({ erroMensagem: 'E-mail ou senha inválidos!' })
+                this.setState({ erroMensagem: 'E-mail e/ou senha inválidos!' })
             })
     }
     // 
@@ -118,13 +94,15 @@ class login extends Component {
 
         e.preventDefault();
 
+        // let usuario = new FormData();
+
         api.post('/usuario', this.state.postcadastar)
             .then(response => {
                 console.log(response);
             })
             .catch(error => {
                 console.log(error);
-                this.setState({ erroMsg: "Não foi possível cadastrar evento" });
+                this.setState({ erroMsg: "Não foi possível cadastrar usuario" });
             })
 
         setTimeout(() => {
@@ -163,6 +141,7 @@ class login extends Component {
                                             onChange={this.atualizaEstado}
                                             id="login__password"
                                             required />
+                                    <p style={{ color : 'red' }}>{this.state.erroMensagem}</p>
                                     </label>
                                     <label>
                                         <button className="btn_login"
@@ -181,7 +160,7 @@ class login extends Component {
                                         Nome completo
                                         <input type="text"
                                             placeholder="Digite seu nome completo..."
-                                            name="nome"
+                                            name="Nome"
                                             aria-label="Digite seu nome completo"
                                             value={this.state.listaUsuario.nome}
                                             onChange={this.postSetState}
@@ -191,7 +170,7 @@ class login extends Component {
                                         E-mail
                                         <input type="email"
                                             placeholder="Digite seu e-mail..."
-                                            name="email"
+                                            name="Email"
                                             aria-label="Digite seu e-mail"
                                             value={this.state.listaUsuario.email}
                                             onChange={this.postSetState}
@@ -201,13 +180,13 @@ class login extends Component {
                                         CPF/CNPJ
                                         <input type="text"
                                             placeholder="Digite seu CPF/CNPJ..."
-                                            name="identificador"
+                                            name="Identificador"
                                             aria-label="Digite seu CPF/CNPJ"
                                             value={this.state.listaUsuario.identificador}
                                             onChange={this.postSetState}
                                             required />
                                     </label>
-                                    <label>
+                                    {/* <label>
                                         CEP
                                         <input type="text"
                                             placeholder="Digite seu CEP..."
@@ -216,26 +195,27 @@ class login extends Component {
                                             value={this.state.listaUsuario.cep}
                                             onChange={this.postSetState}
                                             required />
-                                    </label>
+                                    </label> */}
                                     <label>
                                         Senha
                                         <input type="password"
                                             placeholder="Digite sua senha..."
-                                            name="senha"
+                                            name="Senha"
                                             aria-label="Digite sua senha"
                                             value={this.state.listaUsuario.senha}
                                             onChange={this.postSetState}
                                             required />
+                                            <p style={{ color : 'red' }}>{this.state.erroMensagem}</p>
                                     </label>
-                                    <label>
-                                        {/* <input type="password"
-                                            placeholder="Confirme sua senha..." 
-                                            name="senha"
-                                            aria-label="Confirme sua senha" 
-                                            value={this.state.listaUsuario.conf_senha}
+                                    {/* <label type="hidden">
+                                        <input type="hidden"
+                                            name="imgusuario"
+                                            ref={avatar}
+                                            value={this.state.listaUsuario.senha}
                                             onChange={this.postSetState}
-                                            required /> */}
-                                    </label>
+                                            required 
+                                            ></input>
+                                    </label> */}
                                     <label>
                                         <button className="btn_login"
                                             type="submit">Cadastrar

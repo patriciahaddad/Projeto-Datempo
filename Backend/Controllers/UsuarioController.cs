@@ -56,7 +56,7 @@ namespace backend.Controllers {
                 usuario.Identificador = usuario.Identificador.Replace (".", "");
                 usuario.Identificador = usuario.Identificador.Replace ("/", "");
 
-                //Teste no Backend
+                // Teste no Backend
                 if (usuario.Identificador.Length == 11) {
                     if (_identificador.ValidaCPF (usuario.Identificador) == true) {
                         usuario.IdTipoUsuario = 3;
