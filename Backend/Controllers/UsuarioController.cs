@@ -48,7 +48,11 @@ namespace backend.Controllers {
         /// <param name="usuario">Passar objeto usuário</param>
         /// <returns>Cadastrar usuário</returns>
         [HttpPost]
+<<<<<<< HEAD
         public async Task<ActionResult<Usuario>> Post (Usuario usuario) {
+=======
+        public async Task<ActionResult<Usuario>> Post ( Usuario usuario) {
+>>>>>>> 94b3c3219552556929972730f65a0c4f444630c5
             try {
 
                 usuario.Identificador = usuario.Identificador.Replace (" ", "");
@@ -56,7 +60,7 @@ namespace backend.Controllers {
                 usuario.Identificador = usuario.Identificador.Replace (".", "");
                 usuario.Identificador = usuario.Identificador.Replace ("/", "");
 
-                //Teste no Backend
+                // Teste no Backend
                 if (usuario.Identificador.Length == 11) {
                     if (_identificador.ValidaCPF (usuario.Identificador) == true) {
                         usuario.IdTipoUsuario = 3;

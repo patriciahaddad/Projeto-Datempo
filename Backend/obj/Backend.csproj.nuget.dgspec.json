@@ -1,7 +1,12 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\fic\\Desktop\\Projeto-Datempo\\Backend\\Backend.csproj": {}
+=======
+
+    "c:\\Users\\nilso\\Documents\\Projeto\\Projeto-Datempo\\Backend\\Backend.csproj": {}
+>>>>>>> 94b3c3219552556929972730f65a0c4f444630c5
   },
   "projects": {
     "C:\\Users\\fic\\Desktop\\Projeto-Datempo\\Backend\\Backend.csproj": {
