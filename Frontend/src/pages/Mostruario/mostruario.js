@@ -68,7 +68,7 @@ class Mostruario extends Component {
                     this.setState({ listaProduto: response.data });
                 }
             })
-    }
+    }   
 
     // postSetState = (input) =>{
     //     this.setState({
