@@ -5,24 +5,12 @@ import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
 
 class Perfilusuario extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-            listaUsuario: [],
+            usuario: {},
 
-            putUsuario: {
-                idUsuario: "",
-                nome: "",
-                email: "",
-                senha: "",
-                identificador: "",
-                idTipoUsuario: "",
-                imgusuario: "",
-            },
-
-            successMsg:"",
-            erroMsg:""
-
+            isEdit: true
         }
     }
 
@@ -31,52 +19,64 @@ class Perfilusuario extends Component {
     }
 
     getUsuario = () => {
-        api.get('/usuario')
-            .then(response => {
-                if (response.status === 200) {
-                    this.setState({ listaUsuario: response.data })
-                }
-            })
-    }
-
-    //#region POSTs
-    putSetState = (input) =>{
-        this.setState({
-            putUsuario : {
-                ...this.state.putUsuario, [input.target.name] : input.target.value
+        api.get('/usuario/1').then(response => {
+            if (response.status === 200) {
+                this.setState({ usuario: response.data })
             }
         })
     }
 
+    // alterarStateUsuario = event => {
+    //     const chave = event.target.name;
+    //     this.setState({
+    //         usuario: {
+    //             chave: event.target.value
+    //         }
+    //     });
+    // }
     
-
-    putUsuario = (event) =>{
-        
-        event.preventDefault();
-        let usuario_id = this.state.putUsuario.idUsuario;
-        let usuario_alterado = this.state.putUsuario;
-        
-        api.put('/usuario/'+usuario_id, usuario_alterado)
-        .then(() => {
-            this.setState({successMsg : "Evento alterado com sucesso!"});
-        })
-        .catch(error => {
-            console.log(error);
-            this.setState({erroMsg : "Falha ao alterar o Evento"});
-        })
-        
-        setTimeout(() => {
-            this.getUsuario();
-        }, 1500);
-
-        setTimeout(() => {
-            this.setState({successMsg : ""});
-            this.setState({erroMsg : ""});
-        }, 3500);
-        
+    alterarStateUsuario = event => {
+        this.setState({
+            usuario : {
+                ...this.state.usuario, [event.target.name] : event.target.value
+            }
+        });
     }
 
-    //#endregion
+    // updateSetState = (input) =>{
+    //     this.setState({
+    //         updateUsuario : {
+    //             ...this.state.updateUsuario, [input.target.name] : input.target.value
+    //         }
+    //     })
+    // }
+
+    updateUsuario = event =>{
+        event.preventDefault();
+        const { senha, email } = this.state.usuario;
+
+        if(senha.length >0 && email.length >0){
+            api.put('/usuario/1', { 
+                senha: senha,
+                email: email
+            }).then(response => {
+                if(response.status === 200) {
+                    console.log('Deu certo');
+                }else {
+                    console.log('Deu ERRADO');
+                }
+            }).catch(error => {
+                console.log(error);
+            });
+        }
+    }
+
+
+    habilitaInput = () => {
+        this.setState({
+            isEdit: false
+        })
+    }
 
     render() {
         return (
@@ -92,55 +92,55 @@ class Perfilusuario extends Component {
                                     <img src={avatar} alt="Imagem de perfil do usuário" />
                                 </div>
                                 <div className="form_perfil">
-                                    <form onSubmit={this.putUsuario} id="form_perfil">
+                                    <form onSubmit={this.updateUsuario} id="form_perfil">
 
-                                        {
-                                            this.state.listaUsuario.map(function (u) {
-                                                return (
-                                                    <div>
-                                                        <label>
-                                                            Nome completo
-                                                        <input type="text" 
-                                                            placeholder="Digite seu nome de usuário..." 
-                                                            name="nome" 
-                                                            value={u.nome}
-                                                            />
-                                                        </label>
-                                                        <label>
-                                                            CPF/    CNPJ
-                                                        <input type="text" 
-                                                            placeholder="Digite seu cpf e cnpj..." 
-                                                            name="identificador" 
-                                                            value={u.identificador}
-                                                             />
-                                                        </label>
-                                                        <label>
-                                                            E-mail
-                                                        <input type="text" 
-                                                            placeholder="Digite seu email..." 
-                                                            name="email" 
-                                                            value={u.email} 
-                                                             />
-                                                        </label>
-                                                        <label>
-                                                            Senha
-                                                        <input type="text" 
-                                                            placeholder="Digite sua senha..." 
-                                                            name="senha" 
-                                                            value={u.senha}
-                                                            />
-                                                        </label>
-                                                    </div>
-                                                )
-                                            })
-                                        }
-
+                                        <div>
                                             <label>
-                                                <div className="btnperfil">
-                                                    <button className="btn_perfil" type="submit">Editar </button>
-                                                    <button className="btn_perfil" type="submit">Salvar </button>
-                                                </div>
+                                                Nome completo
+                                            <input type="text" 
+                                                placeholder="Digite seu nome de usuário..." 
+                                                name="Nome" 
+                                                value={this.state.usuario.nome}
+                                                disabled
+                                                />
                                             </label>
+                                            <label>
+                                                CPF/CNPJ
+                                            <input type="text" 
+                                                placeholder="Digite seu cpf e cnpj..." 
+                                                name="Identificador" 
+                                                value={this.state.usuario.identificador}
+                                                disabled
+                                                />
+                                            </label>
+                                            <label>
+                                                E-mail
+                                            <input type="text" 
+                                                placeholder="Digite seu email..." 
+                                                name="Email" 
+                                                value={this.state.usuario.email}
+                                                onChange={this.alterarStateUsuario}
+                                                disabled={this.state.isEdit}
+                                                    />
+                                            </label>
+                                            <label>
+                                                Senha
+                                            <input type="text" 
+                                                placeholder="Digite sua senha..." 
+                                                name="Senha" 
+                                                value={this.state.usuario.senha}
+                                                onChange={this.alterarStateUsuario}
+                                                disabled={this.state.isEdit}
+                                                />
+                                            </label>
+                                        </div>
+                            
+                                        <label>
+                                            <div className="btnperfil">
+                                                <button className="btn_perfil" type="button" onClick={this.habilitaInput} >Editar </button>
+                                                <button className="btn_perfil" type="submit">Salvar</button>
+                                            </div>
+                                        </label>
 
                                     </form>
                                 </div>
@@ -153,5 +153,4 @@ class Perfilusuario extends Component {
         );
     }
 }
-
 export default Perfilusuario;
