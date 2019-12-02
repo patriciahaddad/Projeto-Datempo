@@ -48,7 +48,7 @@ namespace backend.Controllers {
         /// <param name="usuario">Passar objeto usuário</param>
         /// <returns>Cadastrar usuário</returns>
         [HttpPost]
-        public async Task<ActionResult<Usuario>> Post ([FromForm] Usuario usuario) {
+        public async Task<ActionResult<Usuario>> Post ( Usuario usuario) {
             try {
 
                 usuario.Identificador = usuario.Identificador.Replace (" ", "");
@@ -56,7 +56,7 @@ namespace backend.Controllers {
                 usuario.Identificador = usuario.Identificador.Replace (".", "");
                 usuario.Identificador = usuario.Identificador.Replace ("/", "");
 
-                //Teste no Backend
+                // Teste no Backend
                 if (usuario.Identificador.Length == 11) {
                     if (_identificador.ValidaCPF (usuario.Identificador) == true) {
                         usuario.IdTipoUsuario = 3;
@@ -75,8 +75,8 @@ namespace backend.Controllers {
             } catch (DbUpdateConcurrencyException) {
                 throw;
             }
-            var arquivo = Request.Form.Files[0];
-            usuario.imgusuario = _uploadRepo.Upload (arquivo, "imgPerfil");
+            // var arquivo = Request.Form.Files[0];
+            // usuario.imgusuario = _uploadRepo.Upload (arquivo, "imgPerfil");
             return usuario;
         }
 
