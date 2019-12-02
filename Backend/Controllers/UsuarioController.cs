@@ -48,7 +48,7 @@ namespace backend.Controllers {
         /// <param name="usuario">Passar objeto usuário</param>
         /// <returns>Cadastrar usuário</returns>
         [HttpPost]
-        public async Task<ActionResult<Usuario>> Post ([FromForm] Usuario usuario) {
+        public async Task<ActionResult<Usuario>> Post (Usuario usuario) {
             try {
 
                 usuario.Identificador = usuario.Identificador.Replace (" ", "");
@@ -75,8 +75,8 @@ namespace backend.Controllers {
             } catch (DbUpdateConcurrencyException) {
                 throw;
             }
-            var arquivo = Request.Form.Files[0];
-            usuario.imgusuario = _uploadRepo.Upload (arquivo, "imgPerfil");
+            // var arquivo = Request.Form.Files[0];
+            // usuario.imgusuario = _uploadRepo.Upload (arquivo, "imgPerfil");
             return usuario;
         }
 
@@ -90,11 +90,12 @@ namespace backend.Controllers {
         public async Task<ActionResult> Put (int id, [FromForm] Usuario usuario) {
             // Se o Id do objeto não existir, ele retorna erro 400
             if (id != usuario.IdUsuario) {
-                return BadRequest ();
+                return BadRequest (new { mensagem = "Fez merda" });
             }
             try {
                 var arquivo = Request.Form.Files[0];
                 usuario.imgusuario = _uploadRepo.Upload (arquivo, "imgPerfil");
+
                 await _repositorio.Alterar (usuario);
             } catch (DbUpdateConcurrencyException) {
                 // Verificamos se o objeto inserido realmente existe no banco

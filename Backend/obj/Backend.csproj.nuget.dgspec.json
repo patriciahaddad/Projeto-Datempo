@@ -1,28 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\nilso\\Documents\\Projeto\\Projeto-Datempo\\Backend\\Backend.csproj": {}
+    "C:\\Users\\fic\\Desktop\\Projeto-Datempo\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "c:\\Users\\nilso\\Documents\\Projeto\\Projeto-Datempo\\Backend\\Backend.csproj": {
+    "C:\\Users\\fic\\Desktop\\Projeto-Datempo\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\nilso\\Documents\\Projeto\\Projeto-Datempo\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\fic\\Desktop\\Projeto-Datempo\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "c:\\Users\\nilso\\Documents\\Projeto\\Projeto-Datempo\\Backend\\Backend.csproj",
-        "packagesPath": "C:\\Users\\nilso\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\nilso\\Documents\\Projeto\\Projeto-Datempo\\Backend\\obj\\",
+        "projectPath": "C:\\Users\\fic\\Desktop\\Projeto-Datempo\\Backend\\Backend.csproj",
+        "packagesPath": "C:\\Users\\fic\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fic\\Desktop\\Projeto-Datempo\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\nilso\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\fic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -80,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

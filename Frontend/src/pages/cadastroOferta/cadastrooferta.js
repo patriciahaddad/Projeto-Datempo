@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
-// import arroz from '../../assets/imagens/arroz.jpg';
+import arroz from '../../assets/imagens/arroz.jpg';
 
 
 class cadastroOferta extends Component {
@@ -23,7 +23,7 @@ class cadastroOferta extends Component {
     }
 
     getOferta = () => {
-        api.get('/oferta/21').then(response => {
+        api.get('/oferta/2').then(response => {
             if (response.status === 200) {
                 this.setState({ oferta: response.data })
             }
@@ -33,7 +33,7 @@ class cadastroOferta extends Component {
     insertOferta = event =>{
         event.preventDefault();
 
-        api.put('/oferta/21', { 
+        api.post('/oferta/2', { 
         }).then(response => {
             if(response.status === 200) {
                 console.log('Deu certo');
@@ -57,7 +57,7 @@ class cadastroOferta extends Component {
                         <hr/>
                         <form className="formulario-cad" onSubmit="">
                             <div className="produtos-cadastos">
-                                <img src="imagens/arroz.jpg" alt="Sua imagem de perfil"/>
+                                <img src={arroz} alt="Sua imagem de perfil"/>
                             </div>
                             <div className="form-cad">
                                 <label className="form_label input_horizontal">Informe o título do produto
@@ -81,18 +81,21 @@ class cadastroOferta extends Component {
                                 <label className="form_label input_vert">Validade do produto
                                     <input type="text" 
                                     placeholder="05/09/2019" 
-                                    name="validade"/></label>
+                                    name="validade"
+                                    value={this.state.oferta.validade}/></label>
 
                                 <label className="form_label input_vert">Quantidade em estoque
                                     <input type="text" 
                                     placeholder="Informe quantidade em estoque" 
-                                    name="quantVenda"/></label>
+                                    name="quantVenda"
+                                    value={this.state.oferta.quantVenda}/></label>
 
                                 <div className="informacoes_adicionais">
                                     <label className="form_label">Informações adicionais
                                         <textarea className="form_adicionais"
                                             placeholder="Digite aqui descrição do produto e Informações adicionais que sejam úteis." 
-                                            name="descricao"> </textarea></label>
+                                            name="descricao" 
+                                            value={this.state.oferta.descricao}> </textarea></label>
                                 </div>
                                 
                                 <div className="position-right">

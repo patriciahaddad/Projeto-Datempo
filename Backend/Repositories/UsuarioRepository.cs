@@ -38,8 +38,8 @@ namespace Backend.Repositories {
                 listaUsuario = await _contexto.Usuario.Include ("IdTipoUsuarioNavigation").ToListAsync ();
 
                 foreach (var item in listaUsuario) {
-                    item.Email = null;
-                    item.Senha = null;
+                    // item.Email = null;
+                    // item.Senha = null;
                 }
                 return listaUsuario;
             }
