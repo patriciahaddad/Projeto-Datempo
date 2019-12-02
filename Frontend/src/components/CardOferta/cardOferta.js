@@ -46,7 +46,7 @@ class CardOferta extends Component {
                                         <div className="descricao_pequena">
                                             <p className="titulo_descricao">de R$ 8,00</p>
                                             <p className="titulo_preco">Por</p>
-                                            <p className="preco_descricao">R$ 5,00</p>
+                                            <p className="preco_descricao">R$ {o.preco.toFixed(2)}</p>
                                         </div>
 
                                         <div className="descricao_pequena_logo">

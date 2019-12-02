@@ -33,7 +33,8 @@ namespace Backend.Controllers {
         /// <param name="filtrocategoria">Passamos o objeto filtrocategoria</param>
         /// <returns>Filtro por categoria</returns>
         [HttpGet ("filtrarcategoria/{filtrocategoria}")]
-        public ActionResult<List<Oferta>> GetFiltrarCategoria (string filtrocategoria) {
+        public ActionResult<List<Oferta>> GetFiltrarCategoria ([FromBody] string filtrocategoria) {
+            
             List<Oferta> ofertas = _repositorio.GetFiltrarCategoria (filtrocategoria);
             if (ofertas == null) {
                 return NotFound (

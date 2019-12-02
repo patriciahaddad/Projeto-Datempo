@@ -22,27 +22,25 @@ class Mostruario extends Component {
         this.state = {
             listaOferta: [],
             listaCategoria: [],
-            listaProduto: [],
+            listaFiltro: [],
 
-            postCategoria: {
-                idCategoria : "",
-                nomeCategoria : "",
-                produto:  ""
-            }
+            setStateFiltro: ""
         }
     }
 
     componentDidMount() {
         console.log(this.state.listaOferta);
+        console.log(this.state.listaCategoria);
+        console.log(this.state.setStateFiltro);
+
         this.getCategoria();
         this.getOferta();
-        this.getProduto();
     }
 
     componentDidUpdate() {
         console.log("Update");
-    }
 
+    }
 
     getCategoria = () => {
         api.get('/categoria')
@@ -52,7 +50,7 @@ class Mostruario extends Component {
                 }
             })
     }
-    
+
     getOferta = () => {
         api.get('/oferta')
             .then(response => {
@@ -61,23 +59,22 @@ class Mostruario extends Component {
                 }
             })
     }
-    getProduto = () => {
-        api.get('/produto')
+
+    getFiltro = () => {
+        api.get('/filtro/filtrarcategoria/' + this.state.setStateFiltro)
             .then(response => {
                 if (response.status === 200) {
-                    this.setState({ listaProduto: response.data });
+                    this.setState({ listaOferta: response.data });
                 }
             })
-    }   
+    }
 
-    // postSetState = (input) =>{
-    //     this.setState({
-    //         postCategoria : {
-    //             ...this.state.postCategoria, [input.target.name] : input.target.value
-
-    //         }
-    //     })
-    // }
+    atualizaSelect = (value) => {
+        this.setState({ setStateFiltro: value })
+        setTimeout(() => {
+            this.getFiltro();
+        }, 1000);
+    }
 
     render() {
 
@@ -132,23 +129,23 @@ class Mostruario extends Component {
                             <div className="categoria_filtro">
                                 <label>Categoria:</label>
                                 <select name="idCategoria" id="cmbCategoria"
-                                    // value={this.listaCategoria}
-                                    onChange={this.postSetState}>
+                                    // value={this.nomeCategoria}
+                                    onChange={(e) => this.atualizaSelect(e.target.value)}>
                                     {
                                         this.state.listaCategoria.map(function (c) {
                                             return (
                                                 <option
                                                     key={c.idCategoria}
-                                                    value={c.produto.idProduto}
+                                                    value={c.nomeCategoria}
                                                 >
                                                     {c.nomeCategoria}
                                                 </option>
                                             )
-                                        })
+                                        }.bind(this))
                                     }
-
                                 </select>
                             </div>
+                            
                             <div className="categoria_filtro">
                                 <label>Ordernar:</label>
                                 <select name="relevantes" id="cmbRelevante">
@@ -172,10 +169,7 @@ class Mostruario extends Component {
                     <section className="produtos">
                         <div className="container">
                             <div className="container_ofertas">
-                                    <CardOferta/>
-                               
-
-
+                                <CardOferta />
                             </div>
                             <div className="paginacao_ofertas">
                                 <ul className="lista_paginacao">
