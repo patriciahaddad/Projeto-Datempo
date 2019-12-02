@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from './node_modules/react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import ImagemCard from '../../assets/imagens/arroz.png';
