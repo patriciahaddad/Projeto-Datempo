@@ -163,6 +163,30 @@ class Categoria extends Component {
     }
     //#endregion
 
+    //#region DELETE
+
+    deleteCategoria = (id) => {
+
+        this.setState({ sucessMsg: " " })
+
+        api.delete('/categoria/' + id)
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ sucessMsg: "Excluído com sucesso!" })
+                    setTimeout(() => {
+                        this.getCategorias();
+                    }, 1000);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                this.setState({ erroMsg: "Falha ao excluir!" })
+            })
+    }
+
+    //#endregion
+
+
     render() {
         return (
             <div>
@@ -191,7 +215,7 @@ class Categoria extends Component {
                                                                 <MDBBtn color="primary" size="sm" onClick={() => this.openModalEditarCategoria(c)}>
                                                                     Editar
                                                                 </MDBBtn>
-                                                                <MDBBtn color="danger" size="sm" onClick={() => this.deleteEvento(c.idCategoria)}>
+                                                                <MDBBtn color="danger" size="sm" onClick={() => this.deleteCategoria(c.idCategoria)}>
                                                                     Excluir
                                                                 </MDBBtn>
                                                             </td>
