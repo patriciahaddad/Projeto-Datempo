@@ -16,7 +16,7 @@ import Carrinho from './pages/Carrinho/carrinho';
 import Perfiladm from './pages/Perfiladm/perfiladm';
 import NotFound from './pages/NotFound/notfound';
 import Minhasofertas from './pages/Minhasofertas/minhasofertas';
-
+import Categoria from './pages/Perfiladm/categoria';
     
 import './assets/css/estilo.css';
 //import './assets/css/flexbox.css'
@@ -24,6 +24,8 @@ import './assets/css/estilo.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
+import Produto from './pages/Perfiladm/produto';
+import Usuario from './pages/Perfiladm/usuario';
 
 const PermissaoAdmin = ({ component : Component }) => (
     <Route 
@@ -84,10 +86,16 @@ const Rotas = (
                 <PermissaoConsumidor path="/perfilusuario" component={Perfilusuario} />
                 <PermissaoFornecedor path="/oferta" component={cadastroOferta} />
                 <Route path="/mostruario" component={Mostruario} />
+                <Route path="/minhasofertas" component={Minhasofertas}/>
+                <Route path="/carrinho" component={Carrinho}/>
                 <PermissaoConsumidor path="/carrinho" component={Carrinho}/>
                 <PermissaoAdmin path="/perfiladm" component={Perfiladm} />
                 <Route path="/ajuda" component={Ajuda} />
                 <Route path="/Login" component={Login} />
+                <Route path="/perfiladm" component={Perfiladm} />
+                <Route path="/categoria" component={Categoria} />
+                <Route path="/produto" component={Produto} />
+                <Route path="/usuario" component={Usuario} />
                 <Route component={NotFound} />
             </Switch>
         </div>
