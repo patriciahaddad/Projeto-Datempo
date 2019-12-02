@@ -151,6 +151,29 @@ class Produto extends Component {
     }
     //#endregion
 
+    //#region DELETE
+
+    deleteProduto = (id) => {
+
+        this.setState({ sucessMsg: " " })
+
+        api.delete('/produto/' + id)
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ sucessMsg: "Excluído com sucesso!" })
+                    setTimeout(() => {
+                        this.getProdutos();
+                    }, 1000);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                this.setState({ erroMsg: "Falha ao excluir!" })
+            })
+    }
+
+    //#endregion
+
     render() {
         return (
             <div>
@@ -181,7 +204,7 @@ class Produto extends Component {
                                                                 <MDBBtn color="primary" size="sm" onClick={() => this.openModalEditarProduto(p)}>
                                                                     Editar
                                                                 </MDBBtn>
-                                                                <MDBBtn color="danger" size="sm" onClick={() => this.deleteEvento(p.idEvento)}>
+                                                                <MDBBtn color="danger" size="sm" onClick={() => this.deleteProduto(p.idProduto)}>
                                                                     Excluir
                                                                 </MDBBtn>
                                                             </td>

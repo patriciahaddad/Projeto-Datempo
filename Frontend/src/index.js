@@ -8,16 +8,14 @@ import { usuarioAutenticado, parseJwt } from '../src/services/auth';
 import Sobrenos from './pages/Sobrenos/sobrenos';
 import Ajuda from './pages/Ajuda/ajuda';
 import Login from './pages/Login/login';
-import Minhasofertas from './pages/MinhasOfertas/minhasofertas';
+import Minhasofertas from './pages/Minhasofertas/minhasofertas';
 import Perfilusuario from './pages/Perfilusuario/perfilusuario';
 import cadastroOferta from './pages/cadastroOferta/cadastrooferta';
 import Mostruario from './pages/Mostruario/mostruario';
 import Carrinho from './pages/Carrinho/carrinho';
 import Perfiladm from './pages/Perfiladm/perfiladm';
 import NotFound from './pages/NotFound/notfound';
-import Minhasofertas from './pages/Minhasofertas/minhasofertas';
 import Categoria from './pages/Perfiladm/categoria';
-    
 import './assets/css/estilo.css';
 //import './assets/css/flexbox.css'
 //import './assets/css/reset.css'
@@ -63,17 +61,17 @@ const PermissaoConsumidor = ({ component : Component }) => (
     />
 )
 
-const NaoLogado = ({ component : Component }) => (
-    <Route 
-        render={props =>
-            usuarioAutenticado() && parseJwt().Role === "" ? (
-                <Component {...props}/>
-            ) : (
-                <Redirect to={{ pathname : "/"}}/>
-            )
-        }
-    />
-)
+// const NaoLogado = ({ component : Component }) => (
+//     <Route 
+//         render={props =>
+//             usuarioAutenticado() && parseJwt().Role === "" ? (
+//                 <Component {...props}/>
+//             ) : (
+//                 <Redirect to={{ pathname : "/"}}/>
+//             )
+//         }
+//     />
+// )
 
 //Realizamos a criação das rotas
 const Rotas = (
