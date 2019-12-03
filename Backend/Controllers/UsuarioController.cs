@@ -48,11 +48,7 @@ namespace backend.Controllers {
         /// <param name="usuario">Passar objeto usuário</param>
         /// <returns>Cadastrar usuário</returns>
         [HttpPost]
-<<<<<<< HEAD
         public async Task<ActionResult<Usuario>> Post (Usuario usuario) {
-=======
-        public async Task<ActionResult<Usuario>> Post ( Usuario usuario) {
->>>>>>> 94b3c3219552556929972730f65a0c4f444630c5
             try {
 
                 usuario.Identificador = usuario.Identificador.Replace (" ", "");
@@ -94,7 +90,7 @@ namespace backend.Controllers {
         public async Task<ActionResult> Put (int id, [FromForm] Usuario usuario) {
             // Se o Id do objeto não existir, ele retorna erro 400
             if (id != usuario.IdUsuario) {
-                return BadRequest (new { mensagem = "Fez merda" });
+                return BadRequest ();
             }
             try {
                 var arquivo = Request.Form.Files[0];
