@@ -9,9 +9,12 @@ class CardOferta extends Component {
     constructor() {
         super()
         this.state = {
-            listaOferta: []
+            listaOferta: [],
+            listaFiltrada: []
         }
+
     }
+
     componentDidMount() {
         // console.log(this.state.listaOferta);
         this.getOferta();
@@ -22,6 +25,7 @@ class CardOferta extends Component {
             .then(response => {
                 if (response.status === 200) {
                     this.setState({ listaOferta: response.data });
+                    console.log(response.data);
                 }
             })
     }
@@ -31,12 +35,12 @@ class CardOferta extends Component {
         return (
             <div className="container_ofertas">
                 {
-                    this.state.listaOferta.map(function (o) {
+                    this.state.listaOferta.filter(card => card.idProdutoNavigation.idCategoriaNavigation.nomeCategoria == this.props.filtro).map(function (o) {
                         return (
                             <div className="card_oferta">
                                 <div className="caixa_imagem">
-                                    <img className="imgproduto" src={Produto}
-                                        alt="Pacote de Arroz de 5kg da marca Tio João" />
+                                    {/* <img className="imgproduto" src="https://localhost:5001/api/imgOferta/" {...this.card.imagem}
+                                        alt="Pacote de Arroz de 5kg da marca Tio João" /> */}
                                 </div>
                                 <div className="descricao_oferta">
                                     <div className="titulo_produto">

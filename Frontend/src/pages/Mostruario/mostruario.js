@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import Produto from '../../assets/imagens/arroz.png';
-import Relogio from '../../assets/imagens/alarm-clock.png';
-import banner from '../../assets/imagens/bannerAlimento.png'
 import api from '../../services/api';
 
 import CardOferta from '../../components/CardOferta/cardOferta';
@@ -11,8 +8,6 @@ import CardOferta from '../../components/CardOferta/cardOferta';
 import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer } from
     "mdbreact";
 import NativeSelect from '@material-ui/core/NativeSelect';
-
-
 
 class Mostruario extends Component {
 
@@ -23,7 +18,7 @@ class Mostruario extends Component {
             listaOferta: [],
             listaCategoria: [],
             listaFiltro: [],
-
+            
             setStateFiltro: ""
         }
     }
@@ -39,7 +34,6 @@ class Mostruario extends Component {
 
     componentDidUpdate() {
         console.log("Update");
-
     }
 
     getCategoria = () => {
@@ -59,7 +53,7 @@ class Mostruario extends Component {
                 }
             })
     }
-
+    //Método para filtrar a categoria
     getFiltro = () => {
         api.get('/filtro/filtrarcategoria/' + this.state.setStateFiltro)
             .then(response => {
@@ -69,6 +63,7 @@ class Mostruario extends Component {
             })
     }
 
+    //Atualiza o estado do valo do select
     atualizaSelect = (value) => {
         this.setState({ setStateFiltro: value })
         setTimeout(() => {
@@ -77,7 +72,6 @@ class Mostruario extends Component {
     }
 
     render() {
-
         return (
             <div>
                 <Header />
@@ -129,7 +123,6 @@ class Mostruario extends Component {
                             <div className="categoria_filtro">
                                 <label>Categoria:</label>
                                 <select name="idCategoria" id="cmbCategoria"
-                                    // value={this.nomeCategoria}
                                     onChange={(e) => this.atualizaSelect(e.target.value)}>
                                     {
                                         this.state.listaCategoria.map(function (c) {
@@ -145,7 +138,7 @@ class Mostruario extends Component {
                                     }
                                 </select>
                             </div>
-                            
+
                             <div className="categoria_filtro">
                                 <label>Ordernar:</label>
                                 <select name="relevantes" id="cmbRelevante">
@@ -169,7 +162,8 @@ class Mostruario extends Component {
                     <section className="produtos">
                         <div className="container">
                             <div className="container_ofertas">
-                                <CardOferta />
+                                <CardOferta filtro = {this.state.setStateFiltro}/>
+                               
                             </div>
                             <div className="paginacao_ofertas">
                                 <ul className="lista_paginacao">
