@@ -24,6 +24,7 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import Produto from './pages/Perfiladm/produto';
 import Usuario from './pages/Perfiladm/usuario';
+import Ofertas from './pages/Perfiladm/ofertas';
 
 const PermissaoAdmin = ({ component : Component }) => (
     <Route 
@@ -87,13 +88,14 @@ const Rotas = (
                 <Route path="/minhasofertas" component={Minhasofertas}/>
                 <Route path="/carrinho" component={Carrinho}/>
                 <PermissaoConsumidor path="/carrinho" component={Carrinho}/>
-                <PermissaoAdmin path="/perfiladm" component={Perfiladm} />
+                {/* <PermissaoAdmin path="/perfiladm" component={Perfiladm} /> */}
                 <Route path="/ajuda" component={Ajuda} />
                 <Route path="/Login" component={Login} />
                 <Route path="/perfiladm" component={Perfiladm} />
                 <Route path="/categoria" component={Categoria} />
                 <Route path="/produto" component={Produto} />
                 <Route path="/usuario" component={Usuario} />
+                <Route path="/ofertas" component={Ofertas} />
                 <Route component={NotFound} />
             </Switch>
         </div>
