@@ -93,6 +93,7 @@ namespace backend.Controllers {
             try {
                 var arquivo = Request.Form.Files[0];
                 usuario.imgusuario = _uploadRepo.Upload (arquivo, "imgPerfil");
+
                 await _repositorio.Alterar (usuario);
             } catch (DbUpdateConcurrencyException) {
                 // Verificamos se o objeto inserido realmente existe no banco

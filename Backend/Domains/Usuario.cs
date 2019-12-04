@@ -17,13 +17,13 @@ namespace Backend.Domains
 
         [Key]
         public int IdUsuario { get; set; }
-        [Required]
+        // [Required]
         [StringLength(255)]
         public string Nome { get; set; }
-        [Required]
+        // [Required]
         [StringLength(255)]
         public string Email { get; set; }
-        [Required]
+        // [Required]
         [StringLength(255)]
         public string Senha { get; set; }
         [StringLength(14)]

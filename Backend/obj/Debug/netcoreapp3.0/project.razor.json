@@ -1,9 +1,7 @@
 {
-<<<<<<< HEAD
-  "FilePath": "c:\\Users\\fic\\Desktop\\PROJETO - ATUALIZADO\\Projeto-Datempo\\Backend\\Backend.csproj",
-=======
-  "FilePath": "c:\\Users\\fic\\Desktop\\Code\\Projeto-Datempo\\Backend\\Backend.csproj",
->>>>>>> b48bfaf51cd6454d0b73dc1a22abac43b5a9c64d
+
+  "FilePath": "c:\\Users\\fic\\Desktop\\Projeto-Datempo\\Backend\\Backend.csproj",
+
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
