@@ -20,12 +20,11 @@ import './assets/css/estilo.css';
 //import './assets/css/flexbox.css'
 //import './assets/css/reset.css'
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import Produto from './pages/Perfiladm/produto';
 import Usuario from './pages/Perfiladm/usuario';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Ofertas from './pages/Perfiladm/ofertas';
+import Categoria from './pages/Perfiladm/categoria';
 import Reservas from './pages/Minhasofertas/reservas';
 
 const PermissaoAdmin = ({ component : Component }) => (
@@ -97,6 +96,7 @@ const Rotas = (
                 <Route path="/perfiladm" component={Perfiladm} />
                 {/* <Route path="/categoria" component={Categoria} /> */}
                 <Route path="/produto" component={Produto} />
+                <Route path="/categoria" component={Categoria} />
                 <Route path="/usuario" component={Usuario} />
                 <Route path="/ofertas" component={Ofertas} />
                 <Route component={NotFound} />

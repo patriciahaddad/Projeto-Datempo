@@ -3,7 +3,7 @@ import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
 import api from './../../services/api';
 import Relogio from '../../assets/imagens/alarm-clock.png';
-import { MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
+import { MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBAlert } from 'mdbreact';
 
 
 
@@ -125,11 +125,11 @@ class Ofertas extends Component {
 
         api.put('/produto/' + produto_id, produto_alterado)
             .then(() => {
-                this.setState({ sucessMsg: "Produto alterado com sucesso!" });
+                this.setState({ sucessMsg: "Oferta alterada com sucesso!" });
             })
             .catch(error => {
                 console.log(error);
-                this.setState({ erroMsg: "Falha ao alterar o Produto!" });
+                this.setState({ erroMsg: "Falha ao alterar a Oferta!" });
             })
 
         this.toggle();
@@ -215,45 +215,73 @@ class Ofertas extends Component {
                                 <div className="container_cadastrar">
                                     <MDBBtn color="primary" onClick={this.toggle(4)}>CADASTRAR</MDBBtn>
                                     <MDBModal isOpen={this.state.modal4} toggle={this.toggle(4)} size="lg">
+                                            <form className="formulario-cad_modal" onSubmit={this.postOferta}>
                                         <MDBModalHeader toggle={this.toggle(4)}>Cadastrar nova oferta</MDBModalHeader>
                                         <MDBModalBody>
-                                            <form className="formulario-cad_modal" onSubmit="">
 
-                                                <input type="file" name="imagem" />
+                                                <input type="file" 
+                                                       name="imagem"
+                                                       value={this.state.listaOfertas.nomeOferta}
+                                                       onChange={this.postSetState}
+                                                       ref={this.state.fileInput}/>
 
                                                 <label className="form_label">Informe o título do produto
-                                                    <input type="text" placeholder="Ex: Arroz" name="nomeOferta" /></label>
+                                                    <input type="text"  
+                                                           name="nomeOferta" 
+                                                           value={this.state.listaOfertas.nomeOferta}
+                                                           onChange={this.postSetState}/></label>
 
                                                 <label className="form_label">Informe Marca
-                                                    <input type="text" placeholder="Ex:Tio João" name="marca" /></label>
+                                                    <input type="text"
+                                                           name="marca"
+                                                           value={this.state.listaOfertas.marca}
+                                                           onChange={this.postSetState} /></label>
 
                                                 <label className="form_label">Informe Valor
-                                                    <input type="text" placeholder="10,00" name="preco" /></label>
+                                                    <input type="text"
+                                                           name="preco"
+                                                           value={this.state.listaOfertas.preco}
+                                                           onChange={this.postSetState} /></label>
 
                                                 <label className="form_label">Validade do produto
-                                                    <input type="text" placeholder="05/09/2019" name="validade" /></label>
+                                                    <input type="date" 
+                                                           name="validade"
+                                                           value={this.state.listaOfertas.validade}
+                                                           onChange={this.postSetState}/></label>
 
                                                 <label className="form_labelt">Quantidade em estoque
-                                                    <input type="text" placeholder="Informe quantidade em estoque" name="quantVenda" /></label>
+                                                    <input type="number"
+                                                           name="quantVenda"
+                                                           value={this.state.listaOfertas.quantVenda}
+                                                           onChange={this.postSetState}/></label>
 
                                                 <label className="form_label">Informações adicionais
-                                                     <textarea className="form_adicionais" placeholder="Digite aqui descrição do produto e Informações adicionais." name="descricao"> </textarea></label>
-
-                                                <div className="position-right">
-                                                    <button type="submit">SALVAR</button>
-                                                </div>
-
-
-                                            </form>
+                                                     <textarea className="form_adicionais" 
+                                                               name="descricao"
+                                                               value={this.state.listaOfertas.descricao}
+                                                               onChange={this.postSetState}> </textarea></label>
                                         </MDBModalBody>
                                         <MDBModalFooter>
-                                            <MDBBtn color="secondary" onClick={this.toggle(4)}>Close</MDBBtn>
-                                            <MDBBtn color="primary">Save changes</MDBBtn>
+                                            <MDBBtn color="secondary" onClick={this.toggle(4)}>Fechar</MDBBtn>
+                                            <MDBBtn color="primary" type="submit">Salvar</MDBBtn>
+                                            {
+                                                    this.state.erroMsg &&
+                                                    <MDBAlert color="danger" >
+                                                        {this.state.erroMsg}
+                                                    </MDBAlert>
+                                                }
+                                                {
+                                                    this.state.sucessMsg &&
+                                                    <MDBAlert color="sucess" >
+                                                        {this.state.sucessMsg}
+                                                    </MDBAlert>
+                                                }
                                         </MDBModalFooter>
+                                            </form>
                                     </MDBModal>
                                 </div>
                                 <div className="container_card">
-                                    {
+                                    { 
                                         this.state.listaOfertas.map(
                                             function (o) {
                                                 return (

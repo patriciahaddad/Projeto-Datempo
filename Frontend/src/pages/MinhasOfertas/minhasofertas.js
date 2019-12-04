@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
-import api from '../../services/api';
 
 import {
     MDBBtn,

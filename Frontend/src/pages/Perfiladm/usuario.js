@@ -62,12 +62,20 @@ class Usuario extends Component {
         });
     }
 
-    openModal = (u) => {
+    openModalCadastrarUsuario = (u) => {
         this.toggle();
+
+        this.setState({ postUsuario: u });
+        console.log("POST", this.state.postUsuario);
+    }
+
+    openModalEditarUsuario = (u) => {
+        this.toggle(2);
 
         this.setState({ putUsuario: u });
         console.log("PUT", this.state.putUsuario);
     }
+
 
     componentDidMount() {
         this.getUsuarios();
@@ -154,6 +162,8 @@ class Usuario extends Component {
                 this.setState({ erroMsg: "Não foi possível cadastrar usuário!" });
             })
 
+        this.toggle(1);
+
         setTimeout(() => {
             this.getUsuarios();
         }, 1500);
@@ -213,7 +223,10 @@ class Usuario extends Component {
                                                             <td>{u.imgusuario}</td>
                                                             <td>{u.idTipoUsuarioNavigation.titulo}</td>
                                                             <td>
-                                                                <MDBBtn color="primary" size="sm" onClick={() => this.openModal(u)}>
+                                                                <MDBBtn color="primary" size="sm" onClick={() => this.openModalCadastrarUsuario(u)}>
+                                                                    Cadastrar
+                                                                </MDBBtn>
+                                                                <MDBBtn color="secondary" size="sm" onClick={this.toggle(2)}>
                                                                     Editar
                                                                 </MDBBtn>
                                                                 <MDBBtn color="danger" size="sm" onClick={() => this.deleteUsuario(u.idUsuario)}>
@@ -227,9 +240,8 @@ class Usuario extends Component {
                                         }
                                     </MDBTableBody>
                                 </MDBTable>
-
+                                {/* MODAL CADASTRAR */}
                                 <MDBContainer>
-                                    <MDBBtn onClick={this.toggle(1)}>Cadastrar</MDBBtn>
                                     <form onSubmit={this.postUsuario}>
                                         <MDBModal isOpen={this.state.modal1} toggle={this.toggle(1)} size="lg">
                                             <MDBModalHeader toggle={this.toggle(1)}>Cadastrar usuário</MDBModalHeader>
@@ -289,7 +301,7 @@ class Usuario extends Component {
                                                 </div>
                                             </MDBModalBody>
                                             <MDBModalFooter>
-                                                <MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
+                                                <MDBBtn color="secondary" onClick={this.toggle(1)}>Fechar</MDBBtn>
                                                 <MDBBtn color="primary" type="submit">Cadastrar</MDBBtn>
                                                 {
                                                     this.state.erroMsg &&
@@ -308,6 +320,7 @@ class Usuario extends Component {
                                     </form>
                                 </MDBContainer>
 
+                                {/* MODAL EDITAR */}
                                 <MDBContainer>
                                     <MDBModal isOpen={this.state.modal2} toggle={this.toggle(2)} size="lg">
                                         <form onSubmit={this.putUsuario}>
@@ -316,42 +329,34 @@ class Usuario extends Component {
                                                 <div className="adm_configs_dir">
                                                     <div className="form_perfil">
                                                         <label>Nome completo
-                                                         <input type="text"
-                                                                placeholder=""
-                                                                name="nome"
+                                                         <input name="nome"
                                                                 aria-label="Nome completo do usuário" required
                                                                 value={this.state.listaUsuarios.nome}
-                                                                onChange={this.postSetState} />
+                                                                onChange={this.putSetState} />
                                                         </label>
                                                         <label>Identificador
-                                                         <input type="text"
-                                                                placeholder=""
-                                                                name="identificador"
+                                                         <input name="identificador"
                                                                 aria-label="Identificador do usuário" required
                                                                 value={this.state.listaUsuarios.identificador}
-                                                                onChange={this.postSetState} />
+                                                                onChange={this.putSetState} />
                                                         </label>
                                                         <label>E-mail
-                                                         <input type="text"
-                                                                placeholder="Digite seu email..."
-                                                                name="email"
+                                                         <input name="email"
                                                                 aria-label="Email do usuário" required
                                                                 value={this.state.listaUsuarios.email}
-                                                                onChange={this.postSetState} />
+                                                                onChange={this.putSetState} />
                                                         </label>
                                                         <label>Senha
-                                                         <input type="password"
-                                                                placeholder="Digite sua senha..."
-                                                                name="senha"
+                                                         <input name="senha"
                                                                 aria-label="Digitar sua senha" required
                                                                 value={this.state.listaUsuarios.senha}
-                                                                onChange={this.postSetState} />
+                                                                onChange={this.putSetState} />
                                                         </label>
                                                         <select id="option__tipousuario"
                                                             name="idTipoUsuario"
                                                             className="browser-default custom-select"
                                                             value={this.state.listaUsuarios.idTipoUsuario}
-                                                            onChange={this.postSetState}>
+                                                            onChange={this.putSetState}>
                                                             <option value="">Escolha uma categoria...</option>
                                                             {
                                                                 this.state.listaTipousuario.map(function (u) {
