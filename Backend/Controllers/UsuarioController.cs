@@ -62,21 +62,19 @@ namespace backend.Controllers {
                         usuario.IdTipoUsuario = 3;
                         await _repositorio.Salvar (usuario);
                     } else {
-                        return BadRequest (new { mensagem = "merda" });
+                        return BadRequest ();
                     }
                 } else if (usuario.Identificador.Length == 14) {
                     if (_identificador.ValidaCNPJ (usuario.Identificador) == true) {
                         usuario.IdTipoUsuario = 2;
                         await _repositorio.Salvar (usuario);
                     } else {
-                        return BadRequest (new { mensagem = "merda1" });
+                        return BadRequest ();
                     }
                 }
             } catch (DbUpdateConcurrencyException) {
                 throw;
             }
-            // var arquivo = Request.Form.Files[0];
-            // usuario.imgusuario = _uploadRepo.Upload (arquivo, "imgPerfil");
             return usuario;
         }
 

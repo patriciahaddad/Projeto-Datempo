@@ -3,7 +3,6 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import { parseJwt } from '../../services/auth';
 import api from '../../services/api';
-import avatar from '../../assets/imagens/avatar.png';
 
 class login extends Component {
     constructor(props) {
