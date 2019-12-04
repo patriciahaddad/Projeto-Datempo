@@ -7,8 +7,8 @@ import apiFormData from '../../services/apiFormData';
 import { parseJwt } from '../../services/auth';
 
 class Perfilusuario extends Component {
-    constructor(props) {
-        super(props)
+    constructor() {
+        super()
         this.state = {
             usuario: [],
             updateUsuario:{
@@ -16,7 +16,6 @@ class Perfilusuario extends Component {
                 identificador:"",
                 email:"",
                 senha:"",
-                idUsuario:"",
                 imgusuario: React.createRef(),
             },
 
@@ -33,7 +32,7 @@ class Perfilusuario extends Component {
 
     getUsuario = () => {
         //pegando id do usuario
-        apiFormData.get('/usuario/' + parseJwt().id)
+        api.get('/usuario/' + parseJwt().id)
         .then(response => {
             if (response.status === 200) {
                 this.setState({ usuario: response.data })
@@ -52,8 +51,11 @@ class Perfilusuario extends Component {
     updateUsuario = (event) =>{
         event.preventDefault();
         let usuarioFormData = new FormData();
-        usuarioFormData.set("email", this.state.usuario.email);
-        usuarioFormData.set("senha", this.state.usuario.senha);
+        usuarioFormData.set("nome", this.state.updateUsuario.nome);
+        usuarioFormData.set("identificador", this.state.updateUsuario.identificador);
+        usuarioFormData.set("imgusuario", this.state.updateUsuario.imgusuario);
+        usuarioFormData.set("email", this.state.updateUsuario.email);
+        usuarioFormData.set("senha", this.state.updateUsuario.senha);
 
         let usuario_alterado = this.state.usuario;
             apiFormData.put('/usuario/'+ parseJwt().id , usuario_alterado)
@@ -85,13 +87,14 @@ class Perfilusuario extends Component {
                             <div className="container_perfil">
                                 <div className="imgperfil">
                                     <img src={avatar} alt="Imagem de perfil do usuário" />
-                                    {/* <input
+                                    <input
                                         type="file"
                                         placeholder="coloque uma foto sua"
                                         aria-label="Coloque uma foto"
                                         name="imgusuario"
                                         value={this.state.usuario.imgusuario}
-                                        ref={this.state.fileInput}></input> */}
+                                        onChange={this.alterarStateUsuario}
+                                        ref={this.state.fileInput}></input>
                                 </div>
                                 <div className="form_perfil">
                                     <form onSubmit={this.updateUsuario} id="form_perfil">
