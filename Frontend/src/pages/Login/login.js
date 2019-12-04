@@ -3,7 +3,6 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import { parseJwt } from '../../services/auth';
 import api from '../../services/api';
-import avatar from '../../assets/imagens/avatar.png';
 
 class login extends Component {
     constructor(props) {
@@ -18,13 +17,11 @@ class login extends Component {
                 Email: "",
                 Senha: "",
                 Identificador: "",
-                // imgusuario:""
             },
 
             email: "",
             senha: "",
             erroMensagem: "",
-            // fileInput: React.createRef()
 
         }
     }
@@ -36,7 +33,6 @@ class login extends Component {
     realizarLogin = (event) => {
         event.preventDefault();
 
-        // Limpa o conteúdo do state erroMensagem
         this.setState({ erroMensagem: "" });
 
         api.post("/login", {
@@ -94,8 +90,6 @@ class login extends Component {
 
         e.preventDefault();
 
-        // let usuario = new FormData();
-
         api.post('/usuario', this.state.postcadastar)
             .then(response => {
                 console.log(response);
@@ -151,8 +145,6 @@ class login extends Component {
                                 </form>
                             </div>
 
-
-
                             <div className="cadastrar">
                                 <h2>Cadastrar</h2>
                                 <form onSubmit={this.postcadastar} id="form_cadastro">
@@ -186,16 +178,6 @@ class login extends Component {
                                             onChange={this.postSetState}
                                             required />
                                     </label>
-                                    {/* <label>
-                                        CEP
-                                        <input type="text"
-                                            placeholder="Digite seu CEP..."
-                                            name="cep"
-                                            aria-label="Digite seu CEP"
-                                            value={this.state.listaUsuario.cep}
-                                            onChange={this.postSetState}
-                                            required />
-                                    </label> */}
                                     <label>
                                         Senha
                                         <input type="password"
@@ -207,15 +189,6 @@ class login extends Component {
                                             required />
                                             <p style={{ color : 'red' }}>{this.state.erroMensagem}</p>
                                     </label>
-                                    {/* <label type="hidden">
-                                        <input type="hidden"
-                                            name="imgusuario"
-                                            ref={avatar}
-                                            value={this.state.listaUsuario.senha}
-                                            onChange={this.postSetState}
-                                            required 
-                                            ></input>
-                                    </label> */}
                                     <label>
                                         <button className="btn_login"
                                             type="submit">Cadastrar

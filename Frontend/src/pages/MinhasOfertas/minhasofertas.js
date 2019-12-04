@@ -1,8 +1,10 @@
-import React, { Component } from './node_modules/react';
+import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import ImagemCard from '../../assets/imagens/arroz.png';
 import Relogio from '../../assets/imagens/alarm-clock.png';
+
+
 
 class Minhasofertas extends Component {
     
@@ -16,12 +18,11 @@ class Minhasofertas extends Component {
                         <h2>MINHAS OFERTAS</h2>
                         <hr />
                             <div className="filtro">
-                            <div className="filtros">
-                                <a href="cadastroOfertas.html" className="btn_cria_Oferta">cadastrar ofertas</a>
-                                <a href="#" className="btn-filtro">Selecione por:</a>
-                            </div>
+                                <div className="filtros">
+                                    <a href="oferta" className="btn_cria_Oferta">cadastrar ofertas</a>
+                                    <a href="#" className="btn-filtro">Selecione por:</a>
+                                </div>
                             <p className="qnt_ofertas">Mostrando 1 - 12 de 30 resultados</p>
-
                             </div>
 
                             <div className="container_card">
