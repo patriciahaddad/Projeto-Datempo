@@ -14,6 +14,7 @@ import {
 
 import Produto from '../../assets/imagens/arroz.png';
 import Relogio from '../../assets/imagens/alarm-clock.png';
+import api from '../../services/api';
 
 
 class Minhasofertas extends Component {

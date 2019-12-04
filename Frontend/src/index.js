@@ -15,7 +15,7 @@ import Mostruario from './pages/Mostruario/mostruario';
 import Carrinho from './pages/Carrinho/carrinho';
 import Perfiladm from './pages/Perfiladm/perfiladm';
 import NotFound from './pages/NotFound/notfound';
-import Categoria from './pages/Perfiladm/categoria';
+    
 import './assets/css/estilo.css';
 //import './assets/css/flexbox.css'
 //import './assets/css/reset.css'
@@ -24,6 +24,7 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import Produto from './pages/Perfiladm/produto';
 import Usuario from './pages/Perfiladm/usuario';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Ofertas from './pages/Perfiladm/ofertas';
 import Reservas from './pages/Minhasofertas/reservas';
 
@@ -83,7 +84,6 @@ const Rotas = (
                 <Route exact path="/" component={App} />
                 <Route path="/sobrenos" component={Sobrenos} />
                 {/* <PermissaoFornecedor path="/minhasofertas" component={Minhasofertas} /> */}
-                <Route path="/minhasofertas" component={Minhasofertas} />
                 <PermissaoConsumidor path="/perfilusuario" component={Perfilusuario} />
                 <PermissaoFornecedor path="/oferta" component={cadastroOferta} />
                 <Route path="/mostruario" component={Mostruario} />
@@ -95,7 +95,7 @@ const Rotas = (
                 <Route path="/ajuda" component={Ajuda} />
                 <Route path="/Login" component={Login} />
                 <Route path="/perfiladm" component={Perfiladm} />
-                <Route path="/categoria" component={Categoria} />
+                {/* <Route path="/categoria" component={Categoria} /> */}
                 <Route path="/produto" component={Produto} />
                 <Route path="/usuario" component={Usuario} />
                 <Route path="/ofertas" component={Ofertas} />
