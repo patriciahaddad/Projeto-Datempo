@@ -8,7 +8,7 @@ import { usuarioAutenticado, parseJwt } from '../src/services/auth';
 import Sobrenos from './pages/Sobrenos/sobrenos';
 import Ajuda from './pages/Ajuda/ajuda';
 import Login from './pages/Login/login';
-import Minhasofertas from './pages/MinhasOfertas/minhasofertas';
+import Minhasofertas from './pages/Minhasofertas/minhasofertas';
 import Perfilusuario from './pages/Perfilusuario/perfilusuario';
 import cadastroOferta from './pages/cadastroOferta/cadastrooferta';
 import Mostruario from './pages/Mostruario/mostruario';
@@ -25,6 +25,7 @@ import 'mdbreact/dist/css/mdb.css';
 import Produto from './pages/Perfiladm/produto';
 import Usuario from './pages/Perfiladm/usuario';
 import Ofertas from './pages/Perfiladm/ofertas';
+import Reservas from './pages/Minhasofertas/reservas';
 
 const PermissaoAdmin = ({ component : Component }) => (
     <Route 
@@ -81,11 +82,13 @@ const Rotas = (
             <Switch>
                 <Route exact path="/" component={App} />
                 <Route path="/sobrenos" component={Sobrenos} />
-                <PermissaoFornecedor path="/minhasofertas" component={Minhasofertas} />
+                {/* <PermissaoFornecedor path="/minhasofertas" component={Minhasofertas} /> */}
+                <Route path="/minhasofertas" component={Minhasofertas} />
                 <PermissaoConsumidor path="/perfilusuario" component={Perfilusuario} />
                 <PermissaoFornecedor path="/oferta" component={cadastroOferta} />
                 <Route path="/mostruario" component={Mostruario} />
                 <Route path="/minhasofertas" component={Minhasofertas}/>
+                <Route path="/reservas" component={Reservas}/>
                 <Route path="/carrinho" component={Carrinho}/>
                 <PermissaoConsumidor path="/carrinho" component={Carrinho}/>
                 {/* <PermissaoAdmin path="/perfiladm" component={Perfiladm} /> */}
