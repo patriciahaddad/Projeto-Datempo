@@ -1,0 +1,263 @@
+import React, { Component } from 'react';
+import Header from '../../components/Header/Header.js';
+import Footer from '../../components/Footer/Footer.js';
+import api from './../../services/api';
+
+import {
+    MDBBtn,
+    MDBTable,
+    MDBTableBody,
+    MDBTableHead,
+    MDBAlert
+} from 'mdbreact';
+
+
+class Categoria extends Component {
+
+    constructor() {
+        super()
+        this.state = {
+
+            listaCategorias: [],
+            listaOfertas: [],
+            listaProdutos: [],
+            listaUsuarios: [],
+
+            postCategoria: {
+                nomeCategoria: "",
+            },
+
+            postProduto: {
+                nomeProduto: "",
+                idCategoria: "",
+            },
+
+            putCategoria: {
+                idCategoria: "",
+                nomeCategoria: "",
+            },
+
+            putProduto: {
+                idProduto: "",
+                nomeProduto: "",
+                idCategoria: "",
+            },
+
+            nomeCategoria: "",
+            erroMsg: "",
+            sucessMsg: ""
+        }
+
+        this.postCategoria = this.postCategoria.bind(this);
+    }
+
+    componentDidMount() {
+        this.getCategorias();
+        this.getProdutos();
+    }
+
+    openModalCategoria = (c) => {
+        this.toggle();
+
+        this.setState({ getCategoria: c });
+        console.log("GET", this.state.getCategoria);
+    }
+
+    openModalEditarCategoria = (c) => {
+        this.toggle();
+
+        this.setState({ putCategoria: c });
+        console.log("PUT", this.state.putCategoria);
+    }
+
+    //#region GET
+    getCategorias = () => {
+        api.get('/categoria')
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaCategorias: response.data })
+                }
+            })
+    }
+
+    getProdutos = () => {
+        api.get('/produto')
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaProdutos: response.data })
+                }
+            })
+    }
+
+    getUsuarios = () => {
+        api.get('/usuario')
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaUsuarios: response.data })
+                }
+            })
+    }
+
+    //#endregion
+
+    //#region PUT
+
+    putSetState = (input) => {
+        this.setState({
+            putCategoria: {
+                ...this.state.putCategoria, [input.target.name]: input.target.value
+            }
+        })
+    }
+
+    putCategoria = (event) => {
+        event.preventDefault();
+        let categoria_id = this.state.putCategoria.idCategoria;
+        let categoria_alterado = this.state.putCategoria;
+
+        api.put('/categoria/' + categoria_id, categoria_alterado)
+            .then(() => {
+                this.setState({ sucessMsg: "Categoria alterada com sucesso!" });
+            })
+            .catch(error => {
+                console.log(error);
+                this.setState({ erroMsg: "Falha ao alterar o Categoria!" });
+            })
+
+        this.toggle();
+
+        setTimeout(() => {
+            this.getCategoria();
+        }, 1500);
+    }
+
+    //#endregion
+
+    //#region POSTs
+    postSetState = (input) => {
+        this.setState({
+            postCategoria: {
+                ...this.state.postCategoria, [input.target.name]: input.target.value
+            }
+        })
+    }
+
+    postCategoria = (c) => {
+
+        c.preventDefault();
+        console.log("Cadastrando");
+
+        api.post('/categoria', this.state.postCategoria)
+            .then(response => {
+                console.log(response);
+                this.setState({ sucessMsg: "Categoria cadastrada com sucesso!" });
+            })
+            .catch(error => {
+                console.log(error);
+                this.setState({ erroMsg: "Não foi possível cadastrar categoria!" });
+            })
+
+        setTimeout(() => {
+            this.getCategorias();
+        }, 1500);
+    }
+    //#endregion
+
+    //#region DELETE
+
+    deleteCategoria = (id) => {
+
+        this.setState({ sucessMsg: " " })
+
+        api.delete('/categoria/' + id)
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ sucessMsg: "Excluído com sucesso!" })
+                    setTimeout(() => {
+                        this.getCategorias();
+                    }, 1000);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                this.setState({ erroMsg: "Falha ao excluir!" })
+            })
+    }
+
+    //#endregion
+
+
+    render() {
+        return (
+            <div>
+                <Header></Header>
+                <main>
+                    <div className="container">
+                        <section className="cont_branco">
+                            <div className="container_tabelas">
+                                <MDBTable>
+                                    <MDBTableHead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Categoria</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </MDBTableHead>
+                                    <MDBTableBody>
+                                        {
+                                            this.state.listaCategorias.map(
+                                                function (c) {
+                                                    return (
+                                                        <tr key={c.idCategoria}>
+                                                            <td>{c.idCategoria}</td>
+                                                            <td>{c.nomeCategoria}</td>
+                                                            <td>
+                                                                <MDBBtn color="primary" size="sm" onClick={() => this.openModalEditarCategoria(c)}>
+                                                                    Editar
+                                                                </MDBBtn>
+                                                                <MDBBtn color="danger" size="sm" onClick={() => this.deleteCategoria(c.idCategoria)}>
+                                                                    Excluir
+                                                                </MDBBtn>
+                                                            </td>
+                                                        </tr>
+                                                    )
+                                                }.bind(this)
+                                            )
+                                        }
+                                    </MDBTableBody>
+                                </MDBTable>
+
+                                <form onSubmit={this.postCategoria}>
+                                    <div className="form-group">
+                                        <label htmlFor="example2">Nome da Categoria:</label>
+                                        <input type="text"
+                                            className="form-control form-control-md"
+                                            name = "nomeCategoria"
+                                            value={this.state.listaCategorias.nomeCategoria}
+                                            onChange={this.postSetState} />
+                                    </div>
+                                    <MDBBtn color="primary" type="submit">Salvar</MDBBtn>
+                                    {
+                                        this.state.erroMsg &&
+                                        <MDBAlert color="danger" >
+                                            {this.state.erroMsg}
+                                        </MDBAlert>
+                                    }
+                                    {
+                                        this.state.sucessMsg &&
+                                        <MDBAlert color="sucess" >
+                                            {this.state.sucessMsg}
+                                        </MDBAlert>
+                                    }
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+                </main>
+                <Footer></Footer>
+            </div >
+        );
+    }
+}
+
+export default Categoria;

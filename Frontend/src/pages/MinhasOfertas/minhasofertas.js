@@ -3,6 +3,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import {
     MDBBtn,
+    MDBContainer,
     MDBModal,
     MDBModalBody,
     MDBModalHeader,
@@ -14,7 +15,6 @@ import {
 import Produto from '../../assets/imagens/arroz.png';
 import Relogio from '../../assets/imagens/alarm-clock.png';
 import api from '../../services/api';
-import { bindExpression } from '@babel/types';
 
 
 class Minhasofertas extends Component {
@@ -24,10 +24,8 @@ class Minhasofertas extends Component {
             listaMinhasOfertas: [],
             listaReservaOferta: [],
 
-
             modal1: false,
-            modal2: false,
-            modal3: false
+            modal2: false
         }
 
     }
@@ -35,9 +33,9 @@ class Minhasofertas extends Component {
     toggle = nr => () => {
         let modalNumber = 'modal' + nr
         this.setState({
-          [modalNumber]: !this.state[modalNumber]
+            [modalNumber]: !this.state[modalNumber]
         });
-      }
+    }
 
     componentDidMount() {
         this.getMinhasOfertas();
@@ -45,15 +43,27 @@ class Minhasofertas extends Component {
     }
 
     openModalReservaOferta = (r) => {
-        this.toggle(1);
+        
+
         this.setState({ getReservaOferta: r });
         console.log("GET", this.state.getReservaOferta);
+
+        setTimeout(() => {
+            this.toggle(1);
+        }, 1000);
+
     }
 
     openModalEditarOferta = (edOferta) => {
-        this.toggle();
+        
+
         this.setState({ getEditarOferta: edOferta });
         console.log("PUT", this.state.getEditarOferta);
+        //this.state.putOferta
+
+        setTimeout(() => {
+            this.toggle(2);
+        }, 1000);
     }
 
     getMinhasOfertas = () => {
@@ -73,15 +83,6 @@ class Minhasofertas extends Component {
                 }
             })
     }
-
-    putSetState = (input) => {
-        this.setState({
-            putOferta: {
-                ...this.state.putOferta, [input.target.name]: input.target.value
-            }
-        })
-    }
-
 
     render() {
         return (
@@ -131,34 +132,59 @@ class Minhasofertas extends Component {
 
                                         </div>
                                         <div className="botao_reservar">
-                                            <MDBBtn color="primary" size="sm">
-                                                <i className="fas fa-edit">EDITAR</i>
+                                            <MDBBtn color="primary" size="sm" onClick={() => this.openModalEditarOferta(o)}>
+                                                EDITAR
                                             </MDBBtn>
 
-                                            <button color="danger" size="sm" onClick={this.toggle(1)}>
+                                            <MDBBtn color="danger" size="sm" onClick={() => this.openModalReservaOferta(o)}>
                                                 RESERVAS
-                                            </button>
+                                            </MDBBtn>
                                         </div>
                                     </div>
                                 )
-                            })
+                            }.bind(this))
                         }
-                        {/* Modal de reserva */}
 
-                        
-                        <MDBModal isOpen={this.state.modal} toggle={this.toggle(1)} centered>
-                            <MDBModalHeader toggle={this.toggle(1)}>Categorias</MDBModalHeader>
+                        {this.state.listaMinhasOfertas.map(
+                            function (mreserva) {
+                            return (
+                            <tr key={mreserva.idOferta}>
+                                <td>{mreserva.idOferta}</td>
+                                <td>
+                                    <MDBBtn color="primary" size="sm" onClick={() => this.openModalEditarOferta(mreserva)}>
+                                        EDITAR
+                                    </MDBBtn>
+
+                                    <MDBBtn color="danger" size="sm" onClick={() => this.openModalReservaOferta(mreserva)}>
+                                        RESERVAS
+                                    </MDBBtn>
+                                </td>
+                            </tr>
+                            )
+                        }.bind(this)
+                        )
+                    }
+                    
+                 {/* Modal de reserva  */}
+
+                    <MDBContainer>
+                        <MDBModal isOpen={this.state.modal1} toggle={this.toggle(1)} centered>
+                            <MDBModalHeader toggle={this.toggle(1)}>RESERVAS</MDBModalHeader>
                             <MDBModalBody>
                                 <MDBTable>
                                     <MDBTableHead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Categoria</th>
-                                            <th>Ações</th>
+                                            <th>Nome</th>
+                                            <th>Quantidade</th>
                                         </tr>
                                     </MDBTableHead>
                                     <MDBTableBody>
-                                        
+                                        <tr>
+                                            <th>1</th>
+                                            <th>Patrícia</th>
+                                            <th>1</th>
+                                        </tr>
                                     </MDBTableBody>
                                 </MDBTable>
                             </MDBModalBody>
@@ -167,31 +193,58 @@ class Minhasofertas extends Component {
                                 <MDBBtn color="primary">Salvar</MDBBtn>
                             </MDBModalFooter>
                         </MDBModal>
-                        <div className="paginacao_ofertas">
-                            <ul className="lista_paginacao">
-                                <a href="#" clas="lk_paginacao">
-                                    <li>
-                                    </li>  </a> <a href="#">
-                                    <li>1</li>
-                                </a>
-                                <a href="#">
-                                    <li>2</li>
-                                </a>
-                                <a href="#">
-                                    <li>3</li>
-                                </a>
-                                <a href="#">
-                                    <li>...</li>
-                                </a>
-                                <a href="#">
-                                    <li> > </li>
-                                </a>
-                            </ul>
-                        </div>
+                        <MDBModal isOpen={this.state.modal2} toggle={this.toggle(2)} centered>
+                            <MDBModalHeader toggle={this.toggle(2)}>RESERVAS</MDBModalHeader>
+                            <MDBModalBody>
+                                <MDBTable>
+                                    <MDBTableHead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nome</th>
+                                            <th>Quantidade</th>
+                                        </tr>
+                                    </MDBTableHead>
+                                    <MDBTableBody>
+                                        <tr>
+                                            <th>1</th>
+                                            <th>Patrícia</th>
+                                            <th>1</th>
+                                        </tr>
+                                    </MDBTableBody>
+                                </MDBTable>
+                            </MDBModalBody>
+                            <MDBModalFooter>
+                                <MDBBtn color="secondary" onClick={this.toggle(2)}>Fechar</MDBBtn>
+                                <MDBBtn color="primary">Salvar</MDBBtn>
+                            </MDBModalFooter>
+                        </MDBModal>
+                    </MDBContainer>
+
+                    <div className="paginacao_ofertas">
+                        <ul className="lista_paginacao">
+                            <a href="#" clas="lk_paginacao">
+                                <li>
+                                </li>  </a> <a href="#">
+                                <li>1</li>
+                            </a>
+                            <a href="#">
+                                <li>2</li>
+                            </a>
+                            <a href="#">
+                                <li>3</li>
+                            </a>
+                            <a href="#">
+                                <li>...</li>
+                            </a>
+                            <a href="#">
+                                <li> > </li>
+                            </a>
+                        </ul>
+                    </div>
                     </div>
                 </main>
-                <Footer />
-            </div>
+            <Footer />
+            </div >
         );
     }
 }
