@@ -93,8 +93,6 @@ class login extends Component {
 
         e.preventDefault();
 
-        // let usuario = new FormData();
-
         api.post('/usuario', this.state.postcadastar)
             .then(response => {
                 console.log(response);

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import avatar from '../../assets/imagens/avatar.png';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
@@ -53,7 +52,7 @@ class Perfilusuario extends Component {
         let usuarioFormData = new FormData();
         usuarioFormData.set("nome", this.state.updateUsuario.nome);
         usuarioFormData.set("identificador", this.state.updateUsuario.identificador);
-        usuarioFormData.set("imgusuario", this.state.updateUsuario.imgusuario);
+        // usuarioFormData.set("imgusuario", this.state.updateUsuario.imgusuario.current.files[0]);
         usuarioFormData.set("email", this.state.updateUsuario.email);
         usuarioFormData.set("senha", this.state.updateUsuario.senha);
 
@@ -86,15 +85,15 @@ class Perfilusuario extends Component {
                             <hr />
                             <div className="container_perfil">
                                 <div className="imgperfil">
-                                    <img src={avatar} alt="Imagem de perfil do usuário" />
-                                    <input
+                                    <img src={"http://localhost:5000/imgPerfil/"+this.state.usuario.imgusuario} alt="Imagem de perfil do usuário" />
+                                    {/* <input
                                         type="file"
                                         placeholder="coloque uma foto sua"
                                         aria-label="Coloque uma foto"
                                         name="imgusuario"
-                                        value={this.state.usuario.imgusuario}
+                                        // value={this.state.usuario.imgusuario}
                                         onChange={this.alterarStateUsuario}
-                                        ref={this.state.fileInput}></input>
+                                        ref={this.state.fileInput}></input> */}
                                 </div>
                                 <div className="form_perfil">
                                     <form onSubmit={this.updateUsuario} id="form_perfil">
