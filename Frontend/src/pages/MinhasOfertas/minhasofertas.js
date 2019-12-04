@@ -1,43 +1,30 @@
 import React, { Component } from 'react';
-import Header from '../../components/Header/Header.js';
-import Footer from '../../components/Footer/Footer.js';
-import api from '../../services/api';
-
-import {
-    MDBBtn,
-    MDBModal,
-    MDBModalBody,
-    MDBModalHeader,
-    MDBModalFooter,
-    MDBInput
-} from 'mdbreact';
-
-import Produto from '../../assets/imagens/arroz.png';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+import ImagemCard from '../../assets/imagens/arroz.png';
 import Relogio from '../../assets/imagens/alarm-clock.png';
 import api from '../../services/api';
 
 
+
 class Minhasofertas extends Component {
-    constructor() {
-        super()
-        this.state = {
-            listaOfertas: [],
-
-            putOferta: {
-                idOferta: "",
-                nomeOferta: "",
-                marca: "",
-                quantVenda: "",
-                validade: "",
-                preco: "",
-                imagem: React.createRef(),
-                descricao: "",
-                idUsuario: "",
-                idProduto: "",
-            },
-
-            modal: false
-        }
+    
+    render() {
+        return (
+            <div>
+                <Header />
+                <main>
+                    <div className="cont_branco">
+                    <div className="ofertas_cadastradas">
+                        <h2>MINHAS OFERTAS</h2>
+                        <hr />
+                            <div className="filtro">
+                                <div className="filtros">
+                                    <a href="oferta" className="btn_cria_Oferta">cadastrar ofertas</a>
+                                    <a href="#" className="btn-filtro">Selecione por:</a>
+                                </div>
+                            <p className="qnt_ofertas">Mostrando 1 - 12 de 30 resultados</p>
+                            </div>
 
     }
 
