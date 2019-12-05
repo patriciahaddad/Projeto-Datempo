@@ -1,36 +1,17 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import ImagemCard from '../../assets/imagens/arroz.png';
 import Relogio from '../../assets/imagens/alarm-clock.png';
 import api from '../../services/api';
-
+import { MDBInput, MDBModal, MDBBtn, MDBModalFooter, MDBModalHeader, MDBModalBody } from
+    "mdbreact";
 
 
 class Minhasofertas extends Component {
     
-    render() {
-        return (
-            <div>
-                <Header />
-                <main>
-                    <div className="cont_branco">
-                    <div className="ofertas_cadastradas">
-                        <h2>MINHAS OFERTAS</h2>
-                        <hr />
-                            <div className="filtro">
-                                <div className="filtros">
-                                    <a href="oferta" className="btn_cria_Oferta">cadastrar ofertas</a>
-                                    <a href="#" className="btn-filtro">Selecione por:</a>
-                                </div>
-                            <p className="qnt_ofertas">Mostrando 1 - 12 de 30 resultados</p>
-                            </div>
-
-    }
-
     toggle = () => {
         this.setState({
-          modal: !this.state.modal
+          modal: !this.state.modal,
         });
       }      
 
@@ -125,7 +106,7 @@ class Minhasofertas extends Component {
                                 return (
                                     <div className="card_oferta" key={o.idOferta}>
                                         <div className="caixa_imagem">
-                                            <img className="imgproduto" src={Produto}
+                                            <img className="imgproduto" 
                                                 alt="Pacote de Arroz de 5kg da marca Tio João" />
                                         </div>
                                         <div className="descricao_oferta">
