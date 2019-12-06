@@ -26,6 +26,7 @@ import Produto from './pages/Perfiladm/produto';
 import Usuario from './pages/Perfiladm/usuario';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Ofertas from './pages/Perfiladm/ofertas';
+import Reservas from './pages/MinhasOfertas/reservas';
 
 const PermissaoAdmin = ({ component : Component }) => (
     <Route 
@@ -87,6 +88,7 @@ const Rotas = (
                 <PermissaoFornecedor path="/oferta" component={cadastroOferta} />
                 <Route path="/mostruario" component={Mostruario} />
                 <Route path="/minhasofertas" component={Minhasofertas}/>
+                <Route path="/reservas" component={Reservas}/>
                 <Route path="/carrinho" component={Carrinho}/>
                 <PermissaoConsumidor path="/carrinho" component={Carrinho}/>
                 {/* <PermissaoAdmin path="/perfiladm" component={Perfiladm} /> */}
