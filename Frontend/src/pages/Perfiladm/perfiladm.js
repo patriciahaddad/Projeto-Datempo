@@ -11,14 +11,13 @@ import {
     MDBModalBody,
     MDBModalHeader,
     MDBModalFooter,
-    MDBDropdown,
-    MDBDropdownToggle,
-    MDBDropdownMenu,
-    MDBDropdownItem,
     MDBTable,
     MDBTableBody,
     MDBTableHead,
-    MDBAlert
+    MDBAlert,
+    MDBNav,
+    MDBNavLink,
+    MDBCol
 } from 'mdbreact';
 
 
@@ -180,7 +179,7 @@ class Perfiladm extends Component {
     }
     //#endregion
 
-    
+
 
     render() {
         return (
@@ -191,7 +190,16 @@ class Perfiladm extends Component {
                         <section className="cont_branco">
                             <div className="organizacao_adm">
                                 <div className="adm_configs_esq">
-                                    <MDBDropdown dropright>
+
+                                    <MDBCol>
+                                        <MDBNav className="flex-column font-weight-bold">
+                                            <MDBNavLink active to="#!">Active</MDBNavLink>
+                                            <MDBNavLink to="#!">Link</MDBNavLink>
+                                            <MDBNavLink to="#!">Link</MDBNavLink>
+                                            <MDBNavLink disabled to="#!">Disabled</MDBNavLink>
+                                        </MDBNav>
+                                    </MDBCol>
+                                    {/* <MDBDropdown dropright>
                                         <MDBDropdownToggle caret className="adm_btn_01" color="purple darken-3">
                                             Categoria
                                         </MDBDropdownToggle>
@@ -226,7 +234,7 @@ class Perfiladm extends Component {
                                             <MDBDropdownItem>Cadastrar novo</MDBDropdownItem>
                                             <MDBDropdownItem>Visualizar Usuários</MDBDropdownItem>
                                         </MDBDropdownMenu>
-                                    </MDBDropdown>
+                                    </MDBDropdown> */}
 
                                 </div>
 

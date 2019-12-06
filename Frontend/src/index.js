@@ -20,13 +20,14 @@ import './assets/css/estilo.css';
 //import './assets/css/flexbox.css'
 //import './assets/css/reset.css'
 import '@fortawesome/fontawesome-free/css/all.min.css';
-// import 'bootstrap-css-only/css/bootstrap.min.css';
-// import 'mdbreact/dist/css/mdb.css';
+import 'mdbreact/dist/css/mdb.css';
 import Produto from './pages/Perfiladm/produto';
 import Usuario from './pages/Perfiladm/usuario';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import Ofertas from './pages/Perfiladm/ofertas';
-import Reservas from './pages/MinhasOfertas/reservas';
+import Categoria from './pages/Perfiladm/categoria';
+import Reservas from './pages/Minhasofertas/reservas';
+import CadastroUsuario_adm from './pages/Perfiladm/cadastrousuario_adm';
+import CadastroOferta_adm from './pages/Perfiladm/cadastrooferta_adm';
 
 const PermissaoAdmin = ({ component : Component }) => (
     <Route 
@@ -76,7 +77,8 @@ const Rotas = (
                 <Route path="/sobrenos" component={Sobrenos} />
                 {/* <PermissaoFornecedor path="/minhasofertas" component={Minhasofertas} /> */}
                 <PermissaoConsumidor path="/perfilusuario" component={Perfilusuario} />
-                <PermissaoFornecedor path="/oferta" component={cadastroOferta} />
+                {/* <PermissaoFornecedor path="/oferta" component={cadastroOferta} /> */}
+                <Route path="/oferta" component={cadastroOferta} />
                 <Route path="/mostruario" component={Mostruario} />
                 <Route path="/minhasofertas" component={Minhasofertas}/>
                 <Route path="/reservas" component={Reservas}/>
@@ -88,8 +90,11 @@ const Rotas = (
                 <Route path="/perfiladm" component={Perfiladm} />
                 {/* <Route path="/categoria" component={Categoria} /> */}
                 <Route path="/produto" component={Produto} />
+                <Route path="/categoria" component={Categoria} />
                 <Route path="/usuario" component={Usuario} />
                 <Route path="/ofertas" component={Ofertas} />
+                <Route path="/cadastrousuario" component={CadastroUsuario_adm} />
+                <Route path="/cadastrooferta" component={CadastroOferta_adm} />
                 <Route component={NotFound} />
             </Switch>
         </div>

@@ -3,7 +3,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
 
-import CardOferta from '../../components/CardOferta/cardOferta';
+import CardOferta from '../../components/CardOferta/CardOferta.js';
 
 import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer } from
     "mdbreact";

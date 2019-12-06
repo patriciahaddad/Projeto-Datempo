@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import Header from '../../components/Header/Header.js';
+import Footer from '../../components/Footer/Footer.js';
+
+import {
+    MDBBtn,
+    MDBModal,
+    MDBModalBody,
+    MDBModalHeader,
+    MDBModalFooter,
+    MDBInput
+} from 'mdbreact';
+
+import Produto from '../../assets/imagens/arroz.png';
 import Relogio from '../../assets/imagens/alarm-clock.png';
 import api from '../../services/api';
 import { MDBInput, MDBModal, MDBBtn, MDBModalFooter, MDBModalHeader, MDBModalBody } from
