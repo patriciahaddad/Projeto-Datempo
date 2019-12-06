@@ -14,8 +14,10 @@ import {
     MDBModalBody,
     MDBModalHeader,
     MDBModalFooter,
-    MDBAlert
+    MDBAlert,
+    MDBInput
 } from 'mdbreact';
+import apiFormData from '../../services/apiFormData.js';
 
 
 
@@ -33,6 +35,7 @@ class Usuario extends Component {
                 email: "",
                 senha: "",
                 identificador: "",
+                imgusuario: React.createRef(),
                 idTipoUsuario: "",
             },
 
@@ -50,32 +53,23 @@ class Usuario extends Component {
             senha: "",
             erroMsg: "",
             sucessMsg: "",
-            modal1: false,
-            modal2: false
+            modal: false
         }
     }
 
-    toggle = nr => () => {
-        let modalNumber = 'modal' + nr
+    toggle = () => {
         this.setState({
-            [modalNumber]: !this.state[modalNumber]
+            modal: !this.state.modal
         });
     }
 
-    openModalCadastrarUsuario = (u) => {
+    openModal = (u) => {
         this.toggle();
 
-        this.setState({ postUsuario: u });
-        console.log("POST", this.state.postUsuario);
+        this.setState({ putUsuario: u }, () => {
+            console.log("PUT", this.state.putUsuario);
+        });
     }
-
-    openModalEditarUsuario = (u) => {
-        this.toggle(2);
-
-        this.setState({ putUsuario: u });
-        console.log("PUT", this.state.putUsuario);
-    }
-
 
     componentDidMount() {
         this.getUsuarios();
@@ -107,6 +101,14 @@ class Usuario extends Component {
 
     //#region PUT
 
+    putSetStateFile = (input) => {
+        this.setState({
+            putUsuario: {
+                ...this.state.putUsuario, [input.target.name]: input.target.files[0]
+            }
+        })
+    }
+
     putSetState = (input) => {
         this.setState({
             putUsuario: {
@@ -118,9 +120,21 @@ class Usuario extends Component {
     putUsuario = (event) => {
         event.preventDefault();
         let usuario_id = this.state.putUsuario.idUsuario;
-        let usuario_alterado = this.state.putUsuario;
 
-        api.put('/usuario/' + usuario_id, usuario_alterado)
+        let usuario = new FormData();
+        
+        console.log("Imagem Oferta Put: ", this.state.putUsuario.imgusuario);
+
+
+        usuario.set('idUsuario', this.state.putUsuario.idUsuario);
+        usuario.set('nome', this.state.putUsuario.nome);
+        usuario.set('email', this.state.putUsuario.email);
+        usuario.set('senha', this.state.putUsuario.senha);
+        usuario.set('identificador', this.state.putUsuario.identificador);
+        usuario.set('imgusuario', this.state.putUsuario.imgusuario.current.files[0], this.state.putUsuario.imgusuario.value);
+        usuario.set('idTipoUsuario', this.state.putUsuario.idTipoUsuario);
+
+        apiFormData.put('/usuario/' + usuario_id, usuario)
             .then(() => {
                 this.setState({ sucessMsg: "Usuario alterada com sucesso!" });
             })
@@ -129,7 +143,7 @@ class Usuario extends Component {
                 this.setState({ erroMsg: "Falha ao alterar o Usuario!" });
             })
 
-        this.toggle(2);
+        this.toggle();
 
         setTimeout(() => {
             this.getUsuarios();
@@ -223,10 +237,10 @@ class Usuario extends Component {
                                                             <td>{u.imgusuario}</td>
                                                             <td>{u.idTipoUsuarioNavigation.titulo}</td>
                                                             <td>
-                                                                <MDBBtn color="primary" size="sm" onClick={() => this.openModalCadastrarUsuario(u)}>
+                                                                <MDBBtn color="primary" size="sm">
                                                                     Cadastrar
                                                                 </MDBBtn>
-                                                                <MDBBtn color="secondary" size="sm" onClick={this.toggle(2)}>
+                                                                <MDBBtn color="secondary" size="sm" onClick={() => this.openModal(u)}>
                                                                     Editar
                                                                 </MDBBtn>
                                                                 <MDBBtn color="danger" size="sm" onClick={() => this.deleteUsuario(u.idUsuario)}>
@@ -240,122 +254,49 @@ class Usuario extends Component {
                                         }
                                     </MDBTableBody>
                                 </MDBTable>
-                                {/* MODAL CADASTRAR */}
-                                <MDBContainer>
-                                    <form onSubmit={this.postUsuario}>
-                                        <MDBModal isOpen={this.state.modal1} toggle={this.toggle(1)} size="lg">
-                                            <MDBModalHeader toggle={this.toggle(1)}>Cadastrar usuário</MDBModalHeader>
-                                            <MDBModalBody>
-                                                <div className="adm_configs_dir">
-                                                    <div className="form_perfil">
-                                                        <label>Nome completo
-                                                         <input type="text"
-                                                                placeholder=""
-                                                                name="nome"
-                                                                aria-label="Nome completo do usuário" required
-                                                                value={this.state.listaUsuarios.nome}
-                                                                onChange={this.postSetState} />
-                                                        </label>
-                                                        <label>Identificador
-                                                         <input type="text"
-                                                                placeholder=""
-                                                                name="identificador"
-                                                                aria-label="Identificador do usuário" required
-                                                                value={this.state.listaUsuarios.identificador}
-                                                                onChange={this.postSetState} />
-                                                        </label>
-                                                        <label>E-mail
-                                                         <input type="text"
-                                                                placeholder="Digite seu email..."
-                                                                name="email"
-                                                                aria-label="Email do usuário" required
-                                                                value={this.state.listaUsuarios.email}
-                                                                onChange={this.postSetState} />
-                                                        </label>
-                                                        <label>Senha
-                                                         <input type="password"
-                                                                placeholder="Digite sua senha..."
-                                                                name="senha"
-                                                                aria-label="Digitar sua senha" required
-                                                                value={this.state.listaUsuarios.senha}
-                                                                onChange={this.postSetState} />
-                                                        </label>
-                                                        <select id="option__tipousuario"
-                                                            name="idTipoUsuario"
-                                                            className="browser-default custom-select"
-                                                            value={this.state.listaUsuarios.idTipoUsuario}
-                                                            onChange={this.postSetState}>
-                                                            <option value="">Escolha uma categoria...</option>
-                                                            {
-                                                                this.state.listaTipousuario.map(function (u) {
-                                                                    return (
-                                                                        <option
-                                                                            key={u.idTipoUsuario}
-                                                                            value={u.idTipoUsuario}> {u.titulo}
-                                                                        </option>
-                                                                    )
-                                                                })
-                                                            }
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </MDBModalBody>
-                                            <MDBModalFooter>
-                                                <MDBBtn color="secondary" onClick={this.toggle(1)}>Fechar</MDBBtn>
-                                                <MDBBtn color="primary" type="submit">Cadastrar</MDBBtn>
-                                                {
-                                                    this.state.erroMsg &&
-                                                    <MDBAlert color="danger" >
-                                                        {this.state.erroMsg}
-                                                    </MDBAlert>
-                                                }
-                                                {
-                                                    this.state.sucessMsg &&
-                                                    <MDBAlert color="sucess" >
-                                                        {this.state.sucessMsg}
-                                                    </MDBAlert>
-                                                }
-                                            </MDBModalFooter>
-                                        </MDBModal>
-                                    </form>
-                                </MDBContainer>
-
                                 {/* MODAL EDITAR */}
                                 <MDBContainer>
-                                    <MDBModal isOpen={this.state.modal2} toggle={this.toggle(2)} size="lg">
+                                    <MDBModal isOpen={this.state.modal} toggle={this.toggle} size="lg">
                                         <form onSubmit={this.putUsuario}>
-                                            <MDBModalHeader toggle={this.toggle(2)}>Editar usuário - {this.state.putUsuario.nome} </MDBModalHeader>
+                                            <MDBModalHeader toggle={this.toggle}>Editar usuário - {this.state.putUsuario.nome} </MDBModalHeader>
                                             <MDBModalBody>
                                                 <div className="adm_configs_dir">
                                                     <div className="form_perfil">
                                                         <label>Nome completo
-                                                         <input name="nome"
+                                                         <MDBInput name="nome"
                                                                 aria-label="Nome completo do usuário" required
-                                                                value={this.state.listaUsuarios.nome}
+                                                                value={this.state.putUsuario.nome}
                                                                 onChange={this.putSetState} />
                                                         </label>
                                                         <label>Identificador
-                                                         <input name="identificador"
+                                                         <MDBInput name="identificador"
                                                                 aria-label="Identificador do usuário" required
-                                                                value={this.state.listaUsuarios.identificador}
+                                                                value={this.state.putUsuario.identificador}
                                                                 onChange={this.putSetState} />
                                                         </label>
                                                         <label>E-mail
-                                                         <input name="email"
+                                                         <MDBInput name="email"
                                                                 aria-label="Email do usuário" required
-                                                                value={this.state.listaUsuarios.email}
+                                                                value={this.state.putUsuario.email}
                                                                 onChange={this.putSetState} />
                                                         </label>
                                                         <label>Senha
-                                                         <input name="senha"
+                                                         <MDBInput name="senha"
                                                                 aria-label="Digitar sua senha" required
-                                                                value={this.state.listaUsuarios.senha}
+                                                                value={this.state.putUsuario.senha}
                                                                 onChange={this.putSetState} />
+                                                        </label>
+                                                        <label>Imagem do Usuário
+                                                         <input accept="image/*"
+                                                                name="imgusuario"
+                                                                type="file"
+                                                                onChange={this.putSetStateFile}
+                                                                ref={this.state.putUsuario.imgusuario} />
                                                         </label>
                                                         <select id="option__tipousuario"
                                                             name="idTipoUsuario"
                                                             className="browser-default custom-select"
-                                                            value={this.state.listaUsuarios.idTipoUsuario}
+                                                            value={this.state.putUsuario.idTipoUsuario}
                                                             onChange={this.putSetState}>
                                                             <option value="">Escolha uma categoria...</option>
                                                             {
@@ -373,7 +314,6 @@ class Usuario extends Component {
                                                 </div>
                                             </MDBModalBody>
                                             <MDBModalFooter>
-                                                <MDBBtn color="secondary" onClick={this.toggle(2)}>Fechar</MDBBtn>
                                                 <MDBBtn color="primary" type="submit">Cadastrar</MDBBtn>
                                                 {
                                                     this.state.erroMsg &&
@@ -387,8 +327,8 @@ class Usuario extends Component {
                                                         {this.state.sucessMsg}
                                                     </MDBAlert>
                                                 }
+                                                <MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
                                             </MDBModalFooter>
-
                                         </form>
                                     </MDBModal>
                                 </MDBContainer>

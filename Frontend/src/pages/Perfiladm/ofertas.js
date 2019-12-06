@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
+import apiFormData from './../../services/apiFormData';
 import api from './../../services/api';
 import Relogio from '../../assets/imagens/alarm-clock.png';
-import { MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBAlert } from 'mdbreact';
-
-
+import { MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBAlert, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdbreact';
 
 
 class Ofertas extends Component {
@@ -45,16 +44,15 @@ class Ofertas extends Component {
 
             erroMsg: "",
             sucessMsg: "",
-            modal4: false
+            modal: false
         }
 
         this.postOferta = this.postOferta.bind(this);
     }
 
-    toggle = nr => () => {
-        let modalNumber = 'modal' + nr
+    toggle = () => {
         this.setState({
-            [modalNumber]: !this.state[modalNumber]
+            modal: !this.state.modal
         });
     }
 
@@ -62,20 +60,15 @@ class Ofertas extends Component {
         this.getCategorias();
         this.getProdutos();
         this.getOfertas();
+
     }
 
-    openModalCategoria = (c) => {
+    openModal = (o) => {
         this.toggle();
 
-        this.setState({ getCategoria: c });
-        console.log("GET", this.state.getCategoria);
-    }
-
-    openModalEditarCategoria = (c) => {
-        this.toggle();
-
-        this.setState({ putCategoria: c });
-        console.log("PUT", this.state.putCategoria);
+        this.setState({ putOferta: o }, () => {
+            console.log("PUT", this.state.putOferta);
+        });
     }
 
     //#region GET
@@ -106,24 +99,49 @@ class Ofertas extends Component {
                 }
             })
     }
-    //#endregion
+    //#endregion 
 
     //#region PUT
 
-    putSetState = (input) => {
+    putSetStateFile = (input) => {
+        // console.log("Input do putSetState: ", input);
+
         this.setState({
-            putProduto: {
-                ...this.state.putProduto, [input.target.name]: input.target.value
+            putOferta: {
+                ...this.state.putOferta, [input.target.name]: input.target.files[0]
             }
         })
     }
 
-    putProduto = (event) => {
-        event.preventDefault();
-        let produto_id = this.state.putProduto.idProduto;
-        let produto_alterado = this.state.putProduto;
+    putSetState = (input) => {
+        this.setState({
+            putOferta: {
+                ...this.state.putOferta, [input.target.name]: input.target.value
+            }
+        })
+    }
 
-        api.put('/produto/' + produto_id, produto_alterado)
+    putOferta = (event) => {
+        event.preventDefault();
+
+        let oferta_id = this.state.putOferta.idOferta;
+
+        let oferta = new FormData();
+
+        console.log("Imagem Oferta Put: ", this.state.putOferta.imagem);
+
+        oferta.set('idOferta', this.state.putOferta.idOferta);
+        oferta.set('nomeOferta', this.state.putOferta.nomeOferta);
+        oferta.set('marca', this.state.putOferta.marca);
+        oferta.set('quantVenda', this.state.putOferta.quantVenda);
+        oferta.set('validade', this.state.putOferta.validade);
+        oferta.set('preco', this.state.putOferta.preco);
+        oferta.set('imagem', this.state.putOferta.imagem.current.files[0], this.state.putOferta.imagem.value);
+        oferta.set('descricao', this.state.putOferta.descricao);
+        oferta.set('idProduto', this.state.putOferta.idProduto);
+        oferta.set('idUsuario', this.state.putOferta.idUsuario);
+
+        apiFormData.put('/oferta/' + oferta_id, oferta)
             .then(() => {
                 this.setState({ sucessMsg: "Oferta alterada com sucesso!" });
             })
@@ -135,7 +153,7 @@ class Ofertas extends Component {
         this.toggle();
 
         setTimeout(() => {
-            this.getProdutos();
+            this.getOfertas();
         }, 1500);
     }
 
@@ -212,82 +230,14 @@ class Ofertas extends Component {
                             <div className="ofertas_cadastradas">
                                 <h2>OFERTAS CADASTRADAS</h2>
                                 <hr />
-                                <div className="container_cadastrar">
-                                    <MDBBtn color="primary" onClick={this.toggle(4)}>CADASTRAR</MDBBtn>
-                                    <MDBModal isOpen={this.state.modal4} toggle={this.toggle(4)} size="lg">
-                                            <form className="formulario-cad_modal" onSubmit={this.postOferta}>
-                                        <MDBModalHeader toggle={this.toggle(4)}>Cadastrar nova oferta</MDBModalHeader>
-                                        <MDBModalBody>
-
-                                                <input type="file" 
-                                                       name="imagem"
-                                                       value={this.state.listaOfertas.nomeOferta}
-                                                       onChange={this.postSetState}
-                                                       ref={this.state.fileInput}/>
-
-                                                <label className="form_label">Informe o título do produto
-                                                    <input type="text"  
-                                                           name="nomeOferta" 
-                                                           value={this.state.listaOfertas.nomeOferta}
-                                                           onChange={this.postSetState}/></label>
-
-                                                <label className="form_label">Informe Marca
-                                                    <input type="text"
-                                                           name="marca"
-                                                           value={this.state.listaOfertas.marca}
-                                                           onChange={this.postSetState} /></label>
-
-                                                <label className="form_label">Informe Valor
-                                                    <input type="text"
-                                                           name="preco"
-                                                           value={this.state.listaOfertas.preco}
-                                                           onChange={this.postSetState} /></label>
-
-                                                <label className="form_label">Validade do produto
-                                                    <input type="date" 
-                                                           name="validade"
-                                                           value={this.state.listaOfertas.validade}
-                                                           onChange={this.postSetState}/></label>
-
-                                                <label className="form_labelt">Quantidade em estoque
-                                                    <input type="number"
-                                                           name="quantVenda"
-                                                           value={this.state.listaOfertas.quantVenda}
-                                                           onChange={this.postSetState}/></label>
-
-                                                <label className="form_label">Informações adicionais
-                                                     <textarea className="form_adicionais" 
-                                                               name="descricao"
-                                                               value={this.state.listaOfertas.descricao}
-                                                               onChange={this.postSetState}> </textarea></label>
-                                        </MDBModalBody>
-                                        <MDBModalFooter>
-                                            <MDBBtn color="secondary" onClick={this.toggle(4)}>Fechar</MDBBtn>
-                                            <MDBBtn color="primary" type="submit">Salvar</MDBBtn>
-                                            {
-                                                    this.state.erroMsg &&
-                                                    <MDBAlert color="danger" >
-                                                        {this.state.erroMsg}
-                                                    </MDBAlert>
-                                                }
-                                                {
-                                                    this.state.sucessMsg &&
-                                                    <MDBAlert color="sucess" >
-                                                        {this.state.sucessMsg}
-                                                    </MDBAlert>
-                                                }
-                                        </MDBModalFooter>
-                                            </form>
-                                    </MDBModal>
-                                </div>
                                 <div className="container_card">
-                                    { 
+                                    {
                                         this.state.listaOfertas.map(
                                             function (o) {
                                                 return (
-                                                    <div className="card_oferta">
+                                                    <div className="card_oferta" key={o.idOferta}>
                                                         <div className="caixa_imagem">
-                                                            <img className="imgproduto" src={"../../assets/imgOferta/" + o.imagem}
+                                                            <img className="imgproduto" src={"https://localhost:5001/imgOferta/" + o.imagem}
                                                                 alt="Pacote de Arroz de 5kg da marca Tio João" />
                                                         </div>
                                                         <div className="descricao_oferta">
@@ -311,7 +261,7 @@ class Ofertas extends Component {
                                                             </div>
                                                         </div>
                                                         <div className="botoes_oferta">
-                                                            <a href="#" className="btn_edita_oferta">EDITAR</a>
+                                                            <a href="#" className="btn_edita_oferta" onClick={() => this.openModal(o)}>EDITAR</a>
                                                             <a href="#" className="btn_reserva_oferta" onClick={() => this.deleteOferta(o.idOferta)}>EXCLUIR</a>
                                                         </div>
                                                     </div>
@@ -320,8 +270,112 @@ class Ofertas extends Component {
                                             }.bind(this)
                                         )
                                     }
-
                                 </div>
+                                <MDBModal isOpen={this.state.modal} toggle={this.toggle} size="lg">
+                                    <form onSubmit={this.putOferta}>
+                                        <MDBModalHeader toggle={this.toggle}>Editar - {this.state.putOferta.nomeOferta}</MDBModalHeader>
+                                        <MDBModalBody>
+                                            <label
+                                                htmlFor="defaultFormContactNameEx"
+                                                className="black-text">
+                                                Informe o título do produto:</label>
+                                            <input
+                                                type="text"
+                                                id="defaultFormContactNameEx"
+                                                className="form-control"
+                                                name="nomeOferta"
+                                                value={this.state.putOferta.nomeOferta}
+                                                onChange={this.putSetState} />
+                                            <br />
+                                            <label
+                                                htmlFor="defaultFormContactEmailEx"
+                                                className="black-text">
+                                                Informe a Marca:</label>
+                                            <input
+                                                type="tex"
+                                                id="defaultFormContactEmailEx"
+                                                className="form-control"
+                                                name="marca"
+                                                value={this.state.putOferta.marca}
+                                                onChange={this.putSetState} />
+                                            <br />
+                                            <label
+                                                htmlFor="defaultFormContactSubjectEx"
+                                                className="black-text">
+                                                Informe Valor:</label>
+                                            <input
+                                                type="text"
+                                                id="defaultFormContactSubjectEx"
+                                                className="form-control"
+                                                name="preco"
+                                                value={this.state.putOferta.preco}
+                                                onChange={this.putSetState}
+                                            />
+                                            <br />
+                                            <label
+                                                htmlFor="defaultFormContactSubjectEx"
+                                                className="black-text">
+                                                Validade do produto:</label>
+                                            <input
+                                                type="text"
+                                                id="defaultFormContactSubjectEx"
+                                                className="form-control"
+                                                name="validade"
+                                                value={this.state.putOferta.validade}
+                                                onChange={this.putSetState}
+                                            />
+                                            <br />
+                                            <label
+                                                htmlFor="defaultFormContactSubjectEx"
+                                                className="black-text">
+                                                Quantidade para Venda:</label>
+                                            <input
+                                                type="text"
+                                                id="defaultFormContactSubjectEx"
+                                                className="form-control"
+                                                name="quantVenda"
+                                                value={this.state.putOferta.quantVenda}
+                                                onChange={this.putSetState}
+                                            />
+                                            <br />
+                                            <label
+                                                htmlFor="defaultFormContactMessageEx"
+                                                className="black-text">
+                                                Informações adicionais</label>
+                                            <textarea
+                                                type="text"
+                                                id="defaultFormContactMessageEx"
+                                                className="form-control"
+                                                name="descricao"
+                                                value={this.state.putOferta.descricao}
+                                                onChange={this.putSetState}
+                                            /><br />
+                                            <input accept="image/*"
+                                                className="input_load"
+                                                id="icon-button-file"
+                                                type="file" name="imagem"
+                                                onChange={this.putSetStateFile}
+                                                ref={this.state.putOferta.imagem} />
+                                        </MDBModalBody>
+                                        <MDBModalFooter>
+                                            <MDBBtn color="primary" type="submit">Salvar</MDBBtn>
+                                            {
+                                                this.state.erroMsg &&
+                                                <MDBAlert color="danger" >
+                                                    {this.state.erroMsg}    
+                                                </MDBAlert>
+                                            }
+                                            {
+                                                this.state.sucessMsg &&
+                                                <MDBAlert color="sucess" >
+                                                    {this.state.sucessMsg}
+                                                </MDBAlert>
+                                            }
+                                            <MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
+                                        </MDBModalFooter>
+                                    </form>
+                                </MDBModal>
+
                             </div>
                             <div className="paginacao_ofertas">
                                 <ul className="lista_paginacao">
