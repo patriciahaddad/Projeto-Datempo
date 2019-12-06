@@ -16,6 +16,7 @@ import Carrinho from './pages/Carrinho/carrinho';
 import Perfiladm from './pages/Perfiladm/perfiladm';
 import NotFound from './pages/NotFound/notfound';
 import Categoria from './pages/Perfiladm/categoria';
+import CardOferta from './components/CardOferta/cardOferta'
 import './assets/css/estilo.css';
 //import './assets/css/flexbox.css'
 //import './assets/css/reset.css'
@@ -94,6 +95,7 @@ const Rotas = (
                 <Route path="/categoria" component={Categoria} />
                 <Route path="/produto" component={Produto} />
                 <Route path="/usuario" component={Usuario} />
+                <Route path= "/card" component={CardOferta}/>
                 <Route component={NotFound} />
             </Switch>
         </div>

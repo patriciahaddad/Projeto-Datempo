@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
+import Relogio from '../../assets/imagens/alarm-clock.png';
+
 
 import CardOferta from '../../components/CardOferta/cardOferta';
 
@@ -18,14 +20,17 @@ class Mostruario extends Component {
             listaOferta: [],
             listaCategoria: [],
             listaFiltro: [],
+            listaFiltrada: [],
 
             setStateFiltro: ""
         }
     }
 
+
     componentDidMount() {
         console.log(this.state.listaOferta);
         console.log(this.state.listaCategoria);
+        console.log(this.state.listaFiltrada);
         console.log(this.state.setStateFiltro);
 
         this.getCategoria();
@@ -58,7 +63,7 @@ class Mostruario extends Component {
         api.get('/filtro/filtrarcategoria/' + this.state.setStateFiltro)
             .then(response => {
                 if (response.status === 200) {
-                    this.setState({ listaOferta: response.data });
+                    this.setState({ listaFiltrada: response.data });
                 }
             })
     }
@@ -68,7 +73,7 @@ class Mostruario extends Component {
         this.setState({ setStateFiltro: value })
         setTimeout(() => {
             this.getFiltro();
-        }, 1000);
+        }, 500);
     }
 
     render() {
@@ -162,7 +167,14 @@ class Mostruario extends Component {
                     <section className="produtos">
                         <div className="container">
                             <div className="container_ofertas">
-                                <CardOferta filtro={this.state.setStateFiltro} />
+                            <CardOferta/>
+                                {this.state.listaFiltrada.map(function (o) {
+                                    return (
+                                        <h1>merda</h1>
+                                        )
+                                }
+
+                                )}
 
                             </div>
                             <div className="paginacao_ofertas">
