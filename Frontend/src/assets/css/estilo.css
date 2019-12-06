@@ -20,6 +20,15 @@ main{
 }
 /* CONTAINERS */
 
+.container_tabelas{
+    width: 900px;
+    margin: auto;
+}
+.container_cadastrar{
+    width: 900px;
+    margin: auto;
+    text-align: right;
+}
 
 /*HOME*/
 /* .banner{
@@ -193,14 +202,13 @@ label input{
 .container_card{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     margin-bottom: 30px;
     padding: 15px;
 }
 .card_oferta{
     width: 250px;
     height: 450px; 
-    margin: 20px 2px;
+    margin: 20px 8px;
     padding: 6px;
     -moz-box-shadow: 3px 3px 5px 0px rgba(204,204,204,1);
     box-shadow: 3px 3px 5px 0px rgba(204,204,204,1);
@@ -500,6 +508,9 @@ label input{
     margin:auto;
     display: flex;
     justify-content: space-between;
+  }
+  .formulario-cad_modal {
+      text-align: left;
   }
   button {
     font-size: 1em;

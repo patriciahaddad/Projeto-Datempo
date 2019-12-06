@@ -4,16 +4,22 @@ import Footer from '../../components/Footer/Footer.js';
 import ImagemPerfil from '../../assets/imagens/avatar.png';
 import api from './../../services/api';
 
-import { MDBContainer, 
-         MDBBtn, 
-         MDBModal, 
-         MDBModalBody, 
-         MDBModalHeader, 
-         MDBModalFooter, 
-         MDBDropdown, 
-         MDBDropdownToggle, 
-         MDBDropdownMenu, 
-         MDBDropdownItem } from 'mdbreact';
+import {
+    MDBContainer,
+    MDBBtn,
+    MDBModal,
+    MDBModalBody,
+    MDBModalHeader,
+    MDBModalFooter,
+    MDBDropdown,
+    MDBDropdownToggle,
+    MDBDropdownMenu,
+    MDBDropdownItem,
+    MDBTable,
+    MDBTableBody,
+    MDBTableHead,
+    MDBAlert
+} from 'mdbreact';
 
 
 
@@ -50,7 +56,9 @@ class Perfiladm extends Component {
 
             erroMsg: "",
             sucessMsg: "",
-            modal14: false
+            modal1: false,
+            modal2: false,
+            modal3: false
         }
     }
 
@@ -61,11 +69,23 @@ class Perfiladm extends Component {
         });
     }
 
-    openModal = (c) => {
+    componentDidMount() {
+        this.getCategorias();
+        this.getProdutos();
+    }
+
+    openModalCategoria = (c) => {
         this.toggle();
 
         this.setState({ getCategoria: c });
         console.log("GET", this.state.getCategoria);
+    }
+
+    openModalEditarCategoria = (c) => {
+        this.toggle();
+
+        this.setState({ putCategoria: c });
+        console.log("PUT", this.state.putCategoria);
     }
 
     //#region GET
@@ -78,7 +98,89 @@ class Perfiladm extends Component {
             })
     }
 
+    getProdutos = () => {
+        api.get('/produto')
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaProdutos: response.data })
+                }
+            })
+    }
+
+    getUsuarios = () => {
+        api.get('/usuario')
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaUsuarios: response.data })
+                }
+            })
+    }
+
     //#endregion
+
+    //#region PUT
+
+    putSetState = (input) => {
+        this.setState({
+            putEvento: {
+                ...this.state.putCategoria, [input.target.name]: input.target.value
+            }
+        })
+    }
+
+    putCategoria = (event) => {
+        event.preventDefault();
+        let categoria_id = this.state.putCategoria.idCategoria;
+        let categoria_alterado = this.state.putCategoria;
+
+        api.put('/categoria/' + categoria_id, categoria_alterado)
+            .then(() => {
+                this.setState({ sucessMsg: "Categoria alterada com sucesso!" });
+            })
+            .catch(error => {
+                console.log(error);
+                this.setState({ erroMsg: "Falha ao alterar o Categoria!" });
+            })
+
+        this.toggle();
+
+        setTimeout(() => {
+            this.getEventos();
+        }, 1500);
+    }
+
+    //#endregion
+
+    //#region POSTs
+    postSetState = (input) => {
+        this.setState({
+            postEvento: {
+                ...this.state.postCategoria, [input.target.name]: input.target.value
+            }
+        })
+    }
+
+    postCategoria = (c) => {
+
+        c.preventDefault();
+
+        api.post('/categoria', this.state.postCategoria)
+            .then(response => {
+                console.log(response);
+                this.setState({ sucessMsg: "Categoria cadastrada com sucesso!" });
+            })
+            .catch(error => {
+                console.log(error);
+                this.setState({ erroMsg: "Não foi possível cadastrar categoria!" });
+            })
+
+        setTimeout(() => {
+            this.getCategorias();
+        }, 1500);
+    }
+    //#endregion
+
+    
 
     render() {
         return (
@@ -94,8 +196,8 @@ class Perfiladm extends Component {
                                             Categoria
                                         </MDBDropdownToggle>
                                         <MDBDropdownMenu basic>
-                                            <MDBDropdownItem>Cadastrar nova</MDBDropdownItem>
-                                            <MDBDropdownItem>Visualizar Categorias</MDBDropdownItem>
+                                            <MDBDropdownItem onClick={this.toggle(2)}>Cadastrar nova</MDBDropdownItem>
+                                            <MDBDropdownItem onClick={this.toggle(1)}>Visualizar Categorias</MDBDropdownItem>
                                         </MDBDropdownMenu>
                                     </MDBDropdown>
                                     <MDBDropdown dropright>
@@ -104,7 +206,7 @@ class Perfiladm extends Component {
                                         </MDBDropdownToggle>
                                         <MDBDropdownMenu basic>
                                             <MDBDropdownItem>Cadastrar nova</MDBDropdownItem>
-                                            <MDBDropdownItem>Visualizar Produtos</MDBDropdownItem>
+                                            <MDBDropdownItem onClick={this.toggle(3)}>Visualizar Produtos</MDBDropdownItem>
                                         </MDBDropdownMenu>
                                     </MDBDropdown>
                                     <MDBDropdown dropright>
@@ -153,20 +255,21 @@ class Perfiladm extends Component {
                             </div>
                         </section>
                     </div>
+
+                    {/* Container para visualizar categorias cadastradas */}
                     <MDBContainer>
-                        <MDBBtn color="primary" onClick={this.toggle(14)}>Categorias</MDBBtn>
-                        <MDBModal isOpen={this.state.modal14} toggle={this.toggle(14)} centered>
-                            <MDBModalHeader toggle={this.toggle(14)}>Categorias</MDBModalHeader>
+                        <MDBModal isOpen={this.state.modal1} toggle={this.toggle(1)} centered>
+                            <MDBModalHeader toggle={this.toggle(1)}>Categorias</MDBModalHeader>
                             <MDBModalBody>
-                                <table>
-                                    <thead>
+                                <MDBTable>
+                                    <MDBTableHead>
                                         <tr>
                                             <th>#</th>
                                             <th>Categoria</th>
                                             <th>Ações</th>
                                         </tr>
-                                    </thead>
-                                    <tbody>
+                                    </MDBTableHead>
+                                    <MDBTableBody>
                                         {
                                             this.state.listaCategorias.map(
                                                 function (c) {
@@ -175,12 +278,11 @@ class Perfiladm extends Component {
                                                             <td>{c.idCategoria}</td>
                                                             <td>{c.nomeCategoria}</td>
                                                             <td>
-                                                                <MDBBtn color="primary" size="sm" onClick={() => this.openModal(c)}>
-                                                                    <i className="fas fa-edit"></i>
+                                                                <MDBBtn color="primary" size="sm" onClick={() => this.openModalEditarCategoria(c)}>
+                                                                    Editar
                                                                 </MDBBtn>
-                                                                <br />
-                                                                <MDBBtn color="danger" size="sm" onClick={() => this.deleteEvento(c.idEvento)}>
-                                                                    <i className="fas fa-trash"></i>
+                                                                <MDBBtn color="danger" size="sm" onClick={() => this.deleteEvento(c.idCategoria)}>
+                                                                    Excluir
                                                                 </MDBBtn>
                                                             </td>
                                                         </tr>
@@ -188,12 +290,92 @@ class Perfiladm extends Component {
                                                 }.bind(this)
                                             )
                                         }
-                                    </tbody>
-                                </table>
+                                    </MDBTableBody>
+                                </MDBTable>
                             </MDBModalBody>
                             <MDBModalFooter>
-                                <MDBBtn color="secondary" onClick={this.toggle(14)}>Fechar</MDBBtn>
+                                <MDBBtn color="secondary" onClick={this.toggle(1)}>Fechar</MDBBtn>
                                 <MDBBtn color="primary">Salvar</MDBBtn>
+                            </MDBModalFooter>
+                        </MDBModal>
+                    </MDBContainer>
+
+                    {/* Container para visualizar produtos cadastrados */}
+                    <MDBContainer>
+                        <MDBModal isOpen={this.state.modal3} toggle={this.toggle(3)} centered>
+                            <MDBModalHeader toggle={this.toggle(3)}>Categorias</MDBModalHeader>
+                            <MDBModalBody>
+                                <MDBTable>
+                                    <MDBTableHead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Produtos</th>
+                                            <th>Categoria</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </MDBTableHead>
+                                    <MDBTableBody>
+                                        {
+                                            this.state.listaProdutos.map(
+                                                function (p) {
+                                                    return (
+                                                        <tr key={p.idProduto}>
+                                                            <td>{p.idProduto}</td>
+                                                            <td>{p.nomeProduto}</td>
+                                                            <td>{p.idCategoriaNavigation.nomeCategoria}</td>
+                                                            <td>
+                                                                <MDBBtn color="primary" size="sm" onClick={() => this.openModalEditarProduto(p)}>
+                                                                    Editar
+                                                                </MDBBtn>
+                                                                <MDBBtn color="danger" size="sm" onClick={() => this.deleteEvento(p.idEvento)}>
+                                                                    Excluir
+                                                                </MDBBtn>
+                                                            </td>
+                                                        </tr>
+                                                    )
+                                                }.bind(this)
+                                            )
+                                        }
+                                    </MDBTableBody>
+                                </MDBTable>
+                            </MDBModalBody>
+                            <MDBModalFooter>
+                                <MDBBtn color="secondary" onClick={this.toggle(3)}>Fechar</MDBBtn>
+                                <MDBBtn color="primary">Salvar</MDBBtn>
+                            </MDBModalFooter>
+                        </MDBModal>
+                    </MDBContainer>
+
+                    {/* Container para cadastrar categorias */}
+                    <MDBContainer>
+                        <MDBModal isOpen={this.state.modal2} toggle={this.toggle(2)} centered>
+                            <MDBModalHeader toggle={this.toggle(2)}>Cadastrar Categoria</MDBModalHeader>
+                            <MDBModalBody>
+                                <form onSubmit={this.postCategoria}>
+                                    <div className="form-group">
+                                        <label htmlFor="example2">Nome da Categoria:</label>
+                                        <input type="text"
+                                            className="form-control form-control-md"
+                                            value={this.state.listaCategorias.nomeCategoria}
+                                            onChange={this.postSetState} />
+                                    </div>
+                                    <MDBBtn color="primary" type="submit">Salvar</MDBBtn>
+                                    {
+                                        this.state.erroMsg &&
+                                        <MDBAlert color="danger" >
+                                            {this.state.erroMsg}
+                                        </MDBAlert>
+                                    }
+                                    {
+                                        this.state.sucessMsg &&
+                                        <MDBAlert color="sucess" >
+                                            {this.state.sucessMsg}
+                                        </MDBAlert>
+                                    }
+                                </form>
+                            </MDBModalBody>
+                            <MDBModalFooter>
+                                <MDBBtn color="secondary" onClick={this.toggle(2)}>Fechar</MDBBtn>
                             </MDBModalFooter>
                         </MDBModal>
                     </MDBContainer>

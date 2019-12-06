@@ -283,3 +283,117 @@ C:\Users\fic\Desktop\PROJETO - REACT\Projeto-Datempo\Backend\obj\Debug\netcoreap
 C:\Users\fic\Desktop\PROJETO - REACT\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.dll
 C:\Users\fic\Desktop\PROJETO - REACT\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.xml
 C:\Users\fic\Desktop\PROJETO - REACT\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.pdb
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\appsettings.Development.json
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\appsettings.json
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Properties\launchSettings.json
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Backend.exe
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Backend.deps.json
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Backend.runtimeconfig.json
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Backend.runtimeconfig.dev.json
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Backend.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Backend.pdb
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Backend.xml
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.JsonPatch.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.Data.SqlClient.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.DotNet.PlatformAbstractions.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Design.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Relational.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.Extensions.DependencyModel.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.Identity.Client.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.JsonWebTokens.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Logging.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Protocols.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Tokens.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.OpenApi.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Newtonsoft.Json.Bson.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.Swagger.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\System.Configuration.ConfigurationManager.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\System.IdentityModel.Tokens.Jwt.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\System.Runtime.Caching.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\System.Security.Cryptography.ProtectedData.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\runtimes\win-arm64\native\sni.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\runtimes\win-x64\native\sni.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\runtimes\win-x86\native\sni.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.csprojAssemblyReference.cache
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\staticwebassets\Backend.StaticWebAssets.Manifest.cache
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\staticwebassets\Backend.StaticWebAssets.xml
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.MvcApplicationPartsAssemblyInfo.cs
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.MvcApplicationPartsAssemblyInfo.cache
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.AssemblyInfoInputs.cache
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.AssemblyInfo.cs
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.RazorTargetAssemblyInfo.cache
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.csproj.CopyComplete
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.dll
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.xml
+c:\Users\nilso\Documents\Projeto\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.pdb
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\appsettings.Development.json
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\appsettings.json
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Properties\launchSettings.json
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Backend.exe
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Backend.deps.json
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Backend.runtimeconfig.json
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Backend.runtimeconfig.dev.json
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Backend.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Backend.pdb
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Backend.xml
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.Data.SqlClient.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.Identity.Client.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Microsoft.OpenApi.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Newtonsoft.Json.Bson.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\System.Configuration.ConfigurationManager.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\System.Runtime.Caching.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\runtimes\win-arm64\native\sni.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\runtimes\win-x64\native\sni.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\runtimes\win-x86\native\sni.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\bin\Debug\netcoreapp3.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.csprojAssemblyReference.cache
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\staticwebassets\Backend.StaticWebAssets.Manifest.cache
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\staticwebassets\Backend.StaticWebAssets.xml
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.AssemblyInfoInputs.cache
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.AssemblyInfo.cs
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.RazorTargetAssemblyInfo.cache
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.csproj.CopyComplete
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.dll
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.xml
+C:\Users\fic\Desktop\PROJETO - ATUALIZADO\Projeto-Datempo\Backend\obj\Debug\netcoreapp3.0\Backend.pdb

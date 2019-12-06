@@ -16,7 +16,7 @@ namespace Backend.Repositories {
 
         public List<Oferta> GetFiltrarCategoria (string filtrocategoria) {
             using (bddatempoContext _contexto = new bddatempoContext ()) {
-                List<Oferta> ofertas = _contexto.Oferta.Include ("IdProdutoNavigation").Where (o => o.IdProdutoNavigation.IdCategoriaNavigation.NomeCategoria.Contains (filtrocategoria)).ToList ();
+                List<Oferta> ofertas = _contexto.Oferta.Include ("IdProdutoNavigation.IdCategoriaNavigation").Where (o => o.IdProdutoNavigation.IdCategoriaNavigation.NomeCategoria.Contains (filtrocategoria)).ToList ();
                 return ofertas;
             }
         }

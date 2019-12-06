@@ -34,7 +34,7 @@ namespace Backend.Repositories {
         }
         public async Task<List<Oferta>> Listar () {
             using (bddatempoContext _contexto = new bddatempoContext ()) {
-                return await _contexto.Oferta.Include ("IdUsuarioNavigation").Include ("IdProdutoNavigation").ToListAsync ();
+                return await _contexto.Oferta.Include ("IdUsuarioNavigation").Include ("IdProdutoNavigation.IdCategoriaNavigation").ToListAsync ();
             }
         }
 
