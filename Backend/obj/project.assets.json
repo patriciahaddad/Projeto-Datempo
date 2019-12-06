@@ -6527,11 +6527,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fic\\Desktop\\Code\\Projeto-Datempo\\Backend\\Backend.csproj",
+      "projectUniqueName": "C:\\Users\\fic\\Desktop\\PROJETO - REACT\\Projeto-Datempo\\Backend\\Backend.csproj",
       "projectName": "Backend",
-      "projectPath": "C:\\Users\\fic\\Desktop\\Code\\Projeto-Datempo\\Backend\\Backend.csproj",
+      "projectPath": "C:\\Users\\fic\\Desktop\\PROJETO - REACT\\Projeto-Datempo\\Backend\\Backend.csproj",
       "packagesPath": "C:\\Users\\fic\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fic\\Desktop\\Code\\Projeto-Datempo\\Backend\\obj\\",
+      "outputPath": "C:\\Users\\fic\\Desktop\\PROJETO - REACT\\Projeto-Datempo\\Backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -6607,13 +6607,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema ao ler o arquivo de cache C:\\Users\\fic\\Desktop\\PROJETO - ATUALIZADO\\Projeto-Datempo\\Backend\\obj\\Backend.csproj.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

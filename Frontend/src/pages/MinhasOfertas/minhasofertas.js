@@ -14,35 +14,15 @@ import {
 import Produto from '../../assets/imagens/arroz.png';
 import Relogio from '../../assets/imagens/alarm-clock.png';
 import api from '../../services/api';
+import { MDBInput, MDBModal, MDBBtn, MDBModalFooter, MDBModalHeader, MDBModalBody } from
+    "mdbreact";
 
 
 class Minhasofertas extends Component {
-    constructor() {
-        super()
-        this.state = {
-            listaOfertas: [],
-
-            putOferta: {
-                idOferta: "",
-                nomeOferta: "",
-                marca: "",
-                quantVenda: "",
-                validade: "",
-                preco: "",
-                imagem: React.createRef(),
-                descricao: "",
-                idUsuario: "",
-                idProduto: "",
-            },
-
-            modal: false
-        }
-
-    }
-
+    
     toggle = () => {
         this.setState({
-          modal: !this.state.modal
+          modal: !this.state.modal,
         });
       }      
 
@@ -137,7 +117,7 @@ class Minhasofertas extends Component {
                                 return (
                                     <div className="card_oferta" key={o.idOferta}>
                                         <div className="caixa_imagem">
-                                            <img className="imgproduto" src={Produto}
+                                            <img className="imgproduto" 
                                                 alt="Pacote de Arroz de 5kg da marca Tio João" />
                                         </div>
                                         <div className="descricao_oferta">
@@ -223,10 +203,60 @@ class Minhasofertas extends Component {
                         </div>
                     </div>
                 </main>
+
+                <MDBContainer>
+                {/* <form onSubmit={this.putEvento}> */}
+                <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
+                <MDBModalHeader toggle={this.toggle}>RESERVAS</MDBModalHeader>
+                    <MDBModalBody>
+
+                    <form class="formulario-reservas" action="/">
+                    <table class="tabela_reservas">
+                        <thead>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Quantidade de reservas</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Nome</td>
+                                <td>Qnt</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Nome</td>
+                                <td>Qnt</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Nome</td>
+                                <td>Qnt</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Nome</td>
+                                <td>Qnt</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                    <div class="position-right">
+                       
+                    </div>
+                </form>
+  
+                </MDBModalBody>
+                <MDBModalFooter>
+                    <   MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
+                        <MDBBtn color="primary" type="submit">Salvar</MDBBtn>
+                    </MDBModalFooter>
+                </MDBModal>
+                {/* </form> */}
+            </MDBContainer>
                 <Footer />
             </div >
         );
     }
 }
-
 export default Minhasofertas;

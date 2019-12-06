@@ -8,7 +8,7 @@ import { usuarioAutenticado, parseJwt } from '../src/services/auth';
 import Sobrenos from './pages/Sobrenos/sobrenos';
 import Ajuda from './pages/Ajuda/ajuda';
 import Login from './pages/Login/login';
-import Minhasofertas from './pages/Minhasofertas/minhasofertas';
+import Minhasofertas from './pages/MinhasOfertas/minhasofertas';
 import Perfilusuario from './pages/Perfilusuario/perfilusuario';
 import cadastroOferta from './pages/cadastroOferta/cadastrooferta';
 import Mostruario from './pages/Mostruario/mostruario';
@@ -35,7 +35,7 @@ const PermissaoAdmin = ({ component : Component }) => (
             usuarioAutenticado() && parseJwt().Role === "Administrador" ? (
                 <Component {...props}/>
             ) : (
-                <Redirect to={{ pathname : "/"}}/>
+                <Redirect to={{ pathname : "/login"}}/>
             )
         }
     />
@@ -47,7 +47,7 @@ const PermissaoFornecedor = ({ component : Component }) => (
             usuarioAutenticado() && parseJwt().Role === "Fornecedor" ? (
                 <Component {...props}/>
             ) : (
-                <Redirect to={{ pathname : "/"}}/>
+                <Redirect to={{ pathname : "/login"}}/>
             )
         }
     />
@@ -65,24 +65,15 @@ const PermissaoConsumidor = ({ component : Component }) => (
     />
 )
 
-// const NaoLogado = ({ component : Component }) => (
-//     <Route 
-//         render={props =>
-//             usuarioAutenticado() && parseJwt().Role === "" ? (
-//                 <Component {...props}/>
-//             ) : (
-//                 <Redirect to={{ pathname : "/"}}/>
-//             )
-//         }
-//     />
-// )
-
 //Realizamos a criação das rotas
 const Rotas = (
     <Router>
         <div>
-            <Switch>
+        <Switch>
                 <Route exact path="/" component={App} />
+                <Route path="/ajuda" component={Ajuda} />
+                <Route path="/Login" component={Login} />
+                <Route path="/carrinho" component={Carrinho}/>
                 <Route path="/sobrenos" component={Sobrenos} />
                 {/* <PermissaoFornecedor path="/minhasofertas" component={Minhasofertas} /> */}
                 <PermissaoConsumidor path="/perfilusuario" component={Perfilusuario} />
