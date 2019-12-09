@@ -112,7 +112,7 @@ class Perfilusuario extends Component {
                             <div className="container_perfil">
                                 <div className="imgperfil" >
 
-                                    <img src={"http://localhost:5000/imgPerfil/" + this.state.usuario.imgusuario} alt="Imagem de perfil do usuário" />
+                                    <img src={"http://localhost:5000/img/" + this.state.usuario.imgusuario} alt="Imagem de perfil do usuário" />
 
                                     <input
                                         accept="image/*"

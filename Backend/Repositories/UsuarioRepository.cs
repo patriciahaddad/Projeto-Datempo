@@ -18,8 +18,8 @@ namespace Backend.Repositories {
         public async Task<Usuario> BuscarPorID (int id) {
             using (bddatempoContext _contexto = new bddatempoContext ()) {
                 var _usuario = await _contexto.Usuario.Include ("IdTipoUsuarioNavigation").FirstOrDefaultAsync (t => t.IdUsuario == id);
-                _usuario.Email = null;
-                _usuario.Senha = null;
+                // _usuario.Email = null;
+                // _usuario.Senha = null;
                 return _usuario;
             }
         }
