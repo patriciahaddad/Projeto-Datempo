@@ -1,46 +1,83 @@
-import React, { Component } from 'react';
-import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
+
+ import React, { Component } from 'react';
 import Relogio from '../../assets/imagens/alarm-clock.png';
-import Produto from '../../assets/imagens/arroz.png';
 import api from '../../services/api';
+
+import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
+
 
 
 class CardOferta extends Component {
     constructor() {
         super()
         this.state = {
+
             listaOferta: [],
-            listaFiltrada: []
+            listaFiltrada: [],
+
+            //State para aparecer no modal do card
+            stateOferta: {
+                idOferta: "",
+                nomeOferta: "",
+                marca: "",
+                validade: "",
+                quantVenda: "",
+                preco: "",
+                imagem: React.createRef(),
+                descricao: "",
+                idUsuario: "",
+                idProduto: ""
+            },
+
+            modal: false
+
         }
 
     }
-
     componentDidMount() {
         // console.log(this.state.listaOferta);
         this.getOferta();
     }
 
+    //#region Toggle Modal
+    //Método papra abrir o modal da oferta clicada
+    // openModalOferta = (o) => {
+    //     this.toggle();
+    //     this.setState({ getOferta: o });
+    // }
+
+    //Togle do modal
+    toggle = () => {
+        this.setState({
+          modal: !this.state.modal
+        });
+      }
+      
+    //#endregion
+
+    //#region GET Oferta
     getOferta = () => {
         api.get('/oferta')
             .then(response => {
                 if (response.status === 200) {
                     this.setState({ listaOferta: response.data });
                     console.log(response.data);
+
                 }
             })
     }
-
+    //#endregion
 
     render() {
         return (
             <div className="container_ofertas">
                 {
-                    this.state.listaOferta.filter(card => card.idProdutoNavigation.idCategoriaNavigation.nomeCategoria == this.props.filtro).map(function (o) {
+                    this.state.listaOferta.map(function (o) {
                         return (
                             <div className="card_oferta">
                                 <div className="caixa_imagem">
-                                    {/* <img className="imgproduto" src="https://localhost:5001/api/imgOferta/" {...this.card.imagem}
-                                        alt="Pacote de Arroz de 5kg da marca Tio João" /> */}
+                                    <img className="imgproduto" src={"https://localhost:5001/imgOferta/" + o.imagem}
+                                        alt="Pacote de Arroz de 5kg da marca Tio João" />
                                 </div>
                                 <div className="descricao_oferta">
                                     <div className="titulo_produto">
@@ -64,15 +101,34 @@ class CardOferta extends Component {
 
                                 </div>
                                 <div className="botao_reservar">
-                                    <a href="#" className="btn_reservar">RESERVAR</a>
+                                    <button className="btn_reservar" onClick={this.toggle}>RESERVAR</button>
+
                                 </div>
 
+
+
+
                             </div>
+
                         )
 
-                    })
+                    }.bind(this))
 
                 }
+
+                <MDBContainer>
+                    {/* <MDBBtn onClick={this.toggle}>Modal</MDBBtn> */}
+                    <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
+                        <MDBModalHeader toggle={this.toggle}>MDBModal title</MDBModalHeader>
+                        <MDBModalBody>
+                        
+                        </MDBModalBody>
+                        <MDBModalFooter>
+                            <MDBBtn color="secondary" onClick={this.toggle}>Close</MDBBtn>
+                            <MDBBtn color="primary">Save changes</MDBBtn>
+                        </MDBModalFooter>
+                    </MDBModal>
+                </MDBContainer>
             </div>
         )
     }

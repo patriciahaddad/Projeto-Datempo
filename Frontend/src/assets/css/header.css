@@ -21,7 +21,7 @@ header{
     position: fixed;
     padding: 30px;
     width: 100%;
-    z-index: 50;
+    z-index: 15;
 }
 header ul{
     width: 750px;

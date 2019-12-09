@@ -62,6 +62,13 @@ namespace backend.Controllers {
             try {
                 if (oferta.Validade > DateTime.Now.AddDays (10)) {
                     var arquivo = Request.Form.Files[0];
+
+                    oferta.NomeOferta = Request.Form["nomeOferta"].ToString ();
+                    oferta.Marca = Request.Form["marca"].ToString ();
+                    oferta.Preco = decimal.Parse (Request.Form["Preco"]);
+                    oferta.Validade = DateTime.Parse (Request.Form["Validade"]);
+                    oferta.QuantVenda = int.Parse (Request.Form["quantVenda"]);
+                    oferta.Descricao = Request.Form["descricao"].ToString ();
                     oferta.Imagem = _uploadRepo.Upload (arquivo, "imgOferta");
                     await _repositorio.Salvar (oferta);
                 } else {
@@ -87,7 +94,15 @@ namespace backend.Controllers {
             }
             try {
                 var arquivo = Request.Form.Files[0];
+
+                oferta.NomeOferta = Request.Form["nomeOferta"].ToString ();
+                oferta.Marca = Request.Form["marca"].ToString ();
+                oferta.Preco = decimal.Parse (Request.Form["Preco"]);
+                oferta.Validade = DateTime.Parse (Request.Form["Validade"]);
+                oferta.QuantVenda = int.Parse (Request.Form["quantVenda"]);
+                oferta.Descricao = Request.Form["descricao"].ToString ();
                 oferta.Imagem = _uploadRepo.Upload (arquivo, "imgOferta");
+                
                 await _repositorio.Alterar (oferta);
             } catch (DbUpdateConcurrencyException) {
                 var oferta_valido = await _repositorio.BuscarPorID (id);

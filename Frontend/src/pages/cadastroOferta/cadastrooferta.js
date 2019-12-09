@@ -14,7 +14,17 @@ class cadastroOferta extends Component {
                 //exemplo
                 // titulo: '', valor: ''
             },
-            isEdit: true
+            listaoferta: [],
+
+            postOferta: {
+                nomeOferta: "",
+                marca: "",
+                preco: null,
+                validade: "",
+                quantVenda: "",
+                imagem: React.createRef(),
+                
+            },
         }
     }
 
@@ -108,5 +118,6 @@ class cadastroOferta extends Component {
         );
     }
 }
+
 
 export default cadastroOferta;

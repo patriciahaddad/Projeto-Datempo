@@ -9,12 +9,9 @@ class CardOferta extends Component {
     constructor() {
         super()
         this.state = {
-            listaOferta: [],
-            listaFiltrada: []
+            listaOferta: []
         }
-
     }
-
     componentDidMount() {
         // console.log(this.state.listaOferta);
         this.getOferta();
@@ -25,22 +22,20 @@ class CardOferta extends Component {
             .then(response => {
                 if (response.status === 200) {
                     this.setState({ listaOferta: response.data });
-                    console.log(response.data);
                 }
             })
     }
-
 
     render() {
         return (
             <div className="container_ofertas">
                 {
-                    this.state.listaOferta.filter(card => card.idProdutoNavigation.idCategoriaNavigation.nomeCategoria == this.props.filtro).map(function (o) {
+                    this.state.listaOferta.map(function (o) {
                         return (
                             <div className="card_oferta">
                                 <div className="caixa_imagem">
-                                    {/* <img className="imgproduto" src="https://localhost:5001/api/imgOferta/" {...this.card.imagem}
-                                        alt="Pacote de Arroz de 5kg da marca Tio João" /> */}
+                                    <img className="imgproduto" src={Produto}
+                                        alt="Pacote de Arroz de 5kg da marca Tio João" />
                                 </div>
                                 <div className="descricao_oferta">
                                     <div className="titulo_produto">
@@ -50,7 +45,7 @@ class CardOferta extends Component {
                                         <div className="descricao_pequena">
                                             <p className="titulo_descricao">de R$ 8,00</p>
                                             <p className="titulo_preco">Por</p>
-                                            <p className="preco_descricao">R$ {o.preco.toFixed(2)}</p>
+                                            <p className="preco_descricao">R$ 5,00</p>
                                         </div>
 
                                         <div className="descricao_pequena_logo">
@@ -69,15 +64,11 @@ class CardOferta extends Component {
 
                             </div>
                         )
-
                     })
-
                 }
             </div>
         )
     }
-
 }
 
 export default CardOferta;
-
