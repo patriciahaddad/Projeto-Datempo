@@ -3,26 +3,14 @@ import avatar from '../../assets/imagens/avatar.png';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
-import apiFormData from '../../services/apiFormData';
-import { parseJwt } from '../../services/auth';
 
 class Perfilusuario extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-            usuario: [],
-            updateUsuario:{
-                nome:"",
-                identificador:"",
-                email:"",
-                senha:"",
-                imgusuario: React.createRef(),
-            },
+            usuario: {},
 
-            isEdit: true,
-            
-            successMsg:"",
-
+            isEdit: true
         }
     }
 
@@ -31,15 +19,22 @@ class Perfilusuario extends Component {
     }
 
     getUsuario = () => {
-        //pegando id do usuario
-        api.get('/usuario/' + parseJwt().id)
-        .then(response => {
+        api.get('/usuario/1').then(response => {
             if (response.status === 200) {
                 this.setState({ usuario: response.data })
             }
         })
     }
 
+    // alterarStateUsuario = event => {
+    //     const chave = event.target.name;
+    //     this.setState({
+    //         usuario: {
+    //             chave: event.target.value
+    //         }
+    //     });
+    // }
+    
     alterarStateUsuario = event => {
         this.setState({
             usuario : {
@@ -48,26 +43,34 @@ class Perfilusuario extends Component {
         });
     }
 
-    updateUsuario = (event) =>{
-        event.preventDefault();
-        let usuarioFormData = new FormData();
-        usuarioFormData.set("nome", this.state.updateUsuario.nome);
-        usuarioFormData.set("identificador", this.state.updateUsuario.identificador);
-        usuarioFormData.set("imgusuario", this.state.updateUsuario.imgusuario);
-        usuarioFormData.set("email", this.state.updateUsuario.email);
-        usuarioFormData.set("senha", this.state.updateUsuario.senha);
+    // updateSetState = (input) =>{
+    //     this.setState({
+    //         updateUsuario : {
+    //             ...this.state.updateUsuario, [input.target.name] : input.target.value
+    //         }
+    //     })
+    // }
 
-        let usuario_alterado = this.state.usuario;
-            apiFormData.put('/usuario/'+ parseJwt().id , usuario_alterado)
-            
-            .then(() => {
-                
-                this.setState({successMsg : "Evento alterado com sucesso!"});
-            })
-            .catch(error => {
+    updateUsuario = event =>{
+        event.preventDefault();
+        const { senha, email } = this.state.usuario;
+
+        if(senha.length >0 && email.length >0){
+            api.put('/usuario/1', { 
+                senha: senha,
+                email: email
+            }).then(response => {
+                if(response.status === 200) {
+                    console.log('Deu certo');
+                }else {
+                    console.log('Deu ERRADO');
+                }
+            }).catch(error => {
                 console.log(error);
-            })
+            });
         }
+    }
+
 
     habilitaInput = () => {
         this.setState({
@@ -87,14 +90,6 @@ class Perfilusuario extends Component {
                             <div className="container_perfil">
                                 <div className="imgperfil">
                                     <img src={avatar} alt="Imagem de perfil do usuário" />
-                                    <input
-                                        type="file"
-                                        placeholder="coloque uma foto sua"
-                                        aria-label="Coloque uma foto"
-                                        name="imgusuario"
-                                        value={this.state.usuario.imgusuario}
-                                        onChange={this.alterarStateUsuario}
-                                        ref={this.state.fileInput}></input>
                                 </div>
                                 <div className="form_perfil">
                                     <form onSubmit={this.updateUsuario} id="form_perfil">
@@ -103,34 +98,36 @@ class Perfilusuario extends Component {
                                             <label>
                                                 Nome completo
                                             <input type="text" 
-                                                name="nome"
+                                                placeholder="Digite seu nome de usuário..." 
+                                                name="Nome" 
                                                 value={this.state.usuario.nome}
-                                                onChange={this.alterarStateUsuario}
                                                 disabled
                                                 />
                                             </label>
                                             <label>
                                                 CPF/CNPJ
-                                            <input type="text"
-                                                name="identificador" 
+                                            <input type="text" 
+                                                placeholder="Digite seu cpf e cnpj..." 
+                                                name="Identificador" 
                                                 value={this.state.usuario.identificador}
-                                                onChange={this.alterarStateUsuario}
                                                 disabled
                                                 />
                                             </label>
                                             <label>
                                                 E-mail
                                             <input type="text" 
-                                                name="email" 
+                                                placeholder="Digite seu email..." 
+                                                name="Email" 
                                                 value={this.state.usuario.email}
                                                 onChange={this.alterarStateUsuario}
                                                 disabled={this.state.isEdit}
-                                                />
+                                                    />
                                             </label>
                                             <label>
                                                 Senha
-                                            <input type="text"  
-                                                name="senha" 
+                                            <input type="text" 
+                                                placeholder="Digite sua senha..." 
+                                                name="Senha" 
                                                 value={this.state.usuario.senha}
                                                 onChange={this.alterarStateUsuario}
                                                 disabled={this.state.isEdit}
@@ -141,7 +138,7 @@ class Perfilusuario extends Component {
                                         <label>
                                             <div className="btnperfil">
                                                 <button className="btn_perfil" type="button" onClick={this.habilitaInput} >Editar </button>
-                                                <button className="btn_perfil" type="submit" >Salvar</button>
+                                                <button className="btn_perfil" type="submit">Salvar</button>
                                             </div>
                                         </label>
 

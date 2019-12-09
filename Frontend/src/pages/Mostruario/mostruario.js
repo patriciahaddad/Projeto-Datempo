@@ -9,6 +9,7 @@ import CardOferta from '../../components/CardOferta/cardOferta';
 
 import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer } from
     "mdbreact";
+    
 import NativeSelect from '@material-ui/core/NativeSelect';
 
 class Mostruario extends Component {

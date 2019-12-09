@@ -8,12 +8,7 @@ import {
     MDBTable,
     MDBTableBody,
     MDBTableHead,
-    MDBAlert,
-    MDBModal,
-    MDBModalBody,
-    MDBModalHeader,
-    MDBModalFooter,
-    MDBInput
+    MDBAlert
 } from 'mdbreact';
 
 
@@ -32,31 +27,43 @@ class Categoria extends Component {
                 nomeCategoria: "",
             },
 
+            postProduto: {
+                nomeProduto: "",
+                idCategoria: "",
+            },
+
             putCategoria: {
                 idCategoria: "",
                 nomeCategoria: "",
             },
 
+            putProduto: {
+                idProduto: "",
+                nomeProduto: "",
+                idCategoria: "",
+            },
+
             nomeCategoria: "",
             erroMsg: "",
-            sucessMsg: "",
-            modal: false
+            sucessMsg: ""
         }
 
         this.postCategoria = this.postCategoria.bind(this);
     }
 
-    toggle = () => {
-        this.setState({
-            modal: !this.state.modal
-        });
-    }
     componentDidMount() {
         this.getCategorias();
         this.getProdutos();
     }
 
-    openModal = (c) => {
+    openModalCategoria = (c) => {
+        this.toggle();
+
+        this.setState({ getCategoria: c });
+        console.log("GET", this.state.getCategoria);
+    }
+
+    openModalEditarCategoria = (c) => {
         this.toggle();
 
         this.setState({ putCategoria: c });
@@ -120,7 +127,7 @@ class Categoria extends Component {
         this.toggle();
 
         setTimeout(() => {
-            this.getCategorias();
+            this.getCategoria();
         }, 1500);
     }
 
@@ -205,7 +212,7 @@ class Categoria extends Component {
                                                             <td>{c.idCategoria}</td>
                                                             <td>{c.nomeCategoria}</td>
                                                             <td>
-                                                                <MDBBtn color="primary" size="sm" onClick={() => this.openModal(c)}>
+                                                                <MDBBtn color="primary" size="sm" onClick={() => this.openModalEditarCategoria(c)}>
                                                                     Editar
                                                                 </MDBBtn>
                                                                 <MDBBtn color="danger" size="sm" onClick={() => this.deleteCategoria(c.idCategoria)}>
@@ -225,7 +232,7 @@ class Categoria extends Component {
                                         <label htmlFor="example2">Nome da Categoria:</label>
                                         <input type="text"
                                             className="form-control form-control-md"
-                                            name="nomeCategoria"
+                                            name = "nomeCategoria"
                                             value={this.state.listaCategorias.nomeCategoria}
                                             onChange={this.postSetState} />
                                     </div>
@@ -246,18 +253,6 @@ class Categoria extends Component {
                             </div>
                         </section>
                     </div>
-                    <MDBModal isOpen={this.state.modal} toggle={this.toggle} size="lg">
-                        <form onSubmit={this.putCategoria}>
-                            <MDBModalHeader toggle={this.toggle}>Editar - {this.state.putCategoria.nomeCategoria}</MDBModalHeader>
-                            <MDBModalBody>
-                                <MDBInput label="Categoria" name="nomeCategoria" value={this.state.putCategoria.nomeCategoria} onChange={this.putSetState} />
-                            </MDBModalBody>
-                            <MDBModalFooter>
-                                <MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
-                                <MDBBtn color="primary" type="submit">Salvar</MDBBtn>
-                            </MDBModalFooter>
-                        </form>
-                    </MDBModal>
                 </main>
                 <Footer></Footer>
             </div >

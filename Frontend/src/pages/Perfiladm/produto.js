@@ -8,14 +8,8 @@ import {
     MDBTable,
     MDBTableBody,
     MDBTableHead,
-    MDBAlert,
-    MDBModal,
-    MDBModalBody,
-    MDBModalHeader,
-    MDBModalFooter,
-    MDBInput
+    MDBAlert
 } from 'mdbreact';
-
 
 
 class Produto extends Component {
@@ -27,9 +21,18 @@ class Produto extends Component {
             listaCategorias: [],
             listaProdutos: [],
 
+            postCategoria: {
+                nomeCategoria: "",
+            },
+
             postProduto: {
                 nomeProduto: "",
                 idCategoria: "",
+            },
+
+            putCategoria: {
+                idCategoria: "",
+                nomeCategoria: "",
             },
 
             putProduto: {
@@ -40,17 +43,10 @@ class Produto extends Component {
 
             nomeCategoria: "",
             erroMsg: "",
-            sucessMsg: "",
-            modal: false
+            sucessMsg: ""
         }
 
         this.postProduto = this.postProduto.bind(this);
-    }
-
-    toggle = () => {
-        this.setState({
-            modal: !this.state.modal
-        });
     }
 
     componentDidMount() {
@@ -58,11 +54,18 @@ class Produto extends Component {
         this.getProdutos();
     }
 
-    openModal = (p) => {
+    openModalCategoria = (c) => {
         this.toggle();
 
-        this.setState({ putProduto: p });
-        console.log("PUT", this.state.putProduto);
+        this.setState({ getCategoria: c });
+        console.log("GET", this.state.getCategoria);
+    }
+
+    openModalEditarCategoria = (c) => {
+        this.toggle();
+
+        this.setState({ putCategoria: c });
+        console.log("PUT", this.state.putCategoria);
     }
 
     //#region GET
@@ -198,7 +201,7 @@ class Produto extends Component {
                                                             <td>{p.nomeProduto}</td>
                                                             <td>{p.idCategoriaNavigation.nomeCategoria}</td>
                                                             <td>
-                                                                <MDBBtn color="primary" size="sm" onClick={() => this.openModal(p)}>
+                                                                <MDBBtn color="primary" size="sm" onClick={() => this.openModalEditarProduto(p)}>
                                                                     Editar
                                                                 </MDBBtn>
                                                                 <MDBBtn color="danger" size="sm" onClick={() => this.deleteProduto(p.idProduto)}>
@@ -260,36 +263,6 @@ class Produto extends Component {
                             </div>
                         </section>
                     </div>
-                    <MDBModal isOpen={this.state.modal} toggle={this.toggle} size="lg">
-                        <form onSubmit={this.putProduto}>
-                            <MDBModalHeader toggle={this.toggle}>Editar - {this.state.putProduto.nomeProduto}</MDBModalHeader>
-                            <MDBModalBody>
-                                <MDBInput label="Categoria" name="nomeProduto" value={this.state.putProduto.nomeProduto} onChange={this.putSetState} />
-
-                                <select id="option__categoria"
-                                                            name="idCategoria"
-                                                            className="browser-default custom-select"
-                                                            value={this.state.putProduto.idCategoria}
-                                                            onChange={this.postSetState}>
-                                                            <option value="">Escolha uma categoria...</option>
-                                                            {
-                                                                this.state.listaCategorias.map(function (c) {
-                                                                    return (
-                                                                        <option
-                                                                            key={c.idCategoria}
-                                                                            value={c.idCategoria}> {c.nomeCategoria}
-                                                                        </option>
-                                                                    )
-                                                                })
-                                                            }
-                                                        </select>
-                            </MDBModalBody>
-                            <MDBModalFooter>
-                                <MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
-                                <MDBBtn color="primary" type="submit">Salvar</MDBBtn>
-                            </MDBModalFooter>
-                        </form>
-                    </MDBModal>
                 </main>
                 <Footer></Footer>
             </div >
