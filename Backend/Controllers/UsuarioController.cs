@@ -92,6 +92,11 @@ namespace backend.Controllers {
             }
             try {
                 var arquivo = Request.Form.Files[0];
+                usuario.Nome = Request.Form["nome"].ToString ();
+                usuario.Email = Request.Form["email"].ToString ();
+                usuario.Senha = Request.Form["senha"].ToString ();
+                usuario.Identificador = Request.Form["identificador"].ToString ();
+                usuario.IdTipoUsuario = int.Parse (Request.Form["idTipoUsuario"]);
                 usuario.imgusuario = _uploadRepo.Upload (arquivo, "imgPerfil");
 
                 await _repositorio.Alterar (usuario);

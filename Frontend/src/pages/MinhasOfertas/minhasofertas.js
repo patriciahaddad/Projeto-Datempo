@@ -284,10 +284,60 @@ class Minhasofertas extends Component {
                         </div>
                     </div>
                 </main>
+
+                <MDBContainer>
+                {/* <form onSubmit={this.putEvento}> */}
+                <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
+                <MDBModalHeader toggle={this.toggle}>RESERVAS</MDBModalHeader>
+                    <MDBModalBody>
+
+                    <form class="formulario-reservas" action="/">
+                    <table class="tabela_reservas">
+                        <thead>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Quantidade de reservas</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Nome</td>
+                                <td>Qnt</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Nome</td>
+                                <td>Qnt</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Nome</td>
+                                <td>Qnt</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Nome</td>
+                                <td>Qnt</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                    <div class="position-right">
+                       
+                    </div>
+                </form>
+  
+                </MDBModalBody>
+                <MDBModalFooter>
+                    <   MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
+                        <MDBBtn color="primary" type="submit">Salvar</MDBBtn>
+                    </MDBModalFooter>
+                </MDBModal>
+                {/* </form> */}
+            </MDBContainer>
                 <Footer />
             </div >
         );
     }
 }
-
 export default Minhasofertas;
