@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import avatar from '../../assets/imagens/avatar.png';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
@@ -18,7 +17,9 @@ class Perfilusuario extends Component {
                 identificador:"",
                 email:"",
                 senha:"",
+                // 01 - Colocamos o createRef
                 imgusuario: React.createRef(),
+                
             },
 
             isEdit: true,
@@ -30,6 +31,13 @@ class Perfilusuario extends Component {
 
     componentDidMount() {
         this.getUsuario();
+    }
+
+    openDialogEdit = (receita) => {
+        this.setState({ 
+            openEdit: true,
+            updateUsuario: receita
+        });
     }
 
     getUsuario = () => {
@@ -51,23 +59,35 @@ class Perfilusuario extends Component {
         });
     }
 
+     // 02 - Adicionamos um setState específico
+     alterarSetStateFile = (input) =>{
+        this.setState({
+            updateUsuario : {
+                ...this.state.updateUsuario, [input.target.name] : input.target.files[0]
+            }   
+        })
+    }
+
+
     updateUsuario = (event) =>{
 
         event.preventDefault();
 
-        let usuario_id = this.state.updateUsuario.parseJwt().id;
-
-        let usuarioFormData = new FormData();
-
-        usuarioFormData.set("idUsuario", this.state.updateUsuario.parseJwt().id);
-        usuarioFormData.set("nome", this.state.updateUsuario.nome);
-        usuarioFormData.set("identificador", this.state.updateUsuario.identificador);
-        usuarioFormData.set('imgusuario', this.state.updateUsuario.imgusuario.current.files[0], this.state.updateUsuario.imgusuario.value);
-        usuarioFormData.set("email", this.state.updateUsuario.email);
-        usuarioFormData.set("senha", this.state.updateUsuario.senha);
-
         let usuario_alterado = this.state.usuario;
-            apiFormData.put('/usuario/'+ usuario_id , usuario_alterado)
+
+        // 03 - Criamos nosso formData
+        let usuarioFormData = new FormData();
+        usuarioFormData.set("idUsuario", this.state.usuario.idUsuario);
+        usuarioFormData.set("nome", this.state.usuario.nome);
+        usuarioFormData.set("identificador", this.state.usuario.identificador);
+        usuarioFormData.set("email", this.state.usuario.email);
+        usuarioFormData.set("senha", this.state.usuario.senha);
+        
+        // 04 - Nesta parte está o segredo, precisamos de 3 parâmetros
+        usuarioFormData.set('imgusuario', this.state.updateUsuario.imgusuario.current.files[0] , this.state.updateUsuario.imgusuario.value);
+
+        // 05 - Não esqueçam de passar o formData
+            apiFormData.put('/usuario/'+ parseJwt().id ,usuarioFormData)
             
             .then(() => {
                 
@@ -84,7 +104,7 @@ class Perfilusuario extends Component {
 
     habilitaInput = () => {
         this.setState({
-            isEdit: false
+            isEdit: false,
         })
     }
 
@@ -98,18 +118,20 @@ class Perfilusuario extends Component {
                             <h2>MEU PERFIL</h2>
                             <hr />
                             <div className="container_perfil">
-                                <div className="imgperfil">
-                                    <img src={"https://localhost:5001/imgPerfil/" + this.state.usuario.imgusuario} alt="Imagem de perfil do usuário" /><br/>
+                                <div className="imgperfil" >
+
+                                    <img src={"http://localhost:5000/img/" + this.state.usuario.imgusuario} alt="Imagem de perfil do usuário" />
+
+                                    <input
+                                        accept="image/*"
+                                        type="file"
+                                        name="imgusuario"
+                                        onChange={this.alterarSetStateFile}
+                                        ref={this.state.updateUsuario.imgusuario} />
                                 </div>
                                 <div className="form_perfil">
-                                    <form onSubmit={this.updateUsuario} id="form_perfil" key={parseJwt().id}>
-                                    <input
-                                        type="file"
-                                        placeholder="coloque uma foto sua"
-                                        aria-label="Coloque uma foto"
-                                        name="imgusuario"
-                                        onChange={this.alterarStateUsuario}
-                                        ref={this.state.fileInput}></input>
+                                    <form onSubmit={this.updateUsuario} id="form_perfil">
+
                                         <div>
                                             <label>
                                                 Nome completo

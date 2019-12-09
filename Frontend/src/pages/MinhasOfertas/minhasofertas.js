@@ -4,7 +4,6 @@ import Footer from '../../components/Footer/Footer.js';
 import api from '../../services/api';
 
 import {
-    MDBContainer,
     MDBBtn,
     MDBModal,
     MDBModalBody,
@@ -128,7 +127,7 @@ class Minhasofertas extends Component {
         // 04 - Nesta parte está o segredo, precisamos de 3 parâmetros
         // Veja no exemplo dado na documentação 
         // https://developer.mozilla.org/pt-BR/docs/Web/API/FormData/set
-        formData.set('imagem', this.state.putOferta.imagem.current.files[0] , this.state.putOferta.imagem.value);
+        formData.set('imagem', this.state.putOferta.imagem.current.files[0] , this.state.putOferta.imagem);
 
         console.log(formData);
 
@@ -153,7 +152,7 @@ class Minhasofertas extends Component {
 
         this.setState({ successMsg : "" })
 
-        api.delete('/oferta/'+id)
+        api.delete('/minhasofertas/'+id)
         .then(response => {
             if(response.status === 200){
                 this.setState({ successMsg : "Excluído com sucesso" })
@@ -238,9 +237,9 @@ class Minhasofertas extends Component {
                                     <MDBModalBody>
                                         {/* <input type="image" name="imagem" value={this.state.putOferta.imagem} onChange={this.putSetState}/> */}
                                         
-                                        
-
-                                            <MDBInput name="imagem" type="file"  onChange={this.putSetStateFile} value={this.state.putOferta.imagem}  /> 
+                                           
+                                            {/* <input placeholder="Placeholder" type="text" id="form5" class="form-control"> 
+                                            <label for="form5">Example label</label> */}
 
                                             <MDBInput name="nomeOferta" value={this.state.putOferta.nomeOferta} onChange={this.putSetState}/>
                                         
@@ -341,4 +340,5 @@ class Minhasofertas extends Component {
         );
     }
 }
+
 export default Minhasofertas;
