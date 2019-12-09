@@ -5,7 +5,7 @@ import api from '../../services/api';
 import Relogio from '../../assets/imagens/alarm-clock.png';
 
 
-import CardOferta from '../../components/CardOferta/cardOferta';
+import CardOferta from '../../components/CardOferta/CardOferta';
 
 import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer } from
     "mdbreact";

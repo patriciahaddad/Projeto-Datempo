@@ -16,7 +16,7 @@ import Carrinho from './pages/Carrinho/carrinho';
 import Perfiladm from './pages/Perfiladm/perfiladm';
 import NotFound from './pages/NotFound/notfound';
 import Categoria from './pages/Perfiladm/categoria';
-import CardOferta from './components/CardOferta/cardOferta'
+import CardOferta from './components/CardOferta/CardOferta'
 import './assets/css/estilo.css';
 //import './assets/css/flexbox.css'
 //import './assets/css/reset.css'
