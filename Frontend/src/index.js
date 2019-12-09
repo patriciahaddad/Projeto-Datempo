@@ -8,7 +8,7 @@ import { usuarioAutenticado, parseJwt } from '../src/services/auth';
 import Sobrenos from './pages/Sobrenos/sobrenos';
 import Ajuda from './pages/Ajuda/ajuda';
 import Login from './pages/Login/login';
-import Minhasofertas from './pages/MinhasOfertas/minhasofertas';
+import Minhasofertas from './pages/Minhasofertas/minhasofertas';
 import Perfilusuario from './pages/Perfilusuario/perfilusuario';
 import cadastroOferta from './pages/cadastroOferta/cadastrooferta';
 import Mostruario from './pages/Mostruario/mostruario';
@@ -76,7 +76,8 @@ const Rotas = (
                 <Route path="/carrinho" component={Carrinho}/>
                 <Route path="/sobrenos" component={Sobrenos} />
                 {/* <PermissaoFornecedor path="/minhasofertas" component={Minhasofertas} /> */}
-                <PermissaoConsumidor path="/perfilusuario" component={Perfilusuario} />
+                {/* <PermissaoConsumidor path="/perfilusuario" component={Perfilusuario} /> */}
+                <Route path="/perfilusuario" component={Perfilusuario} />
                 {/* <PermissaoFornecedor path="/oferta" component={cadastroOferta} /> */}
                 <Route path="/oferta" component={cadastroOferta} />
                 <Route path="/mostruario" component={Mostruario} />

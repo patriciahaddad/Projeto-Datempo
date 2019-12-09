@@ -4,6 +4,7 @@ import Footer from '../../components/Footer/Footer.js';
 import api from '../../services/api';
 
 import {
+    MDBContainer,
     MDBBtn,
     MDBModal,
     MDBModalBody,
