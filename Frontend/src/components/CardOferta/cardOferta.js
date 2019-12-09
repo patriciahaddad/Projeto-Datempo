@@ -1,5 +1,5 @@
 
- import React, { Component } from 'react';
+import React, { Component } from 'react';
 import Relogio from '../../assets/imagens/alarm-clock.png';
 import api from '../../services/api';
 
@@ -8,15 +8,15 @@ import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalF
 
 
 class CardOferta extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
 
             listaOferta: [],
             listaFiltrada: [],
 
             //State para aparecer no modal do card
-            stateOferta: {
+            getOferta: {
                 idOferta: "",
                 nomeOferta: "",
                 marca: "",
@@ -28,31 +28,28 @@ class CardOferta extends Component {
                 idUsuario: "",
                 idProduto: ""
             },
-
             modal: false
-
         }
-
     }
+
     componentDidMount() {
         // console.log(this.state.listaOferta);
         this.getOferta();
     }
 
-    //#region Toggle Modal
-    //Método papra abrir o modal da oferta clicada
-    // openModalOferta = (o) => {
-    //     this.toggle();
-    //     this.setState({ getOferta: o });
-    // }
-
-    //Togle do modal
+    //#region TogleModal
     toggle = () => {
         this.setState({
-          modal: !this.state.modal
+            modal: !this.state.modal,
         });
-      }
-      
+    }
+    openModal = (o) => {
+        this.toggle();
+
+        this.setState({ getOferta: o }, () => {
+            console.log("get", this.state.getOferta);
+        });
+    }
     //#endregion
 
     //#region GET Oferta
@@ -62,12 +59,11 @@ class CardOferta extends Component {
                 if (response.status === 200) {
                     this.setState({ listaOferta: response.data });
                     console.log(response.data);
-
                 }
             })
     }
     //#endregion
-
+    
     render() {
         return (
             <div className="container_ofertas">
@@ -87,7 +83,7 @@ class CardOferta extends Component {
                                         <div className="descricao_pequena">
                                             <p className="titulo_descricao">de R$ 8,00</p>
                                             <p className="titulo_preco">Por</p>
-                                            <p className="preco_descricao">R$ {o.preco.toFixed(2)}</p>
+                                            <p className="preco_descricao">R$ {o.preco.toLocaleString("pt-br",{minimumFractionDigits: 2, maximumFractionDigits: 3})}</p>
                                         </div>
 
                                         <div className="descricao_pequena_logo">
@@ -101,32 +97,63 @@ class CardOferta extends Component {
 
                                 </div>
                                 <div className="botao_reservar">
-                                    <button className="btn_reservar" onClick={this.toggle}>RESERVAR</button>
-
+                                    <button className="btn_reservar" onClick={() => this.openModal(o)}>RESERVAR</button>
                                 </div>
-
-
-
-
                             </div>
-
                         )
-
                     }.bind(this))
-
                 }
-
-                <MDBContainer>
+                <MDBContainer  >
                     {/* <MDBBtn onClick={this.toggle}>Modal</MDBBtn> */}
                     <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
                         <MDBModalHeader toggle={this.toggle}>MDBModal title</MDBModalHeader>
                         <MDBModalBody>
-                        
+                            <div className="div_conteudo_modal">
+                                <div className="imagem_modal">
+                                    <img className="imgproduto" src={"https://localhost:5001/imgOferta/" + this.state.getOferta.imagem}
+                                        alt="Pacote de Arroz de 5kg da marca Tio João" />
+                                </div>
+
+                                <div className="div_modal_oferta">
+
+                                    <label className="modal_info_oferta">
+                                        {this.state.getOferta.nomeOferta}
+                                    </label>
+
+                                    <label className="modal_info_oferta">
+                                        Preco : R$ {this.state.getOferta.preco.toLocaleString("pt-br",{minimumFractionDigits: 2, maximumFractionDigits: 3})}
+                                    </label>
+
+                                    <label className="modal_info_oferta">
+                                        Validade: {this.state.getOferta.validade} 
+                                    </label>
+
+                                    <label className="modal_info_oferta">Faltam : 20 dias
+                                    </label>
+                                </div>
+                            </div>
+                            <br/>
+                            <textarea
+                                type="text"
+                                id="defaultFormContactMessageEx"
+                                className="modal_descricao_oferta"
+                                name="descricao"
+                                placeholder="Descrição do produto"
+                                disabled
+                                value={this.state.getOferta.descricao}
+                            // value={this.state.putOferta.descricao}
+                            // onChange={this.putSetState}
+                            />
                         </MDBModalBody>
-                        <MDBModalFooter>
-                            <MDBBtn color="secondary" onClick={this.toggle}>Close</MDBBtn>
-                            <MDBBtn color="primary">Save changes</MDBBtn>
-                        </MDBModalFooter>
+                        
+                            
+                        <div className="modal_botoes">
+                            <button className="modal_botao_confirmar_reserva" onClick={this.toggle}>CONFIRMAR RESERVA</button>
+                            <button className="modal_botao_adicionar_carrinho" onClick= {this.toggle}>ADICIONAR AO CARRINHO</button>
+                        </div>
+                            {/* <MDBBtn color="secondary" onClick={this.toggle}>Close</MDBBtn>
+                            <MDBBtn color="primary">Save changes</MDBBtn> */}
+                        
                     </MDBModal>
                 </MDBContainer>
             </div>

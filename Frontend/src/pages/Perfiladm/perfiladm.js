@@ -68,6 +68,12 @@ class Perfiladm extends Component {
             [modalNumber]: !this.state[modalNumber]
         });
     }
+    
+    habilitaInput = () => {
+        this.setState({
+            isEdit: false
+        })
+    }
 
     componentDidMount() {
         this.getCategorias();
@@ -262,6 +268,12 @@ class Perfiladm extends Component {
                                     </div>
                                 </div>
                             </div>
+                            <label>
+                                <div className="btnperfil">
+                                    <button className="btn_perfil" type="button" onClick={this.habilitaInput} >Editar </button>
+                                    <button className="btn_perfil" type="submit" >Salvar</button>
+                                </div>
+                            </label>
                         </section>
                     </div>
 

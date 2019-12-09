@@ -4,13 +4,13 @@ import Footer from '../../components/Footer/Footer.js';
 import api from '../../services/api';
 
 import {
+    MDBContainer,
     MDBBtn,
     MDBModal,
     MDBModalBody,
     MDBModalHeader,
     MDBModalFooter,
     MDBInput,
-    MDBContainer
 } from 'mdbreact';
 
 import Produto from '../../assets/imagens/arroz.png';
