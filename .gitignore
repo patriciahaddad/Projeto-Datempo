@@ -2,3 +2,4 @@ Backend/obj
 Backend/bin
 *.pdb
 *.dll
+Frontend/src/components/CardOferta/CardOferta.js
