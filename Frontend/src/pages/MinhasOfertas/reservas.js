@@ -5,11 +5,6 @@ import api from '../../services/api';
 
 import {
     MDBBtn,
-    MDBContainer,
-    MDBModal,
-    MDBModalBody,
-    MDBModalHeader,
-    MDBModalFooter,
     MDBTable,
     MDBTableBody,
     MDBTableHead,
@@ -90,35 +85,6 @@ class Reservas extends Component {
                         </div>
 
 
-
-                        {/* Modal de reserva 
-
-                        <MDBContainer>
-                            <MDBModal isOpen={this.state.modal1} toggle={this.toggle(1)} centered>
-                                <MDBModalHeader toggle={this.toggle(1)}>RESERVAS</MDBModalHeader>
-                                <MDBModalBody>
-                                    <MDBTable>
-                                        <MDBTableHead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Nome</th>
-                                                <th>Quantidade</th>
-                                            </tr>
-                                        </MDBTableHead>
-                                        <MDBTableBody>
-                                            <tr>
-                                                <th>1</th>
-                                                <th>Patrícia</th>
-                                                <th>1</th>
-                                            </tr>
-                                        </MDBTableBody>
-                                    </MDBTable>
-                                </MDBModalBody>
-                                <MDBModalFooter>
-                                    <MDBBtn color="secondary" onClick={this.toggle(1)}>Fechar</MDBBtn>
-                                    <MDBBtn color="primary">Salvar</MDBBtn>
-                                </MDBModalFooter>
-                            </MDBModal> */}
 
                         <div className="paginacao_ofertas">
                             <ul className="lista_paginacao">

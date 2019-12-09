@@ -29,7 +29,7 @@ class Minhasofertas extends Component {
                 quantVenda: "",
                 validade: "",
                 preco: "",
-                imagem: React.createRef(),
+                imagem: React.createRef(), // 01 - Colocamos o createRef
                 descricao: "",
                 idUsuario: "",
                 idProduto: "",
@@ -66,7 +66,7 @@ class Minhasofertas extends Component {
         console.log("PUT", this.state.putOferta);
     }
 
-    getOfertas = () => {
+    getOfertas = (idOferta) => {
         api.get('/oferta')
             .then(response => {
                 if (response.status === 200) {
@@ -85,7 +85,7 @@ class Minhasofertas extends Component {
     }
 
     //#region PUT
-
+    //atualiza input do modal
     putSetState = (input) => {
         this.setState({
             putOferta: {
@@ -94,33 +94,65 @@ class Minhasofertas extends Component {
         })
     }
 
+    // 02 - Adicionar um setState específico
+    putSetStateFile = (input) =>{
+        this.setState({
+            putOferta : {
+                ...this.state.putOferta, [input.target.name] : input.target.files[0]
+            }
+        })
+    }
+
     putOferta = (event) => {
         event.preventDefault();
+
         let oferta_id = this.state.putOferta.idOferta;
-        let oferta_alterado = this.state.putOferta;
+        let oferta_alterado= this.state.putOferta;
 
-        api.put('/oferta/' + oferta_id, oferta_alterado)
-            .then(() => {
-                this.setState({ sucessMsg: "Oferta alterada com sucesso!" });
-            })
-            .catch(error => {
-                console.log(error);
-                this.setState({ erroMsg: "Falha ao alterar a Oferta!" });
-            })
+        console.log(oferta_id)
+        console.log(oferta_alterado)
 
+        // 03 - Criamos nosso formData
+        let formData = new FormData();
+        formData.set('idOferta',this.state.putOferta.idOferta);
+        formData.set('nomeOferta',this.state.putOferta.nomeOferta);
+        formData.set('marca',this.state.putOferta.marca);
+        formData.set('quantVenda',this.state.putOferta.quantVenda); 
+        formData.set('validade',this.state.putOferta.validade); 
+        formData.set('preco',this.state.putOferta.preco);  
+        formData.set('descricao',this.state.putOferta.descricao);  
+        formData.set('idUsuario',this.state.putOferta.idUsuario);  
+        formData.set('idProduto',this.state.putOferta.idProduto);  
+
+        // 04 - Nesta parte está o segredo, precisamos de 3 parâmetros
+        // Veja no exemplo dado na documentação 
+        // https://developer.mozilla.org/pt-BR/docs/Web/API/FormData/set
+        formData.set('imagem', this.state.putOferta.imagem.current.files[0] , this.state.putOferta.imagem.value);
+
+        console.log(formData);
+
+        // 05 - Não esqueça de passar o formData
+        api.FormData.put('/oferta/' + oferta_id, formData)
+        .then(() => {
+            this.setState({ sucessMsg: "Oferta alterada com sucesso!" });
+        })
+        .catch(error => {
+            console.log(error);
+            this.setState({ erroMsg: "Falha ao alterar Oferta!" });
+        })
         this.toggle();
 
         setTimeout(() => {
             this.getOfertas();
         }, 1500);
     }
-
+        
 
     deleteOferta(id){
 
         this.setState({ successMsg : "" })
 
-        api.delete('/minhasofertas/'+id)
+        api.delete('/oferta/'+id)
         .then(response => {
             if(response.status === 200){
                 this.setState({ successMsg : "Excluído com sucesso" })
@@ -133,10 +165,8 @@ class Minhasofertas extends Component {
         .catch(error => {
             console.log(error);
             this.setState({ erroMsg : "Falha ao excluir" })
-        })
-        
+        }) 
     }
-
 
     render() {
         return (
@@ -149,8 +179,9 @@ class Minhasofertas extends Component {
                             <hr />
                             <div className="filtro">
                                 <div className="filtros">
-                                    <a href="cadastroOfertas.html" className="btn_cria_Oferta">cadastrar ofertas</a>
-                                    <a href="#" className="btn-filtro">Selecione por:</a>
+                                    <MDBBtn className="btn_cria_Oferta">Cadastrar oferta</MDBBtn>
+                                    <MDBBtn className="btn-filtro">Selecione por:</MDBBtn>
+                                    
                                 </div>
                             </div>
                             <p className="qnt_ofertas">Mostrando 1 - 12 de 30 resultados</p>
@@ -161,8 +192,8 @@ class Minhasofertas extends Component {
                                 return (
                                     <div className="card_oferta" key={o.idOferta}>
                                         <div className="caixa_imagem">
-                                            <img className="imgproduto" src={Produto}
-                                                alt="Pacote de Arroz de 5kg da marca Tio João" />
+                                            <img src={"https://localhost:5000/api/oferta" + o.imagem} 
+                                                alt="Pacote de Arroz de 5kg da marca Tio João" /> 
                                         </div>
                                         <div className="descricao_oferta">
                                             <div className="titulo_produto">
@@ -206,9 +237,9 @@ class Minhasofertas extends Component {
                                     <MDBModalBody>
                                         {/* <input type="image" name="imagem" value={this.state.putOferta.imagem} onChange={this.putSetState}/> */}
                                         
-                                           
-                                            {/* <input placeholder="Placeholder" type="text" id="form5" class="form-control"> 
-                                            <label for="form5">Example label</label> */}
+                                        
+
+                                            <MDBInput name="imagem" type="file"  onChange={this.putSetStateFile} value={this.state.putOferta.imagem}  /> 
 
                                             <MDBInput name="nomeOferta" value={this.state.putOferta.nomeOferta} onChange={this.putSetState}/>
                                         
