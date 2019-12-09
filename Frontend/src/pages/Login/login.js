@@ -64,9 +64,7 @@ class login extends Component {
                 this.setState({ erroMensagem: 'E-mail e/ou senha inválidos!' })
             })
     }
-    // 
-    // 
-    // 
+    
     getUsuario = () => {
         api.get('/usuario')
             .then(response => {
