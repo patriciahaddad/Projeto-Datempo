@@ -10,7 +10,9 @@ class Perfilusuario extends Component {
         super()
         this.state = {
             usuario: [],
+
             updateUsuario:{
+                idUsuario: parseJwt().idUsuario,
                 nome:"",
                 identificador:"",
                 email:"",
@@ -41,6 +43,7 @@ class Perfilusuario extends Component {
     getUsuario = () => {
         //pegando id do usuario
         api.get('/usuario/' + parseJwt().id)
+
         .then(response => {
             if (response.status === 200) {
                 this.setState({ usuario: response.data })
@@ -67,6 +70,7 @@ class Perfilusuario extends Component {
 
 
     updateUsuario = (event) =>{
+
         event.preventDefault();
 
         let usuario_alterado = this.state.usuario;
@@ -87,11 +91,15 @@ class Perfilusuario extends Component {
             
             .then(() => {
                 
-                this.setState({successMsg : "Evento alterado com sucesso!"});
+                this.setState({successMsg : "Perfil alterado com sucesso!"});
             })
             .catch(error => {
                 console.log(error);
             })
+
+            setTimeout(() => {
+                this.getUsuario();
+            }, 1500);
         }
 
     habilitaInput = () => {
@@ -131,7 +139,7 @@ class Perfilusuario extends Component {
                                                 name="nome"
                                                 value={this.state.usuario.nome}
                                                 onChange={this.alterarStateUsuario}
-                                                disabled
+                                                disabled={this.state.isEdit}
                                                 />
                                             </label>
                                             <label>
@@ -140,7 +148,7 @@ class Perfilusuario extends Component {
                                                 name="identificador" 
                                                 value={this.state.usuario.identificador}
                                                 onChange={this.alterarStateUsuario}
-                                                disabled
+                                                disabled={this.state.isEdit}
                                                 />
                                             </label>
                                             <label>
@@ -150,6 +158,7 @@ class Perfilusuario extends Component {
                                                 value={this.state.usuario.email}
                                                 onChange={this.alterarStateUsuario}
                                                 disabled={this.state.isEdit}
+                                                required
                                                 />
                                             </label>
                                             <label>
@@ -159,6 +168,7 @@ class Perfilusuario extends Component {
                                                 value={this.state.usuario.senha}
                                                 onChange={this.alterarStateUsuario}
                                                 disabled={this.state.isEdit}
+                                                required
                                                 />
                                             </label>
                                         </div>
