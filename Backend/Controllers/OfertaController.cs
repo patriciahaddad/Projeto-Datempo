@@ -56,21 +56,13 @@ namespace backend.Controllers {
         /// </summary>
         /// <param name="oferta">Passar objeto oferta</param>
         /// <returns>Cadastro de oferta</returns>
-        //[Authorize (Roles = "Fornecedor")]
+        // [Authorize (Roles = "Fornecedor")]
         [HttpPost]
         public async Task<ActionResult<Oferta>> Post ([FromForm] Oferta oferta) {
             try {
                 if (oferta.Validade > DateTime.Now.AddDays (10)) {
                     var arquivo = Request.Form.Files[0];
-
-                    oferta.NomeOferta = Request.Form["nomeOferta"].ToString();
-                    oferta.Marca = Request.Form["marca"].ToString();
-                    oferta.Preco = decimal.Parse (Request.Form["Preco"]);
-                    oferta.Validade = DateTime.Parse(Request.Form["Validade"]);
-                    oferta.QuantVenda = int.Parse(Request.Form["quantVenda"]);
-                    oferta.Descricao = Request.Form["descricao"].ToString();
                     oferta.Imagem = _uploadRepo.Upload (arquivo, "imgOferta");
-
                     await _repositorio.Salvar (oferta);
                 } else {
                     return BadRequest (new { mensagem = "Produto fora da validade exigida" });
@@ -87,7 +79,7 @@ namespace backend.Controllers {
         /// <param name="id">Passar ID</param>
         /// <param name="oferta">Passar objeto oferta</param>
         /// <returns>Alterar oferta</returns>
-        //[Authorize (Roles = "Fornecedor")]
+        // [Authorize (Roles = "Fornecedor")]
         [HttpPut ("{id}")]
         public async Task<ActionResult> Put (int id, [FromForm] Oferta oferta) {
             if (id != oferta.IdOferta) {
