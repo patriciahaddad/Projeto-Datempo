@@ -135,7 +135,7 @@ class Minhasofertas extends Component {
         console.log(formData);
 
         // 05 - Não esqueça de passar o formData
-        api.FormData.put('/oferta/' + oferta_id, formData)
+        apiFormData.put('/oferta/' + oferta_id, formData)
         .then(() => {
             this.setState({ sucessMsg: "Oferta alterada com sucesso!" });
         })
