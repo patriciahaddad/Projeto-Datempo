@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import avatar from '../../assets/imagens/avatar.png';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
@@ -11,12 +10,16 @@ class Perfilusuario extends Component {
         super()
         this.state = {
             usuario: [],
-            updateUsuario: {
-                nome: "",
-                identificador: "",
-                email: "",
-                senha: "",
+
+            updateUsuario:{
+                idUsuario: parseJwt().idUsuario,
+                nome:"",
+                identificador:"",
+                email:"",
+                senha:"",
+                // 01 - Colocamos o createRef
                 imgusuario: React.createRef(),
+                
             },
 
             isEdit: true,
@@ -30,14 +33,22 @@ class Perfilusuario extends Component {
         this.getUsuario();
     }
 
+    openDialogEdit = (receita) => {
+        this.setState({ 
+            openEdit: true,
+            updateUsuario: receita
+        });
+    }
+
     getUsuario = () => {
         //pegando id do usuario
         api.get('/usuario/' + parseJwt().id)
-            .then(response => {
-                if (response.status === 200) {
-                    this.setState({ usuario: response.data })
-                }
-            })
+
+        .then(response => {
+            if (response.status === 200) {
+                this.setState({ usuario: response.data })
+            }
+        })
     }
 
     alterarStateUsuario = event => {
@@ -48,46 +59,52 @@ class Perfilusuario extends Component {
         });
     }
 
-    
-    // 02 - Adicionamos um setState específico
-    alterarStateUsuarioFile = (input) =>{
+     // 02 - Adicionamos um setState específico
+     alterarSetStateFile = (input) =>{
         this.setState({
             updateUsuario : {
                 ...this.state.updateUsuario, [input.target.name] : input.target.files[0]
-            }
+            }   
         })
     }
 
-    updateUsuario = (event) => {
+
+    updateUsuario = (event) =>{
+
         event.preventDefault();
+
+        let usuario_alterado = this.state.usuario;
 
         // 03 - Criamos nosso formData
         let usuarioFormData = new FormData();
-        usuarioFormData.set("nome", this.state.updateUsuario.nome);
-        usuarioFormData.set("identificador", this.state.updateUsuario.identificador);
-        usuarioFormData.set("email", this.state.updateUsuario.email);
-        usuarioFormData.set("senha", this.state.updateUsuario.senha);
-        // 04 - precisamos de 3 parâmetros
-        usuarioFormData.set("imgusuario", this.state.updateUsuario.imgusuario.current.files[0], this.state.updateUsuario.imgusuario);
+        usuarioFormData.set("idUsuario", this.state.usuario.idUsuario);
+        usuarioFormData.set("nome", this.state.usuario.nome);
+        usuarioFormData.set("identificador", this.state.usuario.identificador);
+        usuarioFormData.set("email", this.state.usuario.email);
+        usuarioFormData.set("senha", this.state.usuario.senha);
+        
+        // 04 - Nesta parte está o segredo, precisamos de 3 parâmetros
+        usuarioFormData.set('imgusuario', this.state.updateUsuario.imgusuario.current.files[0] , this.state.updateUsuario.imgusuario.value);
 
-        console.log(usuarioFormData);
-
-        let usuario_alterado = this.state.usuario;
-        // 05 - passar o formData
-        apiFormData.put('/usuario/' + parseJwt().id, usuario_alterado)
-
+        // 05 - Não esqueçam de passar o formData
+            apiFormData.put('/usuario/'+ parseJwt().id ,usuarioFormData)
+            
             .then(() => {
-
-                this.setState({ successMsg: "Evento alterado com sucesso!" });
+                
+                this.setState({successMsg : "Perfil alterado com sucesso!"});
             })
             .catch(error => {
                 console.log(error);
             })
-    }
+
+            setTimeout(() => {
+                this.getUsuario();
+            }, 1500);
+        }
 
     habilitaInput = () => {
         this.setState({
-            isEdit: false
+            isEdit: false,
         })
     }
 
@@ -101,16 +118,15 @@ class Perfilusuario extends Component {
                             <h2>MEU PERFIL</h2>
                             <hr />
                             <div className="container_perfil">
-                                <div className="imgperfil">
+                                <div className="imgperfil" >
 
-                                    <img src={"http://localhost:5000/imgPerfil/"+this.state.usuario.imgusuario} alt="Imagem de perfil do usuário" />
+                                    <img src={"http://localhost:5000/img/" + this.state.usuario.imgusuario} alt="Imagem de perfil do usuário" />
+
                                     <input
                                         accept="image/*"
-                                        className="input_load"
-                                        id="icon-button-file"
                                         type="file"
                                         name="imgusuario"
-                                        onChange={this.alterarStateUsuarioFile}
+                                        onChange={this.alterarSetStateFile}
                                         ref={this.state.updateUsuario.imgusuario} />
                                 </div>
                                 <div className="form_perfil">
@@ -119,38 +135,40 @@ class Perfilusuario extends Component {
                                         <div>
                                             <label>
                                                 Nome completo
-                                            <input type="text"
-                                                    name="nome"
-                                                    value={this.state.usuario.nome}
-                                                    onChange={this.alterarStateUsuario}
-                                                    disabled
+                                            <input type="text" 
+                                                name="nome"
+                                                value={this.state.usuario.nome}
+                                                onChange={this.alterarStateUsuario}
+                                                disabled={this.state.isEdit}
                                                 />
                                             </label>
                                             <label>
                                                 CPF/CNPJ
                                             <input type="text"
-                                                    name="identificador"
-                                                    value={this.state.usuario.identificador}
-                                                    onChange={this.alterarStateUsuario}
-                                                    disabled
+                                                name="identificador" 
+                                                value={this.state.usuario.identificador}
+                                                onChange={this.alterarStateUsuario}
+                                                disabled={this.state.isEdit}
                                                 />
                                             </label>
                                             <label>
                                                 E-mail
-                                            <input type="text"
-                                                    name="email"
-                                                    value={this.state.usuario.email}
-                                                    onChange={this.alterarStateUsuario}
-                                                    disabled={this.state.isEdit}
+                                            <input type="text" 
+                                                name="email" 
+                                                value={this.state.usuario.email}
+                                                onChange={this.alterarStateUsuario}
+                                                disabled={this.state.isEdit}
+                                                required
                                                 />
                                             </label>
                                             <label>
                                                 Senha
-                                            <input type="text"
-                                                    name="senha"
-                                                    value={this.state.usuario.senha}
-                                                    onChange={this.alterarStateUsuario}
-                                                    disabled={this.state.isEdit}
+                                            <input type="text"  
+                                                name="senha" 
+                                                value={this.state.usuario.senha}
+                                                onChange={this.alterarStateUsuario}
+                                                disabled={this.state.isEdit}
+                                                required
                                                 />
                                             </label>
                                         </div>

@@ -18,8 +18,8 @@ class cadastroOferta extends Component {
                 validade: "",
                 quantVenda: "",
                 imagem: React.createRef(),
+                
             },
-            isEdit: true
         }
     }
 
