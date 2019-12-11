@@ -88,7 +88,8 @@ const Rotas = (
                 <Route path="/reservas" component={Reservas}/>
                 <Route path="/carrinho" component={Carrinho}/>
                 <PermissaoConsumidor path="/carrinho" component={Carrinho}/>
-                <PermissaoAdmin path="/perfiladm" component={Perfiladm} />
+                {/* <PermissaoAdmin path="/perfiladm" component={Perfiladm} /> */}
+                <Route path="/perfiladm" component={Perfiladm} />
                 <Route path="/ajuda" component={Ajuda} />
                 <Route path="/Login" component={Login} />
                 <Route path="/perfiladm" component={Perfiladm} />

@@ -10,7 +10,7 @@ class Menuadm extends Component {
       <div className="adm_configs_esq">
         <MDBDropdown dropright>
           <MDBDropdownToggle className="adm_btn_01" caret color="purple darken-1">
-            CATEGORIAS
+            CATEGORIA
       </MDBDropdownToggle>
           <MDBDropdownMenu basic>
             <MDBDropdownItem><Link to="/categoria">Visualizar/Cadastrar</Link></MDBDropdownItem>
@@ -18,7 +18,7 @@ class Menuadm extends Component {
         </MDBDropdown>
         <MDBDropdown dropright>
           <MDBDropdownToggle className="adm_btn_01" caret color="purple darken-1">
-            OFERTAS 
+            OFERTA 
       </MDBDropdownToggle>
           <MDBDropdownMenu basic>
             <MDBDropdownItem><Link to="/ofertas">Visualizar</Link></MDBDropdownItem>
@@ -28,7 +28,7 @@ class Menuadm extends Component {
         </MDBDropdown>
         <MDBDropdown dropright>
           <MDBDropdownToggle className="adm_btn_01" caret color="purple darken-1">
-            PRODUTOS
+            PRODUTO
       </MDBDropdownToggle>
           <MDBDropdownMenu basic>
             <MDBDropdownItem><Link to="/produto">Visualizar/Cadastrar</Link></MDBDropdownItem>
@@ -36,7 +36,7 @@ class Menuadm extends Component {
         </MDBDropdown>
         <MDBDropdown dropright>
           <MDBDropdownToggle className="adm_btn_01" caret color="purple darken-1">
-            USUÁRIOS 
+            USUÁRIO
       </MDBDropdownToggle>
           <MDBDropdownMenu basic>
             <MDBDropdownItem><Link to="/usuario">Visualizar</Link></MDBDropdownItem>
