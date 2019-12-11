@@ -8,7 +8,7 @@ import { usuarioAutenticado, parseJwt } from '../src/services/auth';
 import Sobrenos from './pages/Sobrenos/sobrenos';
 import Ajuda from './pages/Ajuda/ajuda';
 import Login from './pages/Login/login';
-import Minhasofertas from './pages/MinhasOfertas/minhasofertas';
+// import Minhasofertas from './pages/MinhasOfertas/minhasofertas';
 import Perfilusuario from './pages/Perfilusuario/perfilusuario';
 import cadastroOferta from './pages/cadastroOferta/cadastrooferta';
 import Mostruario from './pages/Mostruario/mostruario';
@@ -24,10 +24,15 @@ import 'mdbreact/dist/css/mdb.css';
 import Produto from './pages/Perfiladm/produto';
 import Usuario from './pages/Perfiladm/usuario';
 import Ofertas from './pages/Perfiladm/ofertas';
+<<<<<<< HEAD
 import Categoria from './pages/Perfiladm/categoria';
 import Reservas from './pages/MinhasOfertas/reservas';
 import CadastroUsuario_adm from './pages/Perfiladm/cadastrousuario_adm';
+=======
+>>>>>>> 74b26ddaa8eb6a0d330d41e386626d56e53c1ecb
 import CadastroOferta_adm from './pages/Perfiladm/cadastrooferta_adm';
+import CadastroUsuario_adm from './pages/Perfiladm/cadastrousuario_adm';
+// import Reservas from './pages/Minhasofertas/reservas';
 
 const PermissaoAdmin = ({ component : Component }) => (
     <Route 
@@ -75,22 +80,23 @@ const Rotas = (
                 <Route path="/Login" component={Login} />
                 <Route path="/carrinho" component={Carrinho}/>
                 <Route path="/sobrenos" component={Sobrenos} />
-                {/* <PermissaoFornecedor path="/minhasofertas" component={Minhasofertas} /> */}
-                <PermissaoConsumidor path="/perfilusuario" component={Perfilusuario} />
+                {/* <PermissaoFornecedor path="/minhasofertas" component={Minhasofertas} />
+                <PermissaoConsumidor path="/perfilusuario" component={Perfilusuario} /> */}
+                <Route path="/perfilusuario" component={Perfilusuario} />
                 {/* <PermissaoFornecedor path="/oferta" component={cadastroOferta} /> */}
                 <Route path="/oferta" component={cadastroOferta} />
-                <Route path="/mostruario" component={Mostruario} />
-                <Route path="/minhasofertas" component={Minhasofertas}/>
-                <Route path="/reservas" component={Reservas}/>
+                {/* <Route path="/mostruario" component={Mostruario} />
+                <Route path="/minhasofertas" component={Minhasofertas}/> */}
+                {/* <Route path="/reservas" component={Reservas}/> */}
                 <Route path="/carrinho" component={Carrinho}/>
                 <PermissaoConsumidor path="/carrinho" component={Carrinho}/>
-                {/* <PermissaoAdmin path="/perfiladm" component={Perfiladm} /> */}
+                <PermissaoAdmin path="/perfiladm" component={Perfiladm} />
                 <Route path="/ajuda" component={Ajuda} />
                 <Route path="/Login" component={Login} />
                 <Route path="/perfiladm" component={Perfiladm} />
                 {/* <Route path="/categoria" component={Categoria} /> */}
                 <Route path="/produto" component={Produto} />
-                <Route path="/categoria" component={Categoria} />
+                {/* <Route path="/categoria" component={Categoria} /> */}
                 <Route path="/usuario" component={Usuario} />
                 <Route path="/ofertas" component={Ofertas} />
                 <Route path="/cadastrousuario" component={CadastroUsuario_adm} />
