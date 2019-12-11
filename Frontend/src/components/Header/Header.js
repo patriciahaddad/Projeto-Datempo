@@ -26,17 +26,17 @@ class Header extends Component {
                             <Link to="/mostruario">Produtos</Link>
                             {usuarioAutenticado() && parseJwt().Role === "Fornecedor" ? (
                                 <>
-                                    <a href="#"onClick={this.logout}>Sair</a>
+                                    <a href="/Login"onClick={this.logout}>Sair</a>
                                 </>
                             ) : (
                                     usuarioAutenticado() && parseJwt().Role === "Consumidor" ? (
                                         <>
-                                            <a href="#"onClick={this.logout}>Sair</a>
+                                            <a href="/Login"onClick={this.logout}>Sair</a>
                                         </>
                                     ) : (
                                             usuarioAutenticado() && parseJwt().Role === "Administrador" ? (
                                                 <>
-                                                    <a href="#"onClick={this.logout}>Sair</a>
+                                                    <a href="/Login"onClick={this.logout}>Sair</a>
                                                 </>
                                             ) : (
                                                     <>

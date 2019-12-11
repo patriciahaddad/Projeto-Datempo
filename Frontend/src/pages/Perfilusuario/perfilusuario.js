@@ -24,8 +24,8 @@ class Perfilusuario extends Component {
             },
 
             isEdit: true,
-            
-            successMsg:"",
+
+            successMsg: "",
 
         }
     }
@@ -54,8 +54,8 @@ class Perfilusuario extends Component {
 
     alterarStateUsuario = event => {
         this.setState({
-            usuario : {
-                ...this.state.usuario, [event.target.name] : event.target.value
+            usuario: {
+                ...this.state.usuario, [event.target.name]: event.target.value
             }
         });
     }
@@ -174,7 +174,7 @@ class Perfilusuario extends Component {
                                                 />
                                             </label>
                                         </div>
-                            
+
                                         <label>
                                             <div className="btnperfil">
                                                 <button className="btn_perfil" type="button" onClick={this.habilitaInput} >Editar </button>
