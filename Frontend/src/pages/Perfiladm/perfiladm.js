@@ -3,7 +3,7 @@ import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
 import ImagemPerfil from '../../assets/imagens/avatar.png';
 import api from './../../services/api';
-// import MenuAdm from '../../components/menuadm/menuadm.js';
+import Menuadm from '../../components/menuadm/menuadm.js';
 
 
 
@@ -170,37 +170,48 @@ class Perfiladm extends Component {
                     <div className="container">
                         <section className="cont_branco">
                             <div className="organizacao_adm">
-                                {/* <MenuAdm></MenuAdm> */}
+                                <Menuadm></Menuadm>
 
                                 <div className="adm_configs_dir">
                                     <h2>PERFIL ADM</h2>
                                     <hr />
                                     <img src={ImagemPerfil} alt="Imagem de perfil do usuário" />
-                                    <div className="form_perfil">
+                                    <form>
+                                        <div className="form_perfil">
+                                            <label>
+                                                Nome completo
+                                        <input type="text" placeholder="Digite seu nome de usuário..." name="nome"
+                                                    aria-label="Nome completo do usuário" required 
+                                                    disabled={this.state.isEdit} />
+                                            </label>
+                                            <label>
+                                                Identificador
+                                        <input type="text" name="identificador"/>
+                                            </label>
+                                            <label>
+                                                Tipo do Usuário
+                                        <input type="text" name="idTipoUsuario"/>
+                                            </label>
+                                            <label>
+                                                E-mail
+                                        <input type="text" placeholder="Digite seu email..." name="email"
+                                                    aria-label="Email do usuário" required value="fulanosilva@gmail.com" />
+                                            </label>
+                                            <label>
+                                                Senha
+                                        <input type="password"  name="senha"
+                                                    aria-label="Digitar sua senha" required />
+                                            </label>
                                         <label>
-                                            Nome completo
-                                <input type="text" placeholder="Digite seu nome de usuário..." name="nome"
-                                                aria-label="Nome completo do usuário" required value="Fulano da Silva" />
+                                            <div className="btnperfil">
+                                                <button className="btn_perfil" type="button" onClick={this.habilitaInput} >Editar </button>
+                                                <button className="btn_perfil" type="submit" >Salvar</button>
+                                            </div>
                                         </label>
-                                        <label>
-                                            E-mail
-                                <input type="text" placeholder="Digite seu email..." name="email"
-                                                aria-label="Email do usuário" required value="fulanosilva@gmail.com" />
-                                        </label>
-                                        <label>
-                                            Senha
-                                <input type="password" placeholder="Digite sua senha..." name="senha"
-                                                aria-label="Digitar sua senha" required value="••••••••••••" />
-                                        </label>
-                                    </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-                            <label>
-                                <div className="btnperfil">
-                                    <button className="btn_perfil" type="button" onClick={this.habilitaInput} >Editar </button>
-                                    <button className="btn_perfil" type="submit" >Salvar</button>
-                                </div>
-                            </label>
                         </section>
                     </div>
                 </main>

@@ -21,7 +21,7 @@ main{
 /* CONTAINERS */
 
 .container_tabelas{
-    width: 900px;
+    width: 500px;
     margin: auto;
 }
 .container_cadastrar{
@@ -708,8 +708,8 @@ label input{
     margin-left: 315px;
 }
 .organizacao_adm{
-    height: 550px;
     display: flex;
+    margin: auto;
 }
 
 /*MEDIAS QUERIES*/
