@@ -26,8 +26,7 @@ import Usuario from './pages/Perfiladm/usuario';
 import Ofertas from './pages/Perfiladm/ofertas';
 
 import Categoria from './pages/Perfiladm/categoria';
-import Reservas from './pages/MinhasOfertas/reservas';
-import CadastroUsuario_adm from './pages/Perfiladm/cadastrousuario_adm';
+import Reservas from './pages/Minhasofertas/reservas';
 
 import CadastroOferta_adm from './pages/Perfiladm/cadastrooferta_adm';
 // import CadastroUsuario_adm from './pages/Perfiladm/cadastrousuario_adm';
@@ -84,18 +83,19 @@ const Rotas = (
                 <Route path="/perfilusuario" component={Perfilusuario} />
                 {/* <PermissaoFornecedor path="/oferta" component={cadastroOferta} /> */}
                 <Route path="/oferta" component={cadastroOferta} />
-                {/* <Route path="/mostruario" component={Mostruario} /> */}
-                <Route path="/minhasofertas" component={Minhasofertas}/>
-                {/* <Route path="/reservas" component={Reservas}/> */}
+                {/* <Route path="/mostruario" component={Mostruario} />
+                <Route path="/minhasofertas" component={Minhasofertas}/> */}
+                <Route path="/reservas" component={Reservas}/>
                 <Route path="/carrinho" component={Carrinho}/>
                 <PermissaoConsumidor path="/carrinho" component={Carrinho}/>
-                <PermissaoAdmin path="/perfiladm" component={Perfiladm} />
+                {/* <PermissaoAdmin path="/perfiladm" component={Perfiladm} /> */}
+                <Route path="/perfiladm" component={Perfiladm} />
                 <Route path="/ajuda" component={Ajuda} />
                 <Route path="/Login" component={Login} />
                 <Route path="/perfiladm" component={Perfiladm} />
                 {/* <Route path="/categoria" component={Categoria} /> */}
                 <Route path="/produto" component={Produto} />
-                {/* <Route path="/categoria" component={Categoria} /> */}
+                <Route path="/categoria" component={Categoria} />
                 <Route path="/usuario" component={Usuario} />
                 <Route path="/ofertas" component={Ofertas} />
                 <Route path="/cadastrousuario" component={CadastroUsuario_adm} />
@@ -108,7 +108,4 @@ const Rotas = (
 
 ReactDOM.render(Rotas, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
