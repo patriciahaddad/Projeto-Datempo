@@ -292,7 +292,7 @@ class Ofertas extends Component {
                                                 className="black-text">
                                                 Informe a Marca:</label>
                                             <input
-                                                type="tex"
+                                                type="text"
                                                 id="defaultFormContactEmailEx"
                                                 className="form-control"
                                                 name="marca"

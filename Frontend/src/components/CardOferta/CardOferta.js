@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol } from 'mdbreact';
 import Relogio from '../../assets/imagens/alarm-clock.png';
-import Produto from '../../assets/imagens/arroz.png';
 import api from '../../services/api';
 
 

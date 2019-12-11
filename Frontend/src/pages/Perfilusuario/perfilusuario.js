@@ -17,14 +17,15 @@ class Perfilusuario extends Component {
                 identificador:"",
                 email:"",
                 senha:"",
+                idTipoUsuario:"",
                 // 01 - Colocamos o createRef
                 imgusuario: React.createRef(),
                 
             },
 
             isEdit: true,
-            
-            successMsg:"",
+
+            successMsg: "",
 
         }
     }
@@ -53,8 +54,8 @@ class Perfilusuario extends Component {
 
     alterarStateUsuario = event => {
         this.setState({
-            usuario : {
-                ...this.state.usuario, [event.target.name] : event.target.value
+            usuario: {
+                ...this.state.usuario, [event.target.name]: event.target.value
             }
         });
     }
@@ -73,11 +74,12 @@ class Perfilusuario extends Component {
 
         event.preventDefault();
 
-        let usuario_alterado = this.state.usuario;
+        // let usuario_alterado = this.state.usuario;
 
         // 03 - Criamos nosso formData
         let usuarioFormData = new FormData();
         usuarioFormData.set("idUsuario", this.state.usuario.idUsuario);
+        usuarioFormData.set("idTipoUsuario", this.state.usuario.idTipoUsuario);
         usuarioFormData.set("nome", this.state.usuario.nome);
         usuarioFormData.set("identificador", this.state.usuario.identificador);
         usuarioFormData.set("email", this.state.usuario.email);
@@ -120,7 +122,7 @@ class Perfilusuario extends Component {
                             <div className="container_perfil">
                                 <div className="imgperfil" >
 
-                                    <img src={"http://localhost:5000/img/" + this.state.usuario.imgusuario} alt="Imagem de perfil do usuário" />
+                                    <img src={"http://localhost:5000/imgPerfil/" + this.state.usuario.imgusuario} alt="Imagem de perfil do usuário" />
 
                                     <input
                                         accept="image/*"
@@ -172,7 +174,7 @@ class Perfilusuario extends Component {
                                                 />
                                             </label>
                                         </div>
-                            
+
                                         <label>
                                             <div className="btnperfil">
                                                 <button className="btn_perfil" type="button" onClick={this.habilitaInput} >Editar </button>
