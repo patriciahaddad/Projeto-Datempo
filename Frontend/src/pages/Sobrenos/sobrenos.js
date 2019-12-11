@@ -19,7 +19,7 @@ class Sobrenos extends Component {
         return (
             <div>
                 <Header></Header>
-                <main>
+                <main className="main_sobrenos" >
                     <section className="sn_topo">
                         <div className="sn_texto">
                             <h2>SOBRE NÓS</h2>
@@ -31,8 +31,10 @@ class Sobrenos extends Component {
                         </div>
                     </section>
                     <section className="objetivos">
-                        <h2>OBJETIVOS</h2>
-                        <hr />
+                        <div className="sn_section1">
+                            <h2>OBJETIVOS</h2>
+                            <hr />
+                        </div>
                         <div className="sn_section2">
                             <div className="quadro1">
                                 <img src={gastos} alt="Imagem de um cofrinho representando o ideal de reduzir gastos" />
