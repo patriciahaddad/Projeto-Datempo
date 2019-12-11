@@ -496,10 +496,10 @@ label input{
 .container_perfil{
     display: flex;
     justify-content: space-around;
-    padding: 40px 100px; 
+    padding: 60px 100px;
 }
 .form_perfil label{
-    padding: 0px 100px;
+    padding: 0px 50px;
 }
 .imgperfil img{
     width: 200px;
@@ -509,7 +509,7 @@ label input{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 580px;
+    width: 550px;
 }
 .btn_perfil{
     padding:10px 80px;
