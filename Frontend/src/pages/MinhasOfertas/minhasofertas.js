@@ -117,29 +117,6 @@ class Minhasofertas extends Component {
         let oferta_id = this.state.putOferta.idOferta;
 
         let formData = new FormData();
-<<<<<<< HEAD
-
-        formData.set('idOferta', this.state.putOferta.idOferta);
-        formData.set('nomeOferta', this.state.putOferta.nomeOferta);
-        formData.set('marca', this.state.putOferta.marca);
-        formData.set('quantVenda', this.state.putOferta.quantVenda);
-        formData.set('validade', this.state.putOferta.validade);
-        formData.set('preco', this.state.putOferta.preco);
-        formData.set('imagem', this.state.putOferta.imagem.current.files[0], this.state.putOferta.imagem.value);
-        formData.set('descricao', this.state.putOferta.descricao);
-        formData.set('idUsuario', this.state.putOferta.idUsuario);
-        formData.set('idProduto', this.state.putOferta.idProduto);
-
-        // Não esqueça de passar o formData
-        apiFormData.put('/oferta/' + oferta_id, formData)
-            .then(() => {
-                this.setState({ sucessMsg: "Oferta alterada com sucesso!" });
-            })
-            .catch(error => {
-                console.log(error);
-                this.setState({ erroMsg: "Falha ao alterar Oferta!" });
-            })
-=======
         formData.set('idOferta',this.state.putOferta.idOferta);
         formData.set('nomeOferta',this.state.putOferta.nomeOferta);
         formData.set('marca',this.state.putOferta.marca);
@@ -166,7 +143,6 @@ class Minhasofertas extends Component {
             console.log(error);
             this.setState({ erroMsg: "Falha ao alterar Oferta!" });
         })
->>>>>>> 74b26ddaa8eb6a0d330d41e386626d56e53c1ecb
         this.toggle();
 
         setTimeout(() => {
@@ -177,17 +153,8 @@ class Minhasofertas extends Component {
 
     deleteOferta = (id) => {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         this.setState({ successMsg: "" })
-=======
-=======
->>>>>>> 74b26ddaa8eb6a0d330d41e386626d56e53c1ecb
-        api.delete('/minhasofertas/'+id)
-        .then(response => {
-            if(response.status === 200){
-                this.setState({ successMsg : "Excluído com sucesso" })
->>>>>>> 74b26ddaa8eb6a0d330d41e386626d56e53c1ecb
 
         api.delete('/oferta/'+ id)
             .then(response => {
@@ -268,7 +235,6 @@ class Minhasofertas extends Component {
                                 )
                             }.bind(this))
                         }
-<<<<<<< HEAD
                          </div>
                         {/* Modal Editar Oferta */}
                         <MDBModal isOpen={this.state.modal} toggle={this.toggle} size="lg">
@@ -307,35 +273,6 @@ class Minhasofertas extends Component {
                                               className="form-control"
                                               value={this.state.putOferta.marca} 
                                               onChange={this.putSetState} />
-=======
-
-                            {/* Modal Editar Oferta */}
-                            <MDBModal isOpen={this.state.modal} toggle={this.toggle} centered size="lg">
-                                <MDBModalHeader toggle={this.toggle}>Editar - {this.state.putOferta.nomeOferta} </MDBModalHeader>
-                                <form className="formulario-cad_modal" onSubmit={this.putOferta}>
-                                    <MDBModalBody>
-                                        {/* <input type="image" name="imagem" value={this.state.putOferta.imagem} onChange={this.putSetState}/> */}
-                                        
-                                           
-                                            {/* <input placeholder="Placeholder" type="text" id="form5" class="form-control"> 
-                                            <label for="form5">Example label</label> */}
-
-                                            <MDBInput name="nomeOferta" value={this.state.putOferta.nomeOferta} onChange={this.putSetState}/>
-                                        
-                                            <MDBInput name="marca" value={this.state.putOferta.marca} onChange={this.putSetState} />
-                                        
-                                            <MDBInput name="preco" value={this.state.putOferta.preco} onChange={this.putSetState}/>
-                                            <MDBInput name="validade" value={this.state.putOferta.validade} onChange={this.putSetState}/>
-                                        
-                                            <MDBInput name="quantVenda" value={this.state.putOferta.quantVenda} onChange={this.putSetState}/>
-                                       
-                                            <textarea className="form_adicionais" name="descricao" value={this.state.putOferta.descricao} onChange={this.putSetState}> </textarea>
-                                    </MDBModalBody>
-                                    <MDBModalFooter>
-                                        <MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
-                                        <MDBBtn color="primary" type="submit">Salvar</MDBBtn>
-                                        <MDBBtn color="danger" onClick={this.state.deleteOferta} type="submit">Excluir</MDBBtn>
->>>>>>> 74b26ddaa8eb6a0d330d41e386626d56e53c1ecb
                                         
                                     <br/>
                                     <label
