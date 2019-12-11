@@ -34,13 +34,6 @@ class Perfilusuario extends Component {
         this.getUsuario();
     }
 
-    openDialogEdit = (receita) => {
-        this.setState({ 
-            openEdit: true,
-            updateUsuario: receita
-        });
-    }
-
     getUsuario = () => {
         //pegando id do usuario
         api.get('/usuario/' + parseJwt().id)

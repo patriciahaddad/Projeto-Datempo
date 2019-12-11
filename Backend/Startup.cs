@@ -113,6 +113,12 @@ namespace Backend {
                         Path.Combine (Directory.GetCurrentDirectory (), "imgOferta")),
                     RequestPath = "/imgOferta"
             });
+
+            app.UseStaticFiles (new StaticFileOptions {
+                FileProvider = new PhysicalFileProvider (
+                        Path.Combine (Directory.GetCurrentDirectory (), "imgPerfil")),
+                    RequestPath = "/imgPerfil"
+            });
             
             // Usamos efetivamente o SWAGGER
             app.UseSwagger ();
