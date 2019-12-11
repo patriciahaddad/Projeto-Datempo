@@ -110,8 +110,8 @@ namespace Backend {
             
               app.UseStaticFiles (new StaticFileOptions {
                 FileProvider = new PhysicalFileProvider (
-                        Path.Combine (Directory.GetCurrentDirectory (), "img")),
-                    RequestPath = "/img"
+                        Path.Combine (Directory.GetCurrentDirectory (), "imgPerfil")),
+                    RequestPath = "/imgPerfil"
             });
             
             // Usamos efetivamente o SWAGGER
