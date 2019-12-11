@@ -156,6 +156,7 @@ label input{
     font-size: 20px;
     color: var(--roxo);
     padding: 30px 0px;
+
 }
 .filtro select{
     color: #707070; 
@@ -177,6 +178,16 @@ label input{
     padding: 10px 30px;
     text-decoration: none;
     margin-bottom: 20px;
+}
+.link_reserva{
+    background-color: var(--roxo);
+    color: white;
+    padding: 10px;
+    margin: 3px;
+    display: flex; 
+    justify-content: center;
+    border-radius: 3px;
+    margin-top: 8px;
 }
 /*FIM FILTROS*/
 /* CARD*/
@@ -207,7 +218,7 @@ label input{
 }
 .card_oferta{
     width: 250px;
-    height: 450px; 
+    height: 500px; 
     margin: 20px 8px;
     padding: 6px;
     -moz-box-shadow: 3px 3px 5px 0px rgba(204,204,204,1);
@@ -327,6 +338,25 @@ label input{
 /* FIM */
 
 /*MOSTRUARIO*/
+.link{
+    background-color: var(--laranja);
+    color: var(--cinza);
+    border-radius: 2px;
+    
+}
+.btn_editar{
+    background-color: var(--laranja);
+    height: 50px;
+    width: 90px;
+    margin-left: 5px;
+}
+.btn_excluir{
+    background-color: var(--vermelho);
+    height: 50px;
+    width: 90px;
+    margin-right: 5px;
+}
+
 .banner_mostruario{
     background-image:url(../imagens/bannerAlimento.png);
     background-repeat: no-repeat;
@@ -337,6 +367,7 @@ label input{
 .caixa_imagem{
     width: 200px;
     height: 200px;
+    margin: auto;
 }
 .descricao_pequena_logo img{
     width: 30px;
@@ -357,8 +388,9 @@ label input{
 }
 .botao_reservar{
     display: flex;
-    justify-content: space-around;    
+    justify-content: space-between; 
 }
+
 .btn_reservar{
     background-color: var(--roxo);
     color: white;

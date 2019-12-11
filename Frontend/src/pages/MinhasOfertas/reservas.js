@@ -11,9 +11,6 @@ import {
     MDBInput
 } from 'mdbreact';
 
-import Produto from '../../assets/imagens/arroz.png';
-import Relogio from '../../assets/imagens/alarm-clock.png';
-
 
 class Reservas extends Component {
     constructor() {

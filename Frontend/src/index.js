@@ -25,7 +25,7 @@ import Produto from './pages/Perfiladm/produto';
 import Usuario from './pages/Perfiladm/usuario';
 import Ofertas from './pages/Perfiladm/ofertas';
 import Categoria from './pages/Perfiladm/categoria';
-import Reservas from './pages/Minhasofertas/reservas';
+import Reservas from './pages/MinhasOfertas/reservas';
 import CadastroUsuario_adm from './pages/Perfiladm/cadastrousuario_adm';
 import CadastroOferta_adm from './pages/Perfiladm/cadastrooferta_adm';
 
