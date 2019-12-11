@@ -92,6 +92,7 @@ class cadastroOferta extends Component {
                                             Título da Oferta</label>
                                         <input
                                             type="text"
+                                            placeholder="Ex: Arroz"
                                             id="defaultFormContactNameEx"
                                             className="form-control"
                                             name="nomeOferta"
@@ -102,6 +103,7 @@ class cadastroOferta extends Component {
                                             Marca do produto:</label>
                                         <input
                                             type="text"
+                                            placeholder="marca"
                                             id="defaultFormContactEmailEx"
                                             className="form-control"
                                             name="marca"
@@ -114,6 +116,7 @@ class cadastroOferta extends Component {
                                             Preço:</label>
                                         <input
                                             type="text"
+                                            placeholder="10,00"
                                             id="defaultFormContactSubjectEx"
                                             className="form-control"
                                             name="preco"
@@ -126,6 +129,7 @@ class cadastroOferta extends Component {
                                             Validade:</label>
                                         <input
                                             type="text"
+                                            placeholder="05/09/2019"
                                             id="defaultFormContactSubjectEx"
                                             className="form-control"
                                             name="validade"
@@ -138,6 +142,7 @@ class cadastroOferta extends Component {
                                             Quantidade para venda:</label>
                                         <input
                                             type="text"
+                                            placeholder="2..."
                                             id="defaultFormContactSubjectEx"
                                             className="form-control"
                                             name="quantVenda"
