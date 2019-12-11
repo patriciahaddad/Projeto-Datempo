@@ -402,16 +402,19 @@ label input{
 .sn_texto p{
     padding-top: 20px;
 }
-.objetivos{
+.objetivos {
+    display: flex;
     margin: 30px;
+    flex-direction: column;
 }
 .sn_section2{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin: 50px;
-    width: 1000px;
     margin: auto;
+    
+    flex-wrap: wrap;
 }
 .quadro1{
     color: var(--roxo);
@@ -804,6 +807,9 @@ label input{
 
 /*CELULAR - MOBILE*/
 @media (max-width:767px){
+    .banner_sobre{
+        height: 350px;
+    }
     header .pesquisa{
         width: 400px;
     }
@@ -846,6 +852,10 @@ label input{
     .sn_dev, .container_card_mostruario{
         width:350px;
         flex-wrap: wrap;
+        display: block;
+    }
+    .sn_topo{
+        padding-bottom: 500px;
     }
     .container_filtro{
         width: 350px;
@@ -853,6 +863,12 @@ label input{
     }
     .categoria_filtro{
         margin: 5px;
+    }
+    .sn_section2{
+        width: 0;
+        flex-wrap: nowrap;
+        flex-direction: column;
+
     }
     .paginacao{
         width: 350px;
@@ -894,6 +910,9 @@ label input{
     }
     main{
         padding-top: 291px;
+    }
+    .main_sobrenos{
+        padding-top: 270px;
     }
     .filtros{
         flex-direction: column;
@@ -1014,5 +1033,5 @@ label input{
     }
     .categoria_filtro{
         margin-left: 10px;
-}
+    }
 }
