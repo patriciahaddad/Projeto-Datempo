@@ -10,9 +10,9 @@ class CardOferta extends Component {
 
             modal: false
         }
-        
     }
 
+    //#region Toggle
     toggle = () => {
         this.setState({
             modal: !this.state.modal,
@@ -25,6 +25,7 @@ class CardOferta extends Component {
             console.log("get", this.state.getOferta);
         });
     }
+    //#endregion
 
     render() {
         return (
@@ -103,9 +104,6 @@ class CardOferta extends Component {
                      <button className="modal_botao_confirmar_reserva" onClick={this.toggle}>CONFIRMAR RESERVA</button>
                      <button className="modal_botao_adicionar_carrinho" onClick= {this.toggle}>ADICIONAR AO CARRINHO</button>
                  </div>
-                     {/* <MDBBtn color="secondary" onClick={this.toggle}>Close</MDBBtn>
-                     <MDBBtn color="primary">Save changes</MDBBtn> */}
-                
              </MDBModal>
          </MDBContainer>
          </div>
