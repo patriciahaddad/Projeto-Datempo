@@ -25,9 +25,12 @@ import Produto from './pages/Perfiladm/produto';
 import Usuario from './pages/Perfiladm/usuario';
 import Ofertas from './pages/Perfiladm/ofertas';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Categoria from './pages/Perfiladm/categoria';
 import Reservas from './pages/MinhasOfertas/reservas';
 import CadastroUsuario_adm from './pages/Perfiladm/cadastrousuario_adm';
+=======
+>>>>>>> 74b26ddaa8eb6a0d330d41e386626d56e53c1ecb
 =======
 >>>>>>> 74b26ddaa8eb6a0d330d41e386626d56e53c1ecb
 import CadastroOferta_adm from './pages/Perfiladm/cadastrooferta_adm';

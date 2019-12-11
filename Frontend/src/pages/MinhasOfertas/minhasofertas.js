@@ -178,8 +178,11 @@ class Minhasofertas extends Component {
     deleteOferta = (id) => {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.setState({ successMsg: "" })
 =======
+=======
+>>>>>>> 74b26ddaa8eb6a0d330d41e386626d56e53c1ecb
         api.delete('/minhasofertas/'+id)
         .then(response => {
             if(response.status === 200){
