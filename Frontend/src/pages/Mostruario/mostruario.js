@@ -220,7 +220,7 @@ class Mostruario extends Component {
                             </div>
                         </div>
                     </section>
-
+                                        <h1>monstruario</h1>
                     <p className="qnt_ofertas">Mostrando 1 - 12 de 30 resultados</p>
                     <section className="produtos">
                         <div className="container">
