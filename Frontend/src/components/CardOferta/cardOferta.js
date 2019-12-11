@@ -32,8 +32,8 @@ class CardOferta extends Component {
                         return (
                             <div className="card_oferta">
                                 <div className="caixa_imagem">
-                                    {/* <img className="imgproduto" src={Produto}
-                                        alt="Pacote de Arroz de 5kg da marca Tio João" /> */}
+                                    <img className="imgproduto" src={Produto}
+                                        alt="Pacote de Arroz de 5kg da marca Tio João" />
                                 </div>
                                 <div className="descricao_oferta">
                                     <div className="titulo_produto">
