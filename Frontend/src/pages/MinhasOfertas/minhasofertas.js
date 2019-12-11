@@ -9,7 +9,8 @@ import {
     MDBModalBody,
     MDBModalHeader,
     MDBModalFooter,
-    MDBInput
+    MDBInput,
+    MDBContainer
 } from 'mdbreact';
 
 import Produto from '../../assets/imagens/arroz.png';
@@ -242,14 +243,10 @@ class Minhasofertas extends Component {
                                             <label for="form5">Example label</label> */}
 
                                             <MDBInput name="nomeOferta" value={this.state.putOferta.nomeOferta} onChange={this.putSetState}/>
-                                        
                                             <MDBInput name="marca" value={this.state.putOferta.marca} onChange={this.putSetState} />
-                                        
                                             <MDBInput name="preco" value={this.state.putOferta.preco} onChange={this.putSetState}/>
                                             <MDBInput name="validade" value={this.state.putOferta.validade} onChange={this.putSetState}/>
-                                        
                                             <MDBInput name="quantVenda" value={this.state.putOferta.quantVenda} onChange={this.putSetState}/>
-                                       
                                             <textarea className="form_adicionais" name="descricao" value={this.state.putOferta.descricao} onChange={this.putSetState}> </textarea>
                                     </MDBModalBody>
                                     <MDBModalFooter>

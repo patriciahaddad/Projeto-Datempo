@@ -8,12 +8,13 @@ import { usuarioAutenticado, parseJwt } from '../src/services/auth';
 import Sobrenos from './pages/Sobrenos/sobrenos';
 import Ajuda from './pages/Ajuda/ajuda';
 import Login from './pages/Login/login';
-// import Minhasofertas from './pages/MinhasOfertas/minhasofertas';
+import Minhasofertas from './pages/MinhasOfertas/minhasofertas';
 import Perfilusuario from './pages/Perfilusuario/perfilusuario';
 import cadastroOferta from './pages/cadastroOferta/cadastrooferta';
 import Mostruario from './pages/Mostruario/mostruario';
 import Carrinho from './pages/Carrinho/carrinho';
 import Perfiladm from './pages/Perfiladm/perfiladm';
+import Categoria from './pages/Perfiladm/categoria'
 import NotFound from './pages/NotFound/notfound';
     
 import './assets/css/estilo.css';
@@ -26,7 +27,7 @@ import Usuario from './pages/Perfiladm/usuario';
 import Ofertas from './pages/Perfiladm/ofertas';
 import CadastroOferta_adm from './pages/Perfiladm/cadastrooferta_adm';
 import CadastroUsuario_adm from './pages/Perfiladm/cadastrousuario_adm';
-// import Reservas from './pages/Minhasofertas/reservas';
+import Reservas from './pages/MinhasOfertas/reservas';
 
 const PermissaoAdmin = ({ component : Component }) => (
     <Route 
@@ -49,53 +50,54 @@ const PermissaoFornecedor = ({ component : Component }) => (
                 <Redirect to={{ pathname : "/login"}}/>
             )
         }
-    />
-)
-
-const PermissaoConsumidor = ({ component : Component }) => (
-    <Route 
-        render={props =>
-            usuarioAutenticado() && parseJwt().Role === "Consumidor" ? (
-                <Component {...props}/>
-            ) : (
-                <Redirect to={{ pathname : "/login"}}/>
-            )
-        }
-    />
-)
-
-//Realizamos a criação das rotas
+        />
+        )
+        
+        const PermissaoConsumidor = ({ component : Component }) => (
+            <Route 
+            render={props =>
+                usuarioAutenticado() && parseJwt().Role === "Consumidor" ? (
+                    <Component {...props}/>
+                    ) : (
+                        <Redirect to={{ pathname : "/login"}}/>
+                        )
+                    }
+                    />
+                    )
+                    
+                    //Realizamos a criação das rotas
 const Rotas = (
     <Router>
         <div>
         <Switch>
                 <Route exact path="/" component={App} />
                 <Route path="/ajuda" component={Ajuda} />
+                <Route path="/mostruario" component={Mostruario} />
                 <Route path="/Login" component={Login} />
-                <Route path="/carrinho" component={Carrinho}/>
                 <Route path="/sobrenos" component={Sobrenos} />
-                {/* <PermissaoFornecedor path="/minhasofertas" component={Minhasofertas} />
-                <PermissaoConsumidor path="/perfilusuario" component={Perfilusuario} /> */}
-                <Route path="/perfilusuario" component={Perfilusuario} />
-                {/* <PermissaoFornecedor path="/oferta" component={cadastroOferta} /> */}
+                <Route path="/minhasofertas" component={Minhasofertas}/> 
+                <Route path="/perfilusuario" component={Perfilusuario} /> 
+                <Route path="/reservas" component={Reservas}/>
                 <Route path="/oferta" component={cadastroOferta} />
-                {/* <Route path="/mostruario" component={Mostruario} />
-                <Route path="/minhasofertas" component={Minhasofertas}/> */}
-                {/* <Route path="/reservas" component={Reservas}/> */}
                 <Route path="/carrinho" component={Carrinho}/>
-                <PermissaoConsumidor path="/carrinho" component={Carrinho}/>
-                <PermissaoAdmin path="/perfiladm" component={Perfiladm} />
-                <Route path="/ajuda" component={Ajuda} />
-                <Route path="/Login" component={Login} />
                 <Route path="/perfiladm" component={Perfiladm} />
-                {/* <Route path="/categoria" component={Categoria} /> */}
-                <Route path="/produto" component={Produto} />
-                {/* <Route path="/categoria" component={Categoria} /> */}
                 <Route path="/usuario" component={Usuario} />
                 <Route path="/ofertas" component={Ofertas} />
+                <Route path="/produto" component={Produto} />
+                <Route path="/categoria" component={Categoria} />
                 <Route path="/cadastrousuario" component={CadastroUsuario_adm} />
                 <Route path="/cadastrooferta" component={CadastroOferta_adm} />
                 <Route component={NotFound} />
+                {/* <PermissaoFornecedor path="/minhasofertas" component={Minhasofertas} />
+                <PermissaoConsumidor path="/perfilusuario" component={Perfilusuario} />
+                <PermissaoFornecedor path="/oferta" component={cadastroOferta} />
+                <PermissaoConsumidor path="/carrinho" component={Carrinho}/>
+                <PermissaoAdmin path="/perfiladm" component={Perfiladm} />
+                <PermissaoAdmin path="/usuario" component={Usuario} />
+                <PermissaoFornecedor path="/ofertas" component={Ofertas} />
+                <PermissaoAdmin path="/produto" component={Produto} />
+                <PermissaoAdmin path="/cadastrousuario" component={CadastroUsuario_adm} />
+                <PermissaoAdmin path="/cadastrooferta" component={CadastroOferta_adm} /> */}
             </Switch>
         </div>
     </Router>

@@ -18,6 +18,9 @@ main{
     padding-top: 155px;
     background-color: var(--cinza);
 }
+.main_sobrenos{
+     padding-top: 155px; 
+}
 /* CONTAINERS */
 
 .container_tabelas{
@@ -66,7 +69,7 @@ h2 a{
 }
 .container_marcas{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 30px;
 }
@@ -203,7 +206,7 @@ label input{
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 30px;
-    padding: 15px;
+    /* padding: 15px; */
 }
 .card_oferta{
     width: 250px;
@@ -683,6 +686,9 @@ label input{
 /*MEDIAS QUERIES*/
 /*TABLET*/
 @media (max-width:1169px){
+    .view img, .view video{
+        padding-top: 170px;
+    }
     header .pesquisa{
         width: 500px;
     }
@@ -807,6 +813,9 @@ label input{
 
 /*CELULAR - MOBILE*/
 @media (max-width:767px){
+    .view img, .view video{
+        padding-top: 270px;
+    }
     .banner_sobre{
         height: 350px;
     }
@@ -903,6 +912,9 @@ label input{
     .cadastrar{
         border-top: var(--laranja) 1px solid;
     }
+    .form_perfil label{
+        padding: 0px ;
+    }
     .btn_login{
         width: 304px;
         height: 30px;
@@ -911,7 +923,7 @@ label input{
     main{
         padding-top: 291px;
     }
-    .main_sobrenos{
+    .main_sobrenos{ 
         padding-top: 270px;
     }
     .filtros{
@@ -926,14 +938,16 @@ label input{
     .container_perfil{
         flex-direction: column;
         justify-content: center;
+        padding: 0px;
     }
     .form_perfil{
         margin: auto;
         padding-top: 20px;
     }
     .imgperfil{
-        display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
     }
     .btn_perfil{
         margin: 10px 4px;
