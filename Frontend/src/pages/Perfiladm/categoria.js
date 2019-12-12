@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
 import api from './../../services/api';
+import { Link } from 'react-router-dom';
 
 import {
     MDBBtn,
@@ -13,7 +14,7 @@ import {
     MDBModalBody,
     MDBModalHeader,
     MDBModalFooter,
-    MDBInput
+    MDBInput,
 } from 'mdbreact';
 
 
@@ -187,6 +188,8 @@ class Categoria extends Component {
                 <main>
                     <div className="container">
                         <section className="cont_branco">
+                            <h2>CATEGORIAS CADASTRADAS</h2>
+                            <hr />
                             <div className="container_tabelas">
                                 <MDBTable>
                                     <MDBTableHead>
@@ -220,6 +223,9 @@ class Categoria extends Component {
                                     </MDBTableBody>
                                 </MDBTable>
 
+                                <h2>CADASTRAR CATEGORIA</h2>
+                                <hr />
+
                                 <form onSubmit={this.postCategoria}>
                                     <div className="form-group">
                                         <label htmlFor="example2">Nome da Categoria:</label>
@@ -242,6 +248,7 @@ class Categoria extends Component {
                                             {this.state.sucessMsg}
                                         </MDBAlert>
                                     }
+                                    <MDBBtn color="danger"><Link to="/perfiladm">Voltar</Link></MDBBtn>
                                 </form>
                             </div>
                         </section>

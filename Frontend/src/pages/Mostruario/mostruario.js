@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
-import CardOferta from '../../components/CardOferta/CardOferta';
+// import CardOferta from '../../components/CardOferta/cardOferta';
 
 import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView} from
     "mdbreact";
@@ -160,7 +160,7 @@ class Mostruario extends Component {
                     <section className="produtos">
                         <div className="container">
                             <div className="container_ofertas">
-                                <CardOferta filtro={this.state.setStateFiltro} />
+                                {/* <CardOferta filtro={this.state.setStateFiltro} /> */}
 
                             </div>
                             <div className="paginacao_ofertas">

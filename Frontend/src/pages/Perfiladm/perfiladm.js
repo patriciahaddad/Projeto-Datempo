@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
-import ImagemPerfil from '../../assets/imagens/avatar.png';
 import api from './../../services/api';
-// import MenuAdm from '../../components/menuadm/menuadm.js';
+import Menuadm from '../../components/menuadm/menuadm.js';
+import apiFormData from '../../services/apiFormData';
+import { parseJwt } from '../../services/auth';
 
+import {MDBAlert, MDBBtn } from 'mdbreact';
 
 
 class Perfiladm extends Component {
@@ -18,26 +20,18 @@ class Perfiladm extends Component {
             listaProdutos: [],
             listaUsuarios: [],
 
-            postCategoria: {
-                nomeCategoria: "",
+            putUsuario: {
+                idUsuario: parseJwt().idUsuario,
+                nome: "",
+                identificador: "",
+                email: "",
+                senha: "",
+                idTipoUsuario: "",
+                imgusuario: React.createRef(),
+
             },
 
-            postProduto: {
-                nomeProduto: "",
-                idCategoria: "",
-            },
-
-            putCategoria: {
-                idCategoria: "",
-                nomeCategoria: "",
-            },
-
-            putProduto: {
-                idProduto: "",
-                nomeProduto: "",
-                idCategoria: "",
-            },
-
+            isEdit: true,
             erroMsg: "",
             sucessMsg: ""
         }
@@ -50,45 +44,14 @@ class Perfiladm extends Component {
     }
 
     componentDidMount() {
-        this.getCategorias();
-        this.getProdutos();
-    }
-
-    openModalCategoria = (c) => {
-        this.toggle();
-
-        this.setState({ getCategoria: c });
-        console.log("GET", this.state.getCategoria);
-    }
-
-    openModalEditarCategoria = (c) => {
-        this.toggle();
-
-        this.setState({ putCategoria: c });
-        console.log("PUT", this.state.putCategoria);
+        this.getUsuarios();
     }
 
     //#region GET
-    getCategorias = () => {
-        api.get('/categoria')
-            .then(response => {
-                if (response.status === 200) {
-                    this.setState({ listaCategorias: response.data })
-                }
-            })
-    }
-
-    getProdutos = () => {
-        api.get('/produto')
-            .then(response => {
-                if (response.status === 200) {
-                    this.setState({ listaProdutos: response.data })
-                }
-            })
-    }
-
     getUsuarios = () => {
-        api.get('/usuario')
+        //pegando id do usuario
+        api.get('/usuario/' + parseJwt().id)
+
             .then(response => {
                 if (response.status === 200) {
                     this.setState({ listaUsuarios: response.data })
@@ -102,64 +65,50 @@ class Perfiladm extends Component {
 
     putSetState = (input) => {
         this.setState({
-            putEvento: {
-                ...this.state.putCategoria, [input.target.name]: input.target.value
+            listaUsuarios: {
+                ...this.state.listaUsuarios, [input.target.name]: input.target.value
             }
         })
     }
 
-    putCategoria = (event) => {
-        event.preventDefault();
-        let categoria_id = this.state.putCategoria.idCategoria;
-        let categoria_alterado = this.state.putCategoria;
-
-        api.put('/categoria/' + categoria_id, categoria_alterado)
-            .then(() => {
-                this.setState({ sucessMsg: "Categoria alterada com sucesso!" });
-            })
-            .catch(error => {
-                console.log(error);
-                this.setState({ erroMsg: "Falha ao alterar o Categoria!" });
-            })
-
-        this.toggle();
-
-        setTimeout(() => {
-            this.getEventos();
-        }, 1500);
-    }
-
-    //#endregion
-
-    //#region POSTs
-    postSetState = (input) => {
+    putSetStateFile = (input) => {
         this.setState({
-            postEvento: {
-                ...this.state.postCategoria, [input.target.name]: input.target.value
+            putUsuario: {
+                ...this.state.putUsuario, [input.target.name]: input.target.files[0]
             }
         })
     }
 
-    postCategoria = (c) => {
+    putUsuario = (event) => {
+        event.preventDefault();
 
-        c.preventDefault();
+        let usuario = new FormData();
+        usuario.set("idUsuario", this.state.listaUsuarios.idUsuario);
+        usuario.set("idTipoUsuario", this.state.listaUsuarios.idTipoUsuario);
+        usuario.set("nome", this.state.listaUsuarios.nome);
+        usuario.set("identificador", this.state.listaUsuarios.identificador);
+        usuario.set("email", this.state.listaUsuarios.email);
+        usuario.set("senha", this.state.listaUsuarios.senha);
 
-        api.post('/categoria', this.state.postCategoria)
-            .then(response => {
-                console.log(response);
-                this.setState({ sucessMsg: "Categoria cadastrada com sucesso!" });
+        usuario.set('imgusuario', this.state.putUsuario.imgusuario.current.files[0], this.state.putUsuario.imgusuario.value);
+
+        // 05 - Não esqueçam de passar o formData
+        apiFormData.put('/usuario/' + parseJwt().id, usuario)
+
+            .then(() => {
+
+                this.setState({ successMsg: "Perfil alterado com sucesso!" });
             })
             .catch(error => {
                 console.log(error);
-                this.setState({ erroMsg: "Não foi possível cadastrar categoria!" });
             })
 
         setTimeout(() => {
-            this.getCategorias();
+            this.getUsuarios();
         }, 1500);
     }
-    //#endregion
 
+    //#endregion
 
 
     render() {
@@ -170,37 +119,74 @@ class Perfiladm extends Component {
                     <div className="container">
                         <section className="cont_branco">
                             <div className="organizacao_adm">
-                                {/* <MenuAdm></MenuAdm> */}
+                                <Menuadm></Menuadm>
 
                                 <div className="adm_configs_dir">
                                     <h2>PERFIL ADM</h2>
                                     <hr />
-                                    <img src={ImagemPerfil} alt="Imagem de perfil do usuário" />
-                                    <div className="form_perfil">
-                                        <label>
-                                            Nome completo
-                                <input type="text" placeholder="Digite seu nome de usuário..." name="nome"
-                                                aria-label="Nome completo do usuário" required value="Fulano da Silva" />
-                                        </label>
-                                        <label>
-                                            E-mail
-                                <input type="text" placeholder="Digite seu email..." name="email"
-                                                aria-label="Email do usuário" required value="fulanosilva@gmail.com" />
-                                        </label>
-                                        <label>
-                                            Senha
-                                <input type="password" placeholder="Digite sua senha..." name="senha"
-                                                aria-label="Digitar sua senha" required value="••••••••••••" />
-                                        </label>
-                                    </div>
+                                    <img src={"http://localhost:5000/imgPerfil/" + this.state.listaUsuarios.imgusuario} alt="Imagem de perfil do usuário" />
+                                    <form onSubmit={this.putUsuario}>
+                                        <div className="form_perfil">
+                                            <label>Selecione uma imagem
+                                        <input
+                                                    accept="image/*"
+                                                    type="file"
+                                                    name="imgusuario"
+                                                    onChange={this.putSetStateFile}
+                                                    ref={this.state.putUsuario.imgusuario} />
+                                            </label>
+                                            <label>
+                                                Nome completo
+                                        <input type="text"
+                                                    name="nome"
+                                                    value={this.state.listaUsuarios.nome}
+                                                    onChange={this.putSetState}
+                                                    disabled={this.state.isEdit} />
+                                            </label>
+                                            <label>
+                                                Identificador
+                                        <input type="text"
+                                                    name="identificador"
+                                                    value={this.state.listaUsuarios.identificador}
+                                                    onChange={this.putSetState}
+                                                    disabled={this.state.isEdit} />
+                                            </label>
+                                            <label>
+                                                E-mail
+                                        <input type="text"
+                                                    name="email"
+                                                    onChange={this.putSetState}
+                                                    disabled={this.state.isEdit} required />
+                                            </label>
+                                            <label>
+                                                Senha
+                                        <input type="password"
+                                                    name="senha"
+                                                    onChange={this.putSetState}
+                                                    disabled={this.state.isEdit} required />
+                                            </label>
+                                            <label>
+                                                <div className="btnperfil">
+                                                    <button className="btn_perfil" type="button" onClick={this.habilitaInput} >Editar </button>
+                                                    <button className="btn_perfil" type="submit" >Salvar</button>
+                                                    {
+                                                        this.state.erroMsg &&
+                                                        <MDBAlert color="danger" >
+                                                            {this.state.erroMsg}
+                                                        </MDBAlert>
+                                                    }
+                                                    {
+                                                        this.state.sucessMsg &&
+                                                        <MDBAlert color="sucess" >
+                                                            {this.state.sucessMsg}
+                                                        </MDBAlert>
+                                                    }
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-                            <label>
-                                <div className="btnperfil">
-                                    <button className="btn_perfil" type="button" onClick={this.habilitaInput} >Editar </button>
-                                    <button className="btn_perfil" type="submit" >Salvar</button>
-                                </div>
-                            </label>
                         </section>
                     </div>
                 </main>

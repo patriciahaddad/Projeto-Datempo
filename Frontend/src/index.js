@@ -25,9 +25,13 @@ import 'mdbreact/dist/css/mdb.css';
 import Produto from './pages/Perfiladm/produto';
 import Usuario from './pages/Perfiladm/usuario';
 import Ofertas from './pages/Perfiladm/ofertas';
+
+import Categoria from './pages/Perfiladm/categoria';
+import Reservas from './pages/Minhasofertas/reservas';
+
 import CadastroOferta_adm from './pages/Perfiladm/cadastrooferta_adm';
-import CadastroUsuario_adm from './pages/Perfiladm/cadastrousuario_adm';
-import Reservas from './pages/MinhasOfertas/reservas';
+// import CadastroUsuario_adm from './pages/Perfiladm/cadastrousuario_adm';
+// import Reservas from './pages/Minhasofertas/reservas';
 
 const PermissaoAdmin = ({ component : Component }) => (
     <Route 
@@ -105,7 +109,4 @@ const Rotas = (
 
 ReactDOM.render(Rotas, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();

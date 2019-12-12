@@ -110,6 +110,12 @@ namespace Backend {
             
               app.UseStaticFiles (new StaticFileOptions {
                 FileProvider = new PhysicalFileProvider (
+                        Path.Combine (Directory.GetCurrentDirectory (), "imgOferta")),
+                    RequestPath = "/imgOferta"
+            });
+
+            app.UseStaticFiles (new StaticFileOptions {
+                FileProvider = new PhysicalFileProvider (
                         Path.Combine (Directory.GetCurrentDirectory (), "imgPerfil")),
                     RequestPath = "/imgPerfil"
             });
