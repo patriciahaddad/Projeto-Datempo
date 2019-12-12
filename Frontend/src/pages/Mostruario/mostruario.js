@@ -4,7 +4,7 @@ import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
 // import CardOferta from '../../components/CardOferta/cardOferta';
 
-import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer } from
+import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView} from
     "mdbreact";
 import NativeSelect from '@material-ui/core/NativeSelect';
 
@@ -74,8 +74,7 @@ class Mostruario extends Component {
         return (
             <div>
                 <Header />
-                <main>
-
+                
                     <MDBCarousel
                         activeItem={1}
                         length={3}
@@ -113,7 +112,7 @@ class Mostruario extends Component {
                             </MDBCarouselItem>
                         </MDBCarouselInner>
                     </MDBCarousel>
-
+                    <main>
                     <h2>OFERTAS</h2>
                     <hr />
 
@@ -187,7 +186,7 @@ class Mostruario extends Component {
                             </div>
                         </div>
                     </section>
-                </main>
+                    </main>
                 <Footer />
             </div >
 

@@ -39,6 +39,7 @@ function App() {
                     <h2>OFERTAS DATEMPO</h2>
                     <hr />
                     <div className="container_card">
+                        
                         <div className="card_oferta">
                             <div className="caixa_imagem">
                                 <img className="imgproduto" src={ImagemCard}

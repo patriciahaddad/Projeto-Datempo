@@ -184,7 +184,7 @@ class Categoria extends Component {
     render() {
         return (
             <div>
-                <Header></Header>
+                 <Header/>
                 <main>
                     <div className="container">
                         <section className="cont_branco">
