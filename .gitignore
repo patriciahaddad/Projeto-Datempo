@@ -2,3 +2,9 @@ Backend/obj
 Backend/bin
 *.pdb
 *.dll
+*.cache
+Backend/obj/Debug/netcoreapp3.0/Backend.dll
+Backend/obj/Debug/netcoreapp3.0/Backend.pdb
+
+*.cache
+node_modules

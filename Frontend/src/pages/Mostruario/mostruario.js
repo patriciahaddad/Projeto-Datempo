@@ -134,6 +134,7 @@ class Mostruario extends Component {
                 <Header />
                 <main>
                     //#region CARROUSEL
+                
                     <MDBCarousel
                         activeItem={1}
                         length={3}
@@ -265,7 +266,7 @@ class Mostruario extends Component {
                             </div>
                         </div>
                     </section>
-                </main>
+                    </main>
                 <Footer />
             </div >
 
