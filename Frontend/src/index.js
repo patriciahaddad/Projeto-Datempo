@@ -26,10 +26,10 @@ import Usuario from './pages/Perfiladm/usuario';
 import Ofertas from './pages/Perfiladm/ofertas';
 
 import Categoria from './pages/Perfiladm/categoria';
-import Reservas from './pages/Minhasofertas/reservas';
+import Reservas from './pages/MinhasOfertas/reservas';
 
 import CadastroOferta_adm from './pages/Perfiladm/cadastrooferta_adm';
-// import CadastroUsuario_adm from './pages/Perfiladm/cadastrousuario_adm';
+import CadastroUsuario_adm from './pages/Perfiladm/cadastrousuario_adm';
 // import Reservas from './pages/Minhasofertas/reservas';
 
 const PermissaoAdmin = ({ component : Component }) => (
@@ -83,8 +83,8 @@ const Rotas = (
                 <Route path="/perfilusuario" component={Perfilusuario} />
                 {/* <PermissaoFornecedor path="/oferta" component={cadastroOferta} /> */}
                 <Route path="/oferta" component={cadastroOferta} />
-                {/* <Route path="/mostruario" component={Mostruario} />
-                <Route path="/minhasofertas" component={Minhasofertas}/> */}
+                <Route path="/mostruario" component={Mostruario} />
+                <Route path="/minhasofertas" component={Minhasofertas}/>
                 <Route path="/reservas" component={Reservas}/>
                 <Route path="/carrinho" component={Carrinho}/>
                 <PermissaoConsumidor path="/carrinho" component={Carrinho}/>

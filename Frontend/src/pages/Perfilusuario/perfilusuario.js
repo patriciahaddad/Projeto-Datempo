@@ -117,14 +117,15 @@ class Perfilusuario extends Component {
 
                                     <img src={"http://localhost:5000/imgPerfil/" + this.state.usuario.imgusuario} alt="Imagem de perfil do usuário" />
 
-                                    <input
+                                </div>
+                                <input
                                         accept="image/*"
                                         type="file"
                                         name="imgusuario"
                                         onChange={this.alterarSetStateFile}
                                         ref={this.state.updateUsuario.imgusuario} />
-                                </div>
                                 <div className="form_perfil">
+                                    
                                     <form onSubmit={this.updateUsuario} id="form_perfil">
 
                                         <div>

@@ -504,12 +504,15 @@ label input{
 .imgperfil img{
     width: 200px;
     border: solid 2px var(--laranja);
+    border-radius: 5px;
 }
 .form_perfil input{
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 550px;
+    border: 1px solid;
+    border-radius: 3px;
 }
 .btn_perfil{
     padding:10px 80px;
@@ -772,9 +775,9 @@ label input{
     }
     .form_perfil input{
         width: 400px;
+        justify-content: center;
     }
     .form_perfil{
-        margin: auto;
         padding-top: 20px;
     }
     .imgperfil{
@@ -782,8 +785,8 @@ label input{
         justify-content: center;
     }
     .btn_perfil{
-        margin: 10px 4px;
-        padding: 10px 60px;
+        margin: 10px 25px;
+        padding: 10px 50px;
     }
     .formulario-cad, .container-form, .form-cad input{
         width: 600px;
