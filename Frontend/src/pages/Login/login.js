@@ -40,7 +40,8 @@ class login extends Component {
 
         api.post("/login", {
             email: this.state.email,
-            senha: this.state.senha
+            senha: this.state.senha,
+            
         })
             .then(response => {
 
@@ -78,7 +79,6 @@ class login extends Component {
             })
     }
 
-
     postSetState = (input) => {
         this.setState({
             postcadastar: {
@@ -90,12 +90,10 @@ class login extends Component {
     postcadastar = (e) => {
 
         e.preventDefault();
-
-        // let usuario = new FormData();
-
-        api.post('/usuario', this.state.postcadastar)
+        api.post('/usuario',this.state.postcadastar)
             .then(response => {
                 console.log(response);
+                alert("Cadastrado com sucesso, realize login")
             })
             .catch(error => {
                 console.log(error);
@@ -175,7 +173,7 @@ class login extends Component {
                                     </label>
                                     <label>
                                         CPF/CNPJ
-                                        <input type="text"
+                                        <input type="number"
                                             placeholder="Digite seu CPF/CNPJ..."
                                             name="Identificador"
                                             aria-label="Digite seu CPF/CNPJ"

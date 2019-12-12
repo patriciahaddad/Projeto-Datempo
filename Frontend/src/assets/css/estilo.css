@@ -21,7 +21,7 @@ main{
 /* CONTAINERS */
 
 .container_tabelas{
-    width: 900px;
+    width: 500px;
     margin: auto;
 }
 
@@ -152,6 +152,7 @@ label input{
     font-size: 20px;
     color: var(--roxo);
     padding: 30px 0px;
+
 }
 .filtro select{
     color: #707070; 
@@ -173,6 +174,16 @@ label input{
     padding: 10px 30px;
     text-decoration: none;
     margin-bottom: 20px;
+}
+.link_reserva{
+    background-color: var(--roxo);
+    color: white;
+    padding: 10px;
+    margin: 3px;
+    display: flex; 
+    justify-content: center;
+    border-radius: 3px;
+    margin-top: 8px;
 }
 /*FIM FILTROS*/
 /* CARD*/
@@ -204,8 +215,8 @@ label input{
 }
 .card_oferta{
     width: 250px;
-    height: 450px; 
-    margin: 20px 2px;
+    height: 500px; 
+    margin: 20px 8px;
     padding: 6px;
     -moz-box-shadow: 3px 3px 5px 0px rgba(204,204,204,1);
     box-shadow: 3px 3px 5px 0px rgba(204,204,204,1);
@@ -324,6 +335,25 @@ label input{
 /* FIM */
 
 /*MOSTRUARIO*/
+.link{
+    background-color: var(--laranja);
+    color: var(--cinza);
+    border-radius: 2px;
+    
+}
+.btn_editar{
+    background-color: var(--laranja);
+    height: 50px;
+    width: 90px;
+    margin-left: 5px;
+}
+.btn_excluir{
+    background-color: var(--vermelho);
+    height: 50px;
+    width: 90px;
+    margin-right: 5px;
+}
+
 .banner_mostruario{
     background-image:url(../imagens/bannerAlimento.png);
     background-repeat: no-repeat;
@@ -334,6 +364,7 @@ label input{
 .caixa_imagem{
     width: 200px;
     height: 200px;
+    margin: auto;
 }
 .descricao_pequena_logo img{
     width: 30px;
@@ -354,8 +385,9 @@ label input{
 }
 .botao_reservar{
     display: flex;
-    justify-content: space-around;    
+    justify-content: space-between; 
 }
+
 .btn_reservar{
     background-color: var(--roxo);
     color: white;
@@ -399,16 +431,19 @@ label input{
 .sn_texto p{
     padding-top: 20px;
 }
-.objetivos{
+.objetivos {
+    display: flex;
     margin: 30px;
+    flex-direction: column;
 }
 .sn_section2{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin: 50px;
-    width: 1000px;
     margin: auto;
+    
+    flex-wrap: wrap;
 }
 .quadro1{
     color: var(--roxo);
@@ -655,18 +690,6 @@ label input{
 /* FIM CARRINHO */
 
 /* PERFIL ADM */
-.adm_configs_esq{
-    width: 40%;
-    border: 1.5px solid var(--laranja);
-    border-radius: 4px;
-    margin: 20px;
-    padding: 20px;
-}
-.adm_configs_esq .adm_btn_01{
-    width: 100%;
-    height: 50px;
-    margin: 30px 0px;
-}
 .adm_configs_dir{
     width: 80%;
     align-items: center;
@@ -677,8 +700,8 @@ label input{
     border: solid 2px var(--laranja);
 }
 .organizacao_adm{
-    height: 550px;
     display: flex;
+    margin: auto;
 }
 
 /*Modal Reserva*/
@@ -862,6 +885,9 @@ label input{
 
 /*CELULAR - MOBILE*/
 @media (max-width:767px){
+    .banner_sobre{
+        height: 350px;
+    }
     header .pesquisa{
         width: 400px;
     }
@@ -904,6 +930,10 @@ label input{
     .sn_dev, .container_card_mostruario{
         width:350px;
         flex-wrap: wrap;
+        display: block;
+    }
+    .sn_topo{
+        padding-bottom: 500px;
     }
     .container_filtro{
         width: 350px;
@@ -911,6 +941,12 @@ label input{
     }
     .categoria_filtro{
         margin: 5px;
+    }
+    .sn_section2{
+        width: 0;
+        flex-wrap: nowrap;
+        flex-direction: column;
+
     }
     .paginacao{
         width: 350px;
@@ -952,6 +988,9 @@ label input{
     }
     main{
         padding-top: 291px;
+    }
+    .main_sobrenos{
+        padding-top: 270px;
     }
     .filtros{
         flex-direction: column;
@@ -1072,5 +1111,5 @@ label input{
     }
     .categoria_filtro{
         margin-left: 10px;
-}
+    }
 }

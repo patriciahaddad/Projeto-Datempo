@@ -4,6 +4,7 @@ import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
 // import arroz from '../../assets/imagens/arroz.jpg';
 
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBAlert} from 'mdbreact';
 
 class cadastroOferta extends Component {
     constructor() {
@@ -57,7 +58,6 @@ class cadastroOferta extends Component {
 
 
     render() {
-
         return (
             <div>
                 <Header></Header>
@@ -108,13 +108,130 @@ class cadastroOferta extends Component {
                                 <div className="position-right">
                                     <button type="submit">SALVAR</button>
                                 </div>
+                            <hr />
 
-                            </div>
-                        </form>
+                        <MDBContainer>
+                            <MDBRow>
+                                <MDBCol md="6">
+                                    <form onSubmit={this.postOferta}>
+                                        <label htmlFor="defaultFormContactNameEx" className="black-text">
+                                            Título da Oferta</label>
+                                        <input
+                                            type="text"
+                                            placeholder="Ex: Arroz"
+                                            id="defaultFormContactNameEx"
+                                            className="form-control"
+                                            name="nomeOferta"
+                                            value={this.state.postOferta.nomeOferta}
+                                            onChange={this.postSetState}
+                                        /><br />
+                                        <label htmlFor="defaultFormContactEmailEx" className="black-text">
+                                            Marca do produto:</label>
+                                        <input
+                                            type="text"
+                                            placeholder="marca"
+                                            id="defaultFormContactEmailEx"
+                                            className="form-control"
+                                            name="marca"
+                                            value={this.state.postOferta.marca}
+                                            onChange={this.postSetState}
+                                        /><br />
+                                        <label
+                                            htmlFor="defaultFormContactSubjectEx"
+                                            className="black-text">
+                                            Preço:</label>
+                                        <input
+                                            type="text"
+                                            placeholder="10,00"
+                                            id="defaultFormContactSubjectEx"
+                                            className="form-control"
+                                            name="preco"
+                                            value={this.state.postOferta.preco}
+                                            onChange={this.postSetState}
+                                        /><br />
+                                        <label
+                                            htmlFor="defaultFormContactSubjectEx"
+                                            className="black-text">
+                                            Validade:</label>
+                                        <input
+                                            type="text"
+                                            placeholder="05/09/2019"
+                                            id="defaultFormContactSubjectEx"
+                                            className="form-control"
+                                            name="validade"
+                                            value={this.state.postOferta.validade}
+                                            onChange={this.postSetState}
+                                        /><br />
+                                        <label
+                                            htmlFor="defaultFormContactSubjectEx"
+                                            className="black-text">
+                                            Quantidade para venda:</label>
+                                        <input
+                                            type="text"
+                                            placeholder="2..."
+                                            id="defaultFormContactSubjectEx"
+                                            className="form-control"
+                                            name="quantVenda"
+                                            value={this.state.postOferta.quantVenda}
+                                            onChange={this.postSetState}
+                                        /><br />
+                                        <label
+                                            htmlFor="defaultFormContactMessageEx"
+                                            className="black-text">
+                                            Informações adicionais</label>
+                                        <textarea
+                                            type="text"
+                                            id="defaultFormContactMessageEx"
+                                            className="form-control"
+                                            name="descricao"
+                                            value={this.state.postOferta.descricao}
+                                            onChange={this.postSetState}
+                                        /><br/>
+                                         <label
+                                            htmlFor="defaultFormContactSubjectEx"
+                                            className="black-text">
+                                            Tipo de Produto:</label>
+                                        <label
+                                            htmlFor="defaultFormContactSubjectEx"
+                                            className="black-text">
+                                            Imagem do produto:</label>
+                                        <input
+                                            type="file"
+                                            className="form-control"
+                                            name="imagem"
+                                            //value={this.state.postOferta.imagem}
+                                            ref={this.state.postOferta.imagem}
+                                        /><br />
+                                        <div className="text-center mt-4">
+                                            <MDBBtn color="amber" outline type="submit">
+                                                Cadastrar
+                                            <MDBIcon far icon="paper-plane" className="ml-2" />
+                                            </MDBBtn>
+                                            {
+                                                this.state.erroMsg &&
+                                                <MDBAlert color="danger" >
+                                                    {this.state.erroMsg}
+                                                </MDBAlert>
+                                            }
+                                            {
+                                                this.state.sucessMsg &&
+                                                <MDBAlert color="sucess" >
+                                                    {this.state.sucessMsg}
+                                                </MDBAlert>
+                                            }
+                                            
+                                        </div>
+                                    </form>
+                                </MDBCol>
+                            </MDBRow>
+                        </MDBContainer>
+                    </div>
+                    </form>
                     </div>
                 </main>
                 <Footer></Footer>
             </div>
+            
         );
     }
 }

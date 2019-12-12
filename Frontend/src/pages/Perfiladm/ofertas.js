@@ -36,7 +36,7 @@ class Ofertas extends Component {
                 quantVenda: "",
                 validade: "",
                 preco: "",
-                imagem: React.createRef(),
+                imagem: "",
                 descricao: "",
                 idUsuario: "",
                 idProduto: "",
@@ -104,7 +104,7 @@ class Ofertas extends Component {
     //#region PUT
 
     putSetStateFile = (input) => {
-        // console.log("Input do putSetState: ", input);
+        console.log("Input do putSetState: ", input);
 
         this.setState({
             putOferta: {
@@ -292,7 +292,7 @@ class Ofertas extends Component {
                                                 className="black-text">
                                                 Informe a Marca:</label>
                                             <input
-                                                type="tex"
+                                                type="text"
                                                 id="defaultFormContactEmailEx"
                                                 className="form-control"
                                                 name="marca"

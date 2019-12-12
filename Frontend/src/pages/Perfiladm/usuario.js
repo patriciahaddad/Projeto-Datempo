@@ -237,9 +237,6 @@ class Usuario extends Component {
                                                             <td>{u.imgusuario}</td>
                                                             <td>{u.idTipoUsuarioNavigation.titulo}</td>
                                                             <td>
-                                                                <MDBBtn color="primary" size="sm">
-                                                                    Cadastrar
-                                                                </MDBBtn>
                                                                 <MDBBtn color="secondary" size="sm" onClick={() => this.openModal(u)}>
                                                                     Editar
                                                                 </MDBBtn>

@@ -53,19 +53,19 @@ class Mostruario extends Component {
         }
     }
 
-    //#region TogleModal
-    toggle = () => {
-        this.setState({
-            modal: !this.state.modal,
-        });
-    }
-    openModal = (o) => {
-        this.toggle();
+    // //#region TogleModal
+    // toggle = () => {
+    //     this.setState({
+    //         modal: !this.state.modal,
+    //     });
+    // }
+    // openModal = (o) => {
+    //     this.toggle();
 
-        this.setState({ getOferta: o }, () => {
-            console.log("get", this.state.getOferta);
-        });
-    }
+    //     this.setState({ getOferta: o }, () => {
+    //         console.log("get", this.state.getOferta);
+    //     });
+    // }
     //#endregion
 
     componentDidMount() {
@@ -101,9 +101,9 @@ class Mostruario extends Component {
     }
     //Método para filtrar a categoria
     getFiltro = () => {
-        if (this.atualizaSelect.value === "Todos") {
-            console.log(this.getOferta)
-        }else{
+        // if (this.atualizaSelect.value === "Todos") {
+        //     console.log(this.getOferta)
+        // }else
 
         api.get('/filtro/filtrarcategoria/' + this.state.setStateFiltro)
             .then(response => {
@@ -111,7 +111,7 @@ class Mostruario extends Component {
                     this.setState({ listaOferta: response.data });
                 }
             })
-        }
+        
     }
 
     // getOrdenar = () =>{
@@ -193,7 +193,6 @@ class Mostruario extends Component {
                                                     key={c.idCategoria}
                                                     value={c.nomeCategoria}
                                                 >
-
                                                     {c.nomeCategoria}
                                                 </option>
                                             )
@@ -228,7 +227,9 @@ class Mostruario extends Component {
                                     this.state.listaOferta.map(function (o) {
                                         return (
                                             <div key={o.idOferta}>
-                                                <CardOferta idOferta={o.idOferta} nomeOferta={o.nomeOferta}
+                                                <CardOferta 
+                                                    idOferta={o.idOferta}
+                                                    nomeOferta={o.nomeOferta}
                                                     validade={o.validade}
                                                     preco={o.preco.toLocaleString("pt-br", { minimumFractionDigits: 2, maximumFractionDigits: 3 })}
                                                     imagem={o.imagem}
