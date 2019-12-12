@@ -83,7 +83,6 @@ class cadastroOferta extends Component {
                     <div className="cont_branco">
                         <h2>CADASTRO DE OFERTAS</h2>
                         <hr />
-
                         <MDBContainer>
                             <MDBRow>
                                 <MDBCol md="6">
@@ -198,7 +197,6 @@ class cadastroOferta extends Component {
                                 </MDBCol>
                             </MDBRow>
                         </MDBContainer>
-
                     </div>
                 </main>
                 <Footer></Footer>

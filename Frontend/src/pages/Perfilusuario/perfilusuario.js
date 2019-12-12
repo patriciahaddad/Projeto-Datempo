@@ -86,7 +86,8 @@ class Perfilusuario extends Component {
             
             .then(() => {
                 
-                this.setState({successMsg : "Perfil alterado com sucesso!"});
+                this.setState({ successMsg : "Perfil alterado com sucesso!" });
+                this.setState({ isEdit: true })
             })
             .catch(error => {
                 console.log(error);
@@ -114,16 +115,14 @@ class Perfilusuario extends Component {
                             <hr />
                             <div className="container_perfil">
                                 <div className="imgperfil" >
-
                                     <img src={"http://localhost:5000/imgPerfil/" + this.state.usuario.imgusuario} alt="Imagem de perfil do usuário" />
-
-                                </div>
-                                <input
+                                    <input
                                         accept="image/*"
                                         type="file"
                                         name="imgusuario"
                                         onChange={this.alterarSetStateFile}
                                         ref={this.state.updateUsuario.imgusuario} />
+                                </div>
                                 <div className="form_perfil">
                                     
                                     <form onSubmit={this.updateUsuario} id="form_perfil">
@@ -171,8 +170,8 @@ class Perfilusuario extends Component {
 
                                         <label>
                                             <div className="btnperfil">
-                                                <button className="btn_perfil" type="button" onClick={this.habilitaInput} >Editar </button>
-                                                <button className="btn_perfil" type="submit" >Salvar</button>
+                                                <button className="btn_perfil" type="button" onClick={this.habilitaInput} ><span>Editar</span> </button>
+                                                <button className="btn_perfil" type="submit" ><span>Salvar</span></button>
                                             </div>
                                         </label>
 

@@ -78,7 +78,7 @@ const Rotas = (
                 <Route path="/Login" component={Login} />
                 <Route path="/carrinho" component={Carrinho}/>
                 <Route path="/sobrenos" component={Sobrenos} />
-                <PermissaoFornecedor path="/minhasofertas" component={Minhasofertas} />
+                {/* <PermissaoFornecedor path="/minhasofertas" component={Minhasofertas} /> */}
                 {/* <PermissaoConsumidor path="/perfilusuario" component={Perfilusuario} /> */}
                 <Route path="/perfilusuario" component={Perfilusuario} />
                 {/* <PermissaoFornecedor path="/oferta" component={cadastroOferta} /> */}

@@ -38,6 +38,7 @@ header ul a:hover{
     color: var(--roxo);
 }
 header a{
+    border-bottom: 2px solid white;
     text-decoration: none;
     color: var(--roxo);
     text-transform: uppercase;
