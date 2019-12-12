@@ -33,6 +33,10 @@ class Header extends Component {
         }, 500);
     }
 
+    logout = () =>{
+        localStorage.removeItem("usuario-datempo");
+        this.props.history.push("/");
+    }
 
     render() {
         return (
