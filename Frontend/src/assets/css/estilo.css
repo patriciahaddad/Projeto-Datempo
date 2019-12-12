@@ -38,6 +38,58 @@ main{
     background-position: center;
     height: 657px;
 }  */
+/*Modal Reserva*/
+.imagem_modal img{
+    width: 150px;
+    border: solid 2px var(--laranja);
+}
+.imagem_modal{
+    display: flex;
+    
+}
+.div_conteudo_modal{
+    display: flex;
+    justify-content: space-around;
+    margin-left:30px;
+}
+.div_modal_oferta{
+    display: flex;
+    flex-direction: column;
+    font-size: 80px;
+}
+.modal_info_oferta{
+    font-size: 20px;
+}
+.modal_descricao_oferta{
+    background-color: white;
+    border: solid 1.5px var(--laranja);
+    width: 465px;
+    height: 150px;
+}
+.modal_botoes{
+    display: flex;
+    justify-content:space-around ;
+    margin-bottom: 10px;
+   
+}
+.modal_botao_confirmar_reserva{
+    background-color: var(--roxo);
+    color:#fff;
+    padding: 15px 30px;
+    text-decoration:none;
+    text-align: center;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.modal_botao_adicionar_carrinho{
+    background-color: var(--laranja);
+    color:#fff;
+    padding: 15px 30px;
+    text-decoration:none;
+    text-align: center;
+    border-radius: 5px;
+}
 h2{
     text-align: center;
     font-size: 22px !important;

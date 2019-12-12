@@ -2,11 +2,22 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
-// import CardOferta from '../../components/CardOferta/cardOferta';
+import CardOferta from '../../components/CardOferta/cardOferta';
 
-import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer } from
+import {
+    MDBCarousel,
+    MDBCarouselInner,
+    MDBCarouselItem,
+    MDBView,
+    MDBContainer,
+    MDBModal,
+    MDBModalBody,
+    MDBModalHeader,
+    MDBModalFooter
+} from
     "mdbreact";
-import NativeSelect from '@material-ui/core/NativeSelect';
+
+
 
 class Mostruario extends Component {
 
@@ -17,15 +28,51 @@ class Mostruario extends Component {
             listaOferta: [],
             listaCategoria: [],
             listaFiltro: [],
+            listaFiltrada: [],
 
-            setStateFiltro: ""
+
+            //State para aparecer no modal do card
+            getOferta: {
+                idOferta: "",
+                nomeOferta: "",
+                marca: "",
+                validade: "",
+                quantVenda: "",
+                preco: "",
+                imagem: React.createRef(),
+                descricao: "",
+                idUsuario: "",
+                idProduto: ""
+            },
+
+            setStateFiltro: "",
+            setStateTodos: "",
+
+            modal: false
+
         }
     }
 
+    // //#region TogleModal
+    // toggle = () => {
+    //     this.setState({
+    //         modal: !this.state.modal,
+    //     });
+    // }
+    // openModal = (o) => {
+    //     this.toggle();
+
+    //     this.setState({ getOferta: o }, () => {
+    //         console.log("get", this.state.getOferta);
+    //     });
+    // }
+    //#endregion
+
     componentDidMount() {
-        console.log(this.state.listaOferta);
-        console.log(this.state.listaCategoria);
-        console.log(this.state.setStateFiltro);
+        // console.log(this.state.listaOferta);
+        // console.log(this.state.listaCategoria);
+        // console.log(this.state.listaFiltrada);
+        // console.log(this.state.setStateFiltro);
 
         this.getCategoria();
         this.getOferta();
@@ -35,6 +82,7 @@ class Mostruario extends Component {
         console.log("Update");
     }
 
+    //#region Get 
     getCategoria = () => {
         api.get('/categoria')
             .then(response => {
@@ -43,7 +91,6 @@ class Mostruario extends Component {
                 }
             })
     }
-
     getOferta = () => {
         api.get('/oferta')
             .then(response => {
@@ -54,28 +101,39 @@ class Mostruario extends Component {
     }
     //Método para filtrar a categoria
     getFiltro = () => {
+        // if (this.atualizaSelect.value === "Todos") {
+        //     console.log(this.getOferta)
+        // }else
+
         api.get('/filtro/filtrarcategoria/' + this.state.setStateFiltro)
             .then(response => {
                 if (response.status === 200) {
                     this.setState({ listaOferta: response.data });
                 }
             })
+
     }
 
-    //Atualiza o estado do valo do select
+    // getOrdenar = () =>{
+    //     api.get('/')
+    // }
+    //#endregion
+
+    //Atualiza o estado do valor do select
     atualizaSelect = (value) => {
         this.setState({ setStateFiltro: value })
         setTimeout(() => {
-            this.getFiltro();
-        }, 1000);
+            this.getFiltro(this.state.filtro)
+        }, 500);
     }
+
 
     render() {
         return (
             <div>
                 <Header />
                 <main>
-
+                    //#region CARROUSEL
                     <MDBCarousel
                         activeItem={1}
                         length={3}
@@ -113,6 +171,7 @@ class Mostruario extends Component {
                             </MDBCarouselItem>
                         </MDBCarouselInner>
                     </MDBCarousel>
+                    //#endregion
 
                     <h2>OFERTAS</h2>
                     <hr />
@@ -122,7 +181,11 @@ class Mostruario extends Component {
                             <div className="categoria_filtro">
                                 <label>Categoria:</label>
                                 <select name="idCategoria" id="cmbCategoria"
-                                    onChange={(e) => this.atualizaSelect(e.target.value)}>
+                                    onChange={(e) => this.atualizaSelect(e.target.value)}
+                                >
+
+                                    <option value="Todos"> Todos </option>
+
                                     {
                                         this.state.listaCategoria.map(function (c) {
                                             return (
@@ -156,12 +219,27 @@ class Mostruario extends Component {
                             </div>
                         </div>
                     </section>
-
                     <p className="qnt_ofertas">Mostrando 1 - 12 de 30 resultados</p>
                     <section className="produtos">
                         <div className="container">
                             <div className="container_ofertas">
-                                {/* <CardOferta filtro={this.state.setStateFiltro} /> */}
+                                {
+                                    this.state.listaOferta.map(function (o) {
+                                        return (
+                                            <div key={o.idOferta}>
+                                                <CardOferta
+                                                    idOferta={o.idOferta}
+                                                    nomeOferta={o.nomeOferta}
+                                                    validade={o.validade}
+                                                    preco={o.preco.toLocaleString("pt-br", { minimumFractionDigits: 2, maximumFractionDigits: 3 })}
+                                                    imagem={o.imagem}
+                                                    descricao={o.descricao}
+                                                />
+                                            </div>
+                                        )
+                                    }
+                                    )
+                                }
 
                             </div>
                             <div className="paginacao_ofertas">
@@ -190,6 +268,7 @@ class Mostruario extends Component {
                 </main>
                 <Footer />
             </div >
+
 
         );
     }
