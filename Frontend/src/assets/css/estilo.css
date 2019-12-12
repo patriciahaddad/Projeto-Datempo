@@ -923,7 +923,7 @@ label input{
     .menu{
         flex-direction: column;
         width: 150px;
-        padding-top:15px;
+        /* padding-top:15px; */
     }
     .menu li{
         padding-top: 10px;

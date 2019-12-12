@@ -39,9 +39,30 @@ header ul a:hover{
 }
 header a{
     text-decoration: none;
-    color: var(--roxo);
+    color: var(--roxo) ;
     text-transform: uppercase;
     padding: 5px 20px;
+}
+.btn-secondary {
+    color: var(--roxo) !important;
+    text-transform: uppercase !important;
+    padding: 5px 20px !important;
+    font-size: 20px !important ;
+    box-shadow: none !important;
+    margin: 0 !important;
+    border-radius: 0;
+    border-color: var(--roxo);
+    font-family: "Roboto",sans-serif;
+}
+.btn-secondary:hover {
+    border-bottom: 2px solid var(--laranja);
+    transition: none;
+}
+.btn-secondary:not([disabled]):not(.disabled):active, 
+.btn-secondary:not([disabled]):not(.disabled).active, .show>.btn-secondary.dropdown-toggle {
+    background-color: transparent !important;
+    border-color: var(--roxo);
+    border-bottom: 2px solid var(--laranja);
 }
 header .pesquisa{
     display: flex;
@@ -74,5 +95,10 @@ input:focus{
     box-shadow: 0 0 0 0;
     border: 0 none;
     outline: 0;
+}
+@media (max-width: 767px){
+    .btn-secondary {
+        font-size: 15px !important ;
+    }
 }
 /*FIM HEADER*/
