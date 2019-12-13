@@ -98,6 +98,7 @@ class Perfiladm extends Component {
             .then(() => {
 
                 this.setState({ successMsg: "Perfil alterado com sucesso!" });
+                this.setState({ isEdit: true });
             })
             .catch(error => {
                 console.log(error);

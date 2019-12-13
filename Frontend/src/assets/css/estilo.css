@@ -546,12 +546,11 @@ label input{
     margin: 40px;
 }
 /*FIM SOBRE NOS/
-
 /*PERFIL DO USUÁRIO*/
 .container_perfil{
     display: flex;
     justify-content: space-around;
-    padding: 60px 100px;
+    padding: 60px 115px;
 }
 .form_perfil label{
     padding: 0px 50px;
@@ -559,11 +558,13 @@ label input{
 .imgperfil img{
     width: 200px;
     border: solid 2px var(--laranja);
+    border-radius: 3px;
+    justify-content: center;
 }
 .form_perfil input{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    border: solid 1px;
+    border-radius: 3px;
     width: 550px;
 }
 .btn_perfil{
@@ -592,17 +593,17 @@ label input{
     width:1100px;
     margin: auto;
   }
-  .formulario-cad {
+.formulario-cad {
     padding: 40px;
     width: 800px;
     margin:auto;
     display: flex;
     justify-content: space-between;
-  }
-  .formulario-cad_modal {
-      text-align: left;
-  }
-  button {
+}
+.formulario-cad_modal {
+    text-align: left;
+}
+button {
     font-size: 1em;
     border-radius: 4px;
     padding: 10px;
@@ -610,7 +611,45 @@ label input{
     background-color: var(--roxo);
     color: white;
     cursor: pointer;
+    overflow: hidden;
+}
+button:focus{ outline: none }
+
+  span {
+    display: block;
+    position: relative;
+    z-index: 1;
   }
+  span::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: calc(50% - 15px);
+    left: calc(50% - 15px);
+    background: rgba(255,255,255, 0.7);
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    transform: scale(0);
+  }
+
+  button:focus:not(:active) span::after {
+    animation: circleGrow 0.3s linear;
+  }
+  @keyframes circleGrow {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    } 
+    20% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(5);
+      opacity: 0;
+    }
+  }
+
 .produtos-cadastos{
     padding: 10px;
     margin: 0px 20px 20px 0px;
@@ -768,6 +807,11 @@ label input{
 }
 
 /*MEDIAS QUERIES*/
+
+input:disabled {
+    background: var(--cinza);
+  }
+
 /*TABLET*/
 @media (max-width:1169px){
     .view img, .view video{
@@ -840,8 +884,10 @@ label input{
         justify-content: center;
     }
     .btn_perfil{
-        margin: 10px 4px;
         padding: 10px 60px;
+    }
+    .form_perfil label {
+        padding: 0px 50px;
     }
     .formulario-cad, .container-form, .form-cad input{
         width: 600px;
@@ -889,9 +935,20 @@ label input{
     .titulo_descricao{
         padding-top: 10px;
     }
+    .organizacao_adm{
+        height: 100%;
+        width: 100%;
+        margin: auto;
+    }
+    .adm_configs_dir{
+        /* margin-left: 127px; */
+    }
     .adm_configs_dir img{
-        margin: 30px;
-        margin-left: 215px;
+        margin-left: 150px;
+    }
+    .adm_configs_esq{
+        margin-left: 10px;
+        width: 265px;
     }
 }
 
@@ -1034,8 +1091,8 @@ label input{
         padding-top: 20px;
     }
     .btn_perfil{
-        margin: 10px 4px;
-        padding: 10px 30px;
+        margin: 5px 12px;
+        padding: 10px 40px;
     }
     .formulario-cad, .container-form{
         width: 330px;
@@ -1120,16 +1177,10 @@ label input{
     }
     .adm_configs_dir img{
         margin: 30px;
-        margin-left: 100px;
-    }
-    .adm_configs_dir label{
-        margin-left: -75px;
+        margin-left: 126px;
     }
     .adm_configs_esq{
-        margin-left: 26px; 
+        margin-left: 50px; 
         width: 74%;
-    }
-    .categoria_filtro{
-        margin-left: 10px;
     }
 }

@@ -38,6 +38,7 @@ header ul a:hover{
     color: var(--roxo);
 }
 header a{
+    border-bottom: 2px solid white;
     text-decoration: none;
     color: var(--roxo) ;
     text-transform: uppercase;
@@ -92,8 +93,6 @@ nav{
 }
 
 input:focus{
-    box-shadow: 0 0 0 0;
-    border: 0 none;
     outline: 0;
 }
 @media (max-width: 767px){
