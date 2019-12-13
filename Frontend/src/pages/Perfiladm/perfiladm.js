@@ -98,6 +98,7 @@ class Perfiladm extends Component {
             .then(() => {
 
                 this.setState({ successMsg: "Perfil alterado com sucesso!" });
+                this.setState({ isEdit: true });
             })
             .catch(error => {
                 console.log(error);
@@ -117,9 +118,9 @@ class Perfiladm extends Component {
                 <Header></Header>
                 <main>
                     <div className="container">
+                                <Menuadm/>
                         <section className="cont_branco">
                             <div className="organizacao_adm">
-                                <Menuadm></Menuadm>
 
                                 <div className="adm_configs_dir">
                                     <h2>PERFIL ADM</h2>

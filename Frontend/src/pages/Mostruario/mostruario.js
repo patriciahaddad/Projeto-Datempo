@@ -8,16 +8,9 @@ import {
     MDBCarousel,
     MDBCarouselInner,
     MDBCarouselItem,
-    MDBView,
-    MDBContainer,
-    MDBModal,
-    MDBModalBody,
-    MDBModalHeader,
-    MDBModalFooter
+    MDBView
 } from
     "mdbreact";
-
-
 
 class Mostruario extends Component {
 
@@ -53,20 +46,15 @@ class Mostruario extends Component {
         }
     }
 
-    // //#region TogleModal
-    // toggle = () => {
-    //     this.setState({
-    //         modal: !this.state.modal,
-    //     });
-    // }
-    // openModal = (o) => {
-    //     this.toggle();
 
-    //     this.setState({ getOferta: o }, () => {
-    //         console.log("get", this.state.getOferta);
-    //     });
-    // }
-    //#endregion
+
+    // var date1 = new Date(validade);
+    // var date2 = new Date("12/12/2010");
+    // var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+    // var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+    // alert(diffDays);
+
+
 
     componentDidMount() {
         // console.log(this.state.listaOferta);
@@ -99,6 +87,7 @@ class Mostruario extends Component {
                 }
             })
     }
+
     //Método para filtrar a categoria
     getFiltro = () => {
         // if (this.atualizaSelect.value === "Todos") {
@@ -133,15 +122,12 @@ class Mostruario extends Component {
             <div>
                 <Header />
                 <main>
-                    //#region CARROUSEL
-                
                     <MDBCarousel
                         activeItem={1}
                         length={3}
                         showControls={true}
                         showIndicators={true}
-                        className="z-depth-1"
-                    >
+                        className="z-depth-1">
                         <MDBCarouselInner>
                             <MDBCarouselItem itemId="1">
                                 <MDBView>
@@ -172,7 +158,6 @@ class Mostruario extends Component {
                             </MDBCarouselItem>
                         </MDBCarouselInner>
                     </MDBCarousel>
-                    //#endregion
 
                     <h2>OFERTAS</h2>
                     <hr />
@@ -266,7 +251,7 @@ class Mostruario extends Component {
                             </div>
                         </div>
                     </section>
-                    </main>
+                </main>
                 <Footer />
             </div >
 

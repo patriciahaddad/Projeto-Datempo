@@ -66,7 +66,7 @@ class Sobrenos extends Component {
                         </div>
                         <div className="dev">
                             <img src= {nilson} alt="foto de perfil do desenvolvedor Nilson Ledres" />
-                            <p>Nilson Ledres<br />Designer</p>
+                            <p>Nilson Ledres<br />Desenvolvedor Front-end</p>
                         </div>
                         <div className="dev">
                             <img src= {paty} alt="foto de perfil da desenvolvedora Patrícia Haddad" />
