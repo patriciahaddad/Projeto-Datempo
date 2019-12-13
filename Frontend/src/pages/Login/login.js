@@ -17,17 +17,14 @@ class login extends Component {
                 Email: "",
                 Senha: "",
                 Identificador: "",
+
             },
 
             email: "",
             senha: "",
             erroMensagem: "",
-
+            verificacao_senha:"",
         }
-    }
-
-    atualizaEstado = (event) => {
-        this.setState({ [event.target.name]: event.target.value });
     }
 
     realizarLogin = (event) => {
@@ -79,9 +76,14 @@ class login extends Component {
     postSetState = (input) => {
         this.setState({
             postcadastar: {
+
                 ...this.state.postcadastar, [input.target.name]: input.target.value
             }
         })
+    }
+
+    atualizaEstado = (event) => {
+        this.setState({ [event.target.name]: event.target.value });
     }
 
     postcadastar = (e) => {
@@ -185,10 +187,22 @@ class login extends Component {
                                             value={this.state.listaUsuario.senha}
                                             onChange={this.postSetState}
                                             required />
-                                            <p style={{ color : 'red' }}>{this.state.erroMensagem}</p>
                                     </label>
+                                    {/* <label>
+                                        Comfirme sua senha
+                                        <input 
+                                            type="password"
+                                            placeholder="Digite novamente sua senha..."
+                                            name="verificacao_senha"
+                                            aria-label="Comfirme sua senha"
+                                            value={this.state.listaUsuario.verificacao_senha}
+                                            onChange={this.postSetState}
+                                            required />
+                                    </label> */}
+                                            <p style={{ color : 'red' }}>{this.state.erroMensagem}</p>
                                     <label>
-                                        <button className="btn_login"
+                                        <button 
+                                            className="btn_login"
                                             type="submit">Cadastrar
                                         </button>
                                     </label>

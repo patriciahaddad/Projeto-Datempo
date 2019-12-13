@@ -27,8 +27,7 @@ namespace Backend.Domains
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //DESKTOP-JHOHBO4\\SQLEXPRESS - BRUNA    
-                optionsBuilder.UseSqlServer("Server=DESKTOP-JHOHBO4\\SQLEXPRESS; Database=bddatempo; User Id=sa; Password=132");
+                optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS; Database=bddatempo; User Id=sa; Password=132");
             }
         }
 
