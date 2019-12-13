@@ -9,6 +9,10 @@
     margin: 0;
     padding: 0;
 }
+.link-linkedin{
+    color: var(--roxo);
+    font-size: 25px;
+}
 body{
     font-family:roboto !important;
     font-size: 0.8em !important;
@@ -177,6 +181,8 @@ label input{
     width: 409px;
     margin-bottom: 20px;
     text-align: left;
+    border: solid 1px;
+    border-radius: 3px;
 }
 .btn_login{
     padding:10px 120px;
@@ -1075,7 +1081,7 @@ input:disabled {
         border-top: var(--laranja) 1px solid;
     }
     .form_perfil label{
-        padding: 0px ;
+        padding: 0px 50px;
     }
     .btn_login{
         width: 304px;
