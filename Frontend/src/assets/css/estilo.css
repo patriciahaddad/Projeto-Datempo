@@ -980,7 +980,7 @@ input:disabled {
     .menu{
         flex-direction: column;
         width: 150px;
-        padding-top:15px;
+        /* padding-top:15px; */
     }
     .menu li{
         padding-top: 10px;
@@ -1052,6 +1052,9 @@ input:disabled {
     }
     .cadastrar{
         border-top: var(--laranja) 1px solid;
+    }
+    .form_perfil label{
+        padding: 0px ;
     }
     .btn_login{
         width: 304px;

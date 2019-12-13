@@ -6,7 +6,7 @@ import Menuadm from '../../components/menuadm/menuadm.js';
 import apiFormData from '../../services/apiFormData';
 import { parseJwt } from '../../services/auth';
 
-import {MDBAlert, MDBBtn } from 'mdbreact';
+import {MDBAlert } from 'mdbreact';
 
 
 class Perfiladm extends Component {
