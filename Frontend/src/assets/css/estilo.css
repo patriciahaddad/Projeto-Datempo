@@ -273,7 +273,7 @@ label input{
 }
 .card_oferta{
     width: 250px;
-    height: 500px; 
+    /* height: 450px;  */
     margin: 20px 8px;
     padding: 6px;
     -moz-box-shadow: 3px 3px 5px 0px rgba(204,204,204,1);
@@ -443,7 +443,7 @@ label input{
 }
 .botao_reservar{
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-around; 
 }
 
 .btn_reservar{
@@ -454,6 +454,7 @@ label input{
     width: 200px;
     padding-top: 10px;
     padding-bottom: 10px;
+    margin-bottom: 10px;
     border-radius: 8px;
     text-align: center;
 }
