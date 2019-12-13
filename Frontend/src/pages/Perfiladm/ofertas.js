@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
+import Menuadm from '../../components/menuadm/menuadm.js';
 import apiFormData from './../../services/apiFormData';
 import api from './../../services/api';
 import Relogio from '../../assets/imagens/alarm-clock.png';
@@ -226,6 +227,7 @@ class Ofertas extends Component {
                 <Header></Header>
                 <main>
                     <div className="container">
+                    <Menuadm/>
                         <section className="cont_branco">
                             <div className="ofertas_cadastradas">
                                 <h2>OFERTAS CADASTRADAS</h2>

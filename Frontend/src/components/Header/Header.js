@@ -38,11 +38,11 @@ class Header extends Component {
                                                         <MDBDropdownMenu basic>
                                                             <MDBDropdownItem>
                                                                 <img src={config} ></img>
-                                                                <Link to="/perfiladm">Configurações</Link>
+                                                                <Link to="/perfilusuario">Configurações</Link>
                                                             </MDBDropdownItem>
                                                             <MDBDropdownItem>
                                                                 <img src={carrinho} />
-                                                                <Link to="/carrinho">Minhas Ofertas</Link>
+                                                                <Link to="/reservas">Reservas</Link>
                                                             </MDBDropdownItem>
                                                             <MDBDropdownItem>
                                                                 <img src={Logout} ></img>
@@ -61,11 +61,11 @@ class Header extends Component {
                                                         <MDBDropdownMenu basic>
                                                             <MDBDropdownItem>
                                                                 <img src={config} ></img>
-                                                                <Link to="/perfiladm">Configurações</Link>
+                                                                <Link to="/perfilusuario">Configurações</Link>
                                                             </MDBDropdownItem>
                                                             <MDBDropdownItem>
                                                                 <img src={carrinho} />
-                                                                <Link to="/reservas">Reservas</Link>
+                                                                <Link to="/carrinho">Carrinho</Link>
                                                             </MDBDropdownItem>
                                                             <MDBDropdownItem>
                                                                 <img src={Logout} ></img>

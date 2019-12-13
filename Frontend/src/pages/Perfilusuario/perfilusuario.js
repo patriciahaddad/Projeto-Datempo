@@ -79,7 +79,8 @@ class Perfilusuario extends Component {
         usuarioFormData.set("senha", this.state.usuario.senha);
         
         // 04 - Nesta parte está o segredo, precisamos de 3 parâmetros
-        usuarioFormData.set('imgusuario', this.state.updateUsuario.imgusuario.current.files[0] , this.state.updateUsuario.imgusuario.value);
+        usuarioFormData.set('imgusuario', this.state.updateUsuario.imgusuario.current.files[0] ,
+         this.state.updateUsuario.imgusuario.value);
 
         // 05 - Não esqueçam de passar o formData
             apiFormData.put('/usuario/'+ parseJwt().id ,usuarioFormData)

@@ -36,6 +36,18 @@ main{
     margin: auto;
     text-align: right;
 }
+.container-cat-adm{
+    display: flex;
+    align-items: center;
+    /* max-width: 1200px */
+    flex-direction: column;
+}
+.form_perfil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
 /*HOME*/
 /* .banner{
@@ -186,11 +198,14 @@ label input{
 /*FIM LOGIN*/
 /*Ajuda*/
 .btn_aj{
-    background-color: #f7f7f7;
+    background-color: white;
     color:var(--roxo);
 }
 .card_aj{
     background-color: white;
+}
+.card-body{
+    font-size: large;
 }
 .card-header {
     background-color: white;
@@ -811,12 +826,17 @@ button:focus{ outline: none }
 .organizacao_adm{
     display: flex;
     margin: auto;
+    justify-content: center;
 }
 
 /*MEDIAS QUERIES*/
 
 input:disabled {
     background: var(--cinza);
+  }
+  .form-control{
+      width: 600px;
+      max-width: none;
   }
 
 /*TABLET*/
@@ -948,8 +968,8 @@ input:disabled {
         margin: auto;
     }
     /* .adm_configs_dir{
-        /* margin-left: 127px;
-        } */
+        margin-left: 127px;
+    } */
     .adm_configs_dir img{
         margin-left: 150px;
     }
@@ -1189,5 +1209,9 @@ input:disabled {
     .adm_configs_esq{
         margin-left: 50px; 
         width: 74%;
+    }
+    .form-control{
+        width: 300px;
+        max-width: none;
     }
 }
