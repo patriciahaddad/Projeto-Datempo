@@ -11,7 +11,7 @@ class Menuadm extends Component {
         <MDBDropdown dropright>
           <MDBDropdownToggle className="adm_btn_01" caret color="purple darken-1">
             CATEGORIA
-      </MDBDropdownToggle>
+          </MDBDropdownToggle>
           <MDBDropdownMenu basic>
             <MDBDropdownItem><Link to="/categoria">Visualizar/Cadastrar</Link></MDBDropdownItem>
           </MDBDropdownMenu>
