@@ -16,9 +16,5 @@ namespace Backend.Interfaces
          Task<Oferta> Alterar(Oferta oferta);
 
          Task<Oferta> Excluir(Oferta oferta);
-
-        //  Task<Oferta> ExibirOfertas();
-
-         //Task<List<Oferta>> Filtrar();
     }
 }

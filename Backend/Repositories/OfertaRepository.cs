@@ -45,6 +45,5 @@ namespace Backend.Repositories {
                 return oferta;
             }
         }
-
     }
 }

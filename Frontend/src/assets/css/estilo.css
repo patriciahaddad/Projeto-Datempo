@@ -9,6 +9,10 @@
     margin: 0;
     padding: 0;
 }
+.link-linkedin{
+    color: var(--roxo);
+    font-size: 25px;
+}
 body{
     font-family:roboto !important;
     font-size: 0.8em !important;
@@ -165,6 +169,8 @@ label input{
     width: 409px;
     margin-bottom: 20px;
     text-align: left;
+    border: solid 1px;
+    border-radius: 3px;
 }
 .btn_login{
     padding:10px 120px;
@@ -273,7 +279,7 @@ label input{
 }
 .card_oferta{
     width: 250px;
-    height: 500px; 
+    /* height: 450px;  */
     margin: 20px 8px;
     padding: 6px;
     -moz-box-shadow: 3px 3px 5px 0px rgba(204,204,204,1);
@@ -443,7 +449,7 @@ label input{
 }
 .botao_reservar{
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-around; 
 }
 
 .btn_reservar{
@@ -454,6 +460,7 @@ label input{
     width: 200px;
     padding-top: 10px;
     padding-bottom: 10px;
+    margin-bottom: 10px;
     border-radius: 8px;
     text-align: center;
 }
@@ -940,9 +947,9 @@ input:disabled {
         width: 100%;
         margin: auto;
     }
-    .adm_configs_dir{
-        /* margin-left: 127px; */
-    }
+    /* .adm_configs_dir{
+        /* margin-left: 127px;
+        } */
     .adm_configs_dir img{
         margin-left: 150px;
     }
@@ -1054,7 +1061,7 @@ input:disabled {
         border-top: var(--laranja) 1px solid;
     }
     .form_perfil label{
-        padding: 0px ;
+        padding: 0px 50px;
     }
     .btn_login{
         width: 304px;

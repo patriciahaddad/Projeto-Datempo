@@ -10,7 +10,7 @@ import paty from '../../assets/imagens/paty.jpg';
 import nilson from '../../assets/imagens/nilson.jpg';
 import yasmin from '../../assets/imagens/yasmin.jpg';
 import rubao from '../../assets/imagens/rubao.jpg';
-
+import { Link } from 'react-router-dom';
 
 class Sobrenos extends Component {
 
@@ -58,23 +58,23 @@ class Sobrenos extends Component {
                     <section className="sn_dev">
                         <div className="dev">
                             <img src={bruna} alt="foto de perfil da desenvolvedora Bruna Ribeiro" />
-                            <p>Bruna Ribeiro<br />Desenvolvedora Back-end</p>
+                            <a className="link-linkedin" href="https://www.linkedin.com/in/brunabribeiro/"><p>Bruna Ribeiro<br />Desenvolvedora Back-end</p></a>
                         </div>
                         <div className="dev">
                             <img src= {lucas} alt="foto de perfil do desenvolvedor Lucas Gregorio" />
-                            <p>Lucas Gregorio <br />Desenvolvedor Front-end</p>
+                            <a className="link-linkedin" href="https://www.linkedin.com/in/lucas-gregorio-a8666016a/"><p>Lucas Gregorio <br />Desenvolvedor Back-end</p></a>
                         </div>
                         <div className="dev">
                             <img src= {nilson} alt="foto de perfil do desenvolvedor Nilson Ledres" />
-                            <p>Nilson Ledres<br />Desenvolvedor Front-end</p>
+                            <a className="link-linkedin" href="https://www.linkedin.com/in/nilson-ledres-bb7b30193/"><p>Nilson Ledres<br />Designer e Front-end</p></a>
                         </div>
                         <div className="dev">
                             <img src= {paty} alt="foto de perfil da desenvolvedora Patrícia Haddad" />
-                            <p>Patrícia Haddad<br />Desenvolvedora Front-end</p>
+                            <a className="link-linkedin" href="https://www.linkedin.com/in/patricia-haddad/"><p>Patrícia Haddad<br />Desenvolvedora Front-end</p></a>
                         </div>
                         <div className="dev">
                             <img src= {rubao} alt="foto de perfil do desenvolvedor Ruben de Castro" />
-                            <p>Ruben de Castro<br />Desenvolvedor Back-end</p>
+                            <a className="link-linkedin" href="https://www.linkedin.com/in/ruben-de-castro-rocha-961241191/"><p>Ruben de Castro<br />Desenvolvedor Front-end</p></a>
                         </div>
                         <div className="dev">
                             <img src= {yasmin} alt="foto de perfil do desenvolvedora Yasmin Ribeiro" />
