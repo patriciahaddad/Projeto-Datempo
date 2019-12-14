@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Relogio from '../../assets/imagens/alarm-clock.png';
 import { MDBContainer, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
+import { Link, withRouter } from 'react-router-dom';
+
 
 class cardOferta extends Component {
     constructor(props) {
@@ -50,7 +52,7 @@ class cardOferta extends Component {
         return (
                 <div className="card_oferta">
                     <div className="caixa_imagem">
-                        <img className="imgproduto" src={"https://localhost:5001/imgOferta/" + this.props.imagem}
+                        <img className="imgproduto" src={"https://localhost:5000/imgOferta/" + this.props.imagem}
                             alt="Pacote de Arroz de 5kg da marca Tio João" />
                     </div>
                     <div className="descricao_oferta">
@@ -121,11 +123,8 @@ class cardOferta extends Component {
                  </MDBModalBody>    
                  <div className="modal_botoes">
                      <button className="modal_botao_confirmar_reserva" onClick={this.toggle}>CONFIRMAR RESERVA</button>
-                     <button className="modal_botao_adicionar_carrinho" onClick= {this.toggle}>ADICIONAR AO CARRINHO</button>
-                 </div>
-                     {/* <MDBBtn color="secondary" onClick={this.toggle}>Close</MDBBtn>
-                     <MDBBtn color="primary">Save changes</MDBBtn> */}
-                
+                     <Link to="/carrinho"  className="modal_botao_adicionar_carrinho" onClick= {this.toggle}>ADICIONAR AO CARRINHO</Link>
+                 </div> 
              </MDBModal>
          </MDBContainer>
          </div>

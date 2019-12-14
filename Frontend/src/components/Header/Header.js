@@ -35,7 +35,7 @@ class Header extends Component {
                 }
             })
     }
-    getFiltro = () => {
+    getFiltroBusca = () => {
         api.get('filtro/filtrarPalavra/' + this.state.busca)
             .then(data => {
                 this.setState({ listaFiltrada: data.data });
@@ -44,7 +44,8 @@ class Header extends Component {
                 this.props.history.push({
                     pathname: "/mostruario",
                     state: {
-                        getFiltro: this.state.busca
+                        getFiltroBusca: this.state.busca
+                        
                     }
 
                 })
@@ -54,7 +55,7 @@ class Header extends Component {
     _handleKeyDown = (event) => {
         if (event.key === 'Enter') {
             event.preventDefault();
-            this.getFiltro();
+            this.getFiltroBusca();
         }
     }
     // Atualiza campo da select

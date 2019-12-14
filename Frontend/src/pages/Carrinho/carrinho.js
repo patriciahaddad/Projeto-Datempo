@@ -2,8 +2,30 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Produto from '../../assets/imagens/arroz.png';
+import CarrinhoComponent from '../../components/Carrinho/CarrinhoComponent'
+import api from '../../services/api';
+
 
 class Carrinho extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            listaOferta: [],
+
+            modal: false,
+        }
+    }
+
+    getOferta = () => {
+        api.get('/oferta')
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaOferta: response.data });
+                }
+            })
+    }
+
+
     render() {
         return (
             <div>
@@ -13,69 +35,23 @@ class Carrinho extends Component {
                         <h2>CARRINHO</h2>
                         <hr />
                         <div className="container_carrinho">
-                            <div className="card_carrinho">
-                                <div className="img_carrinho">
-                                    <img src= {Produto} alt="Pacote de Arroz de 5kg da marca Tio João" />
-                                </div>
-                                <div className="descricao_carrinho">
-                                    <p className="titulo descricao">Arroz Tio jão</p>
-
-                                    <div className="titulo_produto">
-                                        <p className="titulo_descricao">Pacote de 5kg</p>
-                                    </div>
-
-                                    <div className="titulo_produto">
-                                        <p className="titulo descricao">Walmart - Santa Cecília</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="card_carrinho2">
-                                <div className="descricao_carrinho2">
-                                    <p className="titulo_descricao">Validade</p>
-                                    <p className="descricao">18/09/2019</p>
-                                </div>
-                                <div className="descricao_carrinho2">
-                                    <p className="titulo_descricao">Preço</p>
-                                    <p className="descricao">R$ 10,00</p>
-                                </div>
-                                <div className="descricao_carrinho2">
-                                    <p className="titulo_descricao">Preço com desconto</p>
-                                    <p className="descricao">R$ 8,00</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="container_carrinho">
-                            <div className="card_carrinho">
-                                <div className="img_carrinho">
-                                    <img src= {Produto}  alt="Pacote de Arroz de 5kg da marca Tio João" />
-                                </div>
-                                <div className="descricao_carrinho">
-                                    <p className="titulo descricao">Arroz Tio jão</p>
-
-                                    <div className="titulo_produto">
-                                        <p className="titulo_descricao">Pacote de 5kg</p>
-                                    </div>
-
-                                    <div className="titulo_produto">
-                                        <p className="titulo descricao">Walmart - Santa Cecília</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="card_carrinho2">
-                                <div className="descricao_carrinho2">
-                                    <p className="titulo_descricao">Validade</p>
-                                    <p className="descricao">18/09/2019</p>
-                                </div>
-                                <div className="descricao_carrinho2">
-                                    <p className="titulo_descricao">Preço</p>
-                                    <p className="descricao">R$ 10,00</p>
-                                </div>
-                                <div className="descricao_carrinho2">
-                                    <p className="titulo_descricao">Preço com desconto</p>
-                                    <p className="descricao">R$ 8,00</p>
-                                </div>
-                            </div>
+                        {
+                                    
+                                    this.state.listaOferta.map(function (o) {
+                                        return (
+                                            <div key={o.idOferta}>
+                                                <CarrinhoComponent
+                                                    idOferta={o.idOferta}
+                                                    nomeOferta={o.nomeOferta}
+                                                    validade={o.validade}
+                                                    preco={o.preco.toLocaleString("pt-br", { minimumFractionDigits: 2, maximumFractionDigits: 3 })}
+                                                    imagem={o.imagem}
+                                                />
+                                            </div>
+                                        )
+                                    }
+                                    )
+                                }
                         </div>
 
                         <div className="botoes_carrinho">

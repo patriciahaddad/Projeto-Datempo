@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Backend.Domains;
@@ -49,6 +50,8 @@ namespace backend.Controllers {
         [HttpPost]
         public async Task<ActionResult<Reserva>> Post (Reserva reserva) {
             try {
+                Random rnd = new Random();
+                reserva.Pin = rnd.Next(10000, 99999);
                 await _repositorio.Salvar (reserva);
             } catch (DbUpdateConcurrencyException) {
                 return BadRequest (new { mensagem = "Não foi possivel realizar a reserva", Erro = true });

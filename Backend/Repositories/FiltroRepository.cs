@@ -26,10 +26,16 @@ namespace Backend.Repositories {
                 List<Oferta> ofertas;
                 if (ordempreco == "Menor") {
                     ofertas = _contexto.Oferta.OrderBy (o => o.Preco).ToList ();
-                } else {
+
+                } else if (ordempreco == "Maior") {
                     ofertas = _contexto.Oferta.OrderByDescending (o => o.Preco).ToList ();
+
+                } else {
+                    ofertas = _contexto.Oferta.OrderBy (o => o.Preco).ToList ();
+
                 }
                 return ofertas;
+
             }
         }
 
