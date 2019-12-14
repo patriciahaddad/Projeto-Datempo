@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
-import CardOferta from '../../components/CardOferta/CardOferta';
+import CardOferta from '../../components/CardOferta/cardOferta';
 
 import {
     MDBCarousel,
@@ -14,8 +14,8 @@ import {
 
 class Mostruario extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
 
         this.state = {
             listaOferta: [],
@@ -23,6 +23,10 @@ class Mostruario extends Component {
             listaFiltro: [],
             listaFiltrada: [],
 
+            //Responsavel por buscar do header a lista filtrada 
+            filtro: "",
+
+            busca: "",
 
             //State para aparecer no modal do card
             getOferta: {
@@ -45,16 +49,11 @@ class Mostruario extends Component {
 
         }
     }
-
-
-
     // var date1 = new Date(validade);
     // var date2 = new Date("12/12/2010");
     // var timeDiff = Math.abs(date2.getTime() - date1.getTime());
     // var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
     // alert(diffDays);
-
-
 
     componentDidMount() {
         // console.log(this.state.listaOferta);
@@ -66,8 +65,16 @@ class Mostruario extends Component {
         this.getOferta();
     }
 
+    UNSAFE_componentWillReceiveProps(){
+        this.setState({
+            busca : this.props.location.state.busca
+          })
+          console.log("XAMAAAAA", this.props.location.state.busca)
+    }
+
     componentDidUpdate() {
         console.log("Update");
+
     }
 
     //#region Get 
@@ -90,10 +97,6 @@ class Mostruario extends Component {
 
     //Método para filtrar a categoria
     getFiltro = () => {
-        // if (this.atualizaSelect.value === "Todos") {
-        //     console.log(this.getOferta)
-        // }else
-
         api.get('/filtro/filtrarcategoria/' + this.state.setStateFiltro)
             .then(response => {
                 if (response.status === 200) {
@@ -102,21 +105,16 @@ class Mostruario extends Component {
             })
 
     }
-
-    // getOrdenar = () =>{
-    //     api.get('/')
-    // }
-    //#endregion
-
     //Atualiza o estado do valor do select
     atualizaSelect = (value) => {
+        (value === "Todos") ? setTimeout(() => {
+            this.getOferta()
+        }, 1000) :
         this.setState({ setStateFiltro: value })
         setTimeout(() => {
             this.getFiltro(this.state.filtro)
-        }, 500);
+        }, 1000);
     }
-
-    
 
 
     render() {
@@ -212,6 +210,7 @@ class Mostruario extends Component {
                         <div className="container">
                             <div className="container_ofertas">
                                 {
+                                    
                                     this.state.listaOferta.map(function (o) {
                                         return (
                                             <div key={o.idOferta}>

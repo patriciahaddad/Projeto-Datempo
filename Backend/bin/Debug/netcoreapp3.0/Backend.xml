@@ -4,11 +4,11 @@
         <name>Backend</name>
     </assembly>
     <members>
-        <member name="M:Backend.Controllers.FiltroController.GetFiltrar(Backend.ViewModels.FiltroViewModel)">
+        <member name="M:Backend.Controllers.FiltroController.GetFiltrar(System.String)">
             <summary>
             Filtramos as ofertas por pesquisa
             </summary>
-            <param name="filtro">Passar objeto filtro</param>
+            <param name="palavra">Passar objeto filtro</param>
             <returns>Filtro por pesquisa</returns>
         </member>
         <member name="M:Backend.Controllers.FiltroController.GetFiltrarCategoria(System.String)">
