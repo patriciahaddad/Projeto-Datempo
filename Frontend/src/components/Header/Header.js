@@ -110,21 +110,21 @@ class Header extends Component {
                                                 <MDBDropdownToggle>
                                                     MEU PERFIL
                                                         </MDBDropdownToggle>
-                                                <MDBDropdownMenu basic>
-                                                    <MDBDropdownItem>
-                                                        <img src={config} ></img>
-                                                        <Link to="/perfiladm">Configurações</Link>
-                                                    </MDBDropdownItem>
-                                                    <MDBDropdownItem>
-                                                        <img src={carrinho} />
-                                                        <Link to="/reservas">Reservas</Link>
-                                                    </MDBDropdownItem>
-                                                    <MDBDropdownItem>
-                                                        <img src={Logout} ></img>
-                                                        <Link to="/Login" onClick={this.logout}>Sair</Link>
-                                                    </MDBDropdownItem>
-                                                </MDBDropdownMenu>
-                                            </MDBDropdown>
+                                                        <MDBDropdownMenu basic>
+                                                            <MDBDropdownItem>
+                                                                <img src={config} ></img>
+                                                                <Link to="/perfilusuario">Configurações</Link>
+                                                            </MDBDropdownItem>
+                                                            <MDBDropdownItem>
+                                                                <img src={carrinho} />
+                                                                <Link to="/carrinho">Carrinho</Link>
+                                                            </MDBDropdownItem>
+                                                            <MDBDropdownItem>
+                                                                <img src={Logout} ></img>
+                                                                <Link to="/Login" onClick={this.logout}>Sair</Link>
+                                                            </MDBDropdownItem>
+                                                        </MDBDropdownMenu>
+                                                    </MDBDropdown>
                                         </>
                                     ) : (
                                             usuarioAutenticado() && parseJwt().Role === "Administrador" ? (

@@ -165,7 +165,7 @@ function App() {
             </section>
             <section className="sobre">
                 <div className="banner_sobre">
-                    <h2><a href="sobrenos.html" title="Institucional"> SOBRE NÓS </a></h2>
+                    <h2>SOBRE NÓS</h2>
                     <hr/>
                     <p><br /> Você encontrará em nossa plataforma ofertas de produtos como: alimentos que estão perto do
                         vencimento e vestimentas que possuem pouca circulação no estoque. Saiba mais sobre nosso

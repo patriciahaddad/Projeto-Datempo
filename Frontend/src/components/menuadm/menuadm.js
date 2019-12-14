@@ -8,7 +8,7 @@ class Menuadm extends Component {
   render() {
     return (
       <div className="adm_configs_esq">
-        <MDBDropdown dropright>
+        <MDBDropdown dropdown>
           <MDBDropdownToggle className="adm_btn_01" caret color="purple darken-1">
             CATEGORIA
           </MDBDropdownToggle>
