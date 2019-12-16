@@ -337,7 +337,7 @@ class Minhasofertas extends Component {
                                                     {this.state.sucessMsg}
                                                 </MDBAlert>
                                             }
-                                    <MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
+                                    <MDBBtn color="terciary" onClick={this.toggle}>Fechar</MDBBtn>
                                 </MDBModalFooter>
                             </form>
                         </MDBModal>

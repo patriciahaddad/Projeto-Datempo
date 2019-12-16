@@ -87,11 +87,11 @@ const Rotas = (
                 <Route path="/carrinho" component={Carrinho}/>
                 <Route path="/perfiladm" component={Perfiladm} />
                 <Route path="/usuario" component={Usuario} />
-                <Route path="/adm/ofertas" component={Ofertas} />
                 <Route path="/produto" component={Produto} />
-                <Route path="/categoria" component={Categoria} />
-                <Route path="/cadastrousuario" component={CadastroUsuario_adm} />
-                <Route path="/cadastrooferta" component={CadastroOferta_adm} />
+                <Route path="/adm/categoria" component={Categoria} />
+                <Route path="/adm/cadastrousuario" component={CadastroUsuario_adm} />
+                <Route path="/adm/cadastrooferta" component={CadastroOferta_adm} />
+                <Route path="/adm/ofertas" component={Ofertas} />
                 <Route component={NotFound} />
                 {/* <PermissaoFornecedor path="/minhasofertas" component={Minhasofertas} />
                 <PermissaoConsumidor path="/perfilusuario" component={Perfilusuario} />

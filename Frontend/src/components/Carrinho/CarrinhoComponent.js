@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import Relogio from '../../assets/imagens/alarm-clock.png';
-import { MDBContainer, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
-import { Link, withRouter } from 'react-router-dom';
 
 
 class CarrinhoComponent extends Component {

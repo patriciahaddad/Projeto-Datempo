@@ -5,7 +5,7 @@ import Menuadm from '../../components/menuadm/menuadm.js';
 import apiFormData from './../../services/apiFormData';
 import api from './../../services/api';
 import Relogio from '../../assets/imagens/alarm-clock.png';
-import { MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBAlert, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdbreact';
+import { MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBAlert} from 'mdbreact';
 
 
 class Ofertas extends Component {

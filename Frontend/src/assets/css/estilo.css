@@ -176,6 +176,9 @@ h2 a{
     align-content: center;
     padding: 0px 150px;
 }
+#form_cadastro{
+    padding-bottom: 40px;
+}
 label input{
     height: 35px;
     width: 409px;
@@ -246,6 +249,7 @@ label input{
     display: flex;
     justify-content: space-around;
     margin: 30px 0px;
+    text-align: center;
 }
 .filtros a{
     -webkit-box-shadow: 3px 3px 6px 0px rgba(204,204,204,0.5);
@@ -348,10 +352,13 @@ label input{
     width: 100px;
     margin: 0px 5px;
 }
+.col-md-6{
+    max-width: none;
+}
 /*FIM CARD*/
 .qnt_ofertas{
-    padding-left: 210px;
     color: var(--roxo);
+    text-align: center;
 }
 .btn_cria_Oferta{
     background-color:var(--laranja);
@@ -836,12 +843,16 @@ input:disabled {
     background: var(--cinza);
   }
   .form-control{
-      width: 600px;
-      max-width: none;
+    width: 490px;;
+    max-width: none;
   }
+  
 
 /*TABLET*/
 @media (max-width:1169px){
+    /* .view img, .view video{
+        padding-top: 170px;
+    } */
     header .pesquisa{
         width: 500px;
     }
@@ -979,6 +990,9 @@ input:disabled {
 
 /*CELULAR - MOBILE*/
 @media (max-width:767px){
+    /* .view img, .view video{
+        padding-top: 270px;
+    } */
     .banner_sobre{
         height: 350px;
     }
@@ -998,6 +1012,12 @@ input:disabled {
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-around;
+    }
+    .container_tabelas{
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .menu{
         flex-direction: column;
@@ -1083,8 +1103,26 @@ input:disabled {
         height: 30px;
         padding: 0px;
     }
+    .table td, .table th{
+        border-color: transparent;
+    }
+    .table thead th{
+        border-color: transparent;
+    }
+    .cont_table{
+        display: flex;
+        justify-content: space-around;
+    }
+    .table_resti{
+        display: flex;
+        flex-direction: column;
+    }
+    .table_rescont{
+        display: flex;
+        flex-direction: column;
+    }
     main{
-        padding-top: 291px;
+        padding-top: 264px;
     }
     .main_sobrenos{ 
         padding-top: 270px;
