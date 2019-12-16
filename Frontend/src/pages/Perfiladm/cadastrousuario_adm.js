@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import { parseJwt } from '../../services/auth';
 import api from '../../services/api';
 
 class CadastroUsuario_adm extends Component {
