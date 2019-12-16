@@ -642,6 +642,7 @@ button {
     cursor: pointer;
     overflow: hidden;
 }
+
 button:focus{ outline: none }
 
   span {

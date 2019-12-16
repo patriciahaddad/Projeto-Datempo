@@ -71,7 +71,14 @@ class Header extends Component {
             <header>
                 <div className="container_h">
                     <img className="logo" src={Logo} alt="Logo Datempo" />
-                    <nav>
+
+                    <nav className="navbar-menu">
+                        <label for="show-menu" className="show-menu">
+                            <img className="logo-mobile" src={Logo} alt="Logo Datempo" />
+                            <div className="icon"><i class="fas fa-bars"></i></div>
+                        </label>
+	                    <input type="checkbox" id="show-menu"/>
+
                         <ul className="menu">
                             <Link to="/">Home</Link>
                             <MDBDropdown dropdown className="menu">
