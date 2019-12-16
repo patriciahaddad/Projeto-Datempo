@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Repositories {
     public class FiltroRepository : IFiltro {
-        public List<Oferta> GetFiltrar (FiltroViewModel filtro) {
+        public List<Oferta> GetFiltrar (string palavra) {
             using (bddatempoContext _contexto = new bddatempoContext ()) {
-                List<Oferta> ofertas = _contexto.Oferta.Where (o => o.NomeOferta.Contains (filtro.Palavra)).ToList ();
+                List<Oferta> ofertas = _contexto.Oferta.Where (o => o.NomeOferta.Contains (palavra)).ToList ();
                 return ofertas;
             }
         }
@@ -26,10 +26,16 @@ namespace Backend.Repositories {
                 List<Oferta> ofertas;
                 if (ordempreco == "Menor") {
                     ofertas = _contexto.Oferta.OrderBy (o => o.Preco).ToList ();
-                } else {
+
+                } else if (ordempreco == "Maior") {
                     ofertas = _contexto.Oferta.OrderByDescending (o => o.Preco).ToList ();
+
+                } else {
+                    ofertas = _contexto.Oferta.OrderBy (o => o.Preco).ToList ();
+
                 }
                 return ofertas;
+
             }
         }
 
