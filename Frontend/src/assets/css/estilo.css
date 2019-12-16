@@ -19,7 +19,7 @@ body{
     background-color: var(--cinza) !important;
 }
 main{
-    padding-top: 155px;
+    padding-top: 168px;
     background-color: var(--cinza);
 }
 .main_sobrenos{
@@ -1084,10 +1084,10 @@ input:disabled {
         padding: 0px;
     }
     main{
-        padding-top: 291px;
+        padding-top: 96px;
     }
     .main_sobrenos{ 
-        padding-top: 270px;
+        padding-top: 96px;
     }
     .filtros{
         flex-direction: column;
