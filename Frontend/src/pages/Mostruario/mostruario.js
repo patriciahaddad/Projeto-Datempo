@@ -78,11 +78,8 @@ class Mostruario extends Component {
             this.getOferta();
         }  
       }
-
-
     componentDidUpdate() {
         console.log("Update");
-
     }
 
     //#region Get 

@@ -56,7 +56,7 @@ class Reservas extends Component {
                         <div>
                             {
                                 this.state.mensagemSucesso &&
-                                <Alert variant="success" dismissible>
+                                <Alert variant="success" disabled>
                                 <Alert.Heading>{this.state.mensagemSucesso}</Alert.Heading>
                                 </Alert>
                             }

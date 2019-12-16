@@ -10,7 +10,6 @@ import paty from '../../assets/imagens/paty.jpg';
 import nilson from '../../assets/imagens/nilson.jpg';
 import yasmin from '../../assets/imagens/yasmin.jpg';
 import rubao from '../../assets/imagens/rubao.jpg';
-import { Link } from 'react-router-dom';
 
 class Sobrenos extends Component {
 
