@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
 import api from '../../services/api';
+import Alert from 'react-bootstrap/Alert';
+
 
 import {
     MDBBtn,
     MDBTable,
     MDBTableBody,
     MDBTableHead,
+    MDBAlert,
     MDBInput
 } from 'mdbreact';
 
@@ -17,6 +20,7 @@ class Reservas extends Component {
         super()
         this.state = {
             listaReservaOferta: [],
+            mensagemSucesso: ""
         }
 
     }
@@ -24,6 +28,18 @@ class Reservas extends Component {
     componentDidMount() {
         this.getReservaOferta();
     }
+
+    deletarReserva = (id) => {
+        api.delete("reserva/" + id)
+            .then(() => {
+                this.setState({ mensagemSucesso: "Reserva Entregue com sucesso!" })
+                setTimeout(() => {
+                    this.getReservaOferta()
+                }, 1500)
+            })
+
+    }
+
 
     getReservaOferta = () => {
         api.get('/reserva')
@@ -38,47 +54,60 @@ class Reservas extends Component {
         return (
             <div>
                 <Header />
+
                 <main>
                     <div className="cont_branco">
+                        <div>
+                            {
+                                this.state.mensagemSucesso &&
+                                <Alert variant="success" dismissible>
+                                <Alert.Heading>{this.state.mensagemSucesso}</Alert.Heading>
+                                </Alert>
+                            }
+
+                        </div>
+
                         <div className="ofertas_cadastradas">
+
+
                             <h2>RESERVAS</h2>
                             <hr />
                             <MDBTable>
-                                    <MDBTableHead>
-                                        <tr>
-                                            <th>#Oferta</th>
-                                            <th>#Reserva</th>
-                                            <th>Quantidade</th>
-                                            <th>Data</th>
-                                            <th>PIN</th>
-                                            <th>Usuário</th>
-                                            <th>Ações</th>
-                                        </tr>
-                                    </MDBTableHead>
-                                    <MDBTableBody>
-                                        {
-                                            this.state.listaReservaOferta.map(
-                                                function (r) {
-                                                    return (
-                                                        <tr key={r.idOferta}>
-                                                            <td>{r.idOferta}</td>
-                                                            <td>{r.idReserva}</td>
-                                                            <td>{r.quantCompra}</td>
-                                                            <td>{r.dataReserva}</td>
-                                                            <td>{r.pin}</td>
-                                                            <td>{r.idUsuarioNavigation.nome}</td>
-                                                            <td>
-                                                                <MDBBtn color="danger" size="sm" onClick={() => this.deleteCategoria(r.idCategoria)}>
-                                                                    Excluir
+                                <MDBTableHead>
+                                    <tr>
+                                        <th>#Oferta</th>
+                                        <th>N° Reserva</th>
+                                        <th>Quantidade</th>
+                                        <th>Data</th>
+                                        <th>PIN</th>
+                                        <th>Usuário</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </MDBTableHead>
+                                <MDBTableBody>
+                                    {
+                                        this.state.listaReservaOferta.map(
+                                            function (r) {
+                                                return (
+                                                    <tr key={r.idOferta}>
+                                                        <td>{r.idOfertaNavigation.nomeOferta}</td>
+                                                        <td>{r.idReserva}</td>
+                                                        <td>{r.quantCompra}</td>
+                                                        <td>{r.dataReserva}</td>
+                                                        <td>{r.pin}</td>
+                                                        <td>{r.idUsuarioNavigation.nome}</td>
+                                                        <td>
+                                                            <MDBBtn color="green" size="sm" onClick={() => this.deletarReserva(r.idReserva)}>
+                                                                Entregue
                                                                 </MDBBtn>
-                                                            </td>
-                                                        </tr>
-                                                    )
-                                                }.bind(this)
-                                            )
-                                        }
-                                    </MDBTableBody>
-                                </MDBTable>
+                                                        </td>
+                                                    </tr>
+                                                )
+                                            }.bind(this)
+                                        )
+                                    }
+                                </MDBTableBody>
+                            </MDBTable>
                         </div>
 
 

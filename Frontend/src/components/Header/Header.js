@@ -17,38 +17,32 @@ class Header extends Component {
         this.state = {
 
             listaFiltrada: [],
-            listaOferta: [],
             busca: ""
         }
     }
-    componentDidMount() {
-        // this.postFiltroBusca();
-        // this.getFiltro();
-        // console.log(this.listaFiltrada);
-    }
-
-    getOferta = () => {
-        api.get('/oferta')
-            .then(response => {
-                if (response.status === 200) {
-                    this.setState({ listaOferta: response.data });
-                }
-            })
-    }
+    // getOferta = () => {
+    //     api.get('/oferta')
+    //         .then(response => {
+    //             if (response.status === 200) {
+    //                 this.setState({ listaOferta: response.data });
+    //             }
+    //         })
+    // }
     getFiltroBusca = () => {
         api.get('filtro/filtrarPalavra/' + this.state.busca)
-            .then(data => {
-                this.setState({ listaFiltrada: data.data });
+            .then(response => {
+                if (response.status === 200){
+                this.setState({ listaFiltrada: response.data });
                 console.log(this.state.listaFiltrada);
 
                 this.props.history.push({
                     pathname: "/mostruario",
                     state: {
-                        getFiltroBusca: this.state.busca
-                        
+                        FiltroBusca: this.state.listaFiltrada
                     }
-
+                    
                 })
+            }
             })
     }
     //Função para quando o usuario clicar enter, fazer a busca
@@ -95,7 +89,11 @@ class Header extends Component {
                                             </MDBDropdownItem>
                                             <MDBDropdownItem>
                                                 <img src={carrinho} />
-                                                <Link to="/carrinho">Minhas Ofertas</Link>
+                                                <Link to="/minhasofertas">Minhas Ofertas</Link>
+                                            </MDBDropdownItem>
+                                            <MDBDropdownItem>
+                                                <img src={carrinho} />
+                                                <Link to="/reservas">Reservas</Link>
                                             </MDBDropdownItem>
                                             <MDBDropdownItem>
                                                 <img src={Logout} ></img>

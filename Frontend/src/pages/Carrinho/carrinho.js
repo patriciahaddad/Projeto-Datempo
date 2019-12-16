@@ -4,6 +4,10 @@ import Footer from '../../components/Footer/Footer';
 import Produto from '../../assets/imagens/arroz.png';
 import CarrinhoComponent from '../../components/Carrinho/CarrinhoComponent'
 import api from '../../services/api';
+import Alert from 'react-bootstrap/Alert';
+import { Link, withRouter } from 'react-router-dom';
+
+
 
 
 class Carrinho extends Component {
@@ -12,17 +16,51 @@ class Carrinho extends Component {
         this.state = {
             listaOferta: [],
 
+            listaOfertaId: {
+                idOferta: "",
+                nomeOferta: "",
+                marca: "",
+                validade: "",
+                quantVenda: "",
+                preco: "",
+                imagem: React.createRef(),
+                descricao: "",
+                idUsuario: "",
+                idProduto: ""
+            },
+
             modal: false,
+            mensagemErro: "",
+            mensagemSucesso: ""
         }
     }
+    componentDidMount() {
+        console.log("Props final_reserva: ", this.props)
+        // this.getOfertaId(this.props.location.state.cardOferta.idOferta)
+    }
 
-    getOferta = () => {
-        api.get('/oferta')
+    getOfertaId = (id) => {
+        api.get('/oferta/' + id)
             .then(response => {
                 if (response.status === 200) {
-                    this.setState({ listaOferta: response.data });
+                    this.setState({ listaOfertaId: response.data });
                 }
             })
+    }
+
+    postReserva = (c) => {
+        c.preventDefault();
+
+        api.post('/reserva', this.state.postReserva)
+            .then(() => {
+                this.setState({ mensagemSucesso: "Reserva feita com suceso" });
+            })
+            .catch(() => {
+                this.setState({ mensagemErro: "Não foi possível fazer a Reserva, por favor verifique se a compra é valida" });
+            })
+        setTimeout(() => {
+            this.getOferta();
+        }, 1200);
     }
 
 
@@ -30,35 +68,42 @@ class Carrinho extends Component {
         return (
             <div>
                 <Header />
+                {
+                    this.state.mensagemSucesso &&
+                    <Alert variant="success" dismissible>
+                        <Alert.Heading>Sua reserva foi feita com sucesso!!!</Alert.Heading>
+                        <p>
+                            {this.state.mensagemSucesso}
+                        </p>
+                    </Alert>
+                }
                 <main>
                     <div className="cont_branco">
                         <h2>CARRINHO</h2>
                         <hr />
-                        <div className="container_carrinho">
-                        {
-                                    
-                                    this.state.listaOferta.map(function (o) {
-                                        return (
-                                            <div key={o.idOferta}>
+                        <form onSubmit={this.postReserva}>
+
+                            <div className="container_carrinho">
+                              
+                                            <div key={this.props.idOferta}>
                                                 <CarrinhoComponent
-                                                    idOferta={o.idOferta}
-                                                    nomeOferta={o.nomeOferta}
-                                                    validade={o.validade}
-                                                    preco={o.preco.toLocaleString("pt-br", { minimumFractionDigits: 2, maximumFractionDigits: 3 })}
-                                                    imagem={o.imagem}
+                                                    idOferta={this.props.idOferta}
+                                                    nomeOferta={this.props.nomeOferta}
+                                                    validade={this.props.validade}
+                                                    preco={this.props.preco}
+                                                    imagem={this.props.imagem}
                                                 />
                                             </div>
-                                        )
-                                    }
-                                    )
-                                }
-                        </div>
+                                  
 
-                        <div className="botoes_carrinho">
-                            <button className="botao_carrinho">Continuar comprando</button>
-                            <button className="btn_carrinho">Finalizar reserva</button>
-                        </div>
+                            </div>
 
+                            <div className="botoes_carrinho">
+                                <Link to="/mostruario" className="botao_carrinho">Continuar comprando</Link>
+                                <button className="btn_carrinho" type="submit">Finalizar reserva</button>
+                            </div>
+
+                        </form>
                     </div>
                 </main>
                 <Footer />
