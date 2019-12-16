@@ -4,6 +4,7 @@ import { MDBContainer, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter,MD
 import { Link, withRouter } from 'react-router-dom';
 
 
+
 class cardOferta extends Component {
     constructor(props) {
         super(props)
@@ -116,9 +117,7 @@ class cardOferta extends Component {
                          placeholder="Descrição do produto"
                          disabled
                          value={this.props.descricao}
-                     // value={this.state.putOferta.descricao}
-                     // onChange={this.putSetState}
-                     />
+                    />
                  </MDBModalBody>    
                  <div className="modal_botoes">
                      <button className="modal_botao_confirmar_reserva" onClick={this.toggle}>FECHAR</button>

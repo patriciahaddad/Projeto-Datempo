@@ -4,7 +4,6 @@ import Footer from '../../components/Footer/Footer.js';
 import api from '../../services/api';
 import Alert from 'react-bootstrap/Alert';
 
-
 import {
     MDBBtn,
     MDBTable,
@@ -13,7 +12,6 @@ import {
     MDBAlert,
     MDBInput
 } from 'mdbreact';
-
 
 class Reservas extends Component {
     constructor() {
@@ -39,8 +37,6 @@ class Reservas extends Component {
             })
 
     }
-
-
     getReservaOferta = () => {
         api.get('/reserva')
             .then(response => {
@@ -109,9 +105,6 @@ class Reservas extends Component {
                                 </MDBTableBody>
                             </MDBTable>
                         </div>
-
-
-
                         <div className="paginacao_ofertas">
                             <ul className="lista_paginacao">
                                 <a href="#" clas="lk_paginacao">

@@ -20,14 +20,7 @@ class Header extends Component {
             busca: ""
         }
     }
-    // getOferta = () => {
-    //     api.get('/oferta')
-    //         .then(response => {
-    //             if (response.status === 200) {
-    //                 this.setState({ listaOferta: response.data });
-    //             }
-    //         })
-    // }
+    
     getFiltroBusca = () => {
         api.get('filtro/filtrarPalavra/' + this.state.busca)
             .then(response => {

@@ -5,6 +5,7 @@ import api from '../../services/api';
 import CardOferta from '../../components/CardOferta/cardOferta';
 import Carrinho from '../../components/Carrinho/CarrinhoComponent';
 
+
 import {
     MDBCarousel,
     MDBCarouselInner,
@@ -49,16 +50,8 @@ class Mostruario extends Component {
 
         }
     }
-    // var date1 = new Date(validade);
-    // var date2 = new Date("12/12/2010");
-    // var timeDiff = Math.abs(date2.getTime() - date1.getTime());
-    // var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-    // alert(diffDays);
-
     componentDidMount() {
-
         this.getCategoria();
-        // this.getOferta();
 
         if(this.props.location.state != null) {
             setTimeout(() => {
@@ -72,12 +65,6 @@ class Mostruario extends Component {
             this.getOferta();
         }  
       }
-        // console.log("LISTA FILTRADA:" +this.props.location.state.busca);
-        // console.log(this.props.location.state.listaFiltrada);
-        // this.setState({listaFiltrada : this.props.location.state.listaFiltrada})
-    
-
-
     UNSAFE_componentWillReceiveProps(){
         if(this.props.location.state != null) {
             setTimeout(() => {
@@ -163,7 +150,6 @@ class Mostruario extends Component {
                     console.log("maior")
                 }, 1000)
                 :
-                // this.setState({ setStateFiltroOrdenacao: value })
                 setTimeout(() => {
                     this.getOrdenar(this.state.filtro)
                 }, 1000)
@@ -210,11 +196,8 @@ class Mostruario extends Component {
                     </MDBCarouselInner>
                 </MDBCarousel>
                 <main>
-
-
                     <h2>OFERTAS</h2>
                     <hr />
-
                     <section className="filtro">
                         <div className="container_filtro">
                             <div className="categoria_filtro">
@@ -259,7 +242,6 @@ class Mostruario extends Component {
                             </div>
                         </div>
                     </section>
-                    {/* <p className="qnt_ofertas">Mostrando 1 - 12 de 30 resultados</p> */}
                     <section className="produtos">
                         <div className="container">
                             <div className="container_ofertas">
