@@ -72,11 +72,11 @@ class Reservas extends Component {
 
                             <h2>RESERVAS</h2>
                             <hr />
-                            <MDBTable>
-                                <MDBTableHead>
-                                    <tr>
+                            <MDBTable className="cont_table">
+                                <MDBTableHead >
+                                    <tr className="table_resti">
                                         <th>#Oferta</th>
-                                        <th>N° Reserva</th>
+                                        <th>Nº Reserva</th>
                                         <th>Quantidade</th>
                                         <th>Data</th>
                                         <th>PIN</th>
@@ -84,12 +84,12 @@ class Reservas extends Component {
                                         <th>Ações</th>
                                     </tr>
                                 </MDBTableHead>
-                                <MDBTableBody>
+                                <MDBTableBody >
                                     {
                                         this.state.listaReservaOferta.map(
                                             function (r) {
                                                 return (
-                                                    <tr key={r.idOferta}>
+                                                    <tr key={r.idOferta} className="table_rescont">
                                                         <td>{r.idOfertaNavigation.nomeOferta}</td>
                                                         <td>{r.idReserva}</td>
                                                         <td>{r.quantCompra}</td>
@@ -108,11 +108,12 @@ class Reservas extends Component {
                                     }
                                 </MDBTableBody>
                             </MDBTable>
+                            <hr/>
                         </div>
 
 
 
-                        <div className="paginacao_ofertas">
+                        {/* <div className="paginacao_ofertas">
                             <ul className="lista_paginacao">
                                 <a href="#" clas="lk_paginacao">
                                     <li>
@@ -132,7 +133,7 @@ class Reservas extends Component {
                                     <li> > </li>
                                 </a>
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
                 </main>
                 <Footer />
