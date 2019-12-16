@@ -84,17 +84,17 @@ class Carrinho extends Component {
                         <form onSubmit={this.postReserva}>
 
                             <div className="container_carrinho">
-                              
-                                            <div key={this.props.idOferta}>
-                                                <CarrinhoComponent
-                                                    idOferta={this.props.idOferta}
-                                                    nomeOferta={this.props.nomeOferta}
-                                                    validade={this.props.validade}
-                                                    preco={this.props.preco}
-                                                    imagem={this.props.imagem}
-                                                />
-                                            </div>
-                                  
+
+                                <div key={this.props.idOferta}>
+                                    <CarrinhoComponent
+                                        idOferta={this.props.idOferta}
+                                        nomeOferta={this.props.nomeOferta}
+                                        validade = {this.props.validade}
+                                        preco={this.props.preco}
+                                        imagem={this.props.imagem}
+                                    />
+                                </div>
+
 
                             </div>
 
@@ -107,7 +107,7 @@ class Carrinho extends Component {
                     </div>
                 </main>
                 <Footer />
-            </div>
+            </div >
         )
     }
 }

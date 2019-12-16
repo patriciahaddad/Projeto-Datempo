@@ -59,11 +59,12 @@ main{
 }  */
 /*Modal Reserva*/
 .imagem_modal img{
-    width: 150px;
+    /* width: 100%; */
     border: solid 2px var(--laranja);
 }
 .imagem_modal{
     display: flex;
+    width: 150px;
     
 }
 .div_conteudo_modal{

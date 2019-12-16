@@ -38,7 +38,7 @@ class Header extends Component {
                 this.props.history.push({
                     pathname: "/mostruario",
                     state: {
-                        FiltroBusca: this.state.listaFiltrada
+                        filtroBusca: this.state.listaFiltrada
                     }
                     
                 })
