@@ -232,7 +232,7 @@ label input{
     font-size: 20px;
     color: var(--roxo);
     padding: 30px 0px;
-
+    
 }
 .filtro select{
     color: #707070; 
@@ -258,12 +258,12 @@ label input{
 .link_reserva{
     background-color: var(--roxo);
     color: white;
-    padding: 10px;
+    padding: 7px;
     margin: 3px;
     display: flex; 
     justify-content: center;
     border-radius: 3px;
-    margin-top: 8px;
+    margin-top: 10px;
 }
 /*FIM FILTROS*/
 /* CARD*/
@@ -422,13 +422,13 @@ label input{
 }
 .btn_editar{
     background-color: var(--laranja);
-    height: 50px;
+    height: 40px;
     width: 90px;
     margin-left: 5px;
 }
 .btn_excluir{
     background-color: var(--vermelho);
-    height: 50px;
+    height: 40px;
     width: 90px;
     margin-right: 5px;
 }
@@ -464,7 +464,7 @@ label input{
 }
 .botao_reservar{
     display: flex;
-    justify-content: space-around; 
+    justify-content: space-between; 
 }
 
 .btn_reservar{

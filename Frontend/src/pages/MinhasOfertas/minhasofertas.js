@@ -23,6 +23,10 @@ class Minhasofertas extends Component {
         this.state = {
             listaOfertas: [],
             listaReservaOferta: [],
+            listaCategoria: [],
+            listaFiltro: [],
+            listaFiltrada: [],
+
 
             putOferta: {
                 idOferta: "",
@@ -39,7 +43,12 @@ class Minhasofertas extends Component {
 
             modal: false,
             erroMsg: "",
-            successMsg: ""
+            successMsg: "",
+
+            dataAtual: "",
+
+            setStateFiltro: "",
+            setStateTodos: "",
         }
 
     }
@@ -52,6 +61,7 @@ class Minhasofertas extends Component {
 
     componentDidMount() {
         this.getOfertas();
+    
     }
 
     openModal = (o) => {
@@ -68,11 +78,48 @@ class Minhasofertas extends Component {
         console.log("PUT", this.state.putOferta);
     }
 
+    //Método para filtrar a categoria
+    getFiltro = () => {
+        // if (this.atualizaSelect.value === "Todos") {
+        //     console.log(this.getOferta)
+        // }else
+
+        api.get('/filtro/filtrarcategoria/' + this.state.setStateFiltro)
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaOfertas: response.data });
+                }
+            })
+
+    }
+
+    // getOrdenar = () =>{
+    //     api.get('/')
+    // }
+    //#endregion
+
+    //Atualiza o estado do valor do select
+    atualizaSelect = (value) => {
+        this.setState({ setStateFiltro: value })
+        setTimeout(() => {
+            this.getFiltro(this.state.filtro)
+        }, 500);
+    }
+
     getOfertas = () => {
         api.get('/oferta')
             .then(response => {
                 if (response.status === 200) {
                     this.setState({ listaOfertas: response.data })
+                }
+            })
+    }
+
+    getCategoria = () => {
+        api.get('/categoria')
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaCategoria: response.data });
                 }
             })
     }
@@ -127,14 +174,13 @@ class Minhasofertas extends Component {
         formData.set('idUsuario',this.state.putOferta.idUsuario);  
         formData.set('idProduto',this.state.putOferta.idProduto);  
 
-        // 04 - Nesta parte está o segredo, precisamos de 3 parâmetros
         // Veja no exemplo dado na documentação 
         // https://developer.mozilla.org/pt-BR/docs/Web/API/FormData/set
         formData.set('imagem', this.state.putOferta.imagem.current.files[0] , this.state.putOferta.imagem);
 
         console.log(formData);
 
-        // 05 - Não esqueça de passar o formData
+        // Não esqueça de passar o formData
         apiFormData.put('/oferta/' + oferta_id, formData)
         .then(() => {
             this.setState({ sucessMsg: "Oferta alterada com sucesso!" });
@@ -172,6 +218,17 @@ class Minhasofertas extends Component {
             })
     }
 
+    ContagemDias = (validade) => {
+        var dataAtual = new Date();
+        var dataValidade = new Date(validade);
+        var localdatevalidade = dataValidade.getDate() + '/' + (dataValidade.getMonth()+1) + '/' + dataValidade.getFullYear() + ' ' + dataValidade.getHours() + ':' + dataValidade.getMinutes();
+
+
+        var dataDif = ((dataValidade - dataAtual)/(1000*60*60*24)).toFixed(0);
+
+        return dataDif + " dias!";
+    }
+
     render() {
         return (
             <div>
@@ -181,16 +238,42 @@ class Minhasofertas extends Component {
                         <div className="ofertas_cadastradas">
                             <h2>MINHAS OFERTAS</h2>
                             <hr />
+                            <section className="filtro">
+
                             <div className="filtro">
                                 <div className="filtros">
-                                    {/* <MDBBtn className="btn_cria_Oferta">Cadastrar oferta</MDBBtn> */}
                                     <Link className="link" to={{ pathname: "/cadastrooferta" }} >Cadastrar oferta</Link>
 
-                                    <MDBBtn className="btn-filtro">Selecione por:</MDBBtn>
-
+                                    {/* <MDBBtn className="btn-filtro">Selecione por:</MDBBtn> */}
                                 </div>
                             </div>
-                            <p className="qnt_ofertas">Mostrando 1 - 12 de 30 resultados</p>
+
+                        <div className="container_filtro">
+                            <div className="categoria_filtro">
+                                <label>Categoria:</label>
+                                <select name="idCategoria" id="cmbCategoria"
+                                    onChange={(e) => this.atualizaSelect(e.target.value)}
+                                >
+
+                                    <option value="Todos"> Todos </option>
+
+                                    {
+                                        this.state.listaCategoria.map(function (c) {
+                                            return (
+                                                <option
+                                                    key={c.idCategoria}
+                                                    value={c.nomeCategoria}
+                                                >
+                                                    {c.nomeCategoria}
+                                                </option>
+                                            )
+                                        }.bind(this))
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </section> 
+                            {/* <p className="qnt_ofertas">Mostrando 1 - 12 de 30 resultados</p> */}
                         </div>
                         <div className="container_card">
                         {
@@ -216,7 +299,7 @@ class Minhasofertas extends Component {
                                                     <p className="titulo_descricao_logo">DATEMPO</p>
                                                     <div className="validade_mostruario">
                                                         <img src={Relogio} alt="Alarme" />
-                                                        <p className="descricao"> Faltam: 10 dias!</p>
+                                                        <p className="descricao"> Faltam: {this.ContagemDias(this.props.validade)}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -342,7 +425,7 @@ class Minhasofertas extends Component {
                             </form>
                         </MDBModal>
 
-                    <div className="paginacao_ofertas">
+                    {/* <div className="paginacao_ofertas">
                         <ul className="lista_paginacao">
                             <a href="#" clas="lk_paginacao">
                                 <li>
@@ -362,7 +445,7 @@ class Minhasofertas extends Component {
                                 <li> > </li>
                             </a>
                         </ul>
-                    </div>
+                    </div> */}
                     </div>
                 </main>
 
