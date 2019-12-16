@@ -635,6 +635,7 @@ button {
     cursor: pointer;
     overflow: hidden;
 }
+
 button:focus{ outline: none }
 
   span {
@@ -841,9 +842,6 @@ input:disabled {
 
 /*TABLET*/
 @media (max-width:1169px){
-    .view img, .view video{
-        padding-top: 170px;
-    }
     header .pesquisa{
         width: 500px;
     }
@@ -981,9 +979,6 @@ input:disabled {
 
 /*CELULAR - MOBILE*/
 @media (max-width:767px){
-    .view img, .view video{
-        padding-top: 270px;
-    }
     .banner_sobre{
         height: 350px;
     }
