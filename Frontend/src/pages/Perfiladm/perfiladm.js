@@ -118,9 +118,9 @@ class Perfiladm extends Component {
                 <Header></Header>
                 <main>
                     <div className="container">
-                                <Menuadm/>
                         <section className="cont_branco">
                             <div className="organizacao_adm">
+                                <Menuadm/>
 
                                 <div className="adm_configs_dir">
                                     <h2>PERFIL ADM</h2>
@@ -134,7 +134,8 @@ class Perfiladm extends Component {
                                                     type="file"
                                                     name="imgusuario"
                                                     onChange={this.putSetStateFile}
-                                                    ref={this.state.putUsuario.imgusuario} />
+                                                    ref={this.state.putUsuario.imgusuario}
+                                                    required />
                                             </label>
                                             <label>
                                                 Nome completo

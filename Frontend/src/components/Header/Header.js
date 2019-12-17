@@ -20,29 +20,22 @@ class Header extends Component {
             busca: ""
         }
     }
-    // getOferta = () => {
-    //     api.get('/oferta')
-    //         .then(response => {
-    //             if (response.status === 200) {
-    //                 this.setState({ listaOferta: response.data });
-    //             }
-    //         })
-    // }
+
     getFiltroBusca = () => {
         api.get('filtro/filtrarPalavra/' + this.state.busca)
             .then(response => {
-                if (response.status === 200){
-                this.setState({ listaFiltrada: response.data });
-                console.log(this.state.listaFiltrada);
+                if (response.status === 200) {
+                    this.setState({ listaFiltrada: response.data });
+                    console.log(this.state.listaFiltrada);
 
-                this.props.history.push({
-                    pathname: "/mostruario",
-                    state: {
-                        FiltroBusca: this.state.listaFiltrada
-                    }
-                    
-                })
-            }
+                    this.props.history.push({
+                        pathname: "/mostruario",
+                        state: {
+                            filtroBusca: this.state.listaFiltrada
+                        }
+
+                    })
+                }
             })
     }
     //Função para quando o usuario clicar enter, fazer a busca
@@ -68,6 +61,7 @@ class Header extends Component {
 
     render() {
         return (
+
             <header>
                 <div className="container_h">
                     <img className="logo" src={Logo} alt="Logo Datempo" />
@@ -77,7 +71,7 @@ class Header extends Component {
                             <img className="logo-mobile" src={Logo} alt="Logo Datempo" />
                             <div className="icon"><i class="fas fa-bars"></i></div>
                         </label>
-	                    <input type="checkbox" id="show-menu"/>
+                        <input type="checkbox" id="show-menu" />
 
                         <ul className="menu">
                             <Link to="/">Home</Link>
@@ -128,21 +122,21 @@ class Header extends Component {
                                                 <MDBDropdownToggle>
                                                     MEU PERFIL
                                                         </MDBDropdownToggle>
-                                                        <MDBDropdownMenu basic>
-                                                            <MDBDropdownItem>
-                                                                <img src={config} ></img>
-                                                                <Link to="/perfilusuario">Configurações</Link>
-                                                            </MDBDropdownItem>
-                                                            <MDBDropdownItem>
-                                                                <img src={carrinho} />
-                                                                <Link to="/carrinho">Carrinho</Link>
-                                                            </MDBDropdownItem>
-                                                            <MDBDropdownItem>
-                                                                <img src={Logout} ></img>
-                                                                <Link to="/Login" onClick={this.logout}>Sair</Link>
-                                                            </MDBDropdownItem>
-                                                        </MDBDropdownMenu>
-                                                    </MDBDropdown>
+                                                <MDBDropdownMenu basic>
+                                                    <MDBDropdownItem>
+                                                        <img src={config} ></img>
+                                                        <Link to="/perfilusuario">Configurações</Link>
+                                                    </MDBDropdownItem>
+                                                    <MDBDropdownItem>
+                                                        <img src={carrinho} />
+                                                        <Link to="/carrinho">Carrinho</Link>
+                                                    </MDBDropdownItem>
+                                                    <MDBDropdownItem>
+                                                        <img src={Logout} ></img>
+                                                        <Link to="/Login" onClick={this.logout}>Sair</Link>
+                                                    </MDBDropdownItem>
+                                                </MDBDropdownMenu>
+                                            </MDBDropdown>
                                         </>
                                     ) : (
                                             usuarioAutenticado() && parseJwt().Role === "Administrador" ? (

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Relogio from '../../assets/imagens/alarm-clock.png';
-import { MDBContainer, MDBModal, MDBModalBody} from 'mdbreact';
-import { Link} from 'react-router-dom';
+import { MDBContainer, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter,MDBAlert } from 'mdbreact';
+import { Link, withRouter } from 'react-router-dom';
 
 
 class cardOferta extends Component {
@@ -51,7 +51,7 @@ class cardOferta extends Component {
         return (
                 <div key = {this.props.idOferta}className="card_oferta">
                     <div className="caixa_imagem">
-                        <img className="imgproduto" src={"https://localhost:5000/imgOferta/" + this.props.imagem}
+                        <img className="imgproduto" src={"http://localhost:5000/imgOferta/" + this.props.imagem}
                             alt="Pacote de Arroz de 5kg da marca Tio João" />
                     </div>
                     <div className="descricao_oferta">
@@ -137,4 +137,3 @@ class cardOferta extends Component {
 }
 
 export default cardOferta;
-
