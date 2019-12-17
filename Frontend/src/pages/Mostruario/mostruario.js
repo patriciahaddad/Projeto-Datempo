@@ -3,10 +3,13 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
 import CardOferta from '../../components/CardOferta/cardOferta';
+<<<<<<< HEAD
 import banner from '../../assets/imagens/bannerAlimento.png';
 import banner2 from '../../assets/imagens/BannerFrutas.jpg';
 import banner3 from '../../assets/imagens/bannerA.png';
 
+=======
+>>>>>>> f74b3414d7581d9388008a67fce350b88a012d8f
 
 import {
     MDBCarousel,
