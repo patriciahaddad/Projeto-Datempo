@@ -185,73 +185,77 @@ class Categoria extends Component {
     render() {
         return (
             <div>
-                 <Header/>
+                <Header />
                 <main>
                     <div className="container">
-                    <Menuadm/>
                         <section className="cont_branco">
-                            <h2>CATEGORIAS CADASTRADAS</h2>
-                            <hr />
-                            <div className="container_tabelas">
-                                <MDBTable>
-                                    <MDBTableHead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Categoria</th>
-                                            <th>Ações</th>
-                                        </tr>
-                                    </MDBTableHead>
-                                    <MDBTableBody>
-                                        {
-                                            this.state.listaCategorias.map(
-                                                function (c) {
-                                                    return (
-                                                        <tr key={c.idCategoria}>
-                                                            <td>{c.idCategoria}</td>
-                                                            <td>{c.nomeCategoria}</td>
-                                                            <td>
-                                                                <MDBBtn color="primary" size="sm" onClick={() => this.openModal(c)}>
-                                                                    Editar
+                            <div className="organizacao_adm">
+                                <Menuadm />
+                                <div className="adm_configs_dir">
+                                    <h2>CATEGORIAS CADASTRADAS</h2>
+                                    <hr />
+                                    <div className="container_tabelas">
+                                        <MDBTable>
+                                            <MDBTableHead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Categoria</th>
+                                                    <th>Ações</th>
+                                                </tr>
+                                            </MDBTableHead>
+                                            <MDBTableBody>
+                                                {
+                                                    this.state.listaCategorias.map(
+                                                        function (c) {
+                                                            return (
+                                                                <tr key={c.idCategoria}>
+                                                                    <td>{c.idCategoria}</td>
+                                                                    <td>{c.nomeCategoria}</td>
+                                                                    <td>
+                                                                        <MDBBtn color="primary" size="sm" onClick={() => this.openModal(c)}>
+                                                                            Editar
                                                                 </MDBBtn>
-                                                                <MDBBtn color="danger" size="sm" onClick={() => this.deleteCategoria(c.idCategoria)}>
-                                                                    Excluir
+                                                                        <MDBBtn color="danger" size="sm" onClick={() => this.deleteCategoria(c.idCategoria)}>
+                                                                            Excluir
                                                                 </MDBBtn>
-                                                            </td>
-                                                        </tr>
+                                                                    </td>
+                                                                </tr>
+                                                            )
+                                                        }.bind(this)
                                                     )
-                                                }.bind(this)
-                                            )
-                                        }
-                                    </MDBTableBody>
-                                </MDBTable>
+                                                }
+                                            </MDBTableBody>
+                                        </MDBTable>
 
-                                <h2>CADASTRAR CATEGORIA</h2>
-                                <hr />
+                                        <h2>CADASTRAR CATEGORIA</h2>
+                                        <hr />
 
-                                <form onSubmit={this.postCategoria}>
-                                    <div className="form-group">
-                                        <label htmlFor="example2">Nome da Categoria:</label>
-                                        <input type="text"
-                                            className="form-control form-control-md"
-                                            name="nomeCategoria"
-                                            value={this.state.listaCategorias.nomeCategoria}
-                                            onChange={this.postSetState} />
+                                        <form onSubmit={this.postCategoria}>
+                                            <div className="form-group">
+                                                <label htmlFor="example2">Nome da Categoria:</label>
+                                                <input type="text"
+                                                    className="form-control form-control-md"
+                                                    name="nomeCategoria"
+                                                    value={this.state.listaCategorias.nomeCategoria}
+                                                    onChange={this.postSetState} />
+                                            </div>
+                                            <MDBBtn color="primary" type="submit">Salvar</MDBBtn>
+                                            {
+                                                this.state.erroMsg &&
+                                                <MDBAlert color="danger" >
+                                                    {this.state.erroMsg}
+                                                </MDBAlert>
+                                            }
+                                            {
+                                                this.state.sucessMsg &&
+                                                <MDBAlert color="sucess" >
+                                                    {this.state.sucessMsg}
+                                                </MDBAlert>
+                                            }
+                                            <MDBBtn color="danger"><Link to="/perfiladm">Voltar</Link></MDBBtn>
+                                        </form>
                                     </div>
-                                    <MDBBtn color="primary" type="submit">Salvar</MDBBtn>
-                                    {
-                                        this.state.erroMsg &&
-                                        <MDBAlert color="danger" >
-                                            {this.state.erroMsg}
-                                        </MDBAlert>
-                                    }
-                                    {
-                                        this.state.sucessMsg &&
-                                        <MDBAlert color="sucess" >
-                                            {this.state.sucessMsg}
-                                        </MDBAlert>
-                                    }
-                                    <MDBBtn color="danger"><Link to="/perfiladm">Voltar</Link></MDBBtn>
-                                </form>
+                                </div>
                             </div>
                         </section>
                     </div>

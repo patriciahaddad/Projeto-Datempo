@@ -5,7 +5,7 @@ import Menuadm from '../../components/menuadm/menuadm.js';
 import apiFormData from './../../services/apiFormData';
 import api from './../../services/api';
 import Relogio from '../../assets/imagens/alarm-clock.png';
-import { MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBAlert} from 'mdbreact';
+import { MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBAlert } from 'mdbreact';
 
 
 class Ofertas extends Component {
@@ -225,10 +225,10 @@ class Ofertas extends Component {
     ContagemDias = (validade) => {
         var dataAtual = new Date();
         var dataValidade = new Date(validade);
-        var localdatevalidade = dataValidade.getDate() + '/' + (dataValidade.getMonth()+1) + '/' + dataValidade.getFullYear() + ' ' + dataValidade.getHours() + ':' + dataValidade.getMinutes();
+        var localdatevalidade = dataValidade.getDate() + '/' + (dataValidade.getMonth() + 1) + '/' + dataValidade.getFullYear() + ' ' + dataValidade.getHours() + ':' + dataValidade.getMinutes();
 
 
-        var dataDif = ((dataValidade - dataAtual)/(1000*60*60*24)).toFixed(0);
+        var dataDif = ((dataValidade - dataAtual) / (1000 * 60 * 60 * 24)).toFixed(0);
 
         return dataDif + " dias!";
     }
@@ -239,179 +239,159 @@ class Ofertas extends Component {
                 <Header></Header>
                 <main>
                     <div className="container">
-                    <Menuadm/>
                         <section className="cont_branco">
-                            <div className="ofertas_cadastradas">
-                                <h2>OFERTAS CADASTRADAS</h2>
-                                <hr />
-                                <div className="container_card">
-                                    {
-                                        this.state.listaOfertas.map(
-                                            function (o) {
-                                                return (
-                                                    <div className="card_oferta" key={o.idOferta}>
-                                                        <div className="caixa_imagem">
-                                                            <img className="imgproduto" src={"https://localhost:5001/imgOferta/" + o.imagem}
-                                                                alt="Pacote de Arroz de 5kg da marca Tio João" />
-                                                        </div>
-                                                        <div className="descricao_oferta">
-                                                            <div className="titulo_produto">
-                                                                <p className="titulo descricao">{o.nomeOferta}</p>
-                                                            </div>
-                                                            <div className="descricao_produto">
-                                                                <div className="descricao_pequena">
-                                                                    <p className="titulo_descricao">de R$ 8,00</p>
-                                                                    <p className="titulo_preco">Por</p>
-                                                                    <p className="preco_descricao">{o.preco.toFixed(2)}</p>
+                            <div className="organizacao_adm">
+                                <Menuadm />
+                                    <div className="ofertas_cadastradas">
+                                        <h2>OFERTAS CADASTRADAS</h2>
+                                        <hr />
+                                        <div className="container_card">
+                                            {
+                                                this.state.listaOfertas.map(
+                                                    function (o) {
+                                                        return (
+                                                            <div className="card_oferta" key={o.idOferta}>
+                                                                <div className="caixa_imagem">
+                                                                    <img className="imgproduto" src={"https://localhost:5001/imgOferta/" + o.imagem}
+                                                                        alt="Pacote de Arroz de 5kg da marca Tio João" />
                                                                 </div>
+                                                                <div className="descricao_oferta">
+                                                                    <div className="titulo_produto">
+                                                                        <p className="titulo descricao">{o.nomeOferta}</p>
+                                                                    </div>
+                                                                    <div className="descricao_produto">
+                                                                        <div className="descricao_pequena">
+                                                                            <p className="titulo_descricao">de R$ 8,00</p>
+                                                                            <p className="titulo_preco">Por</p>
+                                                                            <p className="preco_descricao">{o.preco.toFixed(2)}</p>
+                                                                        </div>
 
-                                                                <div className="descricao_pequena_logo">
-                                                                    <p className="titulo_descricao_logo">DATEMPO</p>
-                                                                    <div className="validade_mostruario">
-                                                                        <img src={Relogio} alt="Alarme" />
-                                                                        <p className="descricao"> Faltam: {this.ContagemDias(o.validade)}</p>
+                                                                        <div className="descricao_pequena_logo">
+                                                                            <p className="titulo_descricao_logo">DATEMPO</p>
+                                                                            <div className="validade_mostruario">
+                                                                                <img src={Relogio} alt="Alarme" />
+                                                                                <p className="descricao"> Faltam: {this.ContagemDias(o.validade)}</p>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
+                                                                <div className="botoes_oferta">
+                                                                    <a href="#" className="btn_edita_oferta" onClick={() => this.openModal(o)}>EDITAR</a>
+                                                                    <a href="#" className="btn_reserva_oferta" onClick={() => this.deleteOferta(o.idOferta)}>EXCLUIR</a>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div className="botoes_oferta">
-                                                            <a href="#" className="btn_edita_oferta" onClick={() => this.openModal(o)}>EDITAR</a>
-                                                            <a href="#" className="btn_reserva_oferta" onClick={() => this.deleteOferta(o.idOferta)}>EXCLUIR</a>
-                                                        </div>
-                                                    </div>
 
+                                                        )
+                                                    }.bind(this)
                                                 )
-                                            }.bind(this)
-                                        )
-                                    }
+                                            }
+                                        </div>
+                                        <MDBModal isOpen={this.state.modal} toggle={this.toggle} size="lg">
+                                            <form onSubmit={this.putOferta}>
+                                                <MDBModalHeader toggle={this.toggle}>Editar - {this.state.putOferta.nomeOferta}</MDBModalHeader>
+                                                <MDBModalBody>
+                                                    <label
+                                                        htmlFor="defaultFormContactNameEx"
+                                                        className="black-text">
+                                                        Informe o título do produto:</label>
+                                                    <input
+                                                        type="text"
+                                                        id="defaultFormContactNameEx"
+                                                        className="form-control"
+                                                        name="nomeOferta"
+                                                        value={this.state.putOferta.nomeOferta}
+                                                        onChange={this.putSetState} />
+                                                    <br />
+                                                    <label
+                                                        htmlFor="defaultFormContactEmailEx"
+                                                        className="black-text">
+                                                        Informe a Marca:</label>
+                                                    <input
+                                                        type="text"
+                                                        id="defaultFormContactEmailEx"
+                                                        className="form-control"
+                                                        name="marca"
+                                                        value={this.state.putOferta.marca}
+                                                        onChange={this.putSetState} />
+                                                    <br />
+                                                    <label
+                                                        htmlFor="defaultFormContactSubjectEx"
+                                                        className="black-text">
+                                                        Informe Valor:</label>
+                                                    <input
+                                                        type="text"
+                                                        id="defaultFormContactSubjectEx"
+                                                        className="form-control"
+                                                        name="preco"
+                                                        value={this.state.putOferta.preco}
+                                                        onChange={this.putSetState}
+                                                    />
+                                                    <br />
+                                                    <label
+                                                        htmlFor="defaultFormContactSubjectEx"
+                                                        className="black-text">
+                                                        Validade do produto:</label>
+                                                    <input
+                                                        type="text"
+                                                        id="defaultFormContactSubjectEx"
+                                                        className="form-control"
+                                                        name="validade"
+                                                        value={this.state.putOferta.validade}
+                                                        onChange={this.putSetState}
+                                                    />
+                                                    <br />
+                                                    <label
+                                                        htmlFor="defaultFormContactSubjectEx"
+                                                        className="black-text">
+                                                        Quantidade para Venda:</label>
+                                                    <input
+                                                        type="text"
+                                                        id="defaultFormContactSubjectEx"
+                                                        className="form-control"
+                                                        name="quantVenda"
+                                                        value={this.state.putOferta.quantVenda}
+                                                        onChange={this.putSetState}
+                                                    />
+                                                    <br />
+                                                    <label
+                                                        htmlFor="defaultFormContactMessageEx"
+                                                        className="black-text">
+                                                        Informações adicionais</label>
+                                                    <textarea
+                                                        type="text"
+                                                        id="defaultFormContactMessageEx"
+                                                        className="form-control"
+                                                        name="descricao"
+                                                        value={this.state.putOferta.descricao}
+                                                        onChange={this.putSetState}
+                                                    /><br />
+                                                    <input accept="image/*"
+                                                        className="input_load"
+                                                        id="icon-button-file"
+                                                        type="file" name="imagem"
+                                                        onChange={this.putSetStateFile}
+                                                        ref={this.state.putOferta.imagem} />
+                                                </MDBModalBody>
+                                                <MDBModalFooter>
+                                                    <MDBBtn color="primary" type="submit">Salvar</MDBBtn>
+                                                    {
+                                                        this.state.erroMsg &&
+                                                        <MDBAlert color="danger" >
+                                                            {this.state.erroMsg}
+                                                        </MDBAlert>
+                                                    }
+                                                    {
+                                                        this.state.sucessMsg &&
+                                                        <MDBAlert color="sucess" >
+                                                            {this.state.sucessMsg}
+                                                        </MDBAlert>
+                                                    }
+                                                    <MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
+                                                </MDBModalFooter>
+                                            </form>
+                                        </MDBModal>
+                                    </div>
                                 </div>
-                                <MDBModal isOpen={this.state.modal} toggle={this.toggle} size="lg">
-                                    <form onSubmit={this.putOferta}>
-                                        <MDBModalHeader toggle={this.toggle}>Editar - {this.state.putOferta.nomeOferta}</MDBModalHeader>
-                                        <MDBModalBody>
-                                            <label
-                                                htmlFor="defaultFormContactNameEx"
-                                                className="black-text">
-                                                Informe o título do produto:</label>
-                                            <input
-                                                type="text"
-                                                id="defaultFormContactNameEx"
-                                                className="form-control"
-                                                name="nomeOferta"
-                                                value={this.state.putOferta.nomeOferta}
-                                                onChange={this.putSetState} />
-                                            <br />
-                                            <label
-                                                htmlFor="defaultFormContactEmailEx"
-                                                className="black-text">
-                                                Informe a Marca:</label>
-                                            <input
-                                                type="text"
-                                                id="defaultFormContactEmailEx"
-                                                className="form-control"
-                                                name="marca"
-                                                value={this.state.putOferta.marca}
-                                                onChange={this.putSetState} />
-                                            <br />
-                                            <label
-                                                htmlFor="defaultFormContactSubjectEx"
-                                                className="black-text">
-                                                Informe Valor:</label>
-                                            <input
-                                                type="text"
-                                                id="defaultFormContactSubjectEx"
-                                                className="form-control"
-                                                name="preco"
-                                                value={this.state.putOferta.preco}
-                                                onChange={this.putSetState}
-                                            />
-                                            <br />
-                                            <label
-                                                htmlFor="defaultFormContactSubjectEx"
-                                                className="black-text">
-                                                Validade do produto:</label>
-                                            <input
-                                                type="text"
-                                                id="defaultFormContactSubjectEx"
-                                                className="form-control"
-                                                name="validade"
-                                                value={this.state.putOferta.validade}
-                                                onChange={this.putSetState}
-                                            />
-                                            <br />
-                                            <label
-                                                htmlFor="defaultFormContactSubjectEx"
-                                                className="black-text">
-                                                Quantidade para Venda:</label>
-                                            <input
-                                                type="text"
-                                                id="defaultFormContactSubjectEx"
-                                                className="form-control"
-                                                name="quantVenda"
-                                                value={this.state.putOferta.quantVenda}
-                                                onChange={this.putSetState}
-                                            />
-                                            <br />
-                                            <label
-                                                htmlFor="defaultFormContactMessageEx"
-                                                className="black-text">
-                                                Informações adicionais</label>
-                                            <textarea
-                                                type="text"
-                                                id="defaultFormContactMessageEx"
-                                                className="form-control"
-                                                name="descricao"
-                                                value={this.state.putOferta.descricao}
-                                                onChange={this.putSetState}
-                                            /><br />
-                                            <input accept="image/*"
-                                                className="input_load"
-                                                id="icon-button-file"
-                                                type="file" name="imagem"
-                                                onChange={this.putSetStateFile}
-                                                ref={this.state.putOferta.imagem} />
-                                        </MDBModalBody>
-                                        <MDBModalFooter>
-                                            <MDBBtn color="primary" type="submit">Salvar</MDBBtn>
-                                            {
-                                                this.state.erroMsg &&
-                                                <MDBAlert color="danger" >
-                                                    {this.state.erroMsg}    
-                                                </MDBAlert>
-                                            }
-                                            {
-                                                this.state.sucessMsg &&
-                                                <MDBAlert color="sucess" >
-                                                    {this.state.sucessMsg}
-                                                </MDBAlert>
-                                            }
-                                            <MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
-                                        </MDBModalFooter>
-                                    </form>
-                                </MDBModal>
-
-                            </div>
-                            <div className="paginacao_ofertas">
-                                <ul className="lista_paginacao">
-                                    <a href="#" clas="lk_paginacao">
-                                        <li>
-                                        </li>  </a> <a href="#">
-                                        <li>1</li>
-                                    </a>
-                                    <a href="#">
-                                        <li>2</li>
-                                    </a>
-                                    <a href="#">
-                                        <li>3</li>
-                                    </a>
-                                    <a href="#">
-                                        <li>...</li>
-                                    </a>
-                                    <a href="#">
-                                        <li> > </li>
-                                    </a>
-                                </ul>
-                            </div>
                         </section>
                     </div>
                 </main>

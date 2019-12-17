@@ -9,13 +9,7 @@
 .container_h .logo{
     width: 90px;
 }
-.container{
-    width: 1100px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
+
 header{
     -webkit-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);
     -moz-box-shadow: 0px 3px 6px 0px rgba(204,204,204,1);

@@ -134,7 +134,8 @@ class Perfiladm extends Component {
                                                     type="file"
                                                     name="imgusuario"
                                                     onChange={this.putSetStateFile}
-                                                    ref={this.state.putUsuario.imgusuario} />
+                                                    ref={this.state.putUsuario.imgusuario}
+                                                    required />
                                             </label>
                                             <label>
                                                 Nome completo
