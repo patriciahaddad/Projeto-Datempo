@@ -12,16 +12,8 @@ class cardOferta extends Component {
             idOferta : this.props.idOferta,
 
 
-            modal: false,
-
-            dataAtual: ""
+            modal: false
         }
-    }
-    
-    componentWillReceiveProps(){
-        setTimeout(() => {
-            this.setState({idOferta : this.props.idOferta})
-        }, 100);
     }
 
     //#region Toggle
@@ -38,14 +30,6 @@ class cardOferta extends Component {
         });
     }
     //#endregion
-    
-    ContagemDias = (validade) => {
-        var dataAtual = new Date();
-        var dataValidade = new Date(validade);
-        var localdatevalidade = dataValidade.getDate() + '/' + (dataValidade.getMonth()+1) + '/' + dataValidade.getFullYear() + ' ' + dataValidade.getHours() + ':' + dataValidade.getMinutes();
-        var dataDif = ((dataValidade - dataAtual)/(1000*60*60*24)-10).toFixed(0);
-        return dataDif + " dias!";
-    }
 
     render() {
         return (
@@ -69,11 +53,11 @@ class cardOferta extends Component {
                                 <p className="titulo_descricao_logo">DATEMPO</p>
                                 <div className="validade_mostruario">
                                     <img src={Relogio} alt="Alarme" />
-                                    <p className="descricao"> Faltam: {this.ContagemDias(this.props.validade)}</p>
+                                    <p className="descricao"> Faltam: 30 dias!</p>
                                 </div>
                             </div>
                         </div>
-                        {/* {ContagemDias(this.props.validade)} */}
+
                     </div>
                     <div className="botao_reservar">
                         <button className="btn_reservar" onClick={() => this.openModal()}>RESERVAR</button>
@@ -137,4 +121,3 @@ class cardOferta extends Component {
 }
 
 export default cardOferta;
-

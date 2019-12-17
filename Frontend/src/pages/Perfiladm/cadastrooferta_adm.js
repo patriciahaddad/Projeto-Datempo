@@ -13,6 +13,7 @@ class CadastroOferta_adm extends Component {
 
             listaoferta: [],
             listaProdutos: [],
+            listaUsuarios: [],
 
             postOferta: {
                 nomeOferta: "",
@@ -30,6 +31,7 @@ class CadastroOferta_adm extends Component {
     componentDidMount() {
         this.getOferta();
         this.getProdutos();
+        this.getUsuarios();
     }
 
     getOferta = () => {
@@ -45,6 +47,15 @@ class CadastroOferta_adm extends Component {
             .then(response => {
                 if (response.status === 200) {
                     this.setState({ listaProdutos: response.data })
+                }
+            })
+    }
+
+    getUsuarios = () => {
+        api.get('/usuario')
+            .then(response => {
+                if (response.status === 200 && this.state.idUsuarioNavigation.idTipoUsuario === 2) {
+                    this.setState({ listaUsuarios: response.data })
                 }
             })
     }
@@ -75,6 +86,8 @@ class CadastroOferta_adm extends Component {
         oferta.set("preco", this.state.postOferta.preco);
         oferta.set("validade", this.state.postOferta.validade);
         oferta.set("quantVenda", this.state.postOferta.quantVenda);
+        oferta.set("idProduto", this.state.postOferta.idProduto);
+        oferta.set("idUsuario", this.state.postOferta.idUsuario);
         oferta.set("imagem", this.state.postOferta.imagem.current.files[0]);
 
         console.log(oferta);
@@ -181,7 +194,10 @@ class CadastroOferta_adm extends Component {
                                             htmlFor="defaultFormContactSubjectEx"
                                             className="black-text">
                                             Tipo de Produto:</label>
-                                        <select className="browser-default custom-select">
+                                        <select className="browser-default custom-select"
+                                                name="idProduto"
+                                                value={this.state.postOferta.idProduto}
+                                                onChange={this.postSetState}>
                                         <option value="">Escolha uma categoria de Produto...</option>
                                                             {
                                                                 this.state.listaProdutos.map(function (p) {
@@ -189,6 +205,26 @@ class CadastroOferta_adm extends Component {
                                                                         <option
                                                                             key={p.idProduto}
                                                                             value={p.idProduto}> {p.nomeProduto}
+                                                                        </option>
+                                                                    )
+                                                                })
+                                                            }
+                                        </select><br/>
+                                        <label
+                                            htmlFor="defaultFormContactSubjectEx"
+                                            className="black-text">
+                                            Fornecedor:</label>
+                                        <select className="browser-default custom-select"
+                                                name="idUsuario"
+                                                value={this.state.postOferta.idUsuario}
+                                                onChange={this.postSetState}>
+                                        <option value="">Escolha um Fornecedor...</option>
+                                                            {
+                                                                this.state.listaUsuarios.map(function (u) {
+                                                                    return (
+                                                                        <option
+                                                                            key={u.idUsuario}
+                                                                            value={u.idUsuario}> {u.nome}
                                                                         </option>
                                                                     )
                                                                 })
