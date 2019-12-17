@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
-import CardOferta from '../../components/CardOferta/CardOferta';
+import CardOferta from '../../components/Card/CardOferta.js';
 
 import banner from '../../assets/imagens/bannerAlimento.png';
 import banner2 from '../../assets/imagens/BannerFrutas.jpg';

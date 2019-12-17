@@ -51,7 +51,7 @@ class cardOferta extends Component {
         return (
                 <div key = {this.props.idOferta}className="card_oferta">
                     <div className="caixa_imagem">
-                        <img className="imgproduto" src={"https://localhost:5000/imgOferta/" + this.props.imagem}
+                        <img className="imgproduto" src={"http://localhost:5000/imgOferta/" + this.props.imagem}
                             alt="Pacote de Arroz de 5kg da marca Tio João" />
                     </div>
                     <div className="descricao_oferta">
@@ -137,4 +137,3 @@ class cardOferta extends Component {
 }
 
 export default cardOferta;
-

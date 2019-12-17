@@ -843,12 +843,19 @@ button:focus{ outline: none }
 }
 /* FIM CARRINHO */
 
+.admusu_configs_dir{
+    /* align-items: center; */
+    padding-top: 10px;
+}
+
+
 /* PERFIL ADM */
 .adm_configs_dir{
     width: 80%;
     align-items: center;
     padding-top: 10px;
 }
+
 .adm_configs_dir img{
     width: 150px;
     border: solid 2px var(--laranja);
@@ -859,6 +866,14 @@ button:focus{ outline: none }
     display: flex;
     margin: auto;
     justify-content: center;
+}
+
+.container{
+    width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 /*MEDIAS QUERIES*/
@@ -996,13 +1011,9 @@ input:disabled {
         padding-top: 10px;
     }
     .organizacao_adm{
-        height: 100%;
         width: 100%;
         margin: auto;
     }
-    /* .adm_configs_dir{
-        margin-left: 127px;
-    } */
     .adm_configs_dir img{
         margin-left: 150px;
     }
