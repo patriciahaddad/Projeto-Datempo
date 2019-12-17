@@ -2,14 +2,10 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
-import CardOferta from '../../components/CardOferta/cardOferta';
-<<<<<<< HEAD
 import banner from '../../assets/imagens/bannerAlimento.png';
 import banner2 from '../../assets/imagens/BannerFrutas.jpg';
 import banner3 from '../../assets/imagens/bannerA.png';
 
-=======
->>>>>>> f74b3414d7581d9388008a67fce350b88a012d8f
 
 import {
     MDBCarousel,
@@ -178,7 +174,7 @@ class Mostruario extends Component {
                                 <MDBView>
                                     <img
                                         className="d-block w-100"
-                                        src={banner}
+                                        src={banner3}
                                         alt="First slide"
                                     />
                                 </MDBView>
@@ -196,7 +192,7 @@ class Mostruario extends Component {
                                 <MDBView>
                                     <img
                                         className="d-block w-100"
-                                        src={banner3}
+                                        src={banner}
                                         alt="Third slide"
                                     />
                                 </MDBView>
@@ -266,14 +262,14 @@ class Mostruario extends Component {
                                     this.state.listaOferta.map(function (o) {
                                         return (
                                             <div key={o.idOferta}>
-                                                <CardOferta
+                                                {/* <CardOferta
                                                     idOferta={o.idOferta}
                                                     nomeOferta={o.nomeOferta}
                                                     validade={o.validade}
                                                     preco={o.preco.toLocaleString("pt-br", { minimumFractionDigits: 2, maximumFractionDigits: 3 })}
                                                     imagem={o.imagem}
                                                     descricao={o.descricao}
-                                                />
+                                                /> */}
                                             </div>
                                         )
                                     }

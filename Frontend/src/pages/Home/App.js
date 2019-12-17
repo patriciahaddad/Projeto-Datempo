@@ -24,17 +24,17 @@ function App() {
                     <MDBCarouselInner>
                         <MDBCarouselItem itemId="1">
                             <MDBView>
-                                <img className="d-block w-100" src={banner} alt="First slide" />
+                            <a href="/mostruario"><img className="d-block w-100" src={banner} alt="First slide" /></a>
                             </MDBView>
                         </MDBCarouselItem>
                         <MDBCarouselItem itemId="2">
                             <MDBView>
-                                <img className="d-block w-100" src={banner2}alt="Second slide" />
+                                <a href="/mostruario"><img className="d-block w-100" src={banner2}alt="Second slide" /></a>
                             </MDBView>
                         </MDBCarouselItem>
                         <MDBCarouselItem itemId="3">
                             <MDBView>
-                                <img className="d-block w-100" src={banner3} alt="Third slide" />
+                                <a href="/mostruario"><img className="d-block w-100" src={banner3} alt="Third slide" /></a>
                             </MDBView>
                         </MDBCarouselItem>
                     </MDBCarouselInner>
@@ -174,7 +174,7 @@ function App() {
                     <hr/>
                     <p><br /> Você encontrará em nossa plataforma ofertas de produtos como: alimentos que estão perto do
                         vencimento e vestimentas que possuem pouca circulação no estoque. Saiba mais sobre nosso
-                    propósito!<br/>
+                        propósito!<br/>
                         Nunca é tarde, sempre DATEMPO! </p>
                 </div>
             </section>

@@ -8,11 +8,10 @@ import { usuarioAutenticado, parseJwt } from '../src/services/auth';
 import Sobrenos from './pages/Sobrenos/sobrenos';
 import Ajuda from './pages/Ajuda/ajuda';
 import Login from './pages/Login/login';
-import Minhasofertas from './pages/Minhasofertas/minhasofertas';
+import Minhasofertas from './pages/MinhasOfertas/minhasofertas';
 import Perfilusuario from './pages/Perfilusuario/perfilusuario';
 import cadastroOferta from './pages/cadastroOferta/cadastrooferta';
 import Mostruario from './pages/Mostruario/mostruario';
-import Carrinho from './pages/Carrinho/carrinho';
 import Perfiladm from './pages/Perfiladm/perfiladm';
 import NotFound from './pages/NotFound/notfound';
     
@@ -27,7 +26,7 @@ import Categoria from './pages/Perfiladm/categoria';
 
 import CadastroOferta_adm from './pages/Perfiladm/cadastrooferta_adm';
 import CadastroUsuario_adm from './pages/Perfiladm/cadastrousuario_adm';
-import Reservas from './pages/Minhasofertas/reservas';
+import Reservas from './pages/MinhasOfertas/reservas';
 
 const PermissaoAdmin = ({ component : Component }) => (
     <Route 
@@ -84,7 +83,6 @@ const Rotas = (
                 <Route path="/minhasofertas" component={Minhasofertas}/>
                 <Route path="/reservas" component={Reservas}/>
                 <Route path="/ofertas" component={cadastroOferta} />
-                <Route path="/carrinho" component={Carrinho}/>
                 <Route path="/perfiladm" component={Perfiladm} />
                 <Route path="/usuario" component={Usuario} />
                 <Route path="/produto" component={Produto} />
