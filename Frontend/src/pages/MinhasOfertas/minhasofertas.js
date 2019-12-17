@@ -18,11 +18,17 @@ import Relogio from '../../assets/imagens/alarm-clock.png';
 import { Link } from 'react-router-dom';
 
 class Minhasofertas extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             listaOfertas: [],
+            idOferta : this.props.idOferta,
+
             listaReservaOferta: [],
+            listaCategoria: [],
+            listaFiltro: [],
+            listaFiltrada: [],
+
 
             putOferta: {
                 idOferta: "",
@@ -39,9 +45,20 @@ class Minhasofertas extends Component {
 
             modal: false,
             erroMsg: "",
-            successMsg: ""
+            successMsg: "",
+
+            dataAtual: "",
+
+            setStateFiltro: "",
+            setStateTodos: "",
         }
 
+    }
+
+    componentWillReceiveProps(){
+        setTimeout(() => {
+            this.setState({idOferta : this.props.idOferta})
+        }, 100);
     }
 
     toggle = () => {
@@ -52,6 +69,8 @@ class Minhasofertas extends Component {
 
     componentDidMount() {
         this.getOfertas();
+        this.getCategoria();
+    
     }
 
     openModal = (o) => {
@@ -68,6 +87,33 @@ class Minhasofertas extends Component {
         console.log("PUT", this.state.putOferta);
     }
 
+    //Método para filtrar a categoria
+    getFiltro = () => {
+        // if (this.atualizaSelect.value === "Todos") {
+        //     console.log(this.getOferta)
+        // }else
+
+        api.get('/filtro/filtrarcategoria/' + this.state.setStateFiltro)
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaOfertas: response.data });
+                }
+            })
+
+    }
+
+   
+    //Atualiza o estado do valor do select
+    atualizaSelect = (value) => {
+        (value === "Todos") ? setTimeout(() => {
+            this.getOfertas()
+        }, 1000) :
+        this.setState({ setStateFiltro: value })
+        setTimeout(() => {
+            this.getFiltro(this.state.filtro)
+        }, 1000);
+    }
+
     getOfertas = () => {
         api.get('/oferta')
             .then(response => {
@@ -77,10 +123,18 @@ class Minhasofertas extends Component {
             })
     }
 
+    getCategoria = () => {
+        api.get('/categoria')
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaCategoria: response.data });
+                }
+            })
+    }
+
     getReservaOferta = (reserva) => {
 
         let id = this.props.location.state.reserva;
-
 
         api.get('/reserva')
 
@@ -127,14 +181,13 @@ class Minhasofertas extends Component {
         formData.set('idUsuario',this.state.putOferta.idUsuario);  
         formData.set('idProduto',this.state.putOferta.idProduto);  
 
-        // 04 - Nesta parte está o segredo, precisamos de 3 parâmetros
         // Veja no exemplo dado na documentação 
         // https://developer.mozilla.org/pt-BR/docs/Web/API/FormData/set
         formData.set('imagem', this.state.putOferta.imagem.current.files[0] , this.state.putOferta.imagem);
 
         console.log(formData);
 
-        // 05 - Não esqueça de passar o formData
+        // Não esqueça de passar o formData
         apiFormData.put('/oferta/' + oferta_id, formData)
         .then(() => {
             this.setState({ sucessMsg: "Oferta alterada com sucesso!" });
@@ -172,6 +225,14 @@ class Minhasofertas extends Component {
             })
     }
 
+    ContagemDias = (validade) => {
+        var dataAtual = new Date();
+        var dataValidade = new Date(validade);
+        var localdatevalidade = dataValidade.getDate() + '/' + (dataValidade.getMonth()+1) + '/' + dataValidade.getFullYear() + ' ' + dataValidade.getHours() + ':' + dataValidade.getMinutes();
+        var dataDif = ((dataValidade - dataAtual)/(1000*60*60*24)).toFixed(0);
+        return dataDif + " dias!";
+    }
+
     render() {
         return (
             <div>
@@ -181,16 +242,40 @@ class Minhasofertas extends Component {
                         <div className="ofertas_cadastradas">
                             <h2>MINHAS OFERTAS</h2>
                             <hr />
+                            <section className="filtro">
+
                             <div className="filtro">
                                 <div className="filtros">
-                                    {/* <MDBBtn className="btn_cria_Oferta">Cadastrar oferta</MDBBtn> */}
                                     <Link className="link" to={{ pathname: "/cadastrooferta" }} >Cadastrar oferta</Link>
 
-                                    <MDBBtn className="btn-filtro">Selecione por:</MDBBtn>
-
+                                    {/* <MDBBtn className="btn-filtro">Selecione por:</MDBBtn> */}
                                 </div>
                             </div>
-                            <p className="qnt_ofertas">Mostrando 1 - 12 de 30 resultados</p>
+
+                            <div className="categoria_filtro">
+                                <label>Categoria:</label>
+                                <select name="idCategoria" id="cmbCategoria"
+                                    onChange={(e) => this.atualizaSelect(e.target.value)}
+                                >
+
+                                    <option value="Todos"> Todos </option>
+
+                                    {
+                                        this.state.listaCategoria.map(function (c) {
+                                            return (
+                                                <option
+                                                    key={c.idCategoria}
+                                                    value={c.nomeCategoria}
+                                                >
+                                                    {c.nomeCategoria}
+                                                </option>
+                                            )
+                                        }.bind(this))
+                                    }
+                                </select>
+                            </div>
+                    </section> 
+                            {/* <p className="qnt_ofertas">Mostrando 1 - 12 de 30 resultados</p> */}
                         </div>
                         <div className="container_card">
                         {
@@ -216,7 +301,7 @@ class Minhasofertas extends Component {
                                                     <p className="titulo_descricao_logo">DATEMPO</p>
                                                     <div className="validade_mostruario">
                                                         <img src={Relogio} alt="Alarme" />
-                                                        <p className="descricao"> Faltam: 10 dias!</p>
+                                                        <p className="descricao"> Faltam: {this.ContagemDias(this.props.validade)}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -294,7 +379,7 @@ class Minhasofertas extends Component {
                                         Validade:
                                     </label>
                                     <input name="validade" 
-                                              type= 'text'
+                                              type= 'date'
                                               id="defaultFormContactNameEx"
                                               className="form-control"
                                               value={this.state.putOferta.validade} 
@@ -342,27 +427,6 @@ class Minhasofertas extends Component {
                             </form>
                         </MDBModal>
 
-                    <div className="paginacao_ofertas">
-                        <ul className="lista_paginacao">
-                            <a href="#" clas="lk_paginacao">
-                                <li>
-                                </li>  </a> <a href="#">
-                                <li>1</li>
-                            </a>
-                            <a href="#">
-                                <li>2</li>
-                            </a>
-                            <a href="#">
-                                <li>3</li>
-                            </a>
-                            <a href="#">
-                                <li>...</li>
-                            </a>
-                            <a href="#">
-                                <li> > </li>
-                            </a>
-                        </ul>
-                    </div>
                     </div>
                 </main>
 

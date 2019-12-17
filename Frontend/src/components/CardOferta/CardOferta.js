@@ -4,7 +4,6 @@ import { MDBContainer, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter,MD
 import { Link, withRouter } from 'react-router-dom';
 
 
-
 class cardOferta extends Component {
     constructor(props) {
         super(props)
@@ -52,7 +51,7 @@ class cardOferta extends Component {
         return (
                 <div key = {this.props.idOferta}className="card_oferta">
                     <div className="caixa_imagem">
-                        <img className="imgproduto" src={"https://localhost:5001/imgOferta/" + this.props.imagem}
+                        <img className="imgproduto" src={"https://localhost:5000/imgOferta/" + this.props.imagem}
                             alt="Pacote de Arroz de 5kg da marca Tio João" />
                     </div>
                     <div className="descricao_oferta">
@@ -104,7 +103,7 @@ class cardOferta extends Component {
                                  Validade: {this.props.validade} 
                              </label>
 
-                             <label className="modal_info_oferta">Faltam : {this.ContagemDias(this.props.validade)}
+                             <label className="modal_info_oferta">Faltam : 20 dias
                              </label>
                          </div>
                      </div>
@@ -117,7 +116,9 @@ class cardOferta extends Component {
                          placeholder="Descrição do produto"
                          disabled
                          value={this.props.descricao}
-                    />
+                     // value={this.state.putOferta.descricao}
+                     // onChange={this.putSetState}
+                     />
                  </MDBModalBody>    
                  <div className="modal_botoes">
                      <button className="modal_botao_confirmar_reserva" onClick={this.toggle}>FECHAR</button>

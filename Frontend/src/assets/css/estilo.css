@@ -19,7 +19,7 @@ body{
     background-color: var(--cinza) !important;
 }
 main{
-    padding-top: 155px;
+    padding-top: 168px;
     background-color: var(--cinza);
 }
 .main_sobrenos{
@@ -177,6 +177,9 @@ h2 a{
     align-content: center;
     padding: 0px 150px;
 }
+#form_cadastro{
+    padding-bottom: 40px;
+}
 label input{
     height: 35px;
     width: 409px;
@@ -223,7 +226,7 @@ label input{
 /*FILTRO*/
 .container_filtro{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 1100px;
     margin: auto;
@@ -233,38 +236,46 @@ label input{
     font-size: 20px;
     color: var(--roxo);
     padding: 30px 0px;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
 
 }
 .filtro select{
-    color: #707070; 
-    border-color: var(--roxo);
+    color: #757575;
+    border: solid 1px var(--laranja);
     width: 175px;
+    height: 45px;
+    margin-left: 20px;
     font-size: 18px;
     padding: 4px 10px;
-    border-radius: 5px;
 }
 .filtros{
     display: flex;
     justify-content: space-around;
     margin: 30px 0px;
+    text-align: center;
 }
 .filtros a{
-    -webkit-box-shadow: 3px 3px 6px 0px rgba(204,204,204,0.5);
-    -moz-box-shadow: 3px 3px 6px 0px rgba(204,204,204,0.5);
-    box-shadow: 3px 3px 6px 0px rgba(204,204,204,0.5);
-    padding: 10px 30px;
+    border: solid var(--laranja) 1px;
+    padding: 15px 30px;
     text-decoration: none;
-    margin-bottom: 20px;
 }
 .link_reserva{
     background-color: var(--roxo);
-    color: white;
+    color: white !important;
     padding: 10px;
     margin: 3px;
     display: flex; 
     justify-content: center;
     border-radius: 3px;
+    /* border-style: solid 3px var(--laranja); */
+    border-color: var(--laranja);
     margin-top: 8px;
+}
+.link_reserva:hover  {
+    font-weight: bold;
+    color:var(--roxo);
 }
 /*FIM FILTROS*/
 /* CARD*/
@@ -349,10 +360,15 @@ label input{
     width: 100px;
     margin: 0px 5px;
 }
+
+.link_reserva :hover{
+    color: white;
+
+}
 /*FIM CARD*/
 .qnt_ofertas{
-    padding-left: 210px;
     color: var(--roxo);
+    text-align: center;
 }
 .btn_cria_Oferta{
     background-color:var(--laranja);
@@ -416,22 +432,36 @@ label input{
 
 /*MOSTRUARIO*/
 .link{
-    background-color: var(--laranja);
-    color: var(--cinza);
-    border-radius: 2px;
-    
+    color: var(--laranja);
+    border-radius: solid 2px ;
+    border-color: var(--laranja);
+    height: 60px;
+    width: 240px;
+    text-align: center;
+}
+.link:hover  {
+    color: var(--roxo);
 }
 .btn_editar{
     background-color: var(--laranja);
-    height: 50px;
-    width: 90px;
+    height: 40px;
+    width: 80px;
     margin-left: 5px;
 }
+.btn_editar:hover  {
+    font-weight: bold;
+    color: white;
+}
+
 .btn_excluir{
     background-color: var(--vermelho);
-    height: 50px;
-    width: 90px;
+    height: 40px;
+    width: 80px;
     margin-right: 5px;
+}
+.btn_excluir:hover  {
+    font-weight: bold;
+    color: white;
 }
 
 .banner_mostruario{
@@ -465,7 +495,7 @@ label input{
 }
 .botao_reservar{
     display: flex;
-    justify-content: space-around; 
+    justify-content: space-between
 }
 
 .btn_reservar{
@@ -636,6 +666,7 @@ button {
     cursor: pointer;
     overflow: hidden;
 }
+
 button:focus{ outline: none }
 
   span {
@@ -836,15 +867,16 @@ input:disabled {
     background: var(--cinza);
   }
   .form-control{
-      width: 600px;
-      max-width: none;
+    width: 490px;;
+    max-width: none;
   }
+  
 
 /*TABLET*/
 @media (max-width:1169px){
-    .view img, .view video{
+    /* .view img, .view video{
         padding-top: 170px;
-    }
+    } */
     header .pesquisa{
         width: 500px;
     }
@@ -982,9 +1014,9 @@ input:disabled {
 
 /*CELULAR - MOBILE*/
 @media (max-width:767px){
-    .view img, .view video{
+    /* .view img, .view video{
         padding-top: 270px;
-    }
+    } */
     .banner_sobre{
         height: 350px;
     }
@@ -1004,6 +1036,12 @@ input:disabled {
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-around;
+    }
+    .container_tabelas{
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .menu{
         flex-direction: column;
@@ -1089,11 +1127,29 @@ input:disabled {
         height: 30px;
         padding: 0px;
     }
+    .table td, .table th{
+        border-color: transparent;
+    }
+    .table thead th{
+        border-color: transparent;
+    }
+    .cont_table{
+        display: flex;
+        justify-content: space-around;
+    }
+    .table_resti{
+        display: flex;
+        flex-direction: column;
+    }
+    .table_rescont{
+        display: flex;
+        flex-direction: column;
+    }
     main{
-        padding-top: 291px;
+        padding-top: 96px;
     }
     .main_sobrenos{ 
-        padding-top: 270px;
+        padding-top: 96px;
     }
     .filtros{
         flex-direction: column;

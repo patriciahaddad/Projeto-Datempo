@@ -3,7 +3,12 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
 import CardOferta from '../../components/CardOferta/cardOferta';
-import Carrinho from '../../components/Carrinho/CarrinhoComponent';
+
+import banner from '../../assets/imagens/bannerAlimento.png';
+import banner2 from '../../assets/imagens/BannerFrutas.jpg';
+import banner3 from '../../assets/imagens/bannerA.png';
+
+
 
 
 import {
@@ -193,6 +198,45 @@ class Mostruario extends Component {
                     </MDBCarouselInner>
                 </MDBCarousel>
                 <main>
+                    <section className="banner">
+                    <MDBCarousel
+                        activeItem={1}
+                        length={3}
+                        showControls={true}
+                        showIndicators={true}
+                        className="z-depth-1">
+                        <MDBCarouselInner>
+                            <MDBCarouselItem itemId="1">
+                                <MDBView>
+                                    <img
+                                        className="d-block w-100"
+                                        src={banner}
+                                        alt="First slide"
+                                    />
+                                </MDBView>
+                            </MDBCarouselItem>
+                            <MDBCarouselItem itemId="2">
+                                <MDBView>
+                                    <img
+                                        className="d-block w-100"
+                                        src={banner2}
+                                        alt="Second slide"
+                                    />
+                                </MDBView>
+                            </MDBCarouselItem>
+                            <MDBCarouselItem itemId="3">
+                                <MDBView>
+                                    <img
+                                        className="d-block w-100"
+                                        src={banner3}
+                                        alt="Third slide"
+                                    />
+                                </MDBView>
+                            </MDBCarouselItem>
+                        </MDBCarouselInner>
+                    </MDBCarousel>
+                    </section>
+
                     <h2>OFERTAS</h2>
                     <hr />
                     <section className="filtro">

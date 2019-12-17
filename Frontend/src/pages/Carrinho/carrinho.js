@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import Produto from '../../assets/imagens/arroz.png';
 import CarrinhoComponent from '../../components/Carrinho/CarrinhoComponent'
 import api from '../../services/api';
 import Alert from 'react-bootstrap/Alert';
@@ -16,7 +15,7 @@ class Carrinho extends Component {
         this.state = {
             listaOferta: [],
 
-            listaOfertaId: {
+            getOferta: {
                 idOferta: "",
                 nomeOferta: "",
                 marca: "",
@@ -35,33 +34,44 @@ class Carrinho extends Component {
         }
     }
     componentDidMount() {
-        console.log("Props final_reserva: ", this.props)
-        // this.getOfertaId(this.props.location.state.cardOferta.idOferta)
+        // console.log(this.state.listaOferta);
+        // console.log(this.state.listaCategoria);
+        // console.log(this.state.listaFiltrada);
+        // console.log(this.state.setStateFiltro);
+
+        // this.getCategoria();
+        this.getOferta();
+
+        // console.log("LISTA FILTRADA:" +this.props.location.state.busca);
+        // console.log(this.props.location.state.listaFiltrada);
+        // this.setState({listaFiltrada : this.props.location.state.listaFiltrada})
+
+
     }
 
-    getOfertaId = (id) => {
-        api.get('/oferta/' + id)
+    getOferta = (id) => {
+        api.get('/oferta' +id)
             .then(response => {
                 if (response.status === 200) {
-                    this.setState({ listaOfertaId: response.data });
+                    this.setState({ listaOferta: response.data });
                 }
             })
     }
 
     postReserva = (c) => {
         c.preventDefault();
-
+    
         api.post('/reserva', this.state.postReserva)
-            .then(() => {
-                this.setState({ mensagemSucesso: "Reserva feita com suceso" });
-            })
-            .catch(() => {
-                this.setState({ mensagemErro: "Não foi possível fazer a Reserva, por favor verifique se a compra é valida" });
-            })
+          .then(() => {
+            this.setState({ mensagemSucesso: "Reserva feita com suceso" });
+          })
+          .catch(() => {
+            this.setState({ mensagemErro: "Não foi possível fazer a Reserva, por favor verifique se a compra é valida" });
+          })
         setTimeout(() => {
-            this.getOferta();
+          this.getOferta();
         }, 1200);
-    }
+      }
 
 
     render() {
@@ -96,14 +106,24 @@ class Carrinho extends Component {
                                 </div>
 
 
+                            <div key={this.props.idOferta}>
+                                <CarrinhoComponent
+                                    idOferta={this.props.idOferta}
+                                    nomeOferta={this.props.nomeOferta}
+                                    validade={this.props.validade}
+                                    preco={this.props.preco}
+                                    imagem={this.props.imagem}
+                                />
                             </div>
 
-                            <div className="botoes_carrinho">
-                                <Link to="/mostruario" className="botao_carrinho">Continuar comprando</Link>
-                                <button className="btn_carrinho" type="submit">Finalizar reserva</button>
-                            </div>
+                        </div>
 
-                        </form>
+                        <div className="botoes_carrinho">
+                            <Link to="/mostruario" className="botao_carrinho">Continuar comprando</Link>
+                            <button className="btn_carrinho" type="submit">Finalizar reserva</button>
+                        </div>
+                        
+                    </form>
                     </div>
                 </main>
                 <Footer />
