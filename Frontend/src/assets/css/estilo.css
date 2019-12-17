@@ -1122,11 +1122,7 @@ input:disabled {
         flex-direction: column;
     }
     main{
-<<<<<<< HEAD
         padding-top: 96px;
-=======
-        padding-top: 264px;
->>>>>>> f74b3414d7581d9388008a67fce350b88a012d8f
     }
     .main_sobrenos{ 
         padding-top: 96px;
