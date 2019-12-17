@@ -3,6 +3,13 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
 import CardOferta from '../../components/CardOferta/cardOferta';
+<<<<<<< HEAD
+import banner from '../../assets/imagens/bannerAlimento.png';
+import banner2 from '../../assets/imagens/BannerFrutas.jpg';
+import banner3 from '../../assets/imagens/bannerA.png';
+
+=======
+>>>>>>> f74b3414d7581d9388008a67fce350b88a012d8f
 
 import {
     MDBCarousel,
@@ -159,6 +166,7 @@ class Mostruario extends Component {
             <div>
                 <Header {...this.props} />
                 <main>
+                    <section className="banner">
                     <MDBCarousel
                         activeItem={1}
                         length={3}
@@ -170,7 +178,7 @@ class Mostruario extends Component {
                                 <MDBView>
                                     <img
                                         className="d-block w-100"
-                                        src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
+                                        src={banner}
                                         alt="First slide"
                                     />
                                 </MDBView>
@@ -179,7 +187,7 @@ class Mostruario extends Component {
                                 <MDBView>
                                     <img
                                         className="d-block w-100"
-                                        src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg"
+                                        src={banner2}
                                         alt="Second slide"
                                     />
                                 </MDBView>
@@ -188,13 +196,14 @@ class Mostruario extends Component {
                                 <MDBView>
                                     <img
                                         className="d-block w-100"
-                                        src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
+                                        src={banner3}
                                         alt="Third slide"
                                     />
                                 </MDBView>
                             </MDBCarouselItem>
                         </MDBCarouselInner>
                     </MDBCarousel>
+                    </section>
 
                     <h2>OFERTAS</h2>
                     <hr />

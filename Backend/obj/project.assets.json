@@ -6528,11 +6528,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
+      "projectUniqueName": "C:\\Users\\fic\\Desktop\\Code\\Projeto-Datempo\\Backend\\Backend.csproj",
+      "projectName": "Backend",
+      "projectPath": "C:\\Users\\fic\\Desktop\\Code\\Projeto-Datempo\\Backend\\Backend.csproj",
+      "packagesPath": "C:\\Users\\fic\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\fic\\Desktop\\Code\\Projeto-Datempo\\Backend\\obj\\",
+=======
       "projectUniqueName": "C:\\Users\\Ri\\Desktop\\Projeto-Datempo\\Backend\\Backend.csproj",
       "projectName": "Backend",
       "projectPath": "C:\\Users\\Ri\\Desktop\\Projeto-Datempo\\Backend\\Backend.csproj",
       "packagesPath": "C:\\Users\\Ri\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Ri\\Desktop\\Projeto-Datempo\\Backend\\obj\\",
+>>>>>>> f74b3414d7581d9388008a67fce350b88a012d8f
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ri\\AppData\\Roaming\\NuGet\\NuGet.Config"
