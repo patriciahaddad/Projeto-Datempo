@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
-import CardOferta from '../../components/CardOferta/cardOferta';
+import CardOferta from '../../components/CardOferta/CardOferta';
 
 import banner from '../../assets/imagens/bannerAlimento.png';
 import banner2 from '../../assets/imagens/BannerFrutas.jpg';
@@ -161,42 +161,6 @@ class Mostruario extends Component {
         return (
             <div>
                 <Header {...this.props} />
-                <MDBCarousel
-                    activeItem={1}
-                    length={3}
-                    showControls={true}
-                    showIndicators={true}
-                    className="z-depth-1">
-                    <MDBCarouselInner>
-                        <MDBCarouselItem itemId="1">
-                            <MDBView>
-                                <img
-                                    className="d-block w-100"
-                                    src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
-                                    alt="First slide"
-                                />
-                            </MDBView>
-                        </MDBCarouselItem>
-                        <MDBCarouselItem itemId="2">
-                            <MDBView>
-                                <img
-                                    className="d-block w-100"
-                                    src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg"
-                                    alt="Second slide"
-                                />
-                            </MDBView>
-                        </MDBCarouselItem>
-                        <MDBCarouselItem itemId="3">
-                            <MDBView>
-                                <img
-                                    className="d-block w-100"
-                                    src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
-                                    alt="Third slide"
-                                />
-                            </MDBView>
-                        </MDBCarouselItem>
-                    </MDBCarouselInner>
-                </MDBCarousel>
                 <main>
                     <section className="banner">
                     <MDBCarousel
