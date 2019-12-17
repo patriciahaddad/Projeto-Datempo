@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Relogio from '../../assets/imagens/alarm-clock.png';
-import { MDBContainer, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter,MDBAlert } from 'mdbreact';
-import { Link, withRouter } from 'react-router-dom';
+import { MDBContainer, MDBModal, MDBModalBody} from 'mdbreact';
+import { Link} from 'react-router-dom';
 
 
 class cardOferta extends Component {

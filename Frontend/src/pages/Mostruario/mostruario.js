@@ -3,9 +3,11 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
 import CardOferta from '../../components/CardOferta/cardOferta';
+
 import banner from '../../assets/imagens/bannerAlimento.png';
 import banner2 from '../../assets/imagens/BannerFrutas.jpg';
 import banner3 from '../../assets/imagens/bannerA.png';
+
 
 
 import {
