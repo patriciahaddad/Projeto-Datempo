@@ -246,7 +246,8 @@ class Minhasofertas extends Component {
 
                             <div className="filtro">
                                 <div className="filtros">
-                                    <Link className="link" to={{ pathname: "/cadastrooferta" }} >Cadastrar oferta</Link>
+                                    {/* <MDBBtn className="btn_cria_Oferta">Cadastrar oferta</MDBBtn> */}
+                                    <Link className="link" to={{ pathname: "/ofertas" }} >Cadastrar oferta</Link>
 
                                     {/* <MDBBtn className="btn-filtro">Selecione por:</MDBBtn> */}
                                 </div>

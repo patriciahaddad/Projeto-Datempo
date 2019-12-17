@@ -22,8 +22,6 @@ class login extends Component {
 
             email: "",
             senha: "",
-            erroMensagem: "",
-            verificacao_senha:"",
         }
     }
 
@@ -35,7 +33,7 @@ class login extends Component {
         api.post("/login", {
             email: this.state.email,
             senha: this.state.senha,
-            
+
         })
             .then(response => {
 
@@ -62,7 +60,7 @@ class login extends Component {
                 this.setState({ erroMensagem: 'E-mail e/ou senha inválidos!' })
             })
     }
-    
+
     getUsuario = () => {
         api.get('/usuario')
             .then(response => {
@@ -76,7 +74,6 @@ class login extends Component {
     postSetState = (input) => {
         this.setState({
             postcadastar: {
-
                 ...this.state.postcadastar, [input.target.name]: input.target.value
             }
         })
@@ -89,10 +86,10 @@ class login extends Component {
     postcadastar = (e) => {
 
         e.preventDefault();
-        api.post('/usuario',this.state.postcadastar)
+        api.post('/usuario', this.state.postcadastar)
             .then(response => {
                 console.log(response);
-                alert("Cadastrado com sucesso, realize login")
+                this.setState({ sucessMsg: "Cadastro realizado com sucesso!" });
             })
             .catch(error => {
                 console.log(error);
@@ -115,11 +112,11 @@ class login extends Component {
                                 <form onSubmit={this.realizarLogin} id="form_login">
                                     <h2>Login</h2>
                                     <label>
-                                        Usuário
+                                        E-mail
                                         <input type="text"
-                                            placeholder="Digite seu nome de usuário..."
+                                            placeholder="Digite seu e-mail"
                                             name="email" // Deve ser igual ao nome da variável no state para que o atualizaEstado funcione.
-                                            aria-label="Digitar seu nome de usúario"
+                                            aria-label="Digitar seu e-mail"
                                             value={this.state.email}
                                             onChange={this.atualizaEstado}
                                             id="login__email"
@@ -135,7 +132,7 @@ class login extends Component {
                                             onChange={this.atualizaEstado}
                                             id="login__password"
                                             required />
-                                    <p style={{ color : 'red' }}>{this.state.erroMensagem}</p>
+                                        <p style={{ color: 'red' }}>{this.state.erroMensagem}</p>
                                     </label>
                                     <label>
                                         <button className="btn_login"
@@ -187,24 +184,6 @@ class login extends Component {
                                             value={this.state.listaUsuario.senha}
                                             onChange={this.postSetState}
                                             required />
-                                    </label>
-                                    {/* <label>
-                                        Comfirme sua senha
-                                        <input 
-                                            type="password"
-                                            placeholder="Digite novamente sua senha..."
-                                            name="verificacao_senha"
-                                            aria-label="Comfirme sua senha"
-                                            value={this.state.listaUsuario.verificacao_senha}
-                                            onChange={this.postSetState}
-                                            required />
-                                    </label> */}
-                                            <p style={{ color : 'red' }}>{this.state.erroMensagem}</p>
-                                    <label>
-                                        <button 
-                                            className="btn_login"
-                                            type="submit">Cadastrar
-                                        </button>
                                     </label>
                                 </form>
                             </div>

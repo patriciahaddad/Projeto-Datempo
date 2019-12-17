@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
+import { parseJwt } from '../../services/auth';
 
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon, MDBAlert} from 'mdbreact';
 
@@ -11,6 +12,7 @@ class cadastroOferta extends Component {
         this.state = {
 
             listaoferta: [],
+            listaProdutos: [],
 
             postOferta: {
                 nomeOferta: "",
@@ -19,9 +21,16 @@ class cadastroOferta extends Component {
                 validade: "",
                 quantVenda: "",
                 imagem: React.createRef(),
-                
+                descricao: "",
+                idUsuario: "",
+                idProduto: "",
             },
         }
+    }
+    
+    componentDidMount() {
+        this.getOferta();
+        this.getProdutos();
     }
 
     getOferta = () => {
@@ -32,8 +41,13 @@ class cadastroOferta extends Component {
         })
     }
 
-    atualizaEstado = (event) => {
-        this.setState({ [event.target.name]: event.target.value });
+    getProdutos = () => {
+        api.get('/produto')
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaProdutos: response.data })
+                }
+            })
     }
 
     postSetState = (input) => {
@@ -53,12 +67,16 @@ class cadastroOferta extends Component {
 
         let oferta = new FormData();
 
+        
         oferta.set("nomeOferta", this.state.postOferta.nomeOferta);
         oferta.set("marca", this.state.postOferta.marca);
         oferta.set("preco", this.state.postOferta.preco);
         oferta.set("validade", this.state.postOferta.validade);
         oferta.set("quantVenda", this.state.postOferta.quantVenda);
         oferta.set("imagem", this.state.postOferta.imagem.current.files[0]);
+        oferta.set("descricao", this.state.postOferta.descricao);
+        oferta.set("idUsuario",parseJwt().id);
+        oferta.set("idProduto", this.state.postOferta.idProduto);
 
         console.log(oferta);
 
@@ -66,19 +84,23 @@ class cadastroOferta extends Component {
             method: "POST",
             body: oferta,
         })
-            .then(response => response.json())
-            .then(response => {
-                console.log(response);
-                this.getOferta();
-            })
-            .catch(error => console.log('Não foi possível cadastrar:' + error));
-    }
+        .then(response => response.json())
+        .then(response => {
+            console.log(response);
+            this.setState({ sucessMsg: "Oferta cadastrada com sucesso!" });
+            this.getOferta();
+        })
+        .catch(error => {
+            console.log(error);
+            this.setState({ erroMsg: "Não foi possível cadastrar oferta!" });
+        })
+}
 
     render() {
 
         return (
             <div>
-                <Header />
+                <Header/>
                 <main>
                     <div className="cont_branco">
                         <h2>CADASTRO DE OFERTAS</h2>
@@ -98,6 +120,27 @@ class cadastroOferta extends Component {
                                             value={this.state.postOferta.nomeOferta}
                                             onChange={this.postSetState}
                                         /><br />
+                                        <label
+                                            htmlFor="defaultFormContactSubjectEx"
+                                            className="black-text">
+                                            Tipo de Produto:</label>
+                                        <select className="browser-default custom-select"
+                                                name="idProduto"
+                                                value={this.state.postOferta.idProduto}
+                                                onChange={this.postSetState}
+                                        >
+                                        <option value="">Escolha uma categoria de Produto...</option>
+                                                            {
+                                                                this.state.listaProdutos.map(function (p) {
+                                                                    return (
+                                                                        <option
+                                                                            key={p.idProduto}
+                                                                            value={p.idProduto}> {p.nomeProduto}
+                                                                        </option>
+                                                                    )
+                                                                })
+                                                            }
+                                        </select><br/>
                                         <label htmlFor="defaultFormContactEmailEx" className="black-text">
                                             Marca do produto:</label>
                                         <input
@@ -160,10 +203,6 @@ class cadastroOferta extends Component {
                                             value={this.state.postOferta.descricao}
                                             onChange={this.postSetState}
                                         /><br/>
-                                         <label
-                                            htmlFor="defaultFormContactSubjectEx"
-                                            className="black-text">
-                                            Tipo de Produto:</label>
                                         <label
                                             htmlFor="defaultFormContactSubjectEx"
                                             className="black-text">
@@ -199,7 +238,7 @@ class cadastroOferta extends Component {
                         </MDBContainer>
                     </div>
                 </main>
-                <Footer></Footer>
+                <Footer/>
             </div>
         );
     }

@@ -9,8 +9,6 @@ import {
     MDBTable,
     MDBTableBody,
     MDBTableHead,
-    MDBAlert,
-    MDBInput
 } from 'mdbreact';
 
 class Reservas extends Component {
@@ -106,30 +104,6 @@ class Reservas extends Component {
                             </MDBTable>
                             <hr/>
                         </div>
-
-
-
-                        {/* <div className="paginacao_ofertas">
-                            <ul className="lista_paginacao">
-                                <a href="#" clas="lk_paginacao">
-                                    <li>
-                                    </li>  </a> <a href="#">
-                                    <li>1</li>
-                                </a>
-                                <a href="#">
-                                    <li>2</li>
-                                </a>
-                                <a href="#">
-                                    <li>3</li>
-                                </a>
-                                <a href="#">
-                                    <li>...</li>
-                                </a>
-                                <a href="#">
-                                    <li> > </li>
-                                </a>
-                            </ul>
-                        </div> */}
                     </div>
                 </main>
                 <Footer />
