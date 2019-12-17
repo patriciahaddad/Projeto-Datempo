@@ -220,6 +220,18 @@ class Ofertas extends Component {
 
     //#endregion
 
+
+    ContagemDias = (validade) => {
+        var dataAtual = new Date();
+        var dataValidade = new Date(validade);
+        var localdatevalidade = dataValidade.getDate() + '/' + (dataValidade.getMonth()+1) + '/' + dataValidade.getFullYear() + ' ' + dataValidade.getHours() + ':' + dataValidade.getMinutes();
+
+
+        var dataDif = ((dataValidade - dataAtual)/(1000*60*60*24)).toFixed(0);
+
+        return dataDif + " dias!";
+    }
+
     render() {
         return (
             <div>
@@ -255,7 +267,7 @@ class Ofertas extends Component {
                                                                     <p className="titulo_descricao_logo">DATEMPO</p>
                                                                     <div className="validade_mostruario">
                                                                         <img src={Relogio} alt="Alarme" />
-                                                                        <p className="descricao"> Faltam: 10 dias!</p>
+                                                                        <p className="descricao"> Faltam: {this.ContagemDias(o.validade)}</p>
                                                                     </div>
                                                                 </div>
                                                             </div>

@@ -75,6 +75,8 @@ class CadastroOferta_adm extends Component {
         oferta.set("preco", this.state.postOferta.preco);
         oferta.set("validade", this.state.postOferta.validade);
         oferta.set("quantVenda", this.state.postOferta.quantVenda);
+        oferta.set("idProduto", this.state.postOferta.idProduto);
+        oferta.set("idUsuario", this.state.postOferta.idUsuario);
         oferta.set("imagem", this.state.postOferta.imagem.current.files[0]);
 
         console.log(oferta);

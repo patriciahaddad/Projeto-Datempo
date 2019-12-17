@@ -8,7 +8,7 @@ import { usuarioAutenticado, parseJwt } from '../src/services/auth';
 import Sobrenos from './pages/Sobrenos/sobrenos';
 import Ajuda from './pages/Ajuda/ajuda';
 import Login from './pages/Login/login';
-import Minhasofertas from './pages/Minhasofertas/minhasofertas';
+import Minhasofertas from './pages/MinhasOfertas/minhasofertas';
 import Perfilusuario from './pages/Perfilusuario/perfilusuario';
 import cadastroOferta from './pages/cadastroOferta/cadastrooferta';
 import Mostruario from './pages/Mostruario/mostruario';
@@ -27,7 +27,7 @@ import Categoria from './pages/Perfiladm/categoria';
 
 import CadastroOferta_adm from './pages/Perfiladm/cadastrooferta_adm';
 import CadastroUsuario_adm from './pages/Perfiladm/cadastrousuario_adm';
-import Reservas from './pages/Minhasofertas/reservas';
+import Reservas from './pages/MinhasOfertas/reservas';
 
 const PermissaoAdmin = ({ component : Component }) => (
     <Route 
