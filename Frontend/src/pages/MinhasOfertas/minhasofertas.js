@@ -18,10 +18,12 @@ import Relogio from '../../assets/imagens/alarm-clock.png';
 import { Link } from 'react-router-dom';
 
 class Minhasofertas extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             listaOfertas: [],
+            idOferta : this.props.idOferta,
+
             listaReservaOferta: [],
             listaCategoria: [],
             listaFiltro: [],
@@ -53,6 +55,12 @@ class Minhasofertas extends Component {
 
     }
 
+    componentWillReceiveProps(){
+        setTimeout(() => {
+            this.setState({idOferta : this.props.idOferta})
+        }, 100);
+    }
+
     toggle = () => {
         this.setState({
             modal: !this.state.modal
@@ -61,6 +69,7 @@ class Minhasofertas extends Component {
 
     componentDidMount() {
         this.getOfertas();
+        this.getCategoria();
     
     }
 
@@ -93,17 +102,16 @@ class Minhasofertas extends Component {
 
     }
 
-    // getOrdenar = () =>{
-    //     api.get('/')
-    // }
-    //#endregion
-
+   
     //Atualiza o estado do valor do select
     atualizaSelect = (value) => {
+        (value === "Todos") ? setTimeout(() => {
+            this.getOfertas()
+        }, 1000) :
         this.setState({ setStateFiltro: value })
         setTimeout(() => {
             this.getFiltro(this.state.filtro)
-        }, 500);
+        }, 1000);
     }
 
     getOfertas = () => {
@@ -127,7 +135,6 @@ class Minhasofertas extends Component {
     getReservaOferta = (reserva) => {
 
         let id = this.props.location.state.reserva;
-
 
         api.get('/reserva')
 
@@ -222,10 +229,7 @@ class Minhasofertas extends Component {
         var dataAtual = new Date();
         var dataValidade = new Date(validade);
         var localdatevalidade = dataValidade.getDate() + '/' + (dataValidade.getMonth()+1) + '/' + dataValidade.getFullYear() + ' ' + dataValidade.getHours() + ':' + dataValidade.getMinutes();
-
-
         var dataDif = ((dataValidade - dataAtual)/(1000*60*60*24)).toFixed(0);
-
         return dataDif + " dias!";
     }
 
@@ -248,7 +252,6 @@ class Minhasofertas extends Component {
                                 </div>
                             </div>
 
-                        <div className="container_filtro">
                             <div className="categoria_filtro">
                                 <label>Categoria:</label>
                                 <select name="idCategoria" id="cmbCategoria"
@@ -271,7 +274,6 @@ class Minhasofertas extends Component {
                                     }
                                 </select>
                             </div>
-                        </div>
                     </section> 
                             {/* <p className="qnt_ofertas">Mostrando 1 - 12 de 30 resultados</p> */}
                         </div>
@@ -377,7 +379,7 @@ class Minhasofertas extends Component {
                                         Validade:
                                     </label>
                                     <input name="validade" 
-                                              type= 'text'
+                                              type= 'date'
                                               id="defaultFormContactNameEx"
                                               className="form-control"
                                               value={this.state.putOferta.validade} 
@@ -425,27 +427,6 @@ class Minhasofertas extends Component {
                             </form>
                         </MDBModal>
 
-                    {/* <div className="paginacao_ofertas">
-                        <ul className="lista_paginacao">
-                            <a href="#" clas="lk_paginacao">
-                                <li>
-                                </li>  </a> <a href="#">
-                                <li>1</li>
-                            </a>
-                            <a href="#">
-                                <li>2</li>
-                            </a>
-                            <a href="#">
-                                <li>3</li>
-                            </a>
-                            <a href="#">
-                                <li>...</li>
-                            </a>
-                            <a href="#">
-                                <li> > </li>
-                            </a>
-                        </ul>
-                    </div> */}
                     </div>
                 </main>
 
