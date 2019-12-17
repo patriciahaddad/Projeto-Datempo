@@ -16,11 +16,11 @@ namespace Backend.Controllers {
         /// <summary>
         /// Filtramos as ofertas por pesquisa
         /// </summary>
-        /// <param name="filtro">Passar objeto filtro</param>
+        /// <param name="palavra">Passar objeto filtro</param>
         /// <returns>Filtro por pesquisa</returns>
-        [HttpGet ("FiltrarPalavra")]
-        public ActionResult<List<Oferta>> GetFiltrar (FiltroViewModel filtro) {
-            List<Oferta> ofertas = _repositorio.GetFiltrar (filtro);
+        [HttpGet ("FiltrarPalavra/{palavra}")]
+        public ActionResult<List<Oferta>> GetFiltrar (string palavra) {
+            List<Oferta> ofertas = _repositorio.GetFiltrar(palavra);
             if (ofertas == null) {
                 return NotFound (new { Mensagem = "Produto não encontrado", Erro = true });
             }
