@@ -4,7 +4,6 @@ import Footer from '../../components/Footer/Footer.js';
 import api from '../../services/api';
 import Alert from 'react-bootstrap/Alert';
 
-
 import {
     MDBBtn,
     MDBTable,
@@ -13,7 +12,6 @@ import {
     MDBAlert,
     MDBInput
 } from 'mdbreact';
-
 
 class Reservas extends Component {
     constructor() {
@@ -39,8 +37,6 @@ class Reservas extends Component {
             })
 
     }
-
-
     getReservaOferta = () => {
         api.get('/reserva')
             .then(response => {
@@ -60,7 +56,7 @@ class Reservas extends Component {
                         <div>
                             {
                                 this.state.mensagemSucesso &&
-                                <Alert variant="success" dismissible>
+                                <Alert variant="success" disabled>
                                 <Alert.Heading>{this.state.mensagemSucesso}</Alert.Heading>
                                 </Alert>
                             }
@@ -72,11 +68,11 @@ class Reservas extends Component {
 
                             <h2>RESERVAS</h2>
                             <hr />
-                            <MDBTable>
-                                <MDBTableHead>
-                                    <tr>
+                            <MDBTable className="cont_table">
+                                <MDBTableHead >
+                                    <tr className="table_resti">
                                         <th>#Oferta</th>
-                                        <th>N° Reserva</th>
+                                        <th>Nº Reserva</th>
                                         <th>Quantidade</th>
                                         <th>Data</th>
                                         <th>PIN</th>
@@ -84,12 +80,12 @@ class Reservas extends Component {
                                         <th>Ações</th>
                                     </tr>
                                 </MDBTableHead>
-                                <MDBTableBody>
+                                <MDBTableBody >
                                     {
                                         this.state.listaReservaOferta.map(
                                             function (r) {
                                                 return (
-                                                    <tr key={r.idOferta}>
+                                                    <tr key={r.idOferta} className="table_rescont">
                                                         <td>{r.idOfertaNavigation.nomeOferta}</td>
                                                         <td>{r.idReserva}</td>
                                                         <td>{r.quantCompra}</td>
@@ -108,11 +104,12 @@ class Reservas extends Component {
                                     }
                                 </MDBTableBody>
                             </MDBTable>
+                            <hr/>
                         </div>
 
 
 
-                        <div className="paginacao_ofertas">
+                        {/* <div className="paginacao_ofertas">
                             <ul className="lista_paginacao">
                                 <a href="#" clas="lk_paginacao">
                                     <li>
@@ -132,7 +129,7 @@ class Reservas extends Component {
                                     <li> > </li>
                                 </a>
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
                 </main>
                 <Footer />

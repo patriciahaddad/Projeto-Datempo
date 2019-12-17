@@ -8,7 +8,7 @@ import { usuarioAutenticado, parseJwt } from '../src/services/auth';
 import Sobrenos from './pages/Sobrenos/sobrenos';
 import Ajuda from './pages/Ajuda/ajuda';
 import Login from './pages/Login/login';
-import Minhasofertas from './pages/Minhasofertas/minhasofertas';
+import Minhasofertas from './pages/MinhasOfertas/minhasofertas';
 import Perfilusuario from './pages/Perfilusuario/perfilusuario';
 import cadastroOferta from './pages/cadastroOferta/cadastrooferta';
 import Mostruario from './pages/Mostruario/mostruario';
@@ -27,7 +27,7 @@ import Categoria from './pages/Perfiladm/categoria';
 
 import CadastroOferta_adm from './pages/Perfiladm/cadastrooferta_adm';
 import CadastroUsuario_adm from './pages/Perfiladm/cadastrousuario_adm';
-import Reservas from './pages/Minhasofertas/reservas';
+import Reservas from './pages/MinhasOfertas/reservas';
 
 const PermissaoAdmin = ({ component : Component }) => (
     <Route 
@@ -87,11 +87,11 @@ const Rotas = (
                 <Route path="/carrinho" component={Carrinho}/>
                 <Route path="/perfiladm" component={Perfiladm} />
                 <Route path="/usuario" component={Usuario} />
-                <Route path="/adm/ofertas" component={Ofertas} />
                 <Route path="/produto" component={Produto} />
-                <Route path="/categoria" component={Categoria} />
-                <Route path="/cadastrousuario" component={CadastroUsuario_adm} />
-                <Route path="/cadastrooferta" component={CadastroOferta_adm} />
+                <Route path="/adm/categoria" component={Categoria} />
+                <Route path="/adm/cadastrousuario" component={CadastroUsuario_adm} />
+                <Route path="/adm/cadastrooferta" component={CadastroOferta_adm} />
+                <Route path="/adm/ofertas" component={Ofertas} />
                 <Route component={NotFound} />
                 {/* <PermissaoFornecedor path="/minhasofertas" component={Minhasofertas} />
                 <PermissaoConsumidor path="/perfilusuario" component={Perfilusuario} />

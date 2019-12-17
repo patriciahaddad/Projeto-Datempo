@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import api from '../../services/api';
-import CardOferta from '../../components/CardOferta/cardOferta';
-import Carrinho from '../../components/Carrinho/CarrinhoComponent';
+import CardOferta from '../../components/CardOferta/CardOferta';
+
+import banner from '../../assets/imagens/bannerAlimento.png';
+import banner2 from '../../assets/imagens/BannerFrutas.jpg';
+import banner3 from '../../assets/imagens/bannerA.png';
+
+
+
 
 import {
     MDBCarousel,
@@ -49,39 +55,36 @@ class Mostruario extends Component {
 
         }
     }
-    // var date1 = new Date(validade);
-    // var date2 = new Date("12/12/2010");
-    // var timeDiff = Math.abs(date2.getTime() - date1.getTime());
-    // var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-    // alert(diffDays);
-
     componentDidMount() {
-        // console.log(this.state.listaOferta);
-        // console.log(this.state.listaCategoria);
-        // console.log(this.state.listaFiltrada);
-        // console.log(this.state.setStateFiltro);
-
         this.getCategoria();
-        this.getOferta();
 
-            // console.log("LISTA FILTRADA:" +this.props.location.state.busca);
-            // console.log(this.props.location.state.listaFiltrada);
-            // this.setState({listaFiltrada : this.props.location.state.listaFiltrada})
-       
+        if(this.props.location.state != null) {
+            setTimeout(() => {
+                this.setState({
+                    listaOferta : this.props.location.state.filtroBusca
+                  })
+                  console.log("Termo", this.state.listaOferta)
 
-    }
-        UNSAFE_componentWillReceiveProps(){
-            this.setState({
-              busca : this.props.location.state.listaFiltrada
-            })
-            console.log("Termo", this.props.location.state.busca)
+            }, 1000)
+        } else {
+            this.getOferta();
+        }  
+      }
+    UNSAFE_componentWillReceiveProps(){
+        if(this.props.location.state != null) {
+            setTimeout(() => {
+                this.setState({
+                    listaOferta : this.props.location.state.filtroBusca
+                  })
+                  console.log("Termo", this.state.listaOferta)
 
-          }
-    
-
+            }, 1000)
+        } else {
+            this.getOferta();
+        }  
+      }
     componentDidUpdate() {
-        console.log("Update");  
-        
+        console.log("Update");
     }
 
     //#region Get 
@@ -115,19 +118,19 @@ class Mostruario extends Component {
 
     getOrdenar = () => {
         api.get('/filtro/OrdenarPreco/' + this.state.value)
-        .then(response => {
-            if (response.status === 200) {
-                this.setState({ listaOferta: response.data });
-                console.log(response)
-            }
-        })
+            .then(response => {
+                if (response.status === 200) {
+                    this.setState({ listaOferta: response.data });
+                    console.log(response)
+                }
+            })
     }
     //Atualiza o estado do valor do select
     atualizaSelect = (value) => {
         (value === "Todos") ? setTimeout(() => {
             this.getOferta()
         }, 1000) :
-        this.setState({ setStateFiltro: value })
+            this.setState({ setStateFiltro: value })
         setTimeout(() => {
             this.getFiltro(this.state.filtro)
         }, 1000);
@@ -135,24 +138,23 @@ class Mostruario extends Component {
 
     atualizaSelectOrdenacao = (value) => {
 
-        (value === "Menor") 
-        ? 
-        setTimeout(() => {
-        this.getOrdenar(this.state.value)
-        }, 1000)
-         : 
-        // this.setState({ setStateFiltroOrdenacao: value })
+        (value === "Menor")
+            ?
+            setTimeout(() => {
+                this.getOrdenar(this.state.value)
+            }, 1000)
+            :
+            // this.setState({ setStateFiltroOrdenacao: value })
 
-        (value === "Maior") ?
-        setTimeout(() => {
-            this.getOrdenar(this.state.filtro)
-            console.log("maior")
-        }, 1000) 
-        : 
-        // this.setState({ setStateFiltroOrdenacao: value })
-        setTimeout(() => {
-            this.getOrdenar(this.state.filtro)
-        }, 1000) 
+            (value === "Maior") ?
+                setTimeout(() => {
+                    this.getOrdenar(this.state.filtro)
+                    console.log("maior")
+                }, 1000)
+                :
+                setTimeout(() => {
+                    this.getOrdenar(this.state.filtro)
+                }, 1000)
     }
 
     render() {
@@ -160,6 +162,7 @@ class Mostruario extends Component {
             <div>
                 <Header {...this.props} />
                 <main>
+                    <section className="banner">
                     <MDBCarousel
                         activeItem={1}
                         length={3}
@@ -171,7 +174,7 @@ class Mostruario extends Component {
                                 <MDBView>
                                     <img
                                         className="d-block w-100"
-                                        src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
+                                        src={banner}
                                         alt="First slide"
                                     />
                                 </MDBView>
@@ -180,7 +183,7 @@ class Mostruario extends Component {
                                 <MDBView>
                                     <img
                                         className="d-block w-100"
-                                        src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg"
+                                        src={banner2}
                                         alt="Second slide"
                                     />
                                 </MDBView>
@@ -189,17 +192,17 @@ class Mostruario extends Component {
                                 <MDBView>
                                     <img
                                         className="d-block w-100"
-                                        src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
+                                        src={banner3}
                                         alt="Third slide"
                                     />
                                 </MDBView>
                             </MDBCarouselItem>
                         </MDBCarouselInner>
                     </MDBCarousel>
+                    </section>
 
                     <h2>OFERTAS</h2>
                     <hr />
-
                     <section className="filtro">
                         <div className="container_filtro">
                             <div className="categoria_filtro">
@@ -228,7 +231,7 @@ class Mostruario extends Component {
                             <div className="categoria_filtro">
                                 <label>Ordernar:</label>
                                 <select name="relevantes" id="cmbRelevante"
-                                 onChange={(e) => this.atualizaSelectOrdenacao(e.target.value)}>
+                                    onChange={(e) => this.atualizaSelectOrdenacao(e.target.value)}>
                                     <option value="maisRelevantes">Mais relevantes</option>
                                     <option value="Menor">Menor Preço</option>
                                     <option value="Maior" >Maior Preço</option>
@@ -244,17 +247,11 @@ class Mostruario extends Component {
                             </div>
                         </div>
                     </section>
-                    <p className="qnt_ofertas">Mostrando 1 - 12 de 30 resultados</p>
                     <section className="produtos">
                         <div className="container">
-                            <div>
-
-                            Termo : {this.state.busca}
-
-                            </div>
                             <div className="container_ofertas">
                                 {
-                                    
+
                                     this.state.listaOferta.map(function (o) {
                                         return (
                                             <div key={o.idOferta}>
@@ -272,27 +269,6 @@ class Mostruario extends Component {
                                     )
                                 }
 
-                            </div>
-                            <div className="paginacao_ofertas">
-                                <ul className="lista_paginacao">
-                                    <a href="#" clas="lk_paginacao">
-                                        <li>  </li>
-                                    </a> <a href="#">
-                                        <li>1</li>
-                                    </a>
-                                    <a href="#">
-                                        <li>2</li>
-                                    </a>
-                                    <a href="#">
-                                        <li>3</li>
-                                    </a>
-                                    <a href="#">
-                                        <li>...</li>
-                                    </a>
-                                    <a href="#">
-                                        <li>></li>
-                                    </a>
-                                </ul>
                             </div>
                         </div>
                     </section>

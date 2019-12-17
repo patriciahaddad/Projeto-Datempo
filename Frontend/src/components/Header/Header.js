@@ -20,14 +20,7 @@ class Header extends Component {
             busca: ""
         }
     }
-    // getOferta = () => {
-    //     api.get('/oferta')
-    //         .then(response => {
-    //             if (response.status === 200) {
-    //                 this.setState({ listaOferta: response.data });
-    //             }
-    //         })
-    // }
+    
     getFiltroBusca = () => {
         api.get('filtro/filtrarPalavra/' + this.state.busca)
             .then(response => {
@@ -38,7 +31,7 @@ class Header extends Component {
                 this.props.history.push({
                     pathname: "/mostruario",
                     state: {
-                        FiltroBusca: this.state.listaFiltrada
+                        filtroBusca: this.state.listaFiltrada
                     }
                     
                 })
@@ -81,18 +74,30 @@ class Header extends Component {
 
                         <ul className="menu">
                             <Link to="/">Home</Link>
-                            <Link to="/sobrenos">Sobre nós</Link>
+                            <MDBDropdown dropdown className="menu">
+                                <MDBDropdownToggle>
+                                    Intitucional
+                                </MDBDropdownToggle>
+                                <MDBDropdownMenu>
+                                    <MDBDropdownItem>
+                                        <Link to="/sobrenos">Sobre nós</Link>
+                                    </MDBDropdownItem>
+                                    <MDBDropdownItem>
+                                        <Link to="/ajuda">Ajuda</Link>
+                                    </MDBDropdownItem>
+                                </MDBDropdownMenu>
+                            </MDBDropdown>
                             <Link to="/mostruario">Produtos</Link>
                             {usuarioAutenticado() && parseJwt().Role === "Fornecedor" ? (
                                 <>
                                     <MDBDropdown dropdown className="menu">
                                         <MDBDropdownToggle>
                                             MEU PERFIL
-                                                        </MDBDropdownToggle>
+                                        </MDBDropdownToggle>
                                         <MDBDropdownMenu basic>
                                             <MDBDropdownItem>
                                                 <img src={config} ></img>
-                                                <Link to="/perfiladm">Configurações</Link>
+                                                <Link to="/perfilusuario">Configurações</Link>
                                             </MDBDropdownItem>
                                             <MDBDropdownItem>
                                                 <img src={carrinho} />
