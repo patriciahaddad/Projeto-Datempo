@@ -79,19 +79,19 @@ const Rotas = (
                 {/* <PermissaoConsumidor path="/perfilusuario" component={Perfilusuario} /> */}
                 <Route path="/perfilusuario" component={Perfilusuario} />
                 {/* <PermissaoFornecedor path="/oferta" component={cadastroOferta} /> */}
-                <Route path="/oferta" component={cadastroOferta} />
+                {/* <Route path="/oferta" component={cadastroOferta} /> */}
                 <Route path="/mostruario" component={Mostruario} />
                 <Route path="/minhasofertas" component={Minhasofertas}/>
                 <Route path="/reservas" component={Reservas}/>
-                <Route path="/oferta" component={cadastroOferta} />
+                <Route path="/ofertas" component={cadastroOferta} />
                 <Route path="/carrinho" component={Carrinho}/>
                 <Route path="/perfiladm" component={Perfiladm} />
                 <Route path="/usuario" component={Usuario} />
-                <Route path="/ofertas" component={Ofertas} />
                 <Route path="/produto" component={Produto} />
-                <Route path="/categoria" component={Categoria} />
-                <Route path="/cadastrousuario" component={CadastroUsuario_adm} />
-                <Route path="/cadastrooferta" component={CadastroOferta_adm} />
+                <Route path="/adm/categoria" component={Categoria} />
+                <Route path="/adm/cadastrousuario" component={CadastroUsuario_adm} />
+                <Route path="/adm/cadastrooferta" component={CadastroOferta_adm} />
+                <Route path="/adm/ofertas" component={Ofertas} />
                 <Route component={NotFound} />
                 {/* <PermissaoFornecedor path="/minhasofertas" component={Minhasofertas} />
                 <PermissaoConsumidor path="/perfilusuario" component={Perfilusuario} />

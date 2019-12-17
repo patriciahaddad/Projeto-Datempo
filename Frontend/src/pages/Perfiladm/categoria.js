@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header.js';
 import Footer from '../../components/Footer/Footer.js';
+import Menuadm from '../../components/menuadm/menuadm.js';
 import api from './../../services/api';
 import { Link } from 'react-router-dom';
 
@@ -187,6 +188,7 @@ class Categoria extends Component {
                  <Header/>
                 <main>
                     <div className="container">
+                    <Menuadm/>
                         <section className="cont_branco">
                             <h2>CATEGORIAS CADASTRADAS</h2>
                             <hr />

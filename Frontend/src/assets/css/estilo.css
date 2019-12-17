@@ -9,6 +9,10 @@
     margin: 0;
     padding: 0;
 }
+.link-linkedin{
+    color: var(--roxo);
+    font-size: 25px;
+}
 body{
     font-family:roboto !important;
     font-size: 0.8em !important;
@@ -31,6 +35,18 @@ main{
     width: 900px;
     margin: auto;
     text-align: right;
+}
+.container-cat-adm{
+    display: flex;
+    align-items: center;
+    /* max-width: 1200px */
+    flex-direction: column;
+}
+.form_perfil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 /*HOME*/
@@ -160,11 +176,16 @@ h2 a{
     align-content: center;
     padding: 0px 150px;
 }
+#form_cadastro{
+    padding-bottom: 40px;
+}
 label input{
     height: 35px;
     width: 409px;
     margin-bottom: 20px;
     text-align: left;
+    border: solid 1px;
+    border-radius: 3px;
 }
 .btn_login{
     padding:10px 120px;
@@ -180,11 +201,14 @@ label input{
 /*FIM LOGIN*/
 /*Ajuda*/
 .btn_aj{
-    background-color: #f7f7f7;
+    background-color: white;
     color:var(--roxo);
 }
 .card_aj{
     background-color: white;
+}
+.card-body{
+    font-size: large;
 }
 .card-header {
     background-color: white;
@@ -225,6 +249,7 @@ label input{
     display: flex;
     justify-content: space-around;
     margin: 30px 0px;
+    text-align: center;
 }
 .filtros a{
     -webkit-box-shadow: 3px 3px 6px 0px rgba(204,204,204,0.5);
@@ -327,10 +352,13 @@ label input{
     width: 100px;
     margin: 0px 5px;
 }
+.col-md-6{
+    max-width: none;
+}
 /*FIM CARD*/
 .qnt_ofertas{
-    padding-left: 210px;
     color: var(--roxo);
+    text-align: center;
 }
 .btn_cria_Oferta{
     background-color:var(--laranja);
@@ -614,6 +642,7 @@ button {
     cursor: pointer;
     overflow: hidden;
 }
+
 button:focus{ outline: none }
 
   span {
@@ -805,6 +834,7 @@ button:focus{ outline: none }
 .organizacao_adm{
     display: flex;
     margin: auto;
+    justify-content: center;
 }
 
 /*MEDIAS QUERIES*/
@@ -812,12 +842,17 @@ button:focus{ outline: none }
 input:disabled {
     background: var(--cinza);
   }
+  .form-control{
+    width: 490px;;
+    max-width: none;
+  }
+  
 
 /*TABLET*/
 @media (max-width:1169px){
-    .view img, .view video{
+    /* .view img, .view video{
         padding-top: 170px;
-    }
+    } */
     header .pesquisa{
         width: 500px;
     }
@@ -941,9 +976,9 @@ input:disabled {
         width: 100%;
         margin: auto;
     }
-    .adm_configs_dir{
-        /* margin-left: 127px; */
-    }
+    /* .adm_configs_dir{
+        margin-left: 127px;
+    } */
     .adm_configs_dir img{
         margin-left: 150px;
     }
@@ -955,9 +990,9 @@ input:disabled {
 
 /*CELULAR - MOBILE*/
 @media (max-width:767px){
-    .view img, .view video{
+    /* .view img, .view video{
         padding-top: 270px;
-    }
+    } */
     .banner_sobre{
         height: 350px;
     }
@@ -977,6 +1012,12 @@ input:disabled {
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-around;
+    }
+    .container_tabelas{
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .menu{
         flex-direction: column;
@@ -1055,15 +1096,33 @@ input:disabled {
         border-top: var(--laranja) 1px solid;
     }
     .form_perfil label{
-        padding: 0px ;
+        padding: 0px 50px;
     }
     .btn_login{
         width: 304px;
         height: 30px;
         padding: 0px;
     }
+    .table td, .table th{
+        border-color: transparent;
+    }
+    .table thead th{
+        border-color: transparent;
+    }
+    .cont_table{
+        display: flex;
+        justify-content: space-around;
+    }
+    .table_resti{
+        display: flex;
+        flex-direction: column;
+    }
+    .table_rescont{
+        display: flex;
+        flex-direction: column;
+    }
     main{
-        padding-top: 291px;
+        padding-top: 264px;
     }
     .main_sobrenos{ 
         padding-top: 270px;
@@ -1183,5 +1242,9 @@ input:disabled {
     .adm_configs_esq{
         margin-left: 50px; 
         width: 74%;
+    }
+    .form-control{
+        width: 300px;
+        max-width: none;
     }
 }

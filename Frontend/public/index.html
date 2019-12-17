@@ -59,11 +59,19 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   <style>
-    .row {
+    /* .row {
       justify-content: center;
-    }
+    } */
     .btn-secondary {
       background-color: transparent !important;
+    }
+    .btn-secondary:not([disabled]):not(.disabled):active,
+    .btn-secondary:not([disabled]):not(.disabled).active,
+    .show>.btn-secondary.dropdown-toggle {
+      background-color: transparent !important;
+      border-color: var(--roxo);
+      border-bottom: 2px solid var(--laranja);
+      font-weight: 0 !important;
     }
   </style>
 

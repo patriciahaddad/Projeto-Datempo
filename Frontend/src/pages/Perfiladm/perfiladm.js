@@ -120,7 +120,7 @@ class Perfiladm extends Component {
                     <div className="container">
                         <section className="cont_branco">
                             <div className="organizacao_adm">
-                                <Menuadm></Menuadm>
+                                <Menuadm/>
 
                                 <div className="adm_configs_dir">
                                     <h2>PERFIL ADM</h2>

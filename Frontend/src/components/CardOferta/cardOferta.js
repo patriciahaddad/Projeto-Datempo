@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import Relogio from '../../assets/imagens/alarm-clock.png';
-import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter } from 'mdbreact';
+import { MDBContainer, MDBModal, MDBModalBody} from 'mdbreact';
+import { Link} from 'react-router-dom';
+
 
 class cardOferta extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            idOferta: "",
+            listaOferta: [],
+            idOferta : this.props.idOferta,
+
 
             modal: false
         }
@@ -29,9 +33,9 @@ class cardOferta extends Component {
 
     render() {
         return (
-                <div className="card_oferta">
+                <div key = {this.props.idOferta}className="card_oferta">
                     <div className="caixa_imagem">
-                        <img className="imgproduto" src={"https://localhost:5001/imgOferta/" + this.props.imagem}
+                        <img className="imgproduto" src={"https://localhost:5000/imgOferta/" + this.props.imagem}
                             alt="Pacote de Arroz de 5kg da marca Tio João" />
                     </div>
                     <div className="descricao_oferta">
@@ -61,7 +65,7 @@ class cardOferta extends Component {
              <MDBContainer >
              {/* <MDBBtn onClick={this.toggle}>Modal</MDBBtn> */}
              <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
-                 <MDBModalHeader toggle={this.toggle}>MDBModal title</MDBModalHeader>
+                 {/* <MDBModalHeader toggle={this.toggle}>MDBModal title</MDBModalHeader> */}
                  <MDBModalBody>
                      <div className="div_conteudo_modal">
                          <div className="imagem_modal">
@@ -101,12 +105,13 @@ class cardOferta extends Component {
                      />
                  </MDBModalBody>    
                  <div className="modal_botoes">
-                     <button className="modal_botao_confirmar_reserva" onClick={this.toggle}>CONFIRMAR RESERVA</button>
-                     <button className="modal_botao_adicionar_carrinho" onClick= {this.toggle}>ADICIONAR AO CARRINHO</button>
-                 </div>
-                     {/* <MDBBtn color="secondary" onClick={this.toggle}>Close</MDBBtn>
-                     <MDBBtn color="primary">Save changes</MDBBtn> */}
-                
+                     <button className="modal_botao_confirmar_reserva" onClick={this.toggle}>FECHAR</button>
+                     {/* <Link to="/carrinho"  className="modal_botao_adicionar_carrinho" onClick= {this.toggle} value={this.props.getOfertaId}>ADICIONAR AO CARRINHO</Link> */}
+                     <Link className="modal_botao_adicionar_carrinho" onClick={() => (console.log("idOferta do card: ", this.props.idOferta))} to={{
+                                    pathname : "/carrinho",
+                                    idOferta : this.state.idOferta
+                                }}>ADICIONAR AO CARRINHO</Link>       
+                 </div> 
              </MDBModal>
          </MDBContainer>
          </div>
