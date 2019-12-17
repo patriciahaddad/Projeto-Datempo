@@ -144,6 +144,7 @@ h2 a{
 .container_marcas img{
     width: 220px;
     height: 168px;
+    margin: 10px;
 }
 .sobre h2{
     padding-top: 30px;

@@ -68,8 +68,10 @@ namespace backend.Controllers {
                     oferta.Preco = decimal.Parse (Request.Form["Preco"]);
                     oferta.Validade = DateTime.Parse (Request.Form["Validade"]);
                     oferta.QuantVenda = int.Parse (Request.Form["quantVenda"]);
-                    oferta.Descricao = Request.Form["descricao"].ToString ();
                     oferta.Imagem = _uploadRepo.Upload (arquivo, "imgOferta");
+                    oferta.Descricao = Request.Form["descricao"].ToString ();
+                    oferta.IdUsuario = int.Parse(Request.Form["IdUsuario"]);
+                    oferta.IdProduto = int.Parse(Request.Form["IdProduto"]);
 
                     await _repositorio.Salvar (oferta);
                 } else {

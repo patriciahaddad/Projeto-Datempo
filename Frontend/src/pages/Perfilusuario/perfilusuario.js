@@ -91,6 +91,7 @@ class Perfilusuario extends Component {
                 this.setState({ isEdit: true })
             })
             .catch(error => {
+                
                 console.log(error);
             })
 

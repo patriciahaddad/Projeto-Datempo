@@ -2,107 +2,90 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from '../src/pages/Home/App';
 import * as serviceWorker from './serviceWorker';
-import { Route, BrowserRouter as Router, Switch ,Redirect} from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 import { usuarioAutenticado, parseJwt } from '../src/services/auth';
 
-import Sobrenos from './pages/Sobrenos/sobrenos';
 import Ajuda from './pages/Ajuda/ajuda';
 import Login from './pages/Login/login';
+import Sobrenos from './pages/Sobrenos/sobrenos';
 import Minhasofertas from './pages/MinhasOfertas/minhasofertas';
 import Perfilusuario from './pages/Perfilusuario/perfilusuario';
 import cadastroOferta from './pages/cadastroOferta/cadastrooferta';
 import Mostruario from './pages/Mostruario/mostruario';
-import Carrinho from './pages/Carrinho/carrinho';
-import Perfiladm from './pages/Perfiladm/perfiladm';
-import NotFound from './pages/NotFound/notfound';
-    
-import './assets/css/estilo.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import 'mdbreact/dist/css/mdb.css';
+
 import Produto from './pages/Perfiladm/produto';
 import Usuario from './pages/Perfiladm/usuario';
 import Ofertas from './pages/Perfiladm/ofertas';
-
-import Categoria from './pages/Perfiladm/categoria';
-
-import CadastroOferta_adm from './pages/Perfiladm/cadastrooferta_adm';
-import CadastroUsuario_adm from './pages/Perfiladm/cadastrousuario_adm';
 import Reservas from './pages/MinhasOfertas/reservas';
 
-const PermissaoAdmin = ({ component : Component }) => (
-    <Route 
+import Perfiladm from './pages/Perfiladm/perfiladm';
+import NotFound from './pages/NotFound/notfound';
+import Categoria from './pages/Perfiladm/categoria';
+import CadastroOferta_adm from './pages/Perfiladm/cadastrooferta_adm';
+import CadastroUsuario_adm from './pages/Perfiladm/cadastrousuario_adm';
+
+import './assets/css/estilo.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'mdbreact/dist/css/mdb.css';
+
+const PermissaoAdmin = ({ component: Component }) => (
+    <Route
         render={props =>
             usuarioAutenticado() && parseJwt().Role === "Administrador" ? (
-                <Component {...props}/>
+                <Component {...props} />
             ) : (
-                <Redirect to={{ pathname : "/login"}}/>
-            )
+                    <Redirect to={{ pathname: "/login" }} />
+                )
         }
     />
 )
 
-const PermissaoFornecedor = ({ component : Component }) => (
-    <Route 
+const PermissaoFornecedor = ({ component: Component }) => (
+    <Route
         render={props =>
             usuarioAutenticado() && parseJwt().Role === "Fornecedor" ? (
-                <Component {...props}/>
+                <Component {...props} />
             ) : (
-                <Redirect to={{ pathname : "/login"}}/>
-            )
+                    <Redirect to={{ pathname: "/login" }} />
+                )
         }
-        />
-        )
-        
-        const PermissaoConsumidor = ({ component : Component }) => (
-            <Route 
-            render={props =>
-                usuarioAutenticado() && parseJwt().Role === "Consumidor" ? (
-                    <Component {...props}/>
-                    ) : (
-                        <Redirect to={{ pathname : "/login"}}/>
-                        )
-                    }
-                    />
-                    )
-                    
-                    //Realizamos a criação das rotas
+    />
+)
+
+const PermissaoConsumidor = ({ component: Component }) => (
+    <Route
+        render={props =>
+            usuarioAutenticado() && (parseJwt().Role === "Consumidor"  || parseJwt().Role === "Fornecedor") ? (
+                <Component {...props} />
+            ) : (
+                    <Redirect to={{ pathname: "/login" }} />
+                )
+        }
+    />
+)
+
+//Realizamos a criação das rotas
 const Rotas = (
     <Router>
         <div>
-        <Switch>
+            <Switch>
                 <Route exact path="/" component={App} />
                 <Route path="/ajuda" component={Ajuda} />
-                <Route path="/mostruario" component={Mostruario} />
                 <Route path="/Login" component={Login} />
                 <Route path="/sobrenos" component={Sobrenos} />
-                {/* <PermissaoFornecedor path="/minhasofertas" component={Minhasofertas} /> */}
-                {/* <PermissaoConsumidor path="/perfilusuario" component={Perfilusuario} /> */}
-                <Route path="/perfilusuario" component={Perfilusuario} />
-                {/* <PermissaoFornecedor path="/oferta" component={cadastroOferta} /> */}
-                {/* <Route path="/oferta" component={cadastroOferta} /> */}
                 <Route path="/mostruario" component={Mostruario} />
-                <Route path="/minhasofertas" component={Minhasofertas}/>
-                <Route path="/reservas" component={Reservas}/>
-                <Route path="/ofertas" component={cadastroOferta} />
-                <Route path="/carrinho" component={Carrinho}/>
-                <Route path="/perfiladm" component={Perfiladm} />
-                <Route path="/usuario" component={Usuario} />
-                <Route path="/produto" component={Produto} />
-                <Route path="/adm/categoria" component={Categoria} />
-                <Route path="/adm/cadastrousuario" component={CadastroUsuario_adm} />
-                <Route path="/adm/cadastrooferta" component={CadastroOferta_adm} />
-                <Route path="/adm/ofertas" component={Ofertas} />
-                <Route component={NotFound} />
-                {/* <PermissaoFornecedor path="/minhasofertas" component={Minhasofertas} />
                 <PermissaoConsumidor path="/perfilusuario" component={Perfilusuario} />
-                <PermissaoFornecedor path="/oferta" component={cadastroOferta} />
-                <PermissaoConsumidor path="/carrinho" component={Carrinho}/>
-                <PermissaoAdmin path="/perfiladm" component={Perfiladm} />
-                <PermissaoAdmin path="/usuario" component={Usuario} />
-                <PermissaoFornecedor path="/ofertas" component={Ofertas} />
-                <PermissaoAdmin path="/produto" component={Produto} />
-                <PermissaoAdmin path="/cadastrousuario" component={CadastroUsuario_adm} />
-                <PermissaoAdmin path="/cadastrooferta" component={CadastroOferta_adm} /> */}
+                <PermissaoFornecedor path="/minhasofertas" component={Minhasofertas} />
+                <PermissaoFornecedor path="/reservas" component={Reservas} />
+                <PermissaoFornecedor path="/ofertas" component={cadastroOferta} />
+                <PermissaoAdmin path="/adm/usuario" component={Usuario} />
+                <PermissaoAdmin path="/adm/produto" component={Produto} />
+                <PermissaoAdmin path="/adm/perfiladm" component={Perfiladm} />
+                <PermissaoAdmin path="/adm/categoria" component={Categoria} />
+                <PermissaoAdmin path="/adm/cadastrousuario" component={CadastroUsuario_adm} />
+                <PermissaoAdmin path="/adm/cadastrooferta" component={CadastroOferta_adm} />
+                <PermissaoAdmin path="/adm/ofertas" component={Ofertas} />
+                <Route component={NotFound} />
             </Switch>
         </div>
     </Router>
