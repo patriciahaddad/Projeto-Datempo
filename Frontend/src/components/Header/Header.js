@@ -64,7 +64,7 @@ class Header extends Component {
 
             <header>
                 <div className="container_h">
-                    <img className="logo" src={Logo} alt="Logo Datempo" />
+                <a href="/"><img className="logo" src={Logo} alt="Logo Datempo" /></a>
 
                     <nav className="navbar-menu">
                         <label for="show-menu" className="show-menu">
