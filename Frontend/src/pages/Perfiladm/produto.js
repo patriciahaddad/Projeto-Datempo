@@ -15,6 +15,7 @@ import {
     MDBModalFooter,
     MDBInput
 } from 'mdbreact';
+import Menuadm from '../../components/menuadm/menuadm.js';
 
 
 
@@ -178,6 +179,8 @@ class Produto extends Component {
                 <main>
                     <div className="container">
                         <section className="cont_branco">
+                        <div className="organizacao_adm">
+                            <Menuadm></Menuadm>
                             <div className="container_tabelas">
                                 <MDBTable>
                                     <MDBTableHead>
@@ -213,18 +216,18 @@ class Produto extends Component {
                                     </MDBTableBody>
                                 </MDBTable>
 
-                                <form onSubmit={this.postProduto}>
+                                <form className="form" onSubmit={this.postProduto}>
                                     <div className="form-group">
                                         <label htmlFor="example2">Nome do Produto:</label>
                                         <input type="text"
                                             className="form-control form-control-md"
                                             name="nomeProduto"
                                             value={this.state.listaProdutos.nomeProduto}
-                                            onChange={this.postSetState} />
+                                            onChange={this.postSetState} /> <br/>
 
                                         <select id="option__tipocategoria"
                                             name="idCategoria"
-                                            className="browser-default custom-select"
+                                            className="form-control form-control-mdt"
                                             value={this.state.listaProdutos.idCategoria}
                                             onChange={this.postSetState}
                                         >
@@ -257,6 +260,7 @@ class Produto extends Component {
                                         </MDBAlert>
                                     }
                                 </form>
+                            </div>
                             </div>
                         </section>
                     </div>

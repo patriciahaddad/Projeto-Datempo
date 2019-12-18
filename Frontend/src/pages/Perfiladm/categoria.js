@@ -239,6 +239,7 @@ class Categoria extends Component {
                                                     value={this.state.listaCategorias.nomeCategoria}
                                                     onChange={this.postSetState} />
                                             </div>
+                                            <MDBBtn color="danger"><Link to="/perfiladm">Voltar</Link></MDBBtn>
                                             <MDBBtn color="primary" type="submit">Salvar</MDBBtn>
                                             {
                                                 this.state.erroMsg &&
@@ -252,7 +253,6 @@ class Categoria extends Component {
                                                     {this.state.sucessMsg}
                                                 </MDBAlert>
                                             }
-                                            <MDBBtn color="danger"><Link to="/perfiladm">Voltar</Link></MDBBtn>
                                         </form>
                                     </div>
                                 </div>

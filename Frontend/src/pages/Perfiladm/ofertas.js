@@ -228,7 +228,7 @@ class Ofertas extends Component {
         var localdatevalidade = dataValidade.getDate() + '/' + (dataValidade.getMonth() + 1) + '/' + dataValidade.getFullYear() + ' ' + dataValidade.getHours() + ':' + dataValidade.getMinutes();
 
 
-        var dataDif = ((dataValidade - dataAtual) / (1000 * 60 * 60 * 24)).toFixed(0);
+        var dataDif = ((dataValidade - dataAtual) / (1000 * 60 * 60 * 24)-10).toFixed(0);
 
         return dataDif + " dias!";
     }

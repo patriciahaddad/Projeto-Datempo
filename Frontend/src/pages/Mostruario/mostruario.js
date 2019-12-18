@@ -255,14 +255,14 @@ class Mostruario extends Component {
                                     this.state.listaOferta.map(function (o) {
                                         return (
                                             <div key={o.idOferta}>
-                                                {/* <CardOferta
+                                                <CardOferta
                                                     idOferta={o.idOferta}
                                                     nomeOferta={o.nomeOferta}
                                                     validade={o.validade}
                                                     preco={o.preco.toLocaleString("pt-br", { minimumFractionDigits: 2, maximumFractionDigits: 3 })}
                                                     imagem={o.imagem}
                                                     descricao={o.descricao}
-                                                /> */}
+                                                />
                                             </div>
                                         )
                                     }

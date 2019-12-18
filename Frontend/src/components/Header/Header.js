@@ -148,7 +148,7 @@ class Header extends Component {
                                                         <MDBDropdownMenu basic>
                                                             <MDBDropdownItem>
                                                                 <img src={config} ></img>
-                                                                <Link to="/perfiladm">Configurações</Link>
+                                                                <Link to="/adm/perfiladm">Configurações</Link>
                                                             </MDBDropdownItem>
                                                             <MDBDropdownItem>
                                                                 <img src={Logout} ></img>

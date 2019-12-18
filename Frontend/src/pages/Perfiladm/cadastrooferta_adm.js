@@ -121,9 +121,6 @@ class CadastroOferta_adm extends Component {
                             <div className="adm_configs_dir">
                                 <h2>CADASTRO DE OFERTAS</h2>
                                 <hr />
-
-                                <MDBContainer>
-                                    <MDBRow>
                                         <MDBCol md="6">
                                             <form onSubmit={this.postOferta}>
                                                 <label htmlFor="defaultFormContactNameEx" className="black-text">
@@ -264,8 +261,6 @@ class CadastroOferta_adm extends Component {
                                                 </div>
                                             </form>
                                         </MDBCol>
-                                    </MDBRow>
-                                </MDBContainer>
                             </div>
                         </div>
                     </div>
