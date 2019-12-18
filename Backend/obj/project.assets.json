@@ -6527,11 +6527,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fic\\Desktop\\Code\\Projeto-Datempo\\Backend\\Backend.csproj",
+      "projectUniqueName": "C:\\Users\\fic\\Documents\\REAL E ULTIMO GIT CLONE NESSA PORRA\\Projeto-Datempo\\Backend\\Backend.csproj",
       "projectName": "Backend",
       "projectPath": "C:\\Users\\fic\\Desktop\\Code\\Projeto-Datempo\\Backend\\Backend.csproj",
       "packagesPath": "C:\\Users\\fic\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fic\\Desktop\\Code\\Projeto-Datempo\\Backend\\obj\\",
+      "outputPath": "C:\\Users\\fic\\Documents\\REAL E ULTIMO GIT CLONE NESSA PORRA\\Projeto-Datempo\\Backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

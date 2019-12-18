@@ -8,3 +8,12 @@ Backend/obj/Debug/netcoreapp3.0/Backend.pdb
 
 *.cache
 node_modules
+Backend/bin/Debug/netcoreapp3.0/Backend.dll
+Backend/bin/Debug/netcoreapp3.0/Backend.dll
+Backend/bin/Debug/netcoreapp3.0/Backend.pdb
+Backend/obj/Backend.csproj.nuget.cache
+Backend/obj/Backend.csproj.nuget.dgspec.json
+Backend/obj/project.assets.json
+Backend/obj/Debug/netcoreapp3.0/Backend.assets.cache
+Backend/obj/Debug/netcoreapp3.0/Backend.csprojAssemblyReference.cache
+Backend/obj/Debug/netcoreapp3.0/Backend.dll

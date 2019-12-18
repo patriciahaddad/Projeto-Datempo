@@ -27,8 +27,8 @@ namespace Backend.Domains
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS; Database=bddatempo; User Id=sa; Password=132");
-                //optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS; Database=bddatempo; Trusted_Connection=True;");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Server= DESKTOP-444V57F\\SQLEXPRESS; Database=bddatempo; User Id= sa; Password=132");
             }
         }
 
@@ -37,10 +37,10 @@ namespace Backend.Domains
             modelBuilder.Entity<Categoria>(entity =>
             {
                 entity.HasKey(e => e.IdCategoria)
-                    .HasName("PK__categori__A3C02A10E0C36BC4");
+                    .HasName("PK__categori__A3C02A1018CFA61C");
 
                 entity.HasIndex(e => e.NomeCategoria)
-                    .HasName("UQ__categori__98459A0B144BAF79")
+                    .HasName("UQ__categori__98459A0BDF0BC621")
                     .IsUnique();
 
                 entity.Property(e => e.NomeCategoria).IsUnicode(false);
@@ -49,10 +49,10 @@ namespace Backend.Domains
             modelBuilder.Entity<Endereco>(entity =>
             {
                 entity.HasKey(e => e.IdEndereco)
-                    .HasName("PK__endereco__0B7C7F171677F2DD");
+                    .HasName("PK__endereco__0B7C7F17660D1704");
 
                 entity.HasIndex(e => e.Cep)
-                    .HasName("UQ__endereco__C1FF39CF9F3485B3")
+                    .HasName("UQ__endereco__C1FF39CFA828A3EF")
                     .IsUnique();
 
                 entity.Property(e => e.Cep)
@@ -72,7 +72,7 @@ namespace Backend.Domains
             modelBuilder.Entity<Oferta>(entity =>
             {
                 entity.HasKey(e => e.IdOferta)
-                    .HasName("PK__oferta__5420E1DAF5F3500E");
+                    .HasName("PK__oferta__5420E1DA9FBA34F0");
 
                 entity.Property(e => e.Descricao).IsUnicode(false);
 
@@ -96,7 +96,7 @@ namespace Backend.Domains
             modelBuilder.Entity<Produto>(entity =>
             {
                 entity.HasKey(e => e.IdProduto)
-                    .HasName("PK__produto__2E883C232B646626");
+                    .HasName("PK__produto__2E883C23B6710083");
 
                 entity.Property(e => e.NomeProduto).IsUnicode(false);
 
@@ -109,7 +109,7 @@ namespace Backend.Domains
             modelBuilder.Entity<Reserva>(entity =>
             {
                 entity.HasKey(e => e.IdReserva)
-                    .HasName("PK__reserva__0E49C69D8761D202");
+                    .HasName("PK__reserva__0E49C69D295A081B");
 
                 entity.HasOne(d => d.IdOfertaNavigation)
                     .WithMany(p => p.Reserva)
@@ -125,10 +125,10 @@ namespace Backend.Domains
             modelBuilder.Entity<Tipousuario>(entity =>
             {
                 entity.HasKey(e => e.IdTipoUsuario)
-                    .HasName("PK__tipousua__CA04062BDF9B86FE");
+                    .HasName("PK__tipousua__CA04062B82D82A12");
 
                 entity.HasIndex(e => e.Titulo)
-                    .HasName("UQ__tipousua__7B406B56645D50F9")
+                    .HasName("UQ__tipousua__7B406B56202D306A")
                     .IsUnique();
 
                 entity.Property(e => e.Titulo).IsUnicode(false);
@@ -137,15 +137,17 @@ namespace Backend.Domains
             modelBuilder.Entity<Usuario>(entity =>
             {
                 entity.HasKey(e => e.IdUsuario)
-                    .HasName("PK__usuario__5B65BF97D8D86EBC");
+                    .HasName("PK__usuario__5B65BF9714A678D2");
 
                 entity.HasIndex(e => e.Email)
-                    .HasName("UQ__usuario__A9D10534ADBBBBAE")
+                    .HasName("UQ__usuario__A9D10534E10E12D7")
                     .IsUnique();
 
                 entity.Property(e => e.Email).IsUnicode(false);
 
                 entity.Property(e => e.Identificador).IsUnicode(false);
+
+                entity.Property(e => e.Imgusuario).IsUnicode(false);
 
                 entity.Property(e => e.Nome).IsUnicode(false);
 

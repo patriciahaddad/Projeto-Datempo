@@ -97,7 +97,7 @@ namespace backend.Controllers {
                 usuario.Senha = Request.Form["senha"].ToString ();
                 usuario.Identificador = Request.Form["identificador"].ToString ();
                 usuario.IdTipoUsuario = int.Parse (Request.Form["idTipoUsuario"]);
-                usuario.imgusuario = _uploadRepo.Upload (arquivo, "imgPerfil");
+                usuario.Imgusuario = _uploadRepo.Upload (arquivo, "imgPerfil");
 
                 await _repositorio.Alterar (usuario);
             } catch (DbUpdateConcurrencyException) {
