@@ -17,20 +17,21 @@ namespace Backend.Domains
 
         [Key]
         public int IdUsuario { get; set; }
-        // [Required]
+        [Required]
         [StringLength(255)]
         public string Nome { get; set; }
-        // [Required]
+        [Required]
         [StringLength(255)]
         public string Email { get; set; }
-        // [Required]
+        [Required]
         [StringLength(255)]
         public string Senha { get; set; }
         [StringLength(14)]
         public string Identificador { get; set; }
-        [StringLength(255)]
-        public string imgusuario { get; set; }
         public int? IdTipoUsuario { get; set; }
+        [Column("imgusuario")]
+        [StringLength(255)]
+        public string Imgusuario { get; set; }
 
         [ForeignKey(nameof(IdTipoUsuario))]
         [InverseProperty(nameof(Tipousuario.Usuario))]
@@ -41,6 +42,5 @@ namespace Backend.Domains
         public virtual ICollection<Oferta> Oferta { get; set; }
         [InverseProperty("IdUsuarioNavigation")]
         public virtual ICollection<Reserva> Reserva { get; set; }
-
     }
 }

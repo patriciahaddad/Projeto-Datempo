@@ -15,10 +15,10 @@ namespace Backend.Domains
 
         [Key]
         public int IdOferta { get; set; }
-        //[Required]
+        [Required]
         [StringLength(255)]
         public string NomeOferta { get; set; }
-        //[Required]
+        [Required]
         [StringLength(255)]
         public string Marca { get; set; }
         public int QuantVenda { get; set; }
@@ -26,14 +26,16 @@ namespace Backend.Domains
         public DateTime Validade { get; set; }
         [Column(TypeName = "money")]
         public decimal Preco { get; set; }
-        //[Required]
+        [Required]
         [StringLength(255)]
         public string Imagem { get; set; }
-        //[Required]
+        [Required]
         [StringLength(255)]
         public string Descricao { get; set; }
         public int? IdUsuario { get; set; }
         public int? IdProduto { get; set; }
+        [Column(TypeName = "money")]
+        public decimal? PrecoAnterior { get; set; }
 
         [ForeignKey(nameof(IdProduto))]
         [InverseProperty(nameof(Produto.Oferta))]
