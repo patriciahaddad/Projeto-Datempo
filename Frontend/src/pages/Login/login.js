@@ -185,6 +185,12 @@ class login extends Component {
                                             onChange={this.postSetState}
                                             required />
                                     </label>
+                                    <label>
+                                        <button
+                                            className="btn_login"
+                                            type="submit">Cadastrar
+                                        </button>
+                                    </label>
                                 </form>
                             </div>
                         </div>

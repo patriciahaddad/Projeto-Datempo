@@ -276,8 +276,8 @@ class Ofertas extends Component {
                                                                     </div>
                                                                 </div>
                                                                 <div className="botoes_oferta">
-                                                                    <a href="#" className="btn_edita_oferta" onClick={() => this.openModal(o)}>EDITAR</a>
-                                                                    <a href="#" className="btn_reserva_oferta" onClick={() => this.deleteOferta(o.idOferta)}>EXCLUIR</a>
+                                                                    <button href="#" className="btn_edita_oferta" onClick={() => this.openModal(o)}>EDITAR</button>
+                                                                    <button href="#" className="btn_reserva_oferta" onClick={() => this.deleteOferta(o.idOferta)}>EXCLUIR</button>
                                                                 </div>
                                                             </div>
 
@@ -386,7 +386,7 @@ class Ofertas extends Component {
                                                             {this.state.sucessMsg}
                                                         </MDBAlert>
                                                     }
-                                                    <MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
+                                                    <MDBBtn color="terciary" onClick={this.toggle}>Fechar</MDBBtn>
                                                 </MDBModalFooter>
                                             </form>
                                         </MDBModal>

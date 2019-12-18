@@ -496,7 +496,7 @@ label input{
 }
 .botao_reservar{
     display: flex;
-    justify-content: space-between
+    justify-content: center
 }
 
 .btn_reservar{
@@ -1022,6 +1022,9 @@ input:disabled {
         margin-left: 10px;
         width: 265px;
     }
+    .form-control{
+        width: 470px;;
+      }
 }
 
 /*CELULAR - MOBILE*/

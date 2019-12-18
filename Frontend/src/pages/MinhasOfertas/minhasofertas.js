@@ -10,7 +10,6 @@ import {
     MDBModalBody,
     MDBModalHeader,
     MDBModalFooter,
-    MDBInput,
     MDBAlert
 } from 'mdbreact';
 
@@ -271,7 +270,7 @@ class Minhasofertas extends Component {
                                                     {c.nomeCategoria}
                                                 </option>
                                             )
-                                        }.bind(this))
+                                        })
                                     }
                                 </select>
                             </div>

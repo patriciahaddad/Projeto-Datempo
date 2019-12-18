@@ -223,7 +223,7 @@ class Mostruario extends Component {
                                                     {c.nomeCategoria}
                                                 </option>
                                             )
-                                        }.bind(this))
+                                        })
                                     }
                                 </select>
                             </div>

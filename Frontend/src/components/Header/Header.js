@@ -61,15 +61,14 @@ class Header extends Component {
 
     render() {
         return (
-
             <header>
                 <div className="container_h">
                     <img className="logo" src={Logo} alt="Logo Datempo" />
 
                     <nav className="navbar-menu">
-                        <label for="show-menu" className="show-menu">
+                        <label htmlFor="show-menu" className="show-menu">
                             <img className="logo-mobile" src={Logo} alt="Logo Datempo" />
-                            <div className="icon"><i class="fas fa-bars"></i></div>
+                            <div className="icon"><i className="fas fa-bars"></i></div>
                         </label>
                         <input type="checkbox" id="show-menu" />
 
@@ -97,19 +96,19 @@ class Header extends Component {
                                         </MDBDropdownToggle>
                                         <MDBDropdownMenu basic>
                                             <MDBDropdownItem>
-                                                <img src={config} ></img>
+                                                <img src={config} alt="" ></img>
                                                 <Link to="/perfilusuario">Configurações</Link>
                                             </MDBDropdownItem>
                                             <MDBDropdownItem>
-                                                <img src={carrinho} />
+                                                <img src={carrinho} alt=""/>
                                                 <Link to="/minhasofertas">Minhas Ofertas</Link>
                                             </MDBDropdownItem>
                                             <MDBDropdownItem>
-                                                <img src={carrinho} />
+                                                <img src={carrinho} alt=""/>
                                                 <Link to="/reservas">Reservas</Link>
                                             </MDBDropdownItem>
                                             <MDBDropdownItem>
-                                                <img src={Logout} ></img>
+                                                <img src={Logout} alt=""></img>
                                                 <Link to="/Login" onClick={this.logout}>Sair</Link>
                                             </MDBDropdownItem>
                                         </MDBDropdownMenu>
@@ -121,18 +120,18 @@ class Header extends Component {
                                             <MDBDropdown dropdown className="menu">
                                                 <MDBDropdownToggle>
                                                     MEU PERFIL
-                                                        </MDBDropdownToggle>
+                                                </MDBDropdownToggle>
                                                 <MDBDropdownMenu basic>
                                                     <MDBDropdownItem>
-                                                        <img src={config} ></img>
+                                                        <img src={config} alt=""/>
                                                         <Link to="/perfilusuario">Configurações</Link>
                                                     </MDBDropdownItem>
                                                     <MDBDropdownItem>
-                                                        <img src={carrinho} />
+                                                        <img src={carrinho} alt=""/>
                                                         <Link to="/carrinho">Carrinho</Link>
                                                     </MDBDropdownItem>
                                                     <MDBDropdownItem>
-                                                        <img src={Logout} ></img>
+                                                        <img src={Logout} alt=""/>
                                                         <Link to="/Login" onClick={this.logout}>Sair</Link>
                                                     </MDBDropdownItem>
                                                 </MDBDropdownMenu>
@@ -147,11 +146,11 @@ class Header extends Component {
                                                         </MDBDropdownToggle>
                                                         <MDBDropdownMenu basic>
                                                             <MDBDropdownItem>
-                                                                <img src={config} ></img>
+                                                                <img src={config} alt=""></img>
                                                                 <Link to="/perfiladm">Configurações</Link>
                                                             </MDBDropdownItem>
                                                             <MDBDropdownItem>
-                                                                <img src={Logout} ></img>
+                                                                <img src={Logout} alt=""></img>
                                                                 <Link to="/Login" onClick={this.logout}>Sair</Link>
                                                             </MDBDropdownItem>
                                                         </MDBDropdownMenu>

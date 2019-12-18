@@ -13,7 +13,6 @@ import banner3 from '../../assets/imagens/bannerA.png';
 
 import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView } from
     "mdbreact";
-import { isModuleDeclaration } from '@babel/types';
 
 function App() {
     return (

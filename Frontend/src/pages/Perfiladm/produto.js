@@ -267,25 +267,25 @@ class Produto extends Component {
                                 <MDBInput label="Categoria" name="nomeProduto" value={this.state.putProduto.nomeProduto} onChange={this.putSetState} />
 
                                 <select id="option__categoria"
-                                                            name="idCategoria"
-                                                            className="browser-default custom-select"
-                                                            value={this.state.putProduto.idCategoria}
-                                                            onChange={this.postSetState}>
-                                                            <option value="">Escolha uma categoria...</option>
-                                                            {
-                                                                this.state.listaCategorias.map(function (c) {
-                                                                    return (
-                                                                        <option
-                                                                            key={c.idCategoria}
-                                                                            value={c.idCategoria}> {c.nomeCategoria}
-                                                                        </option>
-                                                                    )
-                                                                })
-                                                            }
-                                                        </select>
+                                    name="idCategoria"
+                                    className="browser-default custom-select"
+                                    value={this.state.putProduto.idCategoria}
+                                    onChange={this.postSetState}>
+                                    <option value="">Escolha uma categoria...</option>
+                                    {
+                                        this.state.listaCategorias.map(function (c) {
+                                            return (
+                                                <option
+                                                    key={c.idCategoria}
+                                                    value={c.idCategoria}> {c.nomeCategoria}
+                                                </option>
+                                            )
+                                        })
+                                    }
+                                </select>
                             </MDBModalBody>
                             <MDBModalFooter>
-                                <MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
+                                <MDBBtn color="terciary" onClick={this.toggle}>Fechar</MDBBtn>
                                 <MDBBtn color="primary" type="submit">Salvar</MDBBtn>
                             </MDBModalFooter>
                         </form>

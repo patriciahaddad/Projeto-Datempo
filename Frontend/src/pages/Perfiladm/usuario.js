@@ -237,7 +237,7 @@ class Usuario extends Component {
                                                             <td>{u.imgusuario}</td>
                                                             <td>{u.idTipoUsuarioNavigation.titulo}</td>
                                                             <td>
-                                                                <MDBBtn color="secondary" size="sm" onClick={() => this.openModal(u)}>
+                                                                <MDBBtn color="terciary" size="sm" onClick={() => this.openModal(u)}>
                                                                     Editar
                                                                 </MDBBtn>
                                                                 <MDBBtn color="danger" size="sm" onClick={() => this.deleteUsuario(u.idUsuario)}>
@@ -324,7 +324,7 @@ class Usuario extends Component {
                                                         {this.state.sucessMsg}
                                                     </MDBAlert>
                                                 }
-                                                <MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
+                                                <MDBBtn color="terciary" onClick={this.toggle}>Fechar</MDBBtn>
                                             </MDBModalFooter>
                                         </form>
                                     </MDBModal>

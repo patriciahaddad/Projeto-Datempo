@@ -266,7 +266,7 @@ class Categoria extends Component {
                                 <MDBInput label="Categoria" name="nomeCategoria" value={this.state.putCategoria.nomeCategoria} onChange={this.putSetState} />
                             </MDBModalBody>
                             <MDBModalFooter>
-                                <MDBBtn color="secondary" onClick={this.toggle}>Fechar</MDBBtn>
+                                <MDBBtn color="terciary" onClick={this.toggle}>Fechar</MDBBtn>
                                 <MDBBtn color="primary" type="submit">Salvar</MDBBtn>
                             </MDBModalFooter>
                         </form>

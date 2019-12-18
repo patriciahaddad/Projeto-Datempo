@@ -110,16 +110,6 @@ class CadastroUsuario_adm extends Component {
                                             onChange={this.postSetState}
                                             required />
                                     </label>
-                                    {/* <label>
-                                        CEP
-                                        <input type="text"
-                                            placeholder="Digite seu CEP..."
-                                            name="cep"
-                                            aria-label="Digite seu CEP"
-                                            value={this.state.listaUsuario.cep}
-                                            onChange={this.postSetState}
-                                            required />
-                                    </label> */}
                                     <label>
                                         Senha
                                         <input type="password"

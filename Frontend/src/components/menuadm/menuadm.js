@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../../assets/css/menuadm.css';
-import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
 import { Link } from 'react-router-dom';
 
 class Menuadm extends Component {
@@ -21,7 +20,7 @@ class Menuadm extends Component {
                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
                   aria-expanded="false" aria-controls="collapseOne">
                   CATEGORIA
-        </button>
+                </button>
               </h5>
             </div>
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
@@ -37,7 +36,7 @@ class Menuadm extends Component {
                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
                   data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                   OFERTA
-        </button>
+                </button>
               </h5>
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
@@ -53,7 +52,7 @@ class Menuadm extends Component {
                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
                   data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                   PRODUTO
-        </button>
+                </button>
               </h5>
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
@@ -68,7 +67,7 @@ class Menuadm extends Component {
                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
                   data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                   USUÁRIO
-        </button>
+                </button>
               </h5>
             </div>
             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
@@ -83,4 +82,5 @@ class Menuadm extends Component {
     );
   }
 }
+
 export default Menuadm;

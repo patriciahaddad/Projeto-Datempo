@@ -247,7 +247,7 @@ class CadastroOferta_adm extends Component {
                                                 <div className="text-center mt-4">
                                                     <MDBBtn color="amber" outline type="submit">
                                                         Cadastrar
-                                            <MDBIcon far icon="paper-plane" className="ml-2" />
+                                                        <MDBIcon far icon="paper-plane" className="ml-2" />
                                                     </MDBBtn>
                                                     {
                                                         this.state.erroMsg &&
