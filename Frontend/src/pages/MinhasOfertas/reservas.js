@@ -4,16 +4,12 @@ import Footer from '../../components/Footer/Footer.js';
 import api from '../../services/api';
 import Alert from 'react-bootstrap/Alert';
 
-
 import {
     MDBBtn,
     MDBTable,
     MDBTableBody,
     MDBTableHead,
-    MDBAlert,
-    MDBInput
 } from 'mdbreact';
-
 
 class Reservas extends Component {
     constructor() {
@@ -39,8 +35,6 @@ class Reservas extends Component {
             })
 
     }
-
-
     getReservaOferta = () => {
         api.get('/reserva')
             .then(response => {
@@ -60,7 +54,7 @@ class Reservas extends Component {
                         <div>
                             {
                                 this.state.mensagemSucesso &&
-                                <Alert variant="success" dismissible>
+                                <Alert variant="success" disabled>
                                 <Alert.Heading>{this.state.mensagemSucesso}</Alert.Heading>
                                 </Alert>
                             }
@@ -110,30 +104,6 @@ class Reservas extends Component {
                             </MDBTable>
                             <hr/>
                         </div>
-
-
-
-                        {/* <div className="paginacao_ofertas">
-                            <ul className="lista_paginacao">
-                                <a href="#" clas="lk_paginacao">
-                                    <li>
-                                    </li>  </a> <a href="#">
-                                    <li>1</li>
-                                </a>
-                                <a href="#">
-                                    <li>2</li>
-                                </a>
-                                <a href="#">
-                                    <li>3</li>
-                                </a>
-                                <a href="#">
-                                    <li>...</li>
-                                </a>
-                                <a href="#">
-                                    <li> > </li>
-                                </a>
-                            </ul>
-                        </div> */}
                     </div>
                 </main>
                 <Footer />
