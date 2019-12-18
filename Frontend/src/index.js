@@ -8,14 +8,14 @@ import { usuarioAutenticado, parseJwt } from '../src/services/auth';
 import Ajuda from './pages/Ajuda/ajuda';
 import Login from './pages/Login/login';
 import Sobrenos from './pages/Sobrenos/sobrenos';
-import Minhasofertas from './pages/MinhasOfertas/minhasofertas';
+import Minhasofertas from './pages/Minhasofertas/minhasofertas';
 import Perfilusuario from './pages/Perfilusuario/perfilusuario';
 import cadastroOferta from './pages/cadastroOferta/cadastrooferta';
 import Mostruario from './pages/Mostruario/mostruario';
 import Produto from './pages/Perfiladm/produto';
 import Usuario from './pages/Perfiladm/usuario';
 import Ofertas from './pages/Perfiladm/ofertas';
-import Reservas from './pages/MinhasOfertas/reservas';
+import Reservas from './pages/Minhasofertas/reservas';
 
 import Perfiladm from './pages/Perfiladm/perfiladm';
 import NotFound from './pages/NotFound/notfound';

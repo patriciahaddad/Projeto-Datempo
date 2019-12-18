@@ -782,8 +782,6 @@ button:focus{ outline: none }
     margin-bottom: 5px;
     color:var(--roxo);
   }
-
-  /*BOTOES*/
 /*FIM CADASTRO DE OFERTAS*/
 
 /* CARRINHO */
@@ -852,7 +850,6 @@ button:focus{ outline: none }
 
 /* PERFIL ADM */
 .adm_configs_dir{
-    width: 80%;
     align-items: center;
     padding-top: 10px;
 }
@@ -866,7 +863,7 @@ button:focus{ outline: none }
 .organizacao_adm{
     display: flex;
     margin: auto;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .container{
@@ -875,6 +872,28 @@ button:focus{ outline: none }
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.form button{
+    width: 250px;
+    margin: auto;
+}
+
+.card-body a{
+    color: var(--roxo);
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.card-body a:hover {
+    color: var(--roxo);
 }
 
 /*MEDIAS QUERIES*/

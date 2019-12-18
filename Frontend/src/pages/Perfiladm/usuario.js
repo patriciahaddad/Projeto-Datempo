@@ -18,6 +18,7 @@ import {
     MDBInput
 } from 'mdbreact';
 import apiFormData from '../../services/apiFormData.js';
+import Menuadm from '../../components/menuadm/menuadm.js';
 
 
 
@@ -215,6 +216,8 @@ class Usuario extends Component {
                 <main>
                     <div className="container">
                         <section className="cont_branco">
+                        <div className="organizacao_adm">
+                            <Menuadm></Menuadm>
                             <div className="container_tabelas">
                                 <MDBTable>
                                     <MDBTableHead>
@@ -329,6 +332,7 @@ class Usuario extends Component {
                                         </form>
                                     </MDBModal>
                                 </MDBContainer>
+                            </div>
                             </div>
                         </section>
                     </div>
